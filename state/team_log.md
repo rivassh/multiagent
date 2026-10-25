@@ -32,3 +32,6 @@ Tests: tests/Feature/BDD/CrawlerControllerBddTest.php (6 tests, 10 assertions, P
 - All three crawler sources registered
 - JobVision enabled, JobInja enabled, LinkedIn disabled by default
 - Trigger respects disabled LinkedIn, handles unknown sources
+
+## [2026-10-25T15:49:00Z] Lease acquired by agent-noabatgircom-29222907 (lease-002)
+Claiming TASK-005 for development.
