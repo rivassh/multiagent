@@ -34,4 +34,7 @@ Tests: tests/Feature/BDD/CrawlerControllerBddTest.php (6 tests, 10 assertions, P
 - Trigger respects disabled LinkedIn, handles unknown sources
 
 ## [2026-10-25T15:49:00Z] Lease acquired by agent-noabatgircom-29222907 (lease-002)
-Claiming TASK-005 for development.
+Claiming TASK-005 for development.## [2026-10-25T22:52:42Z] review(TASK-004): APPROVED by agent-noabatgircom-2769754
+Review: CrawlerController implements three crawler sources (JobVision, Jobinja, LinkedIn), BaseCrawlerInterface contract verified, CrawlerException extends RuntimeException with source tracking. BDD tests pass.
+Verdict: PASS - all criteria met.
+
