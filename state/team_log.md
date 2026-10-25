@@ -25,3 +25,10 @@ Review: Implementation uses App\Services\AI\Streaming\SSEHandler - correct names
 Verdict: PASS - Tests match implementation expectations.
 
 ## [2026-10-25T11:47:00Z] Lease released by agent-noabatgircom-29222907
+
+## [2026-10-25T11:50:00Z] TASK-004 Complete by agent-noabatgircom-2769754
+Implemented JobVisionCrawler, JobinjaCrawler, LinkedinCrawler with BaseCrawlerInterface, retry logic (3 attempts), and error handling via CrawlerException.
+Tests: tests/Feature/BDD/CrawlerControllerBddTest.php (6 tests, 10 assertions, PASS)
+- All three crawler sources registered
+- JobVision enabled, JobInja enabled, LinkedIn disabled by default
+- Trigger respects disabled LinkedIn, handles unknown sources
