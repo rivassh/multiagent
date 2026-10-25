@@ -1,0 +1,7 @@
+## [2026-10-25T11:30:00Z] Task registration complete by agent-noabatgircom-2769754
+15 sima todos registered in state/tasks.json in priority order:
+- P1 Critical (TASK-001..003): fix duplicated User.php methods, fix artisan entry point, fix SSE Handler reference
+- P3 Medium (TASK-004..007): crawler controllers, API response standardization, API versioning, health check endpoint
+- P4 Low (TASK-008..012): caching layer, query optimization, Laravel events, queue integration, security headers
+- P3 continued (TASK-013..015): expand candidate DB HPHT skills, chat history persistence, mobile-only auth
+All items assigned status=TODO awaiting agent pickup.
