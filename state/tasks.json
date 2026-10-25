@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Fix duplicated methods in User.php",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-002",
+      "title": "Fix artisan entry point",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-003",
+      "title": "Fix SSE Handler reference",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-004",
+      "title": "Implement Crawler Controllers",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-005",
+      "title": "Add API Response Standardization",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-006",
+      "title": "Add API Versioning",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-007",
+      "title": "Create Health Check Endpoint",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-008",
+      "title": "Add Caching Layer",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-009",
+      "title": "Optimize Database Queries",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "last_error": null
+    },
+    {
+      "id": "TASK-010",
+      "title": "Add Laravel Events",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "last_error": null
+    },
+    {
+      "id": "TASK-011",
+      "title": "Add Queue Integration",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "last_error": null
+    },
+    {
+      "id": "TASK-012",
+      "title": "Add Security Headers",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "last_error": null
+    },
+    {
+      "id": "TASK-013",
+      "title": "Expand Candidate Database for HPHT/High-Pressure Skills",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "last_error": null
+    },
+    {
+      "id": "TASK-014",
+      "title": "Add Chat History Persistence per User",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "last_error": null
+    },
+    {
+      "id": "TASK-015",
+      "title": "Add Mobile-Only Authentication (OTP as Future TODO)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "last_error": null
+    }
+  ]
+}
