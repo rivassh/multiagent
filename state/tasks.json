@@ -85,10 +85,10 @@
     {
       "id": "TASK-010",
       "title": "Add Laravel Events",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-29222907",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     },
     {
