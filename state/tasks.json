@@ -1,10 +1,10 @@
 {
   "version": 1,
   "tasks": [
-{
-      "id": "TASK-003",
-      "title": "Fix SSE Handler reference",
-      "status": "NEEDS_REVIEW",
+    {
+      "id": "TASK-001",
+      "title": "Fix duplicated User.php methods",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-2769754",
       "reviewer": null,
       "attempts": 1,
@@ -22,27 +22,9 @@
     {
       "id": "TASK-003",
       "title": "Fix SSE Handler reference",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-002",
-      "title": "Fix artisan entry point",
       "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-003",
-      "title": "Fix SSE Handler reference",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": null,
+      "reviewer": "agent-noabatgircom-29222907",
       "attempts": 1,
       "last_error": null
     },
@@ -53,15 +35,6 @@
       "assigned_to": "agent-noabatgircom-2769754",
       "reviewer": null,
       "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-005",
-      "title": "Add API Response Standardization",
-      "status": "TODO",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
       "last_error": null
     },
     {
@@ -106,6 +79,7 @@
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
+      "attempts": 0,
       "last_error": null
     },
     {
@@ -114,6 +88,7 @@
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
+      "attempts": 0,
       "last_error": null
     },
     {
@@ -122,6 +97,7 @@
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
+      "attempts": 0,
       "last_error": null
     },
     {
@@ -130,6 +106,7 @@
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
+      "attempts": 0,
       "last_error": null
     },
     {
@@ -138,6 +115,7 @@
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
+      "attempts": 0,
       "last_error": null
     },
     {
@@ -146,6 +124,7 @@
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
+      "attempts": 0,
       "last_error": null
     },
     {
@@ -154,6 +133,7 @@
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
+      "attempts": 0,
       "last_error": null
     }
   ]
