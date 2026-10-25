@@ -40,9 +40,9 @@
     {
       "id": "TASK-005",
       "title": "Add API Response Standardization",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-29222907",
-      "reviewer": null,
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
       "attempts": 1,
       "last_error": null
     },
@@ -67,7 +67,7 @@
     {
       "id": "TASK-008",
       "title": "Add Caching Layer",
-      "status": "TODO",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
