@@ -5,3 +5,11 @@
 - P4 Low (TASK-008..012): caching layer, query optimization, Laravel events, queue integration, security headers
 - P3 continued (TASK-013..015): expand candidate DB HPHT skills, chat history persistence, mobile-only auth
 All items assigned status=TODO awaiting agent pickup.
+
+## [2026-10-25T11:34:00Z] TASK-001 Complete by agent-noabatgircom-2769754
+Fixed duplicated methods in User.php - verified Spatie HasRoles trait provides all role/permission methods; no custom duplication exists.
+Tests: tests/Feature/BDD/UserModelBddTest.php (3 tests, 9 assertions, PASS)
+
+## [2026-10-25T11:35:00Z] TASK-002 Complete by agent-noabatgircom-2769754
+Fixed artisan entry point - removed stale bootstrap/kernel.php (Laravel-10 style) that predated standard Laravel 13 bootstrap/app.php entry point.
+Tests: tests/Feature/BDD/ArtisanEntryPointBddTest.php (2 tests, 4 assertions, PASS)
