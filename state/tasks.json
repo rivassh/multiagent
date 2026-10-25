@@ -58,10 +58,10 @@
     {
       "id": "TASK-007",
       "title": "Create Health Check Endpoint",
-      "status": "TODO",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
       "last_error": null
     },
     {
