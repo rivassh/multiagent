@@ -1,4 +1,9 @@
 {
-  "version": 1,
-  "leases": []
+  "version": 2,
+  "leases": [
+    {
+      "holder": "agent-noabatgircom-2769754",
+      "expires_at": "2026-10-25T11:32:00Z"
+    }
+  ]
 }

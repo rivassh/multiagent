@@ -4,10 +4,10 @@
     {
       "id": "TASK-001",
       "title": "Fix duplicated methods in User.php",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2769754",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     },
     {
