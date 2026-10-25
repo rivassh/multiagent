@@ -49,6 +49,15 @@
     {
       "id": "TASK-004",
       "title": "Implement Crawler Controllers",
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-005",
+      "title": "Add API Response Standardization",
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
