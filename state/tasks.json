@@ -64,11 +64,11 @@
       "attempts": 1,
       "last_error": null
     },
-    {
-      "id": "TASK-008",
-      "title": "Add Caching Layer",
-      "status": "DONE",
-      "assigned_to": null,
+{
+      "id": "TASK-015",
+      "title": "Add Mobile-Only Authentication (OTP as Future TODO)",
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-29222907",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
