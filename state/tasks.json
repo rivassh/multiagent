@@ -137,10 +137,82 @@
       "last_error": null
     },
     {
-      "id": "TASK-024",
-      "title": "Implement Generic Screening Engine",
+      "id": "TASK-016",
+      "title": "Implement Education Screening Rule",
       "status": "REVISE",
-      "assigned_to": "agent-noabatgircom-3818542",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-017",
+      "title": "Implement Experience/HPHT Screening Rule",
+      "status": "REVISE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-018",
+      "title": "Implement Pressure Systems (500-700 bar) Screening Rule",
+      "status": "REVISE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-019",
+      "title": "Implement Manufacturing Process Screening Rule",
+      "status": "REVISE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-020",
+      "title": "Implement Metallurgy & Sealing Knowledge Screening Rule",
+      "status": "REVISE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-021",
+      "title": "Implement Personal Traits Screening Rule",
+      "status": "REVISE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-022",
+      "title": "Add Pressure System Proficiency Filter to CandidatesTool",
+      "status": "REVISE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-023",
+      "title": "Encode Kooroubi Screening Matrix into Requirements Schema",
+      "status": "REVISE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-024",
+      "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) — TDD Red phase",
+      "status": "TODO",
+      "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
       "last_error": null
