@@ -1,0 +1,11 @@
+## [2026-10-27Txx:xx:xxZ] Learning: VectorRagBddTest environment setup requirements
+- Pre-existing 28 failures are environment-specific infrastructure issues
+- Likely causes: missing env vars (LLM API keys, embedding models), missing DB migrations (embeddings/chunks tables), missing vector store, or configuration differences between projects
+- Fixes applied (ChatServiceProvider):
+  - Changed RagRetrieverInterface binding: DatabaseRetrieval → HybridRetrieval (to match test expectations)
+  - Fixed CollectionIndexer constructor params to use proper dependencies
+  - Added CollectionRegistry::configure(config('collections')) in boot()
+- All screening tests (GenericScreeningEngine, EducationScreeningRule) pass
+- VectorRagBddTest hAngs/requires special environment setup (different from original screening tests)
+- VectorRagBddTest greens in project 6a5ca489 (different env config). Cannot verify fix without similar environment setup.
+- This is a pre-existing blocker (#highest priority) that prevents TASK-024 completion
