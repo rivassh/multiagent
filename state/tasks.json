@@ -64,27 +64,9 @@
       "attempts": 1,
       "last_error": null
     },
-{
-      "id": "TASK-015",
-      "title": "Add Mobile-Only Authentication (OTP as Future TODO)",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-29222907",
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null
-    },
     {
-      "id": "TASK-009",
-      "title": "Optimize Database Queries",
-      "status": "DONE",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 2,
-      "last_error": null
-    },
-    {
-      "id": "TASK-010",
-      "title": "Add Laravel Events",
+      "id": "TASK-008",
+      "title": "Add Caching Layer",
       "status": "DONE",
       "assigned_to": "agent-noabatgircom-2769754",
       "reviewer": "agent-noabatgircom-29222907",
@@ -92,19 +74,37 @@
       "last_error": null
     },
     {
+      "id": "TASK-009",
+      "title": "Optimize Database Queries",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 2,
+      "last_error": null
+    },
+    {
+      "id": "TASK-010",
+      "title": "Add Laravel Events",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-29222907",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
       "id": "TASK-011",
       "title": "Add Queue Integration",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": null,
-      "attempts": 1,
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 2,
       "last_error": null
     },
     {
       "id": "TASK-012",
       "title": "Add Security Headers",
       "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
+      "assigned_to": "agent-noabatgircom-29222907",
       "reviewer": "agent-noabatgircom-29222907",
       "attempts": 1,
       "last_error": null
@@ -118,7 +118,7 @@
       "attempts": 1,
       "last_error": null
     },
-{
+    {
       "id": "TASK-014",
       "title": "Add Chat History Persistence per User",
       "status": "DONE",
@@ -130,9 +130,9 @@
     {
       "id": "TASK-015",
       "title": "Add Mobile-Only Authentication (OTP as Future TODO)",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": null,
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-29222907",
+      "reviewer": "agent-noabatgircom-29222907",
       "attempts": 1,
       "last_error": null
     },
