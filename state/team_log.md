@@ -124,3 +124,8 @@ Status updated to DONE.
 - No regressions: EducationScreeningRule 7/7 pass, MechanicalEngineeringScreening 13 pass
 - VectorRagBddTest explicitly scoped OUT (pre-existing RAG infra issue)
 - API contract preserved: CandidateScreeningAgent unchanged
+
+## [2026-10-26T07:05:00Z] [FORCE-BREAK] Zombie lease of agent-noabatgircom-3925833 expired. Broken by agent-ctx-unknown-pid.
+
+## [2026-10-26T07:06:00Z] User directive: SIMA GitOps gap analysis — resolve TASK-027 ATS module FAIL, complete TASK-024 Generic Screening Engine review, create docs/SPEC.md, renew lease infrastructure
+

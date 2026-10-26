@@ -3,10 +3,10 @@
   "leases": [
     {
       "resource": "tasks.json",
-      "holder": "agent-noabatgircom-3925833",
-      "lease_id": "6e444054584d71f1",
-      "acquired_at": "2026-10-26T06:58:52Z",
-      "expires_at": "2026-10-26T07:00:52Z"
+      "holder": "agent-ctx-unknown-pid",
+      "lease_id": "lease-ctx-001",
+      "acquired_at": "2026-10-26T07:05:00Z",
+      "expires_at": "2026-10-26T07:07:00Z"
     }
   ]
 }
