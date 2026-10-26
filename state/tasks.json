@@ -139,10 +139,10 @@
     {
       "id": "TASK-016",
       "title": "Implement Education Screening Rule",
-      "status": "REVISE",
-      "assigned_to": "agent-noabatgircom-2769754",
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-29222907",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     },
     {
@@ -211,10 +211,10 @@
     {
       "id": "TASK-024",
       "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) — TDD Red phase",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-3925833",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     }
   ]
