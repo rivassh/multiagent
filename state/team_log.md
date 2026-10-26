@@ -112,3 +112,7 @@ Status updated to DONE.
 - All 6 new BDD tests pass: extract, score, shortlist, medical, legal, API contract preserved
 - EducationScreeningRule (7 tests) unaffected
 - Existing CandidateScreeningAgent API contract preserved
+## [2026-10-26T06:14:30Z] chore(prioritize): TASK-024 pended to #highest pre-existing blocker
+- TASK-024 status set back to TODO (pending), assigned_to=null
+- Reason: REQUIREMENT.md #highest directive captures pre-existing VectorRagBddTest failures (28 failed) in RAG subsystem as #highest priority blocker
+- TASK-024 pend until VectorRagBddTest failures are resolved or excluded from regression scope
