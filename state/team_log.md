@@ -78,3 +78,7 @@ Implemented database query optimization:
 - Updated SearchController to use database-level filtering with pagination
 Verdict: PASS
 
+## [2026-10-26T02:46:30Z] chore(requirement): added user directive + registered 8 Kooroubi screening tasks by agent-noabatgircom-3571284
+- Appended user directive to REQUIREMENT.md: continue implementing Kooroubi's 3-5 candidate screening criteria from evaluation 0-2.req as actionable filters (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) in CandidateScreeningAgent
+- Registered 8 REVISE tasks TASK-016..023 in state/tasks.json covering all criteria from 0-2.req
+- Committed via gitops protocol: acquire → mutate → release
