@@ -97,3 +97,7 @@ Status updated to DONE.
 - Removed TASK-016..023 (individual education, experience, pressure, manufacturing, metallurgy, traits, CandidatesTool filter, matrix schema tasks)
 - Added TASK-024: Implement Generic Screening Engine (domain-agnostic, corpus-agnostic shallow pipeline)
 - Revised REQUIREMENT.md directive: describes generic extraction+evaluate+shortlist pattern instead of enumerating 7 criteria
+## [2026-10-26T04:50:56Z] chore(claim): TASK-024 assigned to subagent general-1 by agent-noabatgircom-3925834
+- Set TASK-024 status to IN_PROGRESS, assigned_to agent-noabatgircom-3925833, attempts=1 in state/tasks.json
+- Spawned subagent general-1 to implement TDD Red phase: generic broad agentic screening engine (corpus-agnostic)
+- 0-2.req treated as example input, not hard-coded rules; domain-agnostic engine per user requirement
