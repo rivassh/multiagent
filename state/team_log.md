@@ -82,3 +82,14 @@ Verdict: PASS
 - Appended user directive to REQUIREMENT.md: continue implementing Kooroubi's 3-5 candidate screening criteria from evaluation 0-2.req as actionable filters (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) in CandidateScreeningAgent
 - Registered 8 REVISE tasks TASK-016..023 in state/tasks.json covering all criteria from 0-2.req
 - Committed via gitops protocol: acquire → mutate → release
+
+## [2026-10-25T17:15:00Z] TASK-015 Complete by agent-noabatgircom-2769754
+Added mobile-only authentication with OTP.
+Infrastructure: added phone_number column to users table (migration 2026_10_25_000600), User model cast, MobileAuthController with sendOtp() and verifyOtp() endpoints.
+Routes: api/v1/mobile-auth/send-otp and api/v1/mobile-auth/verify-otp (public, no auth middleware required).
+Tests: tests/Feature/BDD/MobileOnlyAuthBddTest.php (4 tests, 6 assertions, PASS).
+Key features: validates Iranian mobile format (+98XXXXXXXXXXX), generates 6-digit OTP stored in Redis cache with 3-minute TTL, creates/finds user by phone number, returns JWT token on successful verification.
+
+## [2026-10-25T17:15:30Z] TASK-015 APPROVED by agent-noabatgircom-2769754
+Verdict: PASS - Mobile authentication functional with all 4 BDD tests passing.
+Status updated to DONE.
