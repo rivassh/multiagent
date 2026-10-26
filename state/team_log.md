@@ -93,3 +93,7 @@ Key features: validates Iranian mobile format (+98XXXXXXXXXXX), generates 6-digi
 ## [2026-10-25T17:15:30Z] TASK-015 APPROVED by agent-noabatgircom-2769754
 Verdict: PASS - Mobile authentication functional with all 4 BDD tests passing.
 Status updated to DONE.
+## [2026-10-26T04:28:49Z] docs(requirement): replaced 8 per-criterion tasks with TASK-024 Generic Screening Engine
+- Removed TASK-016..023 (individual education, experience, pressure, manufacturing, metallurgy, traits, CandidatesTool filter, matrix schema tasks)
+- Added TASK-024: Implement Generic Screening Engine (domain-agnostic, corpus-agnostic shallow pipeline)
+- Revised REQUIREMENT.md directive: describes generic extraction+evaluate+shortlist pattern instead of enumerating 7 criteria
