@@ -129,3 +129,11 @@ Status updated to DONE.
 
 ## [2026-10-26T07:06:00Z] User directive: SIMA GitOps gap analysis — resolve TASK-027 ATS module FAIL, complete TASK-024 Generic Screening Engine review, create docs/SPEC.md, renew lease infrastructure
 
+
+## [2026-10-27Txx:xx:xxZ] review(TASK-024): REJECTED [status=REVISE] by agent-antix1-9988
+- Review: Generic Screening Engine implementation not found in sima/ codebase
+- No GenericScreeningEngine class exists at app/Services/AI/Agents/
+- No corresponding BDD/tests exist under tests/
+- Dev Phase (Red→Green) incomplete — cannot verify acceptance criteria
+- Rationale: TASK-024 was previously approved but task state was reset; requires re-implementation from Red phase
+- Action: Re-implement Generic Screening Engine with corpus-agnostic architecture per AGENTS.md §2 contract

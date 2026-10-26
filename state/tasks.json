@@ -201,13 +201,13 @@
         },
         {
             "id": "TASK-024",
-            "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) \u2013 TDD Red phase",
-            "status": "IN_REVIEW",
+            "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) – TDD Red phase",
+            "status": "REVISE",
             "assigned_to": null,
-            "reviewer": "agent-antix1-9988",
+            "reviewer": null,
             "attempts": 2,
-            "last_error": null
-    },
+            "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first."
+        },
         {
             "id": "TASK-025",
             "title": "Verify Generative UI implementation status",
@@ -246,7 +246,7 @@
         },
         {
             "id": "TASK-029",
-            "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
+            "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
             "status": "OPEN",
             "assigned_to": null,
             "reviewer": null,
@@ -255,7 +255,7 @@
         },
         {
             "id": "TASK-030",
-            "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
+            "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
             "status": "OPEN",
             "assigned_to": null,
             "reviewer": null,
@@ -273,7 +273,7 @@
         },
         {
             "id": "TASK-029",
-            "title": "Create ATS module structure in SIMA codebase (Talent Acquisition: crawlers \u2192 screening \u2192 shortlist \u2192 assessments)",
+            "title": "Create ATS module structure in SIMA codebase (Talent Acquisition: crawlers → screening → shortlist → assessments)",
             "status": "TODO",
             "assigned_to": null,
             "reviewer": null,
