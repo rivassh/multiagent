@@ -201,13 +201,13 @@
         },
         {
             "id": "TASK-024",
-            "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) \u2014 TDD Red phase",
-            "status": "NEEDS_REVIEW",
+            "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) \u2013 TDD Red phase",
+            "status": "IN_REVIEW",
             "assigned_to": null,
-            "reviewer": null,
+            "reviewer": "agent-antix1-9988",
             "attempts": 2,
             "last_error": null
-        },
+    },
         {
             "id": "TASK-025",
             "title": "Verify Generative UI implementation status",
