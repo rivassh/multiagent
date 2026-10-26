@@ -207,6 +207,42 @@
       "reviewer": "agent-noabatgircom-3925833",
       "attempts": 2,
       "last_error": null
+    },
+    {
+      "id": "TASK-025",
+      "title": "Verify Generative UI implementation status",
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-026",
+      "title": "Verify SecurityModerator/Sanjeman sanitization layer status",
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-027",
+      "title": "ATS (Applicant Tracking System) module status check - not found in codebase",
+      "status": "FAIL",
+      "assigned_to": "agent-antix1-4258",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": "No ATS module exists; substring matches are unrelated code"
+    },
+    {
+      "id": "TASK-028",
+      "title": "Verify Elasticsearch stack completeness (adapter + retrieval layers)",
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
     }
   ]
 }

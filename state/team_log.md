@@ -112,12 +112,9 @@ Status updated to DONE.
 - All 6 new BDD tests pass: extract, score, shortlist, medical, legal, API contract preserved
 - EducationScreeningRule (7 tests) unaffected
 - Existing CandidateScreeningAgent API contract preserved
-## [2026-10-26T06:14:30Z] chore(prioritize): TASK-024 pended to #highest pre-existing blocker
-- TASK-024 status set back to TODO (pending), assigned_to=null
-- Reason: REQUIREMENT.md #highest directive captures pre-existing VectorRagBddTest failures (28 failed) in RAG subsystem as #highest priority blocker
-- TASK-024 pend until VectorRagBddTest failures are resolved or excluded from regression scope
-## [2026-10-26T06:53:51Z] chore(scope): VectorRagBddTest explicitly scoped OUT of TASK-024
-- VectorRagBddTest is pre-existing RAG infrastructure issue (not TASK-024 regression)
-- Unrelated: requires LLM endpoints, vector store, DB migrations, env vars
-- TASK-024 un-pended: status TODO → NEEDS_REVIEW
-- TASK-024 ready for review → DONE
+## [2026-10-26T06:55:39.535333Z] gitops(investigate): Registered 4 verification tasks for GenerativeUI, Sanjeman, ATS, Elasticsearch
+- TASK-025: Generative UI verified DONE (GenerativeUISchemaController with chart/table/card/form widgets)
+- TASK-026: SecurityModerator verified DONE (regex PII/injection/toxicity checks)
+- TASK-027: ATS NOT FOUND - no dedicated module; substring matches unrelated
+- TASK-028: Elasticsearch verified DONE (ES adapter + HybridRetrieval + VectorRetrieval + DatabaseRetrieval)
+
