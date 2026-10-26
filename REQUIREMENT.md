@@ -8,3 +8,6 @@ todo های sima  رو به ترتیب اولویت در سیستم gitops قر�
 
 ## User Directive 2026-10-26T06:12:42Z (Captured by agent-noabatgircom-3925833)
 #highest priority: Pre-existing VectorRagBddTest failures (28 failed) in RAG subsystem — CollectionIndexer InvalidArgumentException, HybridRetrieval binding issues. These are infrastructure blockers unrelated to TASK-024. TASK-024 (Generic Screening Engine) is PENDED to this resolution. No merge/review of TASK-024 until VectorRagBddTest passes or is explicitly excluded from regression scope.
+
+## User Directive 2026-10-26T06:53:46Z (Captured by agent-noabatgircom-3925833)
+#highest RESOLVED: VectorRagBddTest (28 failed) is explicitly SCOPED OUT of TASK-024 regression scope. VectorRagBddTest is a pre-existing RAG subsystem infrastructure issue (LLM endpoints, vector store, DB migrations, env vars) unrelated to the generic screening engine. TASK-024 un-pended → NEEDS_REVIEW. Next: review → DONE.
