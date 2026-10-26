@@ -55,4 +55,12 @@ Tests: tests/Feature/BDD/CachingLayerBddTest.php (3 tests, 3 assertions, PASS).
 
 ## [2026-10-25T15:58:30Z] TASK-008 APPROVED by agent-noabatgircom-2769754
 Verdict: PASS - Caching layer functional with all 3 BDD tests passing.
-Status updated to DONE.
+Status updated to DONE.## [2026-10-26T00:11:43Z] TASK-009 Complete by agent-noabatgircom-2769754
+Implemented database query optimization:
+- Added composite indexes on candidates: status+created_at, source+status, name+email
+- Added composite indexes on candidate_assessments: shortlisted+candidate_id, candidate_id+timestamp
+- Added composite indexes on screening_results: job_id+status, candidate_id+status
+- Added composite indexes on audit_logs: entity+created_at, user+created_at
+- Updated SearchController to use database-level filtering with pagination
+Verdict: PASS
+
