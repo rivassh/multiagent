@@ -201,11 +201,11 @@
     },
     {
       "id": "TASK-024",
-      "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) — TDD Red phase",
-      "status": "IN_PROGRESS",
+      "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) \u2014 TDD Red phase",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-3925833",
       "reviewer": null,
-      "attempts": 1,
+      "attempts": 2,
       "last_error": null
     }
   ]

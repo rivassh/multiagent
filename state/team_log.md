@@ -102,3 +102,13 @@ Status updated to DONE.
 - Spawned subagent general-1 to implement TDD Red phase: generic broad agentic screening engine (corpus-agnostic)
 - 0-2.req treated as example input, not hard-coded rules; domain-agnostic engine per user requirement
 [TASK-016] 2026-10-26T05:50:27Z - EducationScreeningRule implementation complete. Dev Mode: Red phase (6 failing BDD tests) -> Green phase (7 passing tests, 9 assertions). All acceptance criteria met: bachelors+ in mechanical engineering passes, non-mechanical field fails, associate degree fails minimum bachelors, no education history fails, high-pressure piping field passes. Score calculation adjusted for bachelors >= 0.8 threshold. Awaiting review.
+## [2026-10-26T06:06:37Z] feat(TASK-024): Generic broad agentic screening engine - TDD Red→Green complete
+- Implemented GenericScreeningEngine (corpus-agnostic, LLM-as-judge pattern)
+- Supports arbitrary requirements matrices from unstructured text (job specs, legal, medical, etc.)
+- Extracts matrix via LLM tool-call (extract_requirements_matrix)
+- Scores candidates with per-requirement verdicts (met/not met + evidence)
+- Returns ranked top-N executive shortlist
+- Domain-agnostic: verified with Mechanical Engineering, Medical (Radiology/MRI), Legal (Contract law/Litigation)
+- All 6 new BDD tests pass: extract, score, shortlist, medical, legal, API contract preserved
+- EducationScreeningRule (7 tests) unaffected
+- Existing CandidateScreeningAgent API contract preserved
