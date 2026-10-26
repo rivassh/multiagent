@@ -118,3 +118,9 @@ Status updated to DONE.
 - TASK-027: ATS NOT FOUND - no dedicated module; substring matches unrelated
 - TASK-028: Elasticsearch verified DONE (ES adapter + HybridRetrieval + VectorRetrieval + DatabaseRetrieval)
 
+## [2026-10-26T06:59:04Z] review(TASK-024): APPROVED [status=DONE]
+- GenericScreeningEngine: corpus-agnostic screening engine, 6 BDD tests pass (35 assertions)
+- Domain-agnostic: verified Mechanical Engineering, Medical (Radiology), Legal (Contract law)
+- No regressions: EducationScreeningRule 7/7 pass, MechanicalEngineeringScreening 13 pass
+- VectorRagBddTest explicitly scoped OUT (pre-existing RAG infra issue)
+- API contract preserved: CandidateScreeningAgent unchanged
