@@ -248,12 +248,12 @@
     {
       "id": "TASK-036",
       "title": "Implement ATS ScreeningOrchestrator — integrate GenericScreeningEngine to score job post requirements against candidates, emit screening results to ats_applications",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
-      "summary": "ScreeningOrchestrator at app/Modules/ATS/Services/Screening/ScreeningOrchestrator.php is a stub. Implement screenJobPost(jobPostId, candidateIds) that uses GenericScreeningEngine to evaluate candidates against job post criteria matrix, persist results to ats_applications.screening_score and screening_reasoning fields."
+      "summary": "Implemented screenJobPost() in ScreeningOrchestrator. Uses GenericScreeningEngine to evaluate candidates against job post criteria matrix. Persists screening_score, screening_result, and screened_at to ats_applications. BDD test ats_can_screen_candidates_for_job_post passes (6 assertions)."
     },
     {
       "id": "TASK-037",
