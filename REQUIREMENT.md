@@ -20,3 +20,11 @@ todo های sima  رو به ترتیب اولویت در سیستم gitops قر�
 
 ## User Directive 2026-10-27T09:30:00Z (Captured by agent-local-12345)
 Bug Report: SIMA chatbot (https://sima.adlr.ir/chat.html) returns HTTP 500 on POST /api/v1/chat/completions. Request body: {"model":"youse","messages":[{"role":"user","content":"سلام"}],"temperature":0.7}. Response: status 500, empty HTML body, server PHP/8.3.35, x-request-id: c0bf1001562e24415328a2363c3d2002. Chat bot not responding. Need investigation of /api/v1/chat/completions endpoint, model "youse" resolution, and upstream service connectivity.
+
+## User Directive [2026-10-27T10:09:05Z] (Captured by agent-antix1-1312)
+
+Error accessing chat interface:
+
+- URL: http://localhost:8015/chat.html
+- Error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 2097152 bytes)
+
