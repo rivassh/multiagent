@@ -40,3 +40,5 @@ I am ready
 
 ## User Directive [2026-10-27T14:10:00Z] (Captured by current-session)
 Query: Round-robin review rotation protocol for SIMA Git-Swarm. Request: Implement rotating reviewer/implementer/designer role assignment instead of fixed per-agent roles, preventing self-review and enabling fair load distribution across agents. Round-robin cycle: DESIGNER → IMPLEMENTER → REVIEWER → DESIGNER → ... Rotation tracked in `state/roles.json`. Each agent acquires next available role on lease acquisition. After task completion, role pointer advances. Prevents any agent from permanently holding one role. Required for auditability and balanced workload distribution.
+## User Directive [2026-10-27T20:04:58Z] (Captured by agent-noabatgircom-1545484)
+یه چیزایی انگار جا گذاشته شده. مثلا یه جا یادمه گفته بودم تست ها رو خودش انجام نده و بسپره به من. خودش به صورت black box تست کنه. برای چی این رو می‌گفتم. چون که در https://sima.adlr.ir/chat.html چت می‌کنم می‌بینم تا جواب بده فقط می‌نویسه در حال پاسخگویی... این رو تکلیفش رو مشخص کن بعد بگو بعدی رو بگم بهت
