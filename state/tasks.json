@@ -243,6 +243,15 @@
       "reviewer": null,
       "attempts": 0,
       "last_error": null
+    },
+    {
+      "id": "TASK-033",
+      "title": "Investigate and fix SIMA chatbot 500 error on POST /api/v1/chat/completions",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
     }
   ]
 }
