@@ -368,8 +368,8 @@
     {
       "id": "TASK-047",
       "title": "Add comprehensive ATS service layer BDD test suite",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-local-12345",
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
