@@ -107,38 +107,30 @@ git worktree add -b task/TASK-XXX ../worktrees/TASK-XXX master
 4. If push fails: `git reset --hard origin/main`, retry.
 5. If success: RETURN SUCCESS.
 
-### SUBROUTINE: ACQUIRE_LEASE (Dev Mode)
+### SUBROUTINE: ACQUIRE_LEASE (Rotating Mode)
+1. Run `git fetch origin && git checkout main && git pull --rebase origin main`.
+2. Acquire lease on `tasks.json` using the ACQUIRE_LEASE subroutine (§9).
+3. Read `state/roles.json` and `state/council.md`.
+4. Determine your role via round-robin rotation:
+   - Read `rotation_pointer` from `state/roles.json`.
+   - Your role = `roles[rotation_pointer % len(roles)]`.
+   - Append yourself to `agent_role_history[YOUR_ID]` with your assigned role and timestamp.
+   - Advance `rotation_pointer` by 1 in `state/roles.json`.
+5. Read `state/tasks.json` and select route based on your assigned role:
+   - **ROLE = DESIGNER**: Decompose requirements into atomic tasks (CASE A). Assign task to the IMPLEMENTER who will follow next in rotation. Update `state/team_log.md`.
+   - **ROLE = IMPLEMENTER**: Claim an actionable task (CASE C): set `assigned_to = YOUR_ID`, `status = "IN_PROGRESS"`, `attempts = attempts + 1`.
+   - **ROLE = REVIEWER**: Claim a completed task (CASE B): set `reviewer = YOUR_ID`, `status = "IN_REVIEW"`.
+6. Run `git add state/roles.json state/tasks.json state/team_log.md` → commit → `git push origin main`.
+7. Call `RELEASE_LEASE`.
+
+### SUBROUTINE: RELEASE_LEASE (Rotating Mode)
 1. Read `state/tasks.json` and `state/council.md`.
-2. Select route:
-   - **CASE A** (New/Unprocessed Requirements): Decompose delta requirements into sequential, atomic tasks in `state/tasks.json` (TASK-XXX schema). Update `state/team_log.md`. Run `git add state/tasks.json docs/` → commit → push.
-   - **CASE B** (Pending Review Available): Set `reviewer = YOUR_ID`, `status = "IN_REVIEW"`. Run `git add state/tasks.json` → commit → push. Call `RELEASE_LEASE`.
-   - **CASE C** (Actionable Task Available): Set `assigned_to = YOUR_ID`, `status = "IN_PROGRESS"`, `attempts = attempts + 1`. Run `git add state/tasks.json` → commit → push. Call `RELEASE_LEASE`.
-   - **CASE D** (All Tasks Complete): Append to `state/team_log.md` `[PROJECT_COMPLETE] All tasks marked DONE at <timestamp> by YOUR_ID.` → commit → push. Call `RELEASE_LEASE`.
-   - **CASE E** (Starvation/No Actionable Tasks): Call `RELEASE_LEASE` and terminate.
-
-### SUBROUTINE: RELEASE_LEASE (Review Mode)
-1. Run `git add state/leases.json` → commit → push.
-2. If push fails: `git reset --hard origin/main`, retry.
-3. If success: RETURN SUCCESS.
-
-### SUBROUTINE: ACQUIRE_LEASE (Review Mode)
-1. Read `state/tasks.json` and `state/council.md`.
-2. Select route (same as above, but with `status = "NEEDS_REVIEW"` or `status = "IN_PROGRESS"`).
-3. Acquire lease, claim task, run `RELEASE_LEASE`.
-
-### SUBROUTINE: RELEASE_LEASE (Review Mode)
-1. Run `git add state/leases.json` → commit → push.
-2. If push fails: `git reset --hard origin/main`, retry.
-3. If success: RETURN SUCCESS.
-
-### SUBROUTINE: RELEASE_LEASE (Dev Mode)
-1. Read `state/tasks.json` and `state/council.md`.
-2. Select route (same as above).
-3. Acquire lease, claim task, run `RELEASE_LEASE`.
-4. If task completes successfully: Update `state/tasks.json` → `status = "DONE"`, append to `state/team_log.md` → commit → push.
-5. If task fails: Update `state/tasks.json` → `status = "REVISE"`, `last_error = "<clear, actionable error details>"` → commit → push.
-6. Call `RELEASE_LEASE`.
-7. Terminate cycle.
+2. Based on your assigned role (from step 4 of ACQUIRE_LEASE):
+   - **ROLE = IMPLEMENTER task succeeds**: Update `status = "DONE"`, append to `state/team_log.md` → commit → push.
+   - **ROLE = IMPLEMENTER task fails**: Update `status = "REVISE"`, `last_error = "<clear actionable error>"` → commit → push.
+   - **ROLE = REVIEWER**: Set `status = "APPROVED"` or `status = "REVISE"` with detailed feedback → commit → push.
+3. Call `RELEASE_LEASE` (standard subroutine).
+4. Terminate cycle.
 
 ### SUBROUTINE: ACQUIRE_LEASE (Design Council)
 1. Read `state/council.md`.
@@ -157,17 +149,57 @@ git worktree add -b task/TASK-XXX ../worktrees/TASK-XXX master
 - **state/tasks.json**: Task queue with statuses: TODO, IN_PROGRESS, NEEDS_REVIEW, IN_REVIEW, REVISE, DONE.
 - **state/team_log.md**: Append-only ledger of all actions, reviews, and test runs.
 - **state/council.md**: Design Council decisions and protocol changes.
+- **state/roles.json**: Round-robin rotation state for role assignment.
 - **state/inbox/**: FIFO mailbox for inter-agent message passing.
 - **worktrees/**: Parallel Git Worktrees for each task (isolation).
 
-## 12. Initial Tests
+## 12. Round-Robin Role Rotation
+
+### Purpose
+Replace fixed per-agent roles (DESIGNER, IMPLEMENTER, REVIEWER) with a rotating assignment so no agent permanently holds a single role. Prevents self-review, enables fair load distribution, and ensures every agent cycles through all responsibilities.
+
+### Rotation Cycle
+```
+DESIGNER → IMPLEMENTER → REVIEWER → DESIGNER → ...
+```
+
+### State Contract
+`state/roles.json`:
+```json
+{
+  "version": 1,
+  "rotation_pointer": 0,
+  "roles": ["DESIGNER", "IMPLEMENTER", "REVIEWER"],
+  "agent_role_history": {
+    "agent-xxx": [
+      {"role": "DESIGNER", "timestamp": "2026-10-27T12:00:00Z"},
+      {"role": "IMPLEMENTER", "timestamp": "2026-10-27T12:05:00Z"}
+    ]
+  }
+}
+```
+
+### Rotation Rules
+1. **Pointer-based**: `rotation_pointer` is a shared counter. Each agent reads it, claims `roles[pointer % len(roles)]`, then advances the pointer by 1.
+2. **No fixed assignment**: An agent's role changes every cycle. After implementing, the same agent rotates to reviewer in the next cycle.
+3. **Self-review prevention**: The rotation pointer advances after each task completion, ensuring `reviewer` is always a different agent from `assigned_to` (in a 2+ agent swarm).
+4. **Load balancing**: If an agent is busy (holding a lease), the next agent in line claims the next available role — no agent is permanently locked into one role.
+5. **Auditability**: Every role assignment is recorded in `agent_role_history[YOUR_ID]` with a UTC timestamp.
+6. **Starvation prevention**: If no actionable tasks exist for the current role, the agent calls `RELEASE_LEASE` and terminates — the next agent in rotation picks up the next available role.
+
+### Role Responsibilities
+- **DESIGNER**: Decompose new requirements into atomic tasks (TASK-XXX schema). Assign tasks to the IMPLEMENTER who follows next in rotation.
+- **IMPLEMENTER**: Claim a TODO task, set `assigned_to = YOUR_ID`, `status = "IN_PROGRESS"`. Implement via TDD (Red → Green → Refactor). On completion, set `status = "DONE"`.
+- **REVIEWER**: Claim a DONE/NEEDS_REVIEW task, set `reviewer = YOUR_ID`, `status = "IN_REVIEW"`. Verify against BDD tests and acceptance criteria. Set `status = "APPROVED"` or `status = "REVISE"` with detailed feedback.
+
+## 14. Initial Tests
 - **Unit Tests**: `tests/Feature/BDD/*.php` — BDD test suites for each task.
 - **Integration Tests**: `tests/Integration/` — end-to-end workflow validation.
 - **Lease Tests**: Verify heartbeat updates, zombie eviction, and lease acquisition/release.
 - **Worktree Tests**: Ensure parallel task execution doesn't cause conflicts.
 - **Council Tests**: Validate Design Council decision propagation.
 
-## 13. Leases.json Schema (Updated)
+## 15. Leases.json Schema (Updated)
 ```json
 {
   "version": 1,
@@ -184,7 +216,7 @@ git worktree add -b task/TASK-XXX ../worktrees/TASK-XXX master
 }
 ```
 
-## 14. Inbox Structure
+## 16. Inbox Structure
 ```
 state/inbox/
   ├── reviewer_agent-xxx.json   # Reviewer → Task messages
@@ -192,7 +224,7 @@ state/inbox/
   └── council_decision.json      # Council → Task messages
 ```
 
-## 15. Design Council Protocol (state/council.md)
+## 17. Design Council Protocol (state/council.md)
 - **Purpose**: Centralized decision-making for high-impact tasks.
 - **Process**:
   1. Task is flagged for council review.
@@ -201,7 +233,7 @@ state/inbox/
   4. Task status updated accordingly (APPROVED, REJECTED, REVISE).
 - **Audit**: All council decisions are logged in `state/team_log.md`.
 
-## 16. Worktree Directory Structure
+## 18. Worktree Directory Structure
 ```
 worktrees/
   ├── task-TASK-001/    # Isolated worktree for TASK-001
@@ -209,23 +241,17 @@ worktrees/
   └── ...
 ```
 
-## 17. Lease Management Flow
+## 19. Lease Management Flow
 1. **Acquire**: Agent checks `last_heartbeat` (must be < 30s). If valid, acquires lease with 120s TTL.
 2. **Heartbeat**: Agent updates `last_heartbeat` every 15s while holding lease.
 3. **Release**: Agent releases lease after task completion or failure.
 4. **Zombie Detection**: If `last_heartbeat` > 30s, another agent can force-break and take over.
 
-## 18. Direct Chat Interception (Revisited)
+## 20. Direct Chat Interception (Revisited)
 - User message → `REQUIREMENT.md` (with UTC timestamp) → `ACQUIRE_LEASE` → task creation → execution → review → approval/rejection.
 - All chat logs are preserved in `state/team_log.md`.
 
-## 19. Testing Setup
-- **Test Discovery**: `tests/` directory with BDD-style tests.
-- **Test Runner**: `phpunit` (or equivalent) configured to run all BDD tests.
-- **Pre-flight**: `git status` check, `git pull` to ensure up-to-date state.
-- **Post-execution**: Verify `state/tasks.json` reflects new statuses, `state/team_log.md` has entries, and `state/leases.json` has updated leases.
-
-## 20. Zero-Manual-Edit Rule (Auto-Capture User Directive)
+## 21. Zero-Manual-Edit Rule (Auto-Capture User Directive)
 When a human operator issues any instruction in the chat environment (e.g., "بیلـد کن تسک‌های sima را بررسی و پیاده‌سازی کن"), the agent MUST perform the following steps automatically with a single terminal command sequence — zero manual editing:
 
 ### SUBROUTINE: CAPTURE_USER_DIRECTIVE
@@ -250,7 +276,7 @@ When a human operator issues any instruction in the chat environment (e.g., "ب�
 - **Project target**: `[PROJECT]` is derived from the directive text (e.g., `sima`, `candash`); default `sima`.
 - **Branch**: Push targets `master` (the remote default branch).
 
-## 21. Language Protocol
+## 22. Language Protocol
 - All agents must respond in **English** only.
 - If a previous response was not in English, the agent must repeat the answer in **English**.
 - Technical terms, file paths, command examples, and code snippets may retain their original language structure but the surrounding explanation must be in English.

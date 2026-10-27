@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "rotation_pointer": 0,
+  "roles": ["DESIGNER", "IMPLEMENTER", "REVIEWER"],
+  "agent_role_history": {}
+}
