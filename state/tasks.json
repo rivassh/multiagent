@@ -258,12 +258,12 @@
     {
       "id": "TASK-037",
       "title": "Implement ATS CrawlerOrchestrator — connect CandidateSourceFactory to import candidates from JobVision/Talent APIs into ats_applications",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
-      "summary": "CrawlerOrchestrator at app/Modules/ATS/Services/Crawlers/CrawlerOrchestrator.php is a stub. Implement importCandidates(source, jobPostId) that uses CandidateSourceFactory to fetch candidates from configured sources (JobVision, LinkedIn, etc.), map to Candidate model, create Application records linked to job post."
+      "summary": "Implemented importCandidates() in CrawlerOrchestrator. Uses JobVisionCrawler.fetchCandidates() and CandidateSourceFactory (JobVisionSource) to parse and import candidates. Creates Candidate + Application records linked to job post. BDD tests ats_crawler_orchestrator_imports_candidates and ats_crawler_orchestrator_unsupported_source_throws pass."
     },
     {
       "id": "TASK-038",
