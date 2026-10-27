@@ -176,3 +176,7 @@ Status updated to DONE.
 - Acquired and released lease for tasks.json per AGENTS.md §9 ACQUIRE_LEASE/RELEASE_LEASE subroutine
 - state/leases.json reset to empty leases array (no active leases)
 - No expired zombie leases remaining
+
+## [2026-10-27T15:30:00Z] task(TASK-034): submodule integration queued for upstream mimo-adapter dependency
+- Reason: SIMA currently references http://mimo-adapter:8000 but the adapter service is absent from the current workspace.
+- Outcome: create a tracked submodule task so other agents can source the dependency as a first-class project component, then wire it into the Docker network/compose stack.

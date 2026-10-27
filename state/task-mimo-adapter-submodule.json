@@ -1,0 +1,25 @@
+{
+  "id": "TASK-MIMO-ADAPTER-SUBMODULE",
+  "title": "Integrate upstream mimo-adapter into SIMA as a Git submodule",
+  "status": "TODO",
+  "priority": "high",
+  "summary": "Create a tracked submodule entry for the upstream mimo-adapter repository inside the SIMA project so other agents can clone/check out the dependency as part of the same stack.",
+  "objectives": [
+    "Identify or confirm the upstream repository URL and branch for the mimo-adapter service",
+    "Add the service as a Git submodule under the SIMA project root or a dedicated services/ directory",
+    "Document the integration contract, expected network alias, and startup instructions",
+    "Ensure the compose stack can reference the service via the expected hostname and port",
+    "Provide a handoff note for other agents so they can validate and wire the adapter into the chat stack"
+  ],
+  "acceptance_criteria": [
+    "A git submodule entry exists in the repo for the mimo-adapter service",
+    "The submodule path is recorded and usable by agents without manual guesswork",
+    "Follow-up instructions explain how to initialize/update the submodule and wire it to Docker/SIMA",
+    "No secrets or private credentials are committed",
+    "The task is discoverable in the project coordination state"
+  ],
+  "notes": [
+    "This task is intentionally created to resolve the missing dependency: SIMA currently points to http://mimo-adapter:8000 but there is no corresponding service or repository in the current workspace.",
+    "The repository URL must be supplied by the project maintainer or discovered from the canonical upstream source before the submodule is added."
+  ]
+}

@@ -28,9 +28,11 @@ Error accessing chat interface:
 - URL: http://localhost:8015/chat.html
 - Error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 2097152 bytes)
 
-
 ## User Directive [2026-10-27T10:52:55Z] (Captured by agent-THRMP105-15984)
 می خوام رو پروژه sima کا کنم
+
+## User Directive [2026-10-27T12:02:15Z] (Captured by agent-antix1-16833)
+Create a task to integrate the upstream 'mimo-adapter' service into the SIMA project as a git submodule so other agents can check it out and wire it into the stack.
 
 ## User Directive [2026-10-27T12:05:00Z] (Captured by agent-THRMP105-15984)
 #investigation: 0-2.req evaluation matrix file MISSING. Original directive references 0-2.req as evaluation criteria for HPHT mechanical engineering screening, but file does not exist. TASK-024 Generic Screening Engine marked DONE but implementation files absent from this repo (sima/ contains only placeholder). Need to: (1) create/add 0-2.req with 7 evaluation criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits), (2) validate GenericScreeningEngine can extract evaluation matrix from it. Create TASK-034 to define evaluation matrix as structured JSON document.
