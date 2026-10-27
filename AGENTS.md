@@ -225,7 +225,32 @@ worktrees/
 - **Pre-flight**: `git status` check, `git pull` to ensure up-to-date state.
 - **Post-execution**: Verify `state/tasks.json` reflects new statuses, `state/team_log.md` has entries, and `state/leases.json` has updated leases.
 
-## 20. Language Protocol
+## 20. Zero-Manual-Edit Rule (Auto-Capture User Directive)
+When a human operator issues any instruction in the chat environment (e.g., "بیلـد کن تسک‌های sima را بررسی و پیاده‌سازی کن"), the agent MUST perform the following steps automatically with a single terminal command sequence — zero manual editing:
+
+### SUBROUTINE: CAPTURE_USER_DIRECTIVE
+1. Generate directive template with current UTC timestamp and agent identity:
+   ```bash
+   YOUR_ID="${YOUR_ID:-agent-$(hostname)-$$}"
+   TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+   ```
+2. Append directive to `REQUIREMENT.md`:
+   ```bash
+   printf '\n## User Directive [%s] (Captured by %s)\n%s\n' "$TS" "$YOUR_ID" "<user-directive-text>" >> REQUIREMENT.md
+   ```
+3. Execute auto-commit and push:
+   ```bash
+   git add REQUIREMENT.md && git commit -m "feat(requirement): auto-capture user directive for sima" && git push origin master
+   ```
+4. Start task processing cycle: Call `SUBROUTINE: ACQUIRE_LEASE` → Phase 1 task breakdown → execution lifecycle.
+
+### Key Constraints
+- **No manual editing**: The entire append → commit → push sequence runs as one terminal command block.
+- **Mandatory**: Applies to every user directive, question, feature request, or bug report in chat.
+- **Project target**: `[PROJECT]` is derived from the directive text (e.g., `sima`, `candash`); default `sima`.
+- **Branch**: Push targets `master` (the remote default branch).
+
+## 21. Language Protocol
 - All agents must respond in **English** only.
 - If a previous response was not in English, the agent must repeat the answer in **English**.
 - Technical terms, file paths, command examples, and code snippets may retain their original language structure but the surrounding explanation must be in English.
