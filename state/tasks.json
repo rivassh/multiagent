@@ -229,8 +229,8 @@
     {
       "id": "TASK-034",
       "title": "Define 0-2.req evaluation matrix as structured JSON document — 7 criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) for HPHT mechanical engineering screening",
-      "status": "OPEN",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-1220228",
       "reviewer": null,
       "attempts": 0,
       "last_error": "0-2.req file does not exist in workspace. Original directive references it as evaluation criteria for HPHT screening but file was never provided. GenericScreeningEngine (TASK-024) cannot be validated without this input."
