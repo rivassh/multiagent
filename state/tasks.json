@@ -298,8 +298,8 @@
     {
       "id": "TASK-041",
       "title": "Expand Assessment module — add assessment templates, scheduling, and result aggregation for ATS pipeline",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-local-12345",
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
@@ -314,6 +314,66 @@
       "attempts": 0,
       "last_error": null,
       "summary": "HR module at app/Modules/HR/ has basic structure. Add: headcount forecast models, requisition approval workflow (multi-level), org chart CRUD with reporting lines, budget tracking. Connect requisitions to ATS job posts for unified pipeline."
+    },
+    {
+      "id": "TASK-042",
+      "title": "Implement HR module workforce planning — headcount forecasting, requisition approval workflow, org chart management",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "HR module at app/Modules/HR/ has basic structure. Add: headcount forecast models, requisition approval workflow (multi-level), org chart CRUD with reporting lines, budget tracking. Connect requisitions to ATS job posts for unified pipeline."
+    },
+    {
+      "id": "TASK-043",
+      "title": "Validate GenericScreeningEngine against static NLP harness + 0-2.req extraction",
+      "status": "DONE",
+      "assigned_to": "agent-local-12345",
+      "reviewer": "agent-local-12345",
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Run python modules/nlp-worker/run_eval.py with 0-2.req input artifact to validate eval_input.schema -> eval_result.schema contract. Verify extraction of 7 HPHT criteria from Persian text succeeds with exit code 0. Also validate GenericScreeningEngine can extract matrix from 0-2.req Persian text. Ground truth: evaluations/0-2.req, harness: modules/nlp-worker/run_eval.py, schema: schema/eval_result.schema.json"
+    },
+    {
+      "id": "TASK-044",
+      "title": "Create structured JSON evaluation matrix from 0-2.req — 7 HPHT criteria",
+      "status": "DONE",
+      "assigned_to": "agent-local-12345",
+      "reviewer": "agent-local-12345",
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Parse evaluations/0-2.req into sima/evaluations/0-2-matrix.json with 7 criteria as structured objects {id, weight, category, name, min_threshold, evidence_fields, extraction_prompt}. Each criterion maps to enrichment->evaluation->shortlist stages. Validate JSON against eval_input.schema.json for required fields."
+    },
+    {
+      "id": "TASK-045",
+      "title": "Complete ATS module end-to-end verification — all services + controller + tests pass",
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-local-12345",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Verify all ATS modules work end-to-end: ScreeningOrchestrator screenJobPost, CrawlerOrchestrator importCandidates, ShortlistGenerator generate(), ATSController endpoints. Run existing BDD tests (AtCrawlerOrchestratorBddTest, AtShortlistGeneratorBddTest). Verify database migrations (ats_job_posts, ats_applications, ats_shortlists, ats_shortlist_items)."
+    },
+    {
+      "id": "TASK-046",
+      "title": "Restore active lease infrastructure in state/leases.json",
+      "status": "TODO",
+      "assigned_to": "agent-local-12345",
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Re-create active lease for tasks.json per AGENTS.md ACQUIRE_LEASE subroutine. Verify heartbeat mechanism, zombie eviction (30s threshold), 120s TTL. Lease must allow other agents to claim pending tasks."
+    },
+    {
+      "id": "TASK-047",
+      "title": "Add comprehensive ATS service layer BDD test suite",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Create AtScreeningOrchestratorBddTest covering screening candidate, screen all candidates, extract matrix from description, error on empty matrix. Add import_with_source_factory to AtCrawlerOrchestratorBddTest. Add custom_limit and empty_matrix_fallback to AtShortlistGeneratorBddTest. Total: 5+ tests covering all ATS services with mocked GenericScreeningEngine. Acceptance: all pass, persistence verified."
     }
   ]
 }
