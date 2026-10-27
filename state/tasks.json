@@ -184,8 +184,8 @@
     {
       "id": "TASK-029",
       "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
-      "status": "OPEN",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-antix1-4258",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
