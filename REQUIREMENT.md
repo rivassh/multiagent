@@ -28,6 +28,8 @@ Error accessing chat interface:
 - URL: http://localhost:8015/chat.html
 - Error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 2097152 bytes)
 
-
 ## User Directive [2026-10-27T10:52:55Z] (Captured by agent-THRMP105-15984)
 می خوام رو پروژه sima کا کنم
+
+## User Directive [2026-10-27T12:02:15Z] (Captured by agent-antix1-16833)
+Create a task to integrate the upstream 'mimo-adapter' service into the SIMA project as a git submodule so other agents can check it out and wire it into the stack.

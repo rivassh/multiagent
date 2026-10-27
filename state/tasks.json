@@ -225,6 +225,16 @@
       "reviewer": null,
       "attempts": 1,
       "last_error": null
+    },
+    {
+      "id": "TASK-034",
+      "title": "Integrate upstream mimo-adapter into SIMA as a Git submodule",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Add the upstream mimo-adapter repository as a git submodule inside the SIMA project so other agents can check out the dependency and wire it into the stack."
     }
   ]
 }
