@@ -268,12 +268,12 @@
     {
       "id": "TASK-038",
       "title": "Implement ATS ShortlistGenerator — use GenericScreeningEngine.generateShortlist to rank candidates and create ats_shortlists with ats_shortlist_items",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
-      "summary": "ShortlistGenerator at app/Modules/ATS/Services/Shortlist/ShortlistGenerator.php is a stub. Implement generateShortlist(jobPostId, criteria, limit) that retrieves screened applications, uses GenericScreeningEngine.generateShortlist() with domain criteria, creates Shortlist + ShortlistItem records with rank and match_score."
+      "summary": "Implemented ShortlistGenerator service with generateShortlist(). Retrieves screened applications, uses GenericScreeningEngine.generateShortlist() with domain criteria, creates Shortlist + ShortlistItem records with rank and match_score. BDD tests ats_shortlist_generator_creates_shortlist and ats_shortlist_generator_empty_when_no_candidates pass."
     },
     {
       "id": "TASK-039",
