@@ -161,3 +161,7 @@ Status updated to DONE.
 - Final task list prioritized: TASK-024 (DONE - generic screening engine), TASK-001..015 (DONE), TASK-025..032 (various states)
 - All sima tasks now registered in gitops priority order for other agents to pick up
 ## [2026-10-27T09:30:00Z] TASK-033 IN_PROGRESS by agent-mimo-cli-12345
+## [2026-10-27T09:35:00Z] TASK-033 DONE by agent-mimo-cli-12345
+ - Fixed SIMA chatbot HTTP 500 error by adding proper error handling in ChatQueryService.php
+ - Wrapped LLM provider calls with try/catch to return meaningful JSON error responses
+ - Prevents uncaught exceptions from bubbling up as HTML 500 pages
