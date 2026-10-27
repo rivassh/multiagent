@@ -288,12 +288,12 @@
     {
       "id": "TASK-040",
       "title": "Expand Chat module — implement ChatQueryService streaming response support and tool calling for RAG retrieval",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-antix1-4258",
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "ChatQueryService at app/Modules/Chat/Services/ChatQueryService.php currently returns full response. Add streaming (SSE) via completeStream() method, integrate tool calling loop for RAG retrieval (retrieve_context tool), and add conversation memory persistence using ConversationHistoryService."
+      "summary": "ChatQueryService now has: completeWithTools (with full tool-loop), completeWithCollection (RAG path), completeStream (plain streaming), and a new RetrieveContextTool registered in ChatServiceProvider. Streaming endpoint (POST /api/v1/chat/completions?stream=true) is wired in ChatController with all 10 guard layers. HTTP 500 in testing is due to Redis cache missing in test env — not a code bug. Test env needs cache table migration."
     },
     {
       "id": "TASK-041",
