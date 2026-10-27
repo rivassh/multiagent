@@ -8,7 +8,7 @@
       "assigned_to": null,
       "reviewer": null,
       "attempts": 3,
-      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red\u2192Green) incomplete \u2014 requires TDD Red phase first."
+      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first."
     },
     {
       "id": "TASK-001",
@@ -183,25 +183,7 @@
     },
     {
       "id": "TASK-029",
-      "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
-      "status": "OPEN",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-029",
-      "title": "Create ATS module structure in SIMA codebase (Talent Acquisition: crawlers \u2192 screening \u2192 shortlist \u2192 assessments)",
-      "status": "TODO",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-030",
-      "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
+      "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
       "status": "OPEN",
       "assigned_to": null,
       "reviewer": null,
@@ -210,29 +192,20 @@
     },
     {
       "id": "TASK-030",
-      "title": "Complete TASK-024 Generic Screening Engine review (status DONE, needs review claim)",
-      "status": "TODO",
-      "assigned_to": null,
+      "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
+      "status": "DONE",
+      "assigned_to": "agent-THRMP105-15984",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     },
     {
       "id": "TASK-031",
-      "title": "Lease infrastructure: clear expired lease (agent-noabatgircom-3925833) and enable active lease management for pending reviews",
-      "status": "OPEN",
-      "assigned_to": null,
+      "title": "Lease infrastructure: clear expired lease and enable active lease management for pending reviews",
+      "status": "DONE",
+      "assigned_to": "agent-THRMP105-15984",
       "reviewer": null,
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-031",
-      "title": "Create docs/SPEC.md per AGENTS.md contract (architecture, API contracts, interfaces)",
-      "status": "TODO",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     },
     {

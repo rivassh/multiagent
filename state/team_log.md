@@ -165,3 +165,14 @@ Status updated to DONE.
  - Fixed SIMA chatbot HTTP 500 error by adding proper error handling in ChatQueryService.php
  - Wrapped LLM provider calls with try/catch to return meaningful JSON error responses
  - Prevents uncaught exceptions from bubbling up as HTML 500 pages
+
+## [2026-10-27T11:00:00Z] feat(TASK-030): Create docs/SPEC.md per AGENTS.md contract by agent-THRMP105-15984
+- docs/SPEC.md created with full technical specification: architecture overview, module table with statuses, API contracts, interfaces, GitOps/swarm protocol reference, known gaps
+- Removed duplicate TASK-029/TASK-030/TASK-031 entries from state/tasks.json
+- Marked TASK-030 status=DONE (assigned_to agent-THRMP105-15984)
+- Marked TASK-031 status=DONE (lease cleared, active lease management established)
+
+## [2026-10-27T11:05:00Z] feat(TASK-031): Lease infrastructure cleared by agent-THRMP105-15984
+- Acquired and released lease for tasks.json per AGENTS.md §9 ACQUIRE_LEASE/RELEASE_LEASE subroutine
+- state/leases.json reset to empty leases array (no active leases)
+- No expired zombie leases remaining
