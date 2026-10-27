@@ -247,7 +247,7 @@
     {
       "id": "TASK-033",
       "title": "Investigate and fix SIMA chatbot 500 error on POST /api/v1/chat/completions",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "assigned_to": "agent-mimo-cli-12345",
       "reviewer": null,
       "attempts": 1,
