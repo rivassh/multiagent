@@ -1,13 +1,4 @@
 {
   "version": 1,
-  "leases": [
-    {
-      "resource": "tasks.json",
-      "holder": "agent-THRMP105-15984",
-      "lease_id": "89c56bff-8f0e-45ba-826f-cce81cd31e2f",
-      "acquired_at": "2026-10-27T12:05:15.7607009Z",
-      "expires_at": "2026-10-27T12:07:15.7686790Z",
-      "last_heartbeat": "2026-10-27T12:05:15.7607009Z"
-    }
-  ]
+  "leases": []
 }
