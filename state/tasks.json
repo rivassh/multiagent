@@ -244,6 +244,76 @@
       "attempts": 0,
       "last_error": null,
       "summary": "Add the upstream mimo-adapter repository as a git submodule inside the SIMA project so other agents can check out the dependency and wire it into the stack."
+    },
+    {
+      "id": "TASK-036",
+      "title": "Implement ATS ScreeningOrchestrator — integrate GenericScreeningEngine to score job post requirements against candidates, emit screening results to ats_applications",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "ScreeningOrchestrator at app/Modules/ATS/Services/Screening/ScreeningOrchestrator.php is a stub. Implement screenJobPost(jobPostId, candidateIds) that uses GenericScreeningEngine to evaluate candidates against job post criteria matrix, persist results to ats_applications.screening_score and screening_reasoning fields."
+    },
+    {
+      "id": "TASK-037",
+      "title": "Implement ATS CrawlerOrchestrator — connect CandidateSourceFactory to import candidates from JobVision/Talent APIs into ats_applications",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "CrawlerOrchestrator at app/Modules/ATS/Services/Crawlers/CrawlerOrchestrator.php is a stub. Implement importCandidates(source, jobPostId) that uses CandidateSourceFactory to fetch candidates from configured sources (JobVision, LinkedIn, etc.), map to Candidate model, create Application records linked to job post."
+    },
+    {
+      "id": "TASK-038",
+      "title": "Implement ATS ShortlistGenerator — use GenericScreeningEngine.generateShortlist to rank candidates and create ats_shortlists with ats_shortlist_items",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "ShortlistGenerator at app/Modules/ATS/Services/Shortlist/ShortlistGenerator.php is a stub. Implement generateShortlist(jobPostId, criteria, limit) that retrieves screened applications, uses GenericScreeningEngine.generateShortlist() with domain criteria, creates Shortlist + ShortlistItem records with rank and match_score."
+    },
+    {
+      "id": "TASK-039",
+      "title": "Add BDD tests for ATS service layer — ScreeningOrchestrator, CrawlerOrchestrator, ShortlistGenerator integration tests with mocked GenericScreeningEngine",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Create tests/Feature/BDD/AtScreeningOrchestratorBddTest.php, AtCrawlerOrchestratorBddTest.php, AtShortlistGeneratorBddTest.php covering happy paths and edge cases. Mock GenericScreeningEngine responses. Verify data persistence to ats_applications, ats_shortlists, ats_shortlist_items."
+    },
+    {
+      "id": "TASK-040",
+      "title": "Expand Chat module — implement ChatQueryService streaming response support and tool calling for RAG retrieval",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "ChatQueryService at app/Modules/Chat/Services/ChatQueryService.php currently returns full response. Add streaming (SSE) via completeStream() method, integrate tool calling loop for RAG retrieval (retrieve_context tool), and add conversation memory persistence using ConversationHistoryService."
+    },
+    {
+      "id": "TASK-041",
+      "title": "Expand Assessment module — add assessment templates, scheduling, and result aggregation for ATS pipeline",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Assessment module at app/Modules/Assessment/ needs: assessment templates (technical, behavioral, cognitive), scheduling service linked to Shortlist, result scoring/aggregation service, and BDD tests. Connect to ATS via shortlist_id for end-to-end pipeline."
+    },
+    {
+      "id": "TASK-042",
+      "title": "Implement HR module workforce planning — headcount forecasting, requisition approval workflow, org chart management",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "HR module at app/Modules/HR/ has basic structure. Add: headcount forecast models, requisition approval workflow (multi-level), org chart CRUD with reporting lines, budget tracking. Connect requisitions to ATS job posts for unified pipeline."
     }
   ]
 }
