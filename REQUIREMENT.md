@@ -36,3 +36,6 @@ Create a task to integrate the upstream 'mimo-adapter' service into the SIMA pro
 
 ## User Directive [2026-10-27T12:05:00Z] (Captured by agent-THRMP105-15984)
 #investigation: 0-2.req evaluation matrix file MISSING. Original directive references 0-2.req as evaluation criteria for HPHT mechanical engineering screening, but file does not exist. TASK-024 Generic Screening Engine marked DONE but implementation files absent from this repo (sima/ contains only placeholder). Need to: (1) create/add 0-2.req with 7 evaluation criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits), (2) validate GenericScreeningEngine can extract evaluation matrix from it. Create TASK-034 to define evaluation matrix as structured JSON document.
+
+## User Directive [2026-10-27T14:04:57Z] (Captured by agent-noabatgircom-1220228)
+I am ready
