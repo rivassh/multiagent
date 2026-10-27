@@ -166,8 +166,8 @@
     {
       "id": "TASK-027",
       "title": "ATS (Applicant Tracking System) module status check - not found in codebase",
-      "status": "FAIL",
-      "assigned_to": "agent-antix1-4258",
+      "status": "TODO",
+      "assigned_to": "null",
       "reviewer": null,
       "attempts": 1,
       "last_error": "No ATS module exists; substring matches are unrelated code"
