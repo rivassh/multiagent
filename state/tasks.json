@@ -211,8 +211,8 @@
     {
       "id": "TASK-032",
       "title": "Establish active lease infrastructure for pending reviews (TASK-016, TASK-024)",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-THRMP105-15984",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
