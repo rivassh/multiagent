@@ -154,3 +154,9 @@ Status updated to DONE.
 - Fix applied: candidate_id preservation through shortlist generation (was using skills[0] placeholder)
 - Subproject commit: sima/ commit 33a06e0
 - TASK-024 marked DONE
+
+## [2026-10-27T09:45:00Z] chore(plan): register sima todos in priority order for gitops
+- Removed TASK-016..023 (7 obsolete per-criterion tasks replaced by TASK-024 generic screening engine)
+- Updated TASK-024 title to reflect completion: "Implement Generic Screening Engine (corpus-agnostic, shallow pipeline)"
+- Final task list prioritized: TASK-024 (DONE - generic screening engine), TASK-001..015 (DONE), TASK-025..032 (various states)
+- All sima tasks now registered in gitops priority order for other agents to pick up

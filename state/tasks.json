@@ -1,311 +1,248 @@
 {
-    "version": 1,
-    "tasks": [
-        {
-            "id": "TASK-001",
-            "title": "Fix duplicated methods in User.php",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-002",
-            "title": "Fix artisan entry point",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-003",
-            "title": "Fix SSE Handler reference",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-004",
-            "title": "Implement Crawler Controllers",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-005",
-            "title": "Add API Response Standardization",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-006",
-            "title": "Add API Versioning",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-007",
-            "title": "Create Health Check Endpoint",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-008",
-            "title": "Add Caching Layer",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-009",
-            "title": "Optimize Database Queries",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 2,
-            "last_error": null
-        },
-        {
-            "id": "TASK-010",
-            "title": "Add Laravel Events",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-29222907",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-011",
-            "title": "Add Queue Integration",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 2,
-            "last_error": null
-        },
-        {
-            "id": "TASK-012",
-            "title": "Add Security Headers",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-29222907",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-013",
-            "title": "Expand Candidate Database for HPHT/High-Pressure Skills",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-29222907",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-014",
-            "title": "Add Chat History Persistence per User",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-29222907",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-015",
-            "title": "Add Mobile-Only Authentication (OTP as Future TODO)",
-            "status": "DONE",
-            "assigned_to": "agent-noabatgircom-29222907",
-            "reviewer": "agent-noabatgircom-29222907",
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-016",
-            "title": "Implement Education Screening Rule",
-            "status": "NEEDS_REVIEW",
-            "assigned_to": "agent-noabatgircom-29222907",
-            "reviewer": null,
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-018",
-            "title": "Implement Pressure Systems (500-700 bar) Screening Rule",
-            "status": "CANCELLED",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": "Replaced by TASK-024 generic screening engine (broad shallow corpus-agnostic approach)"
-        },
-        {
-            "id": "TASK-019",
-            "title": "Implement Manufacturing Process Screening Rule",
-            "status": "CANCELLED",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": "Replaced by TASK-024 generic screening engine (broad shallow corpus-agnostic approach)"
-        },
-        {
-            "id": "TASK-020",
-            "title": "Implement Metallurgy & Sealing Knowledge Screening Rule",
-            "status": "CANCELLED",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": "Replaced by TASK-024 generic screening engine (broad shallow corpus-agnostic approach)"
-        },
-        {
-            "id": "TASK-021",
-            "title": "Implement Personal Traits Screening Rule",
-            "status": "CANCELLED",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": "Replaced by TASK-024 generic screening engine (broad shallow corpus-agnostic approach)"
-        },
-        {
-            "id": "TASK-022",
-            "title": "Add Pressure System Proficiency Filter to CandidatesTool",
-            "status": "CANCELLED",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": "Replaced by TASK-024 generic screening engine (broad shallow corpus-agnostic approach)"
-        },
-        {
-            "id": "TASK-023",
-            "title": "Encode Kooroubi Screening Matrix into Requirements Schema",
-            "status": "CANCELLED",
-            "assigned_to": "agent-noabatgircom-2769754",
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": "Replaced by TASK-024 generic screening engine (broad shallow corpus-agnostic approach)"
-        },
-        {
-            "id": "TASK-024",
-            "title": "Refactor screening into generic broad agentic engine (corpus-agnostic, supports arbitrary requirements matrices) – TDD Red phase",
-            "status": "DONE",
-            "assigned_to": null,
-            "reviewer": "agent-antix1-9988",
-            "attempts": 3,
-            "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first."
-        },
-        {
-            "id": "TASK-025",
-            "title": "Verify Generative UI implementation status",
-            "status": "DONE",
-            "assigned_to": "agent-antix1-4258",
-            "reviewer": null,
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-026",
-            "title": "Verify SecurityModerator/Sanjeman sanitization layer status",
-            "status": "DONE",
-            "assigned_to": "agent-antix1-4258",
-            "reviewer": null,
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-027",
-            "title": "ATS (Applicant Tracking System) module status check - not found in codebase",
-            "status": "FAIL",
-            "assigned_to": "agent-antix1-4258",
-            "reviewer": null,
-            "attempts": 1,
-            "last_error": "No ATS module exists; substring matches are unrelated code"
-        },
-        {
-            "id": "TASK-028",
-            "title": "Verify Elasticsearch stack completeness (adapter + retrieval layers)",
-            "status": "DONE",
-            "assigned_to": "agent-antix1-4258",
-            "reviewer": null,
-            "attempts": 1,
-            "last_error": null
-        },
-        {
-            "id": "TASK-029",
-            "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
-            "status": "OPEN",
-            "assigned_to": null,
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": null
-        },
-        {
-            "id": "TASK-030",
-            "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
-            "status": "OPEN",
-            "assigned_to": null,
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": null
-        },
-        {
-            "id": "TASK-031",
-            "title": "Lease infrastructure: clear expired lease (agent-noabatgircom-3925833) and enable active lease management for pending reviews",
-            "status": "OPEN",
-            "assigned_to": null,
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": null
-        },
-        {
-            "id": "TASK-029",
-            "title": "Create ATS module structure in SIMA codebase (Talent Acquisition: crawlers → screening → shortlist → assessments)",
-            "status": "TODO",
-            "assigned_to": null,
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": null
-        },
-        {
-            "id": "TASK-030",
-            "title": "Complete TASK-024 Generic Screening Engine review (status DONE, needs review claim)",
-            "status": "TODO",
-            "assigned_to": null,
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": null
-        },
-        {
-            "id": "TASK-031",
-            "title": "Create docs/SPEC.md per AGENTS.md contract (architecture, API contracts, interfaces)",
-            "status": "TODO",
-            "assigned_to": null,
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": null
-        },
-        {
-            "id": "TASK-032",
-            "title": "Establish active lease infrastructure for pending reviews (TASK-016, TASK-024)",
-            "status": "TODO",
-            "assigned_to": null,
-            "reviewer": null,
-            "attempts": 0,
-            "last_error": null
-        }
-    ]
+  "version": 1,
+  "tasks": [
+    {
+      "id": "TASK-024",
+      "title": "Implement Generic Screening Engine (corpus-agnostic, shallow pipeline)",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 3,
+      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red\u2192Green) incomplete \u2014 requires TDD Red phase first."
+    },
+    {
+      "id": "TASK-001",
+      "title": "Fix duplicated methods in User.php",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-002",
+      "title": "Fix artisan entry point",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-003",
+      "title": "Fix SSE Handler reference",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-004",
+      "title": "Implement Crawler Controllers",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-005",
+      "title": "Add API Response Standardization",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-006",
+      "title": "Add API Versioning",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-007",
+      "title": "Create Health Check Endpoint",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-008",
+      "title": "Add Caching Layer",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-009",
+      "title": "Optimize Database Queries",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 2,
+      "last_error": null
+    },
+    {
+      "id": "TASK-010",
+      "title": "Add Laravel Events",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-29222907",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-011",
+      "title": "Add Queue Integration",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2769754",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 2,
+      "last_error": null
+    },
+    {
+      "id": "TASK-012",
+      "title": "Add Security Headers",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-29222907",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-013",
+      "title": "Expand Candidate Database for HPHT/High-Pressure Skills",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-29222907",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-014",
+      "title": "Add Chat History Persistence per User",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-29222907",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-015",
+      "title": "Add Mobile-Only Authentication (OTP as Future TODO)",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-29222907",
+      "reviewer": "agent-noabatgircom-29222907",
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-025",
+      "title": "Verify Generative UI implementation status",
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-026",
+      "title": "Verify SecurityModerator/Sanjeman sanitization layer status",
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-027",
+      "title": "ATS (Applicant Tracking System) module status check - not found in codebase",
+      "status": "FAIL",
+      "assigned_to": "agent-antix1-4258",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": "No ATS module exists; substring matches are unrelated code"
+    },
+    {
+      "id": "TASK-028",
+      "title": "Verify Elasticsearch stack completeness (adapter + retrieval layers)",
+      "status": "DONE",
+      "assigned_to": "agent-antix1-4258",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null
+    },
+    {
+      "id": "TASK-029",
+      "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
+      "status": "OPEN",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-029",
+      "title": "Create ATS module structure in SIMA codebase (Talent Acquisition: crawlers \u2192 screening \u2192 shortlist \u2192 assessments)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-030",
+      "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
+      "status": "OPEN",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-030",
+      "title": "Complete TASK-024 Generic Screening Engine review (status DONE, needs review claim)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-031",
+      "title": "Lease infrastructure: clear expired lease (agent-noabatgircom-3925833) and enable active lease management for pending reviews",
+      "status": "OPEN",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-031",
+      "title": "Create docs/SPEC.md per AGENTS.md contract (architecture, API contracts, interfaces)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-032",
+      "title": "Establish active lease infrastructure for pending reviews (TASK-016, TASK-024)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    }
+  ]
 }
