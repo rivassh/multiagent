@@ -194,3 +194,9 @@ Status updated to DONE.
 - `ChatQueryService.completeStream()` added try/catch with proper SSE error events
 - TASK-040 status: IN_PROGRESS → DONE, reviewer assigned
 - Next: TASK-041 (Assessment module) IN_PROGRESS assigned to agent-local-12345
+
+## [2026-10-27T19:55:00Z] agent-local-12345 - RELEASE_LEASE
+- Lease released: tasks.json cleared for next agent
+- Role rotation complete: DESIGNER → IMPLEMENTER → REVIEWER (pointer 2)
+- TASK-040 marked DONE, awaiting REVIEWER approval
+- Next agent should claim IN_REVIEW status for TASK-040
