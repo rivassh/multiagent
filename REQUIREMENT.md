@@ -31,3 +31,6 @@ Error accessing chat interface:
 
 ## User Directive [2026-10-27T10:52:55Z] (Captured by agent-THRMP105-15984)
 می خوام رو پروژه sima کا کنم
+
+## User Directive [2026-10-27T12:05:00Z] (Captured by agent-THRMP105-15984)
+#investigation: 0-2.req evaluation matrix file MISSING. Original directive references 0-2.req as evaluation criteria for HPHT mechanical engineering screening, but file does not exist. TASK-024 Generic Screening Engine marked DONE but implementation files absent from this repo (sima/ contains only placeholder). Need to: (1) create/add 0-2.req with 7 evaluation criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits), (2) validate GenericScreeningEngine can extract evaluation matrix from it. Create TASK-034 to define evaluation matrix as structured JSON document.
