@@ -224,3 +224,10 @@ worktrees/
 - **Test Runner**: `phpunit` (or equivalent) configured to run all BDD tests.
 - **Pre-flight**: `git status` check, `git pull` to ensure up-to-date state.
 - **Post-execution**: Verify `state/tasks.json` reflects new statuses, `state/team_log.md` has entries, and `state/leases.json` has updated leases.
+
+## 20. Language Protocol
+- All agents must respond in **English** only.
+- If a previous response was not in English, the agent must repeat the answer in **English**.
+- Technical terms, file paths, command examples, and code snippets may retain their original language structure but the surrounding explanation must be in English.
+- This protocol applies to all chat interactions, code reviews, task descriptions, state file entries, and documentation.
+- Violations must be corrected in the next response cycle and logged in `state/team_log.md` with the tag `[LANG-CORRECT]`.
