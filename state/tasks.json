@@ -226,7 +226,7 @@
       "attempts": 1,
       "last_error": null
     },
-{
+    {
       "id": "TASK-034",
       "title": "Define 0-2.req evaluation matrix as structured JSON document — 7 criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) for HPHT mechanical engineering screening",
       "status": "OPEN",
@@ -238,8 +238,8 @@
     {
       "id": "TASK-035",
       "title": "Integrate upstream mimo-adapter into SIMA as a Git submodule",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-1220228",
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
