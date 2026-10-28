@@ -366,13 +366,44 @@
       "summary": "Create AtScreeningOrchestratorBddTest covering screening candidate, screen all candidates, extract matrix from description, error on empty matrix. Add import_with_source_factory to AtCrawlerOrchestratorBddTest. Add custom_limit and empty_matrix_fallback to AtShortlistGeneratorBddTest. Total: 5+ tests covering all ATS services with mocked GenericScreeningEngine. Acceptance: all pass, persistence verified."
     },
     {
-      "id": "TASK-048",
-      "title": "Implement TDD cycle for Assessment module",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-local-12345",
+      "id": "TASK-049",
+      "title": "Chat Markdown rendering regression investigation",
+      "status": "TODO",
+      "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
-      "summary": "TDD cycle: Red (failing unit test for AssessmentSchedulingService, AssessmentScoringService, AssessmentTemplateService, AssessmentController edge cases) → Green (minimal implementation) → Refactor. Unit tests test internal logic, not BDD behavioral scenarios. Tests under tests/Unit/ separate from tests/Feature/BDD/."
+      "last_error": null,
+      "summary": "Investigate SIMA chatbot /api/v1/chat/query endpoint broken after branch merges. Examine client-side marked.js/DOMPurify renderer in chat.blade.php for drift. Define root cause and remediation."
+    },
+    {
+      "id": "TASK-050",
+      "title": "Missing assistant copy button implementation",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Add accessible copy-to-clipboard UI for assistant response bubbles in chat.blade.php. Design accessible copy button per WCAG guidelines, test with DOMPurify sanitization."
+    },
+    {
+      "id": "TASK-051",
+      "title": "debug.adlr.ir floating CORS error diagnosis",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Diagnose debug.adlr.ir CORS failure for error-tooltip API. Verify nginx config allowing * origin for /widget.js and /api/public/widgets/, identify actual failing path. No server changes without human approval."
+    },
+    {
+      "id": "TASK-052",
+      "title": "HPHT screening/retrieval mismatch investigation",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Analyze crawl→storage→index→retrieval chain for ATS screening showing only 4 candidates (none HPHT mechanical). Verify parsed profiles reach retrieval, freshness, and job criteria filter alignment. ScreeningOrchestrator filters by status='applied' and requires requirements_matrix."
     }
   ]
 }
