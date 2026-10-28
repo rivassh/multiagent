@@ -8,7 +8,7 @@
       "assigned_to": null,
       "reviewer": null,
       "attempts": 3,
-      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red\u2192Green) incomplete \u2014 requires TDD Red phase first."
+      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first."
     },
     {
       "id": "TASK-001",
@@ -183,7 +183,7 @@
     },
     {
       "id": "TASK-029",
-      "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
+      "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
       "status": "DONE",
       "assigned_to": "agent-antix1-4258",
       "reviewer": "agent-local-12345",
@@ -192,7 +192,7 @@
     },
     {
       "id": "TASK-030",
-      "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
+      "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
       "status": "DONE",
       "assigned_to": "agent-THRMP105-15984",
       "reviewer": null,
@@ -228,7 +228,7 @@
     },
     {
       "id": "TASK-034",
-      "title": "Define 0-2.req evaluation matrix as structured JSON document \u2014 7 criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) for HPHT mechanical engineering screening",
+      "title": "Define 0-2.req evaluation matrix as structured JSON document — 7 criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) for HPHT mechanical engineering screening",
       "status": "DONE",
       "assigned_to": "agent-noabatgircom-1220228",
       "reviewer": "agent-local-12345",
@@ -247,7 +247,7 @@
     },
     {
       "id": "TASK-036",
-      "title": "Implement ATS ScreeningOrchestrator \u2014 integrate GenericScreeningEngine to score job post requirements against candidates, emit screening results to ats_applications",
+      "title": "Implement ATS ScreeningOrchestrator — integrate GenericScreeningEngine to score job post requirements against candidates, emit screening results to ats_applications",
       "status": "DONE",
       "assigned_to": "agent-antix1-4258",
       "reviewer": null,
@@ -257,7 +257,7 @@
     },
     {
       "id": "TASK-037",
-      "title": "Implement ATS CrawlerOrchestrator \u2014 connect CandidateSourceFactory to import candidates from JobVision/Talent APIs into ats_applications",
+      "title": "Implement ATS CrawlerOrchestrator — connect CandidateSourceFactory to import candidates from JobVision/Talent APIs into ats_applications",
       "status": "DONE",
       "assigned_to": "agent-antix1-4258",
       "reviewer": null,
@@ -267,7 +267,7 @@
     },
     {
       "id": "TASK-038",
-      "title": "Implement ATS ShortlistGenerator \u2014 use GenericScreeningEngine.generateShortlist to rank candidates and create ats_shortlists with ats_shortlist_items",
+      "title": "Implement ATS ShortlistGenerator — use GenericScreeningEngine.generateShortlist to rank candidates and create ats_shortlists with ats_shortlist_items",
       "status": "DONE",
       "assigned_to": "agent-antix1-4258",
       "reviewer": null,
@@ -277,7 +277,7 @@
     },
     {
       "id": "TASK-039",
-      "title": "Add BDD tests for ATS service layer \u2014 ScreeningOrchestrator, CrawlerOrchestrator, ShortlistGenerator integration tests with mocked GenericScreeningEngine",
+      "title": "Add BDD tests for ATS service layer — ScreeningOrchestrator, CrawlerOrchestrator, ShortlistGenerator integration tests with mocked GenericScreeningEngine",
       "status": "DONE",
       "assigned_to": "agent-antix1-4258",
       "reviewer": null,
@@ -287,7 +287,7 @@
     },
     {
       "id": "TASK-040",
-      "title": "Expand Chat module \u2014 implement ChatQueryService streaming response support and tool calling for RAG retrieval",
+      "title": "Expand Chat module — implement ChatQueryService streaming response support and tool calling for RAG retrieval",
       "status": "DONE",
       "assigned_to": "agent-antix1-4258",
       "reviewer": "agent-local-12345",
@@ -297,7 +297,7 @@
     },
     {
       "id": "TASK-041",
-      "title": "Expand Assessment module \u2014 add assessment templates, scheduling, and result aggregation for ATS pipeline",
+      "title": "Expand Assessment module — add assessment templates, scheduling, and result aggregation for ATS pipeline",
       "status": "IN_PROGRESS",
       "assigned_to": "agent-local-12345",
       "reviewer": null,
@@ -307,7 +307,7 @@
     },
     {
       "id": "TASK-042",
-      "title": "Implement HR module workforce planning \u2014 headcount forecasting, requisition approval workflow, org chart management",
+      "title": "Implement HR module workforce planning — headcount forecasting, requisition approval workflow, org chart management",
       "status": "IN_PROGRESS",
       "assigned_to": "agent-gitops-001",
       "reviewer": null,
@@ -327,7 +327,7 @@
     },
     {
       "id": "TASK-044",
-      "title": "Create structured JSON evaluation matrix from 0-2.req \u2014 7 HPHT criteria",
+      "title": "Create structured JSON evaluation matrix from 0-2.req — 7 HPHT criteria",
       "status": "DONE",
       "assigned_to": "agent-local-12345",
       "reviewer": "agent-local-12345",
@@ -337,7 +337,7 @@
     },
     {
       "id": "TASK-045",
-      "title": "Complete ATS module end-to-end verification \u2014 all services + controller + tests pass",
+      "title": "Complete ATS module end-to-end verification — all services + controller + tests pass",
       "status": "DONE",
       "assigned_to": "agent-local-12345",
       "reviewer": "agent-local-12345",
@@ -364,6 +364,15 @@
       "attempts": 0,
       "last_error": null,
       "summary": "Create AtScreeningOrchestratorBddTest covering screening candidate, screen all candidates, extract matrix from description, error on empty matrix. Add import_with_source_factory to AtCrawlerOrchestratorBddTest. Add custom_limit and empty_matrix_fallback to AtShortlistGeneratorBddTest. Total: 5+ tests covering all ATS services with mocked GenericScreeningEngine. Acceptance: all pass, persistence verified."
+    },
+    {
+      "id": "TASK-048",
+      "title": "Implement TDD cycle for Assessment module",
+      "status": "TODO",
+      "assigned_to": "agent-local-12345",
+      "reviewer": null,
+      "attempts": 0,
+      "summary": "TDD cycle: Red (failing unit test for AssessmentSchedulingService, AssessmentScoringService, AssessmentTemplateService, AssessmentController edge cases) → Green (minimal implementation) → Refactor. Unit tests test internal logic, not BDD behavioral scenarios. Tests under tests/Unit/ separate from tests/Feature/BDD/."
     }
   ]
 }
