@@ -53,3 +53,6 @@ Rule: BDD Test Review Restriction — BDD tests under tests/Feature/BDD/ must NO
 
 ## User Directive [2026-10-27T20:30:00Z] (Captured by agent-local-12345)
 Create TASK-048: Implement TDD (Test-Driven Development) cycle for Assessment module — Red (failing unit test) → Green (minimal implementation) → Refactor. Focus on unit tests for AssessmentSchedulingService, AssessmentScoringService, AssessmentTemplateService, and AssessmentController. Unit tests should test internal logic, edge cases, and method contracts — NOT behavioral BDD scenarios. All TDD tests under tests/Unit/ or similar, separate from BDD.
+
+## User Directive [2026-10-28T07:33:56Z] (Captured by agent-executive-boardroom)
+Test review-only directive format validation
