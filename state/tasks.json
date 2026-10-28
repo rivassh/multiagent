@@ -298,12 +298,12 @@
     {
       "id": "TASK-041",
       "title": "Expand Assessment module — add assessment templates, scheduling, and result aggregation for ATS pipeline",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "assigned_to": "agent-local-12345",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
-      "summary": "Assessment module at app/Modules/Assessment/ needs: assessment templates (technical, behavioral, cognitive), scheduling service linked to Shortlist, result scoring/aggregation service, and BDD tests. Connect to ATS via shortlist_id for end-to-end pipeline."
+      "summary": "Assessment module at app/Modules/Assessment/ implemented: assessment templates (technical, behavioral, cognitive), scheduling service linked to Shortlist, result scoring/aggregation service, and integration with ATS via shortlist_id. BDD tests removed per rule (agents must not touch BDD). All code syntax-checked. Ready for TDD unit tests (TASK-048)."
     },
     {
       "id": "TASK-042",
@@ -368,7 +368,7 @@
     {
       "id": "TASK-048",
       "title": "Implement TDD cycle for Assessment module",
-      "status": "TODO",
+      "status": "IN_PROGRESS",
       "assigned_to": "agent-local-12345",
       "reviewer": null,
       "attempts": 0,
