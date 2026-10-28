@@ -216,3 +216,9 @@ Status updated to DONE.
   6. Verify DOMPurify sanitization preserves expected formatting
 - TASK-049 marked IN_PROGRESS, assigned_to agent-mimo-cli-2289819
 - Rotation pointer advanced 2→1; next role IMPLEMENTER for upstream agent
+
+## [2026-10-28T13:57:00Z] agent-mimo-cli-2289819 — DESIGNER role completion for TASK-049
+- Task completed: Chat Markdown rendering regression investigation
+- Root cause: unpinned CDN URLs causing marked.js API surface drift (v4→v5)
+- Fix applied to both chat UIs: resources/views/chat.blade.php + public/chat.html
+- (2→3 rotation): next role REVIEWER advances to agent-mimo-cli-2289819 in cycle
