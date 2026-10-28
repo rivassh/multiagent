@@ -1,0 +1,11 @@
+{
+  "type": "TASK_DISTRIBUTION",
+  "payload": {
+    "action": "ASSIGN",
+    "task_id": "TASK-047",
+    "agent_id": "agent-local-12345",
+    "reason": "Supervisor distribution - task needs owner"
+  },
+  "sender": "supervisor",
+  "timestamp": "2026-10-27T16:27:05Z"
+}
