@@ -373,7 +373,7 @@
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Investigate SIMA chatbot /api/v1/chat/query endpoint broken after branch merges. Examine client-side marked.js/DOMPurify renderer in chat.blade.php for drift. Define root cause and remediation."
+      "summary": "Investigate SIMA chatbot /api/v1/chat/query endpoint broken after branch merges. Examine client-side marked.js/DOMPurify renderer in chat.blade.php and public/chat.html for drift. Root cause: unpinned CDN URLs causing marked.js version change (v4 API v.parse() incompatibility). Define remediation: pin CDN versions or add robustness layer."
     },
     {
       "id": "TASK-050",

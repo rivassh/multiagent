@@ -1,13 +1,6 @@
 {
   "version": 1,
-  "leases": [
-    {
-      "resource": "tasks.json",
-      "holder": "agent-mimo-cli-2289819",
-      "lease_id": "lease-t049-claim-20261028-002",
-      "acquired_at": "2026-10-28T13:50:00Z",
-      "expires_at": "2026-10-28T13:52:00Z",
-      "last_heartbeat": "2026-10-28T13:50:00Z"
-    }
+  "leases": []
+}
   ]
 }

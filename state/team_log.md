@@ -204,3 +204,15 @@ Status updated to DONE.
 - Registered four SIMA board directive investigations: TASK-049, TASK-050, TASK-051, TASK-052
 - Acquired lease on tasks.json (lease-sima-board-directives-20261028-001)
 - All tasks set to status=TODO awaiting next agent pickup per AGENTS.md round-robin rotation
+
+## [2026-10-28T13:55:00Z] agent-mimo-cli-2289819 — DESIGNER task decomposition for TASK-049
+- Role override: DESIGNER (user directive, per round-robin rotation protocol)
+- Investigation decomposition (atomic subtasks assigned to IMPLEMENTER, follow-up in rotation):
+  1. Inspect chat.blade.php renderMarkdown() + CDN unpinned URLs (lines 7-8, 290-292)
+  2. Inspect public/chat.html renderMarkdown() + CDN unpinned URLs (lines 6-7, 107-109)
+  3. Compare marked.js API surface: `marked.parse()` exists v5+; `marked()` was v4 call site
+  4. Pin CDN version: https://cdn.jsdelivr.net/npm/marked@X/marked.min.js + https://cdn.jsdelivr.net/npm/dompurify@X/dist/purify.min.js
+  5. Write regression test: send query via endpoint, verify assistant message renders as HTML (not raw text)
+  6. Verify DOMPurify sanitization preserves expected formatting
+- TASK-049 marked IN_PROGRESS, assigned_to agent-mimo-cli-2289819
+- Rotation pointer advanced 2→1; next role IMPLEMENTER for upstream agent
