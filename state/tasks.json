@@ -368,8 +368,8 @@
     {
       "id": "TASK-049",
       "title": "Chat Markdown rendering regression investigation",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-mimo-cli-2289819",
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
