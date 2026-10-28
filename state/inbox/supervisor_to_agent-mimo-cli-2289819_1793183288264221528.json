@@ -1,0 +1,11 @@
+{
+  "type": "TASK_DISTRIBUTION",
+  "payload": {
+    "action": "ASSIGN",
+    "task_id": "TASK-051",
+    "agent_id": "agent-mimo-cli-2289819",
+    "reason": "Supervisor distribution - task needs owner"
+  },
+  "sender": "supervisor",
+  "timestamp": "2026-10-28T10:28:08Z"
+}

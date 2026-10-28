@@ -1,13 +1,4 @@
 {
   "version": 1,
-  "leases": [
-    {
-      "resource": "tasks.json",
-      "holder": "agent-mimo-cli-2289819",
-      "lease_id": "lease-sima-board-directives-20261028-001",
-      "acquired_at": "2026-10-28T13:45:00Z",
-      "expires_at": "2026-10-28T13:47:00Z",
-      "last_heartbeat": "2026-10-28T13:45:00Z"
-    }
-  ]
+  "leases": []
 }

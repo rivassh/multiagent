@@ -200,3 +200,7 @@ Status updated to DONE.
 - Role rotation complete: DESIGNER → IMPLEMENTER → REVIEWER (pointer 2)
 - TASK-040 marked DONE, awaiting REVIEWER approval
 - Next agent should claim IN_REVIEW status for TASK-040
+## [2026-10-28T13:45:00Z] Manual task registration (agent-mimo-cli-2289819)
+- Registered four SIMA board directive investigations: TASK-049, TASK-050, TASK-051, TASK-052
+- Acquired lease on tasks.json (lease-sima-board-directives-20261028-001)
+- All tasks set to status=TODO awaiting next agent pickup per AGENTS.md round-robin rotation
