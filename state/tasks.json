@@ -408,17 +408,17 @@
     {
       "id": "TASK-053",
       "title": "Fix candidate name not found in chatbot responses",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "DONE",
+      "assigned_to": "agent-mimo-cli-2289819",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     },
     {
       "id": "TASK-054",
       "title": "Fix chat input position at bottom of page (sticky footer)",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "DONE",
+      "assigned_to": "agent-mimo-cli-2289819",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
@@ -426,8 +426,8 @@
     {
       "id": "TASK-055",
       "title": "Add SSE streaming progress indicator (replace 'در حال پاسخگویی...' with token stream)",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "DONE",
+      "assigned_to": "agent-mimo-cli-2289819",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
@@ -435,38 +435,42 @@
     {
       "id": "TASK-056",
       "title": "Implement OTP-based mobile auth with chat history access after login",
-      "status": "TODO",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
-      "last_error": null
+      "last_error": null,
+      "pending_follow_up": true
     },
     {
       "id": "TASK-057",
       "title": "Add chatbot widget to all pages (not just /chat)",
-      "status": "TODO",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
-      "last_error": null
+      "last_error": null,
+      "pending_follow_up": true
     },
     {
       "id": "TASK-058",
       "title": "Fix dashboard to show real data on first page",
-      "status": "TODO",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
-      "last_error": null
+      "last_error": null,
+      "pending_follow_up": true
     },
     {
       "id": "TASK-059",
       "title": "Research open-source alternatives and produce comparison report in markdown",
-      "status": "TODO",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
-      "last_error": null
+      "last_error": null,
+      "pending_follow_up": true
     }
   ]
 }
