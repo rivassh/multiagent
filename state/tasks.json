@@ -398,8 +398,8 @@
     {
       "id": "TASK-052",
       "title": "HPHT screening/retrieval mismatch investigation",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-mimo-cli-2289819",
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
