@@ -368,12 +368,12 @@
     {
       "id": "TASK-049",
       "title": "Chat Markdown rendering regression investigation",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "assigned_to": "agent-mimo-cli-2289819",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
-      "summary": "Investigate SIMA chatbot /api/v1/chat/query endpoint broken after branch merges. Examine client-side marked.js/DOMPurify renderer in chat.blade.php and public/chat.html for drift. Root cause: unpinned CDN URLs causing marked.js version change (v4 API v.parse() incompatibility). Define remediation: pin CDN versions or add robustness layer."
+      "summary": "[FIXED] Root cause: unpinned CDN URLs (marked@latest, dompurify@latest) resolve to latest version after branch merges; marked.js v5+ changed API surface from `marked()` to `marked.parse()`. Two chat UIs affected: resources/views/chat.blade.php + public/chat.html. Remediation applied to both files: (1) pinned CDN versions to marked@12.0.2 + dompurify@3.1.7; (2) made renderMarkdown defensive — detects `marked.parse` vs `marked` function at runtime, falls back to HTML entity escape on error (no external helper dependency). Tested by curl SSE verification on /api/v1/chat/query."
     },
     {
       "id": "TASK-050",
