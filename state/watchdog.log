@@ -22312,3 +22312,798 @@ sima-sima-db-1: Up 25 hours
 sima-sima-nginx-1: Up 25 hours
 nginx-certbot-nginx-1: Up 4 days (healthy)
 nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:47:06Z] --- CYCLE ---
+[2026-10-28T10:47:06Z] DIRTY: sima has uncommitted changes
+ m services/modular-mimo-adapter
+[2026-10-28T10:47:09Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:47:11Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 25 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 25 hours
+[2026-10-28T10:47:11Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 25 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:48:11Z] --- CYCLE ---
+[2026-10-28T10:48:11Z] DIRTY: sima has uncommitted changes
+ m services/modular-mimo-adapter
+[2026-10-28T10:48:14Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:48:16Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 25 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 25 hours
+[2026-10-28T10:48:16Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 25 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:49:16Z] --- CYCLE ---
+[2026-10-28T10:49:16Z] DIRTY: sima has uncommitted changes
+ m services/modular-mimo-adapter
+[2026-10-28T10:49:19Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:49:21Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 25 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 25 hours
+[2026-10-28T10:49:21Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 25 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:50:21Z] --- CYCLE ---
+[2026-10-28T10:50:21Z] CHANGED: multiagent_tasks (/opt/multiagent/state/tasks.json)
+[2026-10-28T10:50:21Z] CHANGED: multiagent_leases (/opt/multiagent/state/leases.json)
+[2026-10-28T10:50:21Z] DIRTY: sima has uncommitted changes
+ m services/modular-mimo-adapter
+[2026-10-28T10:50:24Z] DIRTY: multiagent has uncommitted changes
+ M state/leases.json
+ M state/roles.json
+ M state/tasks.json
+ M state/watchdog.log
+[2026-10-28T10:50:26Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 25 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 25 hours
+[2026-10-28T10:50:26Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 25 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:51:26Z] --- CYCLE ---
+[2026-10-28T10:51:26Z] CHANGED: multiagent_leases (/opt/multiagent/state/leases.json)
+[2026-10-28T10:51:26Z] CHANGED: multiagent_team_log (/opt/multiagent/state/team_log.md)
+[2026-10-28T10:51:26Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+[2026-10-28T10:51:29Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:51:31Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 25 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T10:51:31Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 25 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:52:31Z] --- CYCLE ---
+[2026-10-28T10:52:31Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+[2026-10-28T10:52:33Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:52:36Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T10:52:36Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:53:36Z] --- CYCLE ---
+[2026-10-28T10:53:36Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T10:53:38Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:53:41Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T10:53:41Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:54:41Z] --- CYCLE ---
+[2026-10-28T10:54:41Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T10:54:43Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:54:45Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T10:54:46Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:55:46Z] --- CYCLE ---
+[2026-10-28T10:55:46Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T10:55:48Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:55:50Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T10:55:50Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:56:51Z] --- CYCLE ---
+[2026-10-28T10:56:51Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T10:56:53Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:56:55Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T10:56:55Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:57:55Z] --- CYCLE ---
+[2026-10-28T10:57:55Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T10:57:58Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:58:00Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T10:58:00Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T10:59:00Z] --- CYCLE ---
+[2026-10-28T10:59:00Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T10:59:02Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T10:59:05Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T10:59:05Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:00:05Z] --- CYCLE ---
+[2026-10-28T11:00:05Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:00:07Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:00:09Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:00:10Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:01:10Z] --- CYCLE ---
+[2026-10-28T11:01:10Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:01:12Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:01:14Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:01:14Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:02:14Z] --- CYCLE ---
+[2026-10-28T11:02:14Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:02:17Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:02:19Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:02:19Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:03:19Z] --- CYCLE ---
+[2026-10-28T11:03:19Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:03:22Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:03:24Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:03:24Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:04:24Z] --- CYCLE ---
+[2026-10-28T11:04:24Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:04:26Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:04:29Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:04:29Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:05:29Z] --- CYCLE ---
+[2026-10-28T11:05:29Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:05:31Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:05:34Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:05:34Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:06:34Z] --- CYCLE ---
+[2026-10-28T11:06:34Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:06:36Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:06:38Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:06:38Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:07:38Z] --- CYCLE ---
+[2026-10-28T11:07:39Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:07:41Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:07:43Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:07:43Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:08:43Z] --- CYCLE ---
+[2026-10-28T11:08:43Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:08:46Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:08:48Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:08:48Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:09:48Z] --- CYCLE ---
+[2026-10-28T11:09:48Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:09:50Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:09:52Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:09:53Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:10:53Z] --- CYCLE ---
+[2026-10-28T11:10:53Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:10:55Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:10:57Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:10:57Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:11:57Z] --- CYCLE ---
+[2026-10-28T11:11:57Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:12:00Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:12:02Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:12:02Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:13:02Z] --- CYCLE ---
+[2026-10-28T11:13:02Z] DIRTY: sima has uncommitted changes
+D  resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? resources/views/chat.blade.php
+[2026-10-28T11:13:05Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-28T11:13:07Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:13:07Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:14:07Z] --- CYCLE ---
+[2026-10-28T11:14:07Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+[2026-10-28T11:14:10Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:14:12Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:14:12Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:15:12Z] --- CYCLE ---
+[2026-10-28T11:15:12Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+[2026-10-28T11:15:15Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:15:17Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:15:17Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:16:17Z] --- CYCLE ---
+[2026-10-28T11:16:17Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+[2026-10-28T11:16:19Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:16:22Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:16:22Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:17:22Z] --- CYCLE ---
+[2026-10-28T11:17:22Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/Requisition.php
+[2026-10-28T11:17:24Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:17:27Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:17:27Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:18:27Z] --- CYCLE ---
+[2026-10-28T11:18:27Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+[2026-10-28T11:18:29Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:18:32Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:18:32Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:19:32Z] --- CYCLE ---
+[2026-10-28T11:19:32Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:19:34Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:19:37Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:19:37Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:20:37Z] --- CYCLE ---
+[2026-10-28T11:20:37Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:20:39Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:20:42Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:20:42Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:21:42Z] --- CYCLE ---
+[2026-10-28T11:21:42Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:21:44Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:21:46Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:21:46Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:22:46Z] --- CYCLE ---
+[2026-10-28T11:22:47Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:22:49Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:22:51Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:22:51Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:23:51Z] --- CYCLE ---
+[2026-10-28T11:23:51Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:23:54Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:23:56Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:23:56Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:24:56Z] --- CYCLE ---
+[2026-10-28T11:24:56Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:24:58Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:25:01Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:25:01Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:26:01Z] --- CYCLE ---
+[2026-10-28T11:26:01Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:26:03Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:26:05Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:26:05Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:27:06Z] --- CYCLE ---
+[2026-10-28T11:27:06Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:27:08Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:27:10Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:27:10Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:28:10Z] --- CYCLE ---
+[2026-10-28T11:28:10Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:28:13Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:28:15Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:28:15Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:29:15Z] --- CYCLE ---
+[2026-10-28T11:29:15Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:29:17Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:29:20Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:29:20Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:30:20Z] --- CYCLE ---
+[2026-10-28T11:30:20Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:30:22Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:30:24Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:30:25Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:31:25Z] --- CYCLE ---
+[2026-10-28T11:31:25Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:31:27Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:31:29Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:31:29Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:32:29Z] --- CYCLE ---
+[2026-10-28T11:32:29Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:32:32Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:32:34Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:32:34Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:33:34Z] --- CYCLE ---
+[2026-10-28T11:33:34Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:33:36Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:33:39Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:33:39Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:34:39Z] --- CYCLE ---
+[2026-10-28T11:34:39Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:34:41Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:34:43Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 22 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:34:44Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:35:44Z] --- CYCLE ---
+[2026-10-28T11:35:44Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:35:46Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:35:48Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 23 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:35:48Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:36:48Z] --- CYCLE ---
+[2026-10-28T11:36:48Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Http/Controllers/API/RequisitionController.php
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:36:51Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:36:53Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 23 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:36:53Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
+[2026-10-28T11:37:53Z] --- CYCLE ---
+[2026-10-28T11:37:53Z] DIRTY: sima has uncommitted changes
+ M resources/views/chat.blade.php
+ m services/modular-mimo-adapter
+?? app/Modules/HR/Http/Controllers/API/RequisitionController.php
+?? app/Modules/HR/Models/HeadcountForecast.php
+?? app/Modules/HR/Models/Requisition.php
+?? app/Modules/HR/Models/RequisitionApprovalStep.php
+?? app/Modules/HR/Services/
+[2026-10-28T11:37:56Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+?? resources/
+[2026-10-28T11:37:58Z] DOCKER: sima containers running
+sima-sima-nginx-1: Up 26 hours
+sima-sima-app-1: Up 23 hours
+sima-sima-db-1: Up 26 hours
+[2026-10-28T11:37:58Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 26 hours
+nginx-certbot-nginx-1: Up 4 days (healthy)
+nginx-certbot-certbot-1: Up 4 days
