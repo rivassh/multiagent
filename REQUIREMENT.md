@@ -115,3 +115,24 @@ sse که خواسته بودم قثرار بود به جای سه نقطه یا 
 
 ## User Directive [2026-10-28T14:43:44Z] (Captured by agent-noabatgircom-2601553)
 بررسی و گزارش در یک فایل md داده بشه که گزینه های opensource معادل این چت بات و کاری که در کنارش کردیم چیا هستند
+
+## User Directive [2026-10-28T14:25:00Z] (Captured by agent-unknown)
+می آئم اسم کارجوها رو بده جواب می دهد اطلاعاتی درباره نام کارجوها در داده‌های موجود نیست.
+
+## User Directive [2026-10-28T14:25:00Z] (Captured by agent-unknown)
+محل نوشتن پایین صفحه فیکس باشه
+
+## User Directive [2026-10-28T14:25:00Z] (Captured by agent-unknown)
+sse که خواسته بودم قثار بود به جای سه نقطه یا در حال پاسخگویی روند رو نشون بده
+
+## User Directive [2026-10-28T14:25:00Z] (Captured by agent-unknown)
+قبل از شروع از هر کسی موبایلش رو بگیره و یه todo در کد بذار برای otp در مراحل بعدی و بعد از ورود کاربری برای نفر ساخته بشه و سابقه چت هاش رو بتونه ببینه
+
+## User Directive [2026-10-28T14:25:00Z] (Captured by agent-unknown)
+چت بات به صورت ویجت همه صفحات نشون داده بشه
+
+## User Directive [2026-10-28T14:25:00Z] (Captured by agent-unknown)
+صفحه اول آمار واقعی نشون بده
+
+## User Directive [2026-10-28T14:25:00Z] (Captured by agent-unknown)
+بررسی و گزارش در یک فایل md داده بشه که گزینه های opensource معادل این چت بات و کاری که در کنارش کردیم چیست
