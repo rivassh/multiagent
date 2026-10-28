@@ -56,3 +56,41 @@ Create TASK-048: Implement TDD (Test-Driven Development) cycle for Assessment mo
 
 ## User Directive [2026-10-28T07:33:56Z] (Captured by agent-executive-boardroom)
 Test review-only directive format validation
+
+## User Directive [2026-10-28T09:35:00Z] (Captured by agent-executive-boardroom)
+CEO/CTO SIMA directive — four independent root-cause investigations:
+
+1. Chat Markdown rendering regression: assistant responses via /api/v1/chat/query broken after branch merges; investigate client-side marked.js/DOMPurify renderer in chat.blade.php and any branch-merge drift.
+2. Missing copy button on assistant responses: no copy-to-clipboard UI exists in chat.blade.php; add accessible copy button for assistant bubbles.
+3. debug.adlr.ir floating error CORS: widget at debug.adlr.ir fails CORS for error-tooltip API; current nginx config allows * origin for /widget.js and /api/public/widgets/ but actual failing request path needs verification; NO server changes without human approval.
+4. Resume screening HPHT mismatch: crawl→storage→index→retrieval chain for ATS screening shows only 4 candidates, none matching HPHT mechanical engineering; verify parsed profiles reach retrieval, freshness, and job criteria filter alignment. ScreeningOrchestrator filters by status='applied' and requires requirements_matrix.
+
+CEO: prioritize by user impact/risk; human decision at high-risk gates.
+CTO: separate hypotheses from evidence per item; identify owner/repo/env; define solution, regression test, acceptance criteria.
+Split into four independent sub-tasks; avoid cross-contamination.
+Pre-change: verify branch status, local modifications, active agent work; no overwrites.
+CORS: diagnose first, apply only after approval.
+No 'resolved' claim unless acceptance criteria passes repeatable test.
+
+Zero-step delivery path verification:
+1. This directive registered in /opt/multiagent/REQUIREMENT.md
+2. Emission via emit_directive.sh inside Docker (board wrapper read-only)
+3. Delivery script: scripts/emit_directive.sh (auto-commits and pushes to origin/master after approval)
+4. SIMA target project confirmed at /opt/ymls/sima (git repo, docker containers sima-sima-nginx-1, sima-sima-app-1, sima-sima-db-1)
+5. Agents pick up from multiagent state/tasks.json after git push
+6. Auto-delivery configured: push to multiagent triggers agent lease acquisition
+
+## User Directive [2026-10-28T09:35:48Z] (Captured by agent-executive-boardroom)
+CEO/CTO SIMA directive — four independent root-cause investigations:
+
+1. Chat Markdown rendering regression: assistant responses via /api/v1/chat/query broken after branch merges; investigate client-side marked.js/DOMPurify renderer in chat.blade.php and any branch-merge drift.
+2. Missing copy button on assistant responses: no copy-to-clipboard UI exists in chat.blade.php; add accessible copy button for assistant bubbles.
+3. debug.adlr.ir floating error CORS: widget at debug.adlr.ir fails CORS for error-tooltip API; current nginx config allows * origin for /widget.js and /api/public/widgets/ but actual failing request path needs verification; NO server changes without human approval.
+4. Resume screening HPHT mismatch: crawl→storage→index→retrieval chain for ATS screening shows only 4 candidates, none matching HPHT mechanical engineering; verify parsed profiles reach retrieval, freshness, and job criteria filter alignment. ScreeningOrchestrator filters by status='applied' and requires requirements_matrix.
+
+CEO: prioritize by user impact/risk; human decision at high-risk gates.
+CTO: separate hypotheses from evidence per item; identify owner/repo/env; define solution, regression test, acceptance criteria.
+Split into four independent sub-tasks; avoid cross-contamination.
+Pre-change: verify branch status, local modifications, active agent work; no overwrites.
+CORS: diagnose first, apply only after approval.
+No 'resolved' claim unless acceptance criteria passes repeatable test.
