@@ -475,10 +475,10 @@
         {
             "id": "TASK-060",
             "title": "Comprehensive SIMA project audit from scratch \u2014 full-stack verification, uncovered gaps, protocol review",
-            "status": "TODO",
-            "assigned_to": null,
+            "status": "IN_PROGRESS",
+            "assigned_to": "agent-noabatgircom-3722452",
             "reviewer": null,
-            "attempts": 0,
+            "attempts": 1,
             "last_error": null,
             "priority": "P1",
             "description": "Full audit of SIMA project: verify all DONE tasks were legitimately implemented, identify untracked/incomplete features, review API surfaces, DB schemas, chat flow, auth flow, and create findings report.",
