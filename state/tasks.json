@@ -1,476 +1,488 @@
 {
-  "version": 1,
-  "tasks": [
-    {
-      "id": "TASK-024",
-      "title": "Implement Generic Screening Engine (corpus-agnostic, shallow pipeline)",
-      "status": "DONE",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 3,
-      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first."
-    },
-    {
-      "id": "TASK-001",
-      "title": "Fix duplicated methods in User.php",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-002",
-      "title": "Fix artisan entry point",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-003",
-      "title": "Fix SSE Handler reference",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-004",
-      "title": "Implement Crawler Controllers",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-005",
-      "title": "Add API Response Standardization",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-006",
-      "title": "Add API Versioning",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-007",
-      "title": "Create Health Check Endpoint",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-008",
-      "title": "Add Caching Layer",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-009",
-      "title": "Optimize Database Queries",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 2,
-      "last_error": null
-    },
-    {
-      "id": "TASK-010",
-      "title": "Add Laravel Events",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-29222907",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-011",
-      "title": "Add Queue Integration",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2769754",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 2,
-      "last_error": null
-    },
-    {
-      "id": "TASK-012",
-      "title": "Add Security Headers",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-29222907",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-013",
-      "title": "Expand Candidate Database for HPHT/High-Pressure Skills",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-29222907",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-014",
-      "title": "Add Chat History Persistence per User",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-29222907",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-015",
-      "title": "Add Mobile-Only Authentication (OTP as Future TODO)",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-29222907",
-      "reviewer": "agent-noabatgircom-29222907",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-025",
-      "title": "Verify Generative UI implementation status",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-026",
-      "title": "Verify SecurityModerator/Sanjeman sanitization layer status",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-027",
-      "title": "ATS (Applicant Tracking System) module status check - not found in codebase",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": "agent-local-12345",
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-028",
-      "title": "Verify Elasticsearch stack completeness (adapter + retrieval layers)",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-029",
-      "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-030",
-      "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
-      "status": "DONE",
-      "assigned_to": "agent-THRMP105-15984",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-031",
-      "title": "Lease infrastructure: clear expired lease and enable active lease management for pending reviews",
-      "status": "DONE",
-      "assigned_to": "agent-THRMP105-15984",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-032",
-      "title": "Establish active lease infrastructure for pending reviews (TASK-016, TASK-024)",
-      "status": "DONE",
-      "assigned_to": "agent-THRMP105-15984",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-033",
-      "title": "Investigate and fix SIMA chatbot 500 error on POST /api/v1/chat/completions",
-      "status": "DONE",
-      "assigned_to": "agent-mimo-cli-12345",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-034",
-      "title": "Define 0-2.req evaluation matrix as structured JSON document — 7 criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) for HPHT mechanical engineering screening",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-1220228",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-035",
-      "title": "Integrate upstream mimo-adapter into SIMA as a Git submodule",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-1220228",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Add the upstream mimo-adapter repository as a git submodule inside the SIMA project so other agents can check out the dependency and wire it into the stack."
-    },
-    {
-      "id": "TASK-036",
-      "title": "Implement ATS ScreeningOrchestrator — integrate GenericScreeningEngine to score job post requirements against candidates, emit screening results to ats_applications",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null,
-      "summary": "Implemented screenJobPost() in ScreeningOrchestrator. Uses GenericScreeningEngine to evaluate candidates against job post criteria matrix. Persists screening_score, screening_result, and screened_at to ats_applications. BDD test ats_can_screen_candidates_for_job_post passes (6 assertions)."
-    },
-    {
-      "id": "TASK-037",
-      "title": "Implement ATS CrawlerOrchestrator — connect CandidateSourceFactory to import candidates from JobVision/Talent APIs into ats_applications",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null,
-      "summary": "Implemented importCandidates() in CrawlerOrchestrator. Uses JobVisionCrawler.fetchCandidates() and CandidateSourceFactory (JobVisionSource) to parse and import candidates. Creates Candidate + Application records linked to job post. BDD tests ats_crawler_orchestrator_imports_candidates and ats_crawler_orchestrator_unsupported_source_throws pass."
-    },
-    {
-      "id": "TASK-038",
-      "title": "Implement ATS ShortlistGenerator — use GenericScreeningEngine.generateShortlist to rank candidates and create ats_shortlists with ats_shortlist_items",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null,
-      "summary": "Implemented ShortlistGenerator service with generateShortlist(). Retrieves screened applications, uses GenericScreeningEngine.generateShortlist() with domain criteria, creates Shortlist + ShortlistItem records with rank and match_score. BDD tests ats_shortlist_generator_creates_shortlist and ats_shortlist_generator_empty_when_no_candidates pass."
-    },
-    {
-      "id": "TASK-039",
-      "title": "Add BDD tests for ATS service layer — ScreeningOrchestrator, CrawlerOrchestrator, ShortlistGenerator integration tests with mocked GenericScreeningEngine",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null,
-      "summary": "Created AtCrawlerOrchestratorBddTest.php (2 tests: import_candidates, unsupported_source_throws) and AtShortlistGeneratorBddTest.php (2 tests: creates_shortlist, empty_when_no_candidates). ScreeningOrchestrator test ats_can_screen_candidates_for_job_post is in AtModuleBddTest.php. All 6 ATS tests pass (29 assertions)."
-    },
-    {
-      "id": "TASK-040",
-      "title": "Expand Chat module — implement ChatQueryService streaming response support and tool calling for RAG retrieval",
-      "status": "DONE",
-      "assigned_to": "agent-antix1-4258",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Chat streaming verified working on port 8015 (nginx) and 8089 (direct). SSE events: status -> assistant_message -> done. ChatProviderInterface bound in ChatServiceProvider, completeStream() error handling added. User black-box verification confirmed."
-    },
-    {
-      "id": "TASK-041",
-      "title": "Expand Assessment module — add assessment templates, scheduling, and result aggregation for ATS pipeline",
-      "status": "DONE",
-      "assigned_to": "agent-local-12345",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null,
-      "summary": "Assessment module at app/Modules/Assessment/ implemented: assessment templates (technical, behavioral, cognitive), scheduling service linked to Shortlist, result scoring/aggregation service, and integration with ATS via shortlist_id. BDD tests removed per rule (agents must not touch BDD). All code syntax-checked. Ready for TDD unit tests (TASK-048)."
-    },
-    {
-      "id": "TASK-042",
-      "title": "Implement HR module workforce planning — headcount forecasting, requisition approval workflow, org chart management",
-      "status": "DONE",
-      "assigned_to": "agent-gitops-001",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null,
-      "summary": "HR module at app/Modules/HR/ has basic structure. Add: headcount forecast models, requisition approval workflow (multi-level), org chart CRUD with reporting lines, budget tracking. Connect requisitions to ATS job posts for unified pipeline."
-    },
-    {
-      "id": "TASK-043",
-      "title": "Validate GenericScreeningEngine against static NLP harness + 0-2.req extraction",
-      "status": "DONE",
-      "assigned_to": "agent-local-12345",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Run python modules/nlp-worker/run_eval.py with 0-2.req input artifact to validate eval_input.schema -> eval_result.schema contract. Verify extraction of 7 HPHT criteria from Persian text succeeds with exit code 0. Also validate GenericScreeningEngine can extract matrix from 0-2.req Persian text. Ground truth: evaluations/0-2.req, harness: modules/nlp-worker/run_eval.py, schema: schema/eval_result.schema.json"
-    },
-    {
-      "id": "TASK-044",
-      "title": "Create structured JSON evaluation matrix from 0-2.req — 7 HPHT criteria",
-      "status": "DONE",
-      "assigned_to": "agent-local-12345",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Parse evaluations/0-2.req into sima/evaluations/0-2-matrix.json with 7 criteria as structured objects {id, weight, category, name, min_threshold, evidence_fields, extraction_prompt}. Each criterion maps to enrichment->evaluation->shortlist stages. Validate JSON against eval_input.schema.json for required fields."
-    },
-    {
-      "id": "TASK-045",
-      "title": "Complete ATS module end-to-end verification — all services + controller + tests pass",
-      "status": "DONE",
-      "assigned_to": "agent-local-12345",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Verify all ATS modules work end-to-end: ScreeningOrchestrator screenJobPost, CrawlerOrchestrator importCandidates, ShortlistGenerator generate(), ATSController endpoints. Run existing BDD tests (AtCrawlerOrchestratorBddTest, AtShortlistGeneratorBddTest). Verify database migrations (ats_job_posts, ats_applications, ats_shortlists, ats_shortlist_items)."
-    },
-    {
-      "id": "TASK-046",
-      "title": "Restore active lease infrastructure in state/leases.json",
-      "status": "DONE",
-      "assigned_to": "agent-local-12345",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Re-create active lease for tasks.json per AGENTS.md ACQUIRE_LEASE subroutine. Verify heartbeat mechanism, zombie eviction (30s threshold), 120s TTL. Lease must allow other agents to claim pending tasks."
-    },
-    {
-      "id": "TASK-047",
-      "title": "Add comprehensive ATS service layer BDD test suite",
-      "status": "DONE",
-      "assigned_to": "agent-local-12345",
-      "reviewer": "agent-local-12345",
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Create AtScreeningOrchestratorBddTest covering screening candidate, screen all candidates, extract matrix from description, error on empty matrix. Add import_with_source_factory to AtCrawlerOrchestratorBddTest. Add custom_limit and empty_matrix_fallback to AtShortlistGeneratorBddTest. Total: 5+ tests covering all ATS services with mocked GenericScreeningEngine. Acceptance: all pass, persistence verified."
-    },
-    {
-      "id": "TASK-049",
-      "title": "Chat Markdown rendering regression investigation",
-      "status": "DONE",
-      "assigned_to": "agent-mimo-cli-2289819",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null,
-      "summary": "[FIXED] Root cause: unpinned CDN URLs (marked@latest, dompurify@latest) resolve to latest version after branch merges; marked.js v5+ changed API surface from `marked()` to `marked.parse()`. Two chat UIs affected: resources/views/chat.blade.php + public/chat.html. Remediation applied to both files: (1) pinned CDN versions to marked@12.0.2 + dompurify@3.1.7; (2) made renderMarkdown defensive — detects `marked.parse` vs `marked` function at runtime, falls back to HTML entity escape on error (no external helper dependency). Tested by curl SSE verification on /api/v1/chat/query."
-    },
-    {
-      "id": "TASK-050",
-      "title": "Missing assistant copy button implementation",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-mimo-cli-2289819",
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Add accessible copy-to-clipboard UI for assistant response bubbles in chat.blade.php. Design accessible copy button per WCAG guidelines, test with DOMPurify sanitization."
-    },
-    {
-      "id": "TASK-051",
-      "title": "debug.adlr.ir floating CORS error diagnosis",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-mimo-cli-2289819",
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Diagnose debug.adlr.ir CORS failure for error-tooltip API. Verify nginx config allowing * origin for /widget.js and /api/public/widgets/, identify actual failing path. No server changes without human approval."
-    },
-    {
-      "id": "TASK-052",
-      "title": "HPHT screening/retrieval mismatch investigation",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-mimo-cli-2289819",
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "summary": "Analyze crawl→storage→index→retrieval chain for ATS screening showing only 4 candidates (none HPHT mechanical). Verify parsed profiles reach retrieval, freshness, and job criteria filter alignment. ScreeningOrchestrator filters by status='applied' and requires requirements_matrix."
-    },
-    {
-      "id": "TASK-053",
-      "title": "Fix candidate name not found in chatbot responses",
-      "status": "DONE",
-      "assigned_to": "agent-mimo-cli-2289819",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
-      "id": "TASK-054",
-      "title": "Fix chat input position at bottom of page (sticky footer)",
-      "status": "DONE",
-      "assigned_to": "agent-mimo-cli-2289819",
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-055",
-      "title": "Add SSE streaming progress indicator (replace 'در حال پاسخگویی...' with token stream)",
-      "status": "DONE",
-      "assigned_to": "agent-mimo-cli-2289819",
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-056",
-      "title": "Implement OTP-based mobile auth with chat history access after login",
-      "status": "DONE",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "pending_follow_up": true
-    },
-    {
-      "id": "TASK-057",
-      "title": "Add chatbot widget to all pages (not just /chat)",
-      "status": "DONE",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "pending_follow_up": true
-    },
-    {
-      "id": "TASK-058",
-      "title": "Fix dashboard to show real data on first page",
-      "status": "DONE",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "pending_follow_up": true
-    },
-    {
-      "id": "TASK-059",
-      "title": "Research open-source alternatives and produce comparison report in markdown",
-      "status": "DONE",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "pending_follow_up": true
-    }
-  ]
+    "version": 1,
+    "tasks": [
+        {
+            "id": "TASK-024",
+            "title": "Implement Generic Screening Engine (corpus-agnostic, shallow pipeline)",
+            "status": "DONE",
+            "assigned_to": null,
+            "reviewer": null,
+            "attempts": 3,
+            "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red\u2192Green) incomplete \u2014 requires TDD Red phase first."
+        },
+        {
+            "id": "TASK-001",
+            "title": "Fix duplicated methods in User.php",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-002",
+            "title": "Fix artisan entry point",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-003",
+            "title": "Fix SSE Handler reference",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-004",
+            "title": "Implement Crawler Controllers",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-005",
+            "title": "Add API Response Standardization",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-006",
+            "title": "Add API Versioning",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-007",
+            "title": "Create Health Check Endpoint",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-008",
+            "title": "Add Caching Layer",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-009",
+            "title": "Optimize Database Queries",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 2,
+            "last_error": null
+        },
+        {
+            "id": "TASK-010",
+            "title": "Add Laravel Events",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-29222907",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-011",
+            "title": "Add Queue Integration",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-2769754",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 2,
+            "last_error": null
+        },
+        {
+            "id": "TASK-012",
+            "title": "Add Security Headers",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-29222907",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-013",
+            "title": "Expand Candidate Database for HPHT/High-Pressure Skills",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-29222907",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-014",
+            "title": "Add Chat History Persistence per User",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-29222907",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-015",
+            "title": "Add Mobile-Only Authentication (OTP as Future TODO)",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-29222907",
+            "reviewer": "agent-noabatgircom-29222907",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-025",
+            "title": "Verify Generative UI implementation status",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-026",
+            "title": "Verify SecurityModerator/Sanjeman sanitization layer status",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-027",
+            "title": "ATS (Applicant Tracking System) module status check - not found in codebase",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": "agent-local-12345",
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-028",
+            "title": "Verify Elasticsearch stack completeness (adapter + retrieval layers)",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-029",
+            "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null
+        },
+        {
+            "id": "TASK-030",
+            "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
+            "status": "DONE",
+            "assigned_to": "agent-THRMP105-15984",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-031",
+            "title": "Lease infrastructure: clear expired lease and enable active lease management for pending reviews",
+            "status": "DONE",
+            "assigned_to": "agent-THRMP105-15984",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-032",
+            "title": "Establish active lease infrastructure for pending reviews (TASK-016, TASK-024)",
+            "status": "DONE",
+            "assigned_to": "agent-THRMP105-15984",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null
+        },
+        {
+            "id": "TASK-033",
+            "title": "Investigate and fix SIMA chatbot 500 error on POST /api/v1/chat/completions",
+            "status": "DONE",
+            "assigned_to": "agent-mimo-cli-12345",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-034",
+            "title": "Define 0-2.req evaluation matrix as structured JSON document \u2014 7 criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) for HPHT mechanical engineering screening",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-1220228",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null
+        },
+        {
+            "id": "TASK-035",
+            "title": "Integrate upstream mimo-adapter into SIMA as a Git submodule",
+            "status": "DONE",
+            "assigned_to": "agent-noabatgircom-1220228",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Add the upstream mimo-adapter repository as a git submodule inside the SIMA project so other agents can check out the dependency and wire it into the stack."
+        },
+        {
+            "id": "TASK-036",
+            "title": "Implement ATS ScreeningOrchestrator \u2014 integrate GenericScreeningEngine to score job post requirements against candidates, emit screening results to ats_applications",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null,
+            "summary": "Implemented screenJobPost() in ScreeningOrchestrator. Uses GenericScreeningEngine to evaluate candidates against job post criteria matrix. Persists screening_score, screening_result, and screened_at to ats_applications. BDD test ats_can_screen_candidates_for_job_post passes (6 assertions)."
+        },
+        {
+            "id": "TASK-037",
+            "title": "Implement ATS CrawlerOrchestrator \u2014 connect CandidateSourceFactory to import candidates from JobVision/Talent APIs into ats_applications",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null,
+            "summary": "Implemented importCandidates() in CrawlerOrchestrator. Uses JobVisionCrawler.fetchCandidates() and CandidateSourceFactory (JobVisionSource) to parse and import candidates. Creates Candidate + Application records linked to job post. BDD tests ats_crawler_orchestrator_imports_candidates and ats_crawler_orchestrator_unsupported_source_throws pass."
+        },
+        {
+            "id": "TASK-038",
+            "title": "Implement ATS ShortlistGenerator \u2014 use GenericScreeningEngine.generateShortlist to rank candidates and create ats_shortlists with ats_shortlist_items",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null,
+            "summary": "Implemented ShortlistGenerator service with generateShortlist(). Retrieves screened applications, uses GenericScreeningEngine.generateShortlist() with domain criteria, creates Shortlist + ShortlistItem records with rank and match_score. BDD tests ats_shortlist_generator_creates_shortlist and ats_shortlist_generator_empty_when_no_candidates pass."
+        },
+        {
+            "id": "TASK-039",
+            "title": "Add BDD tests for ATS service layer \u2014 ScreeningOrchestrator, CrawlerOrchestrator, ShortlistGenerator integration tests with mocked GenericScreeningEngine",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null,
+            "summary": "Created AtCrawlerOrchestratorBddTest.php (2 tests: import_candidates, unsupported_source_throws) and AtShortlistGeneratorBddTest.php (2 tests: creates_shortlist, empty_when_no_candidates). ScreeningOrchestrator test ats_can_screen_candidates_for_job_post is in AtModuleBddTest.php. All 6 ATS tests pass (29 assertions)."
+        },
+        {
+            "id": "TASK-040",
+            "title": "Expand Chat module \u2014 implement ChatQueryService streaming response support and tool calling for RAG retrieval",
+            "status": "DONE",
+            "assigned_to": "agent-antix1-4258",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Chat streaming verified working on port 8015 (nginx) and 8089 (direct). SSE events: status -> assistant_message -> done. ChatProviderInterface bound in ChatServiceProvider, completeStream() error handling added. User black-box verification confirmed."
+        },
+        {
+            "id": "TASK-041",
+            "title": "Expand Assessment module \u2014 add assessment templates, scheduling, and result aggregation for ATS pipeline",
+            "status": "DONE",
+            "assigned_to": "agent-local-12345",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null,
+            "summary": "Assessment module at app/Modules/Assessment/ implemented: assessment templates (technical, behavioral, cognitive), scheduling service linked to Shortlist, result scoring/aggregation service, and integration with ATS via shortlist_id. BDD tests removed per rule (agents must not touch BDD). All code syntax-checked. Ready for TDD unit tests (TASK-048)."
+        },
+        {
+            "id": "TASK-042",
+            "title": "Implement HR module workforce planning \u2014 headcount forecasting, requisition approval workflow, org chart management",
+            "status": "DONE",
+            "assigned_to": "agent-gitops-001",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null,
+            "summary": "HR module at app/Modules/HR/ has basic structure. Add: headcount forecast models, requisition approval workflow (multi-level), org chart CRUD with reporting lines, budget tracking. Connect requisitions to ATS job posts for unified pipeline."
+        },
+        {
+            "id": "TASK-043",
+            "title": "Validate GenericScreeningEngine against static NLP harness + 0-2.req extraction",
+            "status": "DONE",
+            "assigned_to": "agent-local-12345",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Run python modules/nlp-worker/run_eval.py with 0-2.req input artifact to validate eval_input.schema -> eval_result.schema contract. Verify extraction of 7 HPHT criteria from Persian text succeeds with exit code 0. Also validate GenericScreeningEngine can extract matrix from 0-2.req Persian text. Ground truth: evaluations/0-2.req, harness: modules/nlp-worker/run_eval.py, schema: schema/eval_result.schema.json"
+        },
+        {
+            "id": "TASK-044",
+            "title": "Create structured JSON evaluation matrix from 0-2.req \u2014 7 HPHT criteria",
+            "status": "DONE",
+            "assigned_to": "agent-local-12345",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Parse evaluations/0-2.req into sima/evaluations/0-2-matrix.json with 7 criteria as structured objects {id, weight, category, name, min_threshold, evidence_fields, extraction_prompt}. Each criterion maps to enrichment->evaluation->shortlist stages. Validate JSON against eval_input.schema.json for required fields."
+        },
+        {
+            "id": "TASK-045",
+            "title": "Complete ATS module end-to-end verification \u2014 all services + controller + tests pass",
+            "status": "DONE",
+            "assigned_to": "agent-local-12345",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Verify all ATS modules work end-to-end: ScreeningOrchestrator screenJobPost, CrawlerOrchestrator importCandidates, ShortlistGenerator generate(), ATSController endpoints. Run existing BDD tests (AtCrawlerOrchestratorBddTest, AtShortlistGeneratorBddTest). Verify database migrations (ats_job_posts, ats_applications, ats_shortlists, ats_shortlist_items)."
+        },
+        {
+            "id": "TASK-046",
+            "title": "Restore active lease infrastructure in state/leases.json",
+            "status": "DONE",
+            "assigned_to": "agent-local-12345",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Re-create active lease for tasks.json per AGENTS.md ACQUIRE_LEASE subroutine. Verify heartbeat mechanism, zombie eviction (30s threshold), 120s TTL. Lease must allow other agents to claim pending tasks."
+        },
+        {
+            "id": "TASK-047",
+            "title": "Add comprehensive ATS service layer BDD test suite",
+            "status": "DONE",
+            "assigned_to": "agent-local-12345",
+            "reviewer": "agent-local-12345",
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Create AtScreeningOrchestratorBddTest covering screening candidate, screen all candidates, extract matrix from description, error on empty matrix. Add import_with_source_factory to AtCrawlerOrchestratorBddTest. Add custom_limit and empty_matrix_fallback to AtShortlistGeneratorBddTest. Total: 5+ tests covering all ATS services with mocked GenericScreeningEngine. Acceptance: all pass, persistence verified."
+        },
+        {
+            "id": "TASK-049",
+            "title": "Chat Markdown rendering regression investigation",
+            "status": "DONE",
+            "assigned_to": "agent-mimo-cli-2289819",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null,
+            "summary": "[FIXED] Root cause: unpinned CDN URLs (marked@latest, dompurify@latest) resolve to latest version after branch merges; marked.js v5+ changed API surface from `marked()` to `marked.parse()`. Two chat UIs affected: resources/views/chat.blade.php + public/chat.html. Remediation applied to both files: (1) pinned CDN versions to marked@12.0.2 + dompurify@3.1.7; (2) made renderMarkdown defensive \u2014 detects `marked.parse` vs `marked` function at runtime, falls back to HTML entity escape on error (no external helper dependency). Tested by curl SSE verification on /api/v1/chat/query."
+        },
+        {
+            "id": "TASK-050",
+            "title": "Missing assistant copy button implementation",
+            "status": "IN_PROGRESS",
+            "assigned_to": "agent-mimo-cli-2289819",
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Add accessible copy-to-clipboard UI for assistant response bubbles in chat.blade.php. Design accessible copy button per WCAG guidelines, test with DOMPurify sanitization."
+        },
+        {
+            "id": "TASK-051",
+            "title": "debug.adlr.ir floating CORS error diagnosis",
+            "status": "IN_PROGRESS",
+            "assigned_to": "agent-mimo-cli-2289819",
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Diagnose debug.adlr.ir CORS failure for error-tooltip API. Verify nginx config allowing * origin for /widget.js and /api/public/widgets/, identify actual failing path. No server changes without human approval."
+        },
+        {
+            "id": "TASK-052",
+            "title": "HPHT screening/retrieval mismatch investigation",
+            "status": "IN_PROGRESS",
+            "assigned_to": "agent-mimo-cli-2289819",
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null,
+            "summary": "Analyze crawl\u2192storage\u2192index\u2192retrieval chain for ATS screening showing only 4 candidates (none HPHT mechanical). Verify parsed profiles reach retrieval, freshness, and job criteria filter alignment. ScreeningOrchestrator filters by status='applied' and requires requirements_matrix."
+        },
+        {
+            "id": "TASK-053",
+            "title": "Fix candidate name not found in chatbot responses",
+            "status": "DONE",
+            "assigned_to": "agent-mimo-cli-2289819",
+            "reviewer": null,
+            "attempts": 1,
+            "last_error": null
+        },
+        {
+            "id": "TASK-054",
+            "title": "Fix chat input position at bottom of page (sticky footer)",
+            "status": "DONE",
+            "assigned_to": "agent-mimo-cli-2289819",
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null
+        },
+        {
+            "id": "TASK-055",
+            "title": "Add SSE streaming progress indicator (replace '\u062f\u0631 \u062d\u0627\u0644 \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc...' with token stream)",
+            "status": "DONE",
+            "assigned_to": "agent-mimo-cli-2289819",
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null
+        },
+        {
+            "id": "TASK-056",
+            "title": "Implement OTP-based mobile auth with chat history access after login",
+            "status": "DONE",
+            "assigned_to": null,
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null,
+            "pending_follow_up": true
+        },
+        {
+            "id": "TASK-057",
+            "title": "Add chatbot widget to all pages (not just /chat)",
+            "status": "DONE",
+            "assigned_to": null,
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null,
+            "pending_follow_up": true
+        },
+        {
+            "id": "TASK-058",
+            "title": "Fix dashboard to show real data on first page",
+            "status": "DONE",
+            "assigned_to": null,
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null,
+            "pending_follow_up": true
+        },
+        {
+            "id": "TASK-059",
+            "title": "Research open-source alternatives and produce comparison report in markdown",
+            "status": "DONE",
+            "assigned_to": null,
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null,
+            "pending_follow_up": true
+        },
+        {
+            "id": "TASK-060",
+            "title": "Comprehensive SIMA project audit from scratch \u2014 full-stack verification, uncovered gaps, protocol review",
+            "status": "TODO",
+            "assigned_to": null,
+            "reviewer": null,
+            "attempts": 0,
+            "last_error": null,
+            "priority": "P1",
+            "description": "Full audit of SIMA project: verify all DONE tasks were legitimately implemented, identify untracked/incomplete features, review API surfaces, DB schemas, chat flow, auth flow, and create findings report.",
+            "summary": "Full audit of SIMA: verify all DONE tasks legitimately implemented, audit API/DB/chat/auth flow, produce findings report."
+        }
+    ]
 }
