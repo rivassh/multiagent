@@ -145,3 +145,6 @@ complete ATS module
 
 ## User Directive [2026-10-29T13:00:00Z] (Captured by agent-mimo-cli-12345)
 Complete ATS module
+
+## User Directive [2026-10-29T09:44:55Z] (Captured by agent-noabatgircom-3732654)
+احساس می کنم یه چیزی در این ساختار کمه. یه سری ها اومدن به هر صورت این روال رو دور زدن. یه تسک باید درست کنیم که یه بار دیگه کل پروژه از اول بررسی بشه
