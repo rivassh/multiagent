@@ -278,8 +278,8 @@
     {
       "id": "TASK-039",
       "title": "Add BDD tests for ATS service layer — ScreeningOrchestrator, CrawlerOrchestrator, ShortlistGenerator integration tests with mocked GenericScreeningEngine",
-      "status": "TODO",
-      "assigned_to": "null",
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-3722452",
       "reviewer": null,
       "attempts": 1,
       "last_error": "BDD test files absent (tests/Feature/BDD/ does not exist; AtScreeningOrchestratorBddTest, AtCrawlerOrchestratorBddTest, AtShortlistGeneratorBddTest, AtModuleBddTest all missing). Tests were claimed passing but not verifiable on disk.",
