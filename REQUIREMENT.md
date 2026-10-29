@@ -154,3 +154,6 @@ Complete ATS module
 
 ## User Directive [2026-10-29T15:00:00Z] (Captured by current-session)
 @tests/Behavior-Driven-Development/ رو بررسی کن و راش یه سری تسک طبق ساختار /opt/multiagent در همون /opt/multiagent ایجاد کن
+
+## User Directive [2026-10-29T20:59:12Z] (Captured by agent-noabatgircom-249350)
+چه تسک هایی داریم. لیست کن برام
