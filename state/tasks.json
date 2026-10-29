@@ -358,8 +358,8 @@
     {
       "id": "TASK-047",
       "title": "Add comprehensive ATS service layer BDD test suite",
-      "status": "TODO",
-      "assigned_to": "null",
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-3722452",
       "reviewer": "agent-local-12345",
       "attempts": 0,
       "last_error": "BDD test files absent (AtScreeningOrchestratorBddTest referenced but missing). Status can't be reconciled with filesystem.",
