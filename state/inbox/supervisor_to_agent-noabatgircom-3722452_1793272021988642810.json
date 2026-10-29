@@ -1,0 +1,11 @@
+{
+  "type": "TASK_DISTRIBUTION",
+  "payload": {
+    "action": "ASSIGN",
+    "task_id": "TASK-039",
+    "agent_id": "agent-noabatgircom-3722452",
+    "reason": "Supervisor distribution - task needs owner"
+  },
+  "sender": "supervisor",
+  "timestamp": "2026-10-29T11:07:01Z"
+}

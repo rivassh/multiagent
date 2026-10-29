@@ -1,0 +1,11 @@
+{
+  "type": "TASK_DISTRIBUTION",
+  "payload": {
+    "action": "RELEASE",
+    "task_id": "TASK-039",
+    "agent_id": "agent-antix1-4258",
+    "reason": "Task failed - supervisor recovering"
+  },
+  "sender": "supervisor",
+  "timestamp": "2026-10-29T11:06:01Z"
+}
