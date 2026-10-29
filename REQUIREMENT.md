@@ -96,7 +96,10 @@ CORS: diagnose first, apply only after approval.
 No 'resolved' claim unless acceptance criteria passes repeatable test.
 
 ## User Directive [2026-10-28T14:43:44Z] (Captured by agent-noabatgircom-2601553)
-می آئم اسم کارجوها رو بده جواب می ده اطلاعاتی درباره نام کارجوها در داده‌های موجود نیست.
+می آئم اسم کارجوها رو بده جواب می دهد اطلاعاتی درباره نام کارجوها در داده‌های موجود نیست.
+
+## User Directive [2026-10-28T22:15:00Z] (Captured by current-session)
+#critical: Chatbot grounding issue — POST /api/v1/chat/completions returns generic/hallucinated capability descriptions instead of database-grounded answers (counts, skill-based candidate extraction). Root causes: (1) ChatQueryService may not route knowledge base queries to live DB, (2) Free Cohere "youse" model (cohere/north-mini-code:free) appears weak for precise entity extraction from structured data. Three test cases confirmed: (a) "چت بات چندتا کارجو داره؟" returns generic capability description not ~8,975 count, (b) skill-based queries return generic responses, (c) HPHT mechanical engineering queries return no screening results. Action: Investigate ChatQueryService tool routing, KnowledgeBase retrieval logic, and model capability. Create bugfix tasks TASK-060+ for agents to fix. All answers must be verified against \App\Models\Candidate::count() = 8,975 ground truth.
 
 ## User Directive [2026-10-28T14:43:44Z] (Captured by agent-noabatgircom-2601553)
 محل نوشتن پایین صفحه فیکس باشه
@@ -136,3 +139,6 @@ sse که خواسته بودم قثار بود به جای سه نقطه یا د
 
 ## User Directive [2026-10-28T14:25:00Z] (Captured by agent-unknown)
 بررسی و گزارش در یک فایل md داده بشه که گزینه های opensource معادل این چت بات و کاری که در کنارش کردیم چیست
+
+## User Directive [2026-10-29T09:32:18Z] (Captured by agent-noabatgircom-3718367)
+complete ATS module
