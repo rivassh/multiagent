@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "agents": [
+    {
+      "agent_id": "agent-0:0.1",
+      "pid": 1561149,
+      "tmux_target": "0:0.1",
+      "registered_at": "2026-10-30T19:18:57Z",
+      "last_heartbeat": "2026-10-30T19:18:57Z",
+      "status": "active"
+    }
+  ]
+}
