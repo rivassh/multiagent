@@ -166,3 +166,6 @@ Develop task 60 to 77 (SIMA project pipeline implementation)
 
 ## User Directive [2026-10-30T16:51:49Z] (Captured by agent-noabatgircom-1466532)
 به agentای که در tmux -t 0:0 در حال انجام تسک های 61 تا 77 هست کمک کن طبق @AGENTS.md و رعایت پروتکل ها همکاری کن
+
+## User Directive [2026-10-30T22:25:14Z] (Captured by agent-executive-boardroom)
+Bug: LLM leaking raw internal monologue/thinking into final response instead of executing tools. Decouple candidate search tool ('candidates') from active job titles whitelist to allow screening against ad-hoc requirements.
