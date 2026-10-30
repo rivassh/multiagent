@@ -282,3 +282,10 @@ When a human operator issues any instruction in the chat environment (e.g., "Ø¨Û
 - Technical terms, file paths, command examples, and code snippets may retain their original language structure but the surrounding explanation must be in English.
 - This protocol applies to all chat interactions, code reviews, task descriptions, state file entries, and documentation.
 - Violations must be corrected in the next response cycle and logged in `state/team_log.md` with the tag `[LANG-CORRECT]`.
+
+## 10. Strict Task State Machine & Lifecycle (TOP-MSG-058)
+All tasks must strictly follow the 8-stage lifecycle:
+`REQUIREMENT -> SPEC -> TEST -> CODE -> REVIEW -> REFINE -> VERIFY -> DONE`
+- Implementer roles may only advance: SPEC -> TEST -> CODE -> REVIEW (status: TODO).
+- Reviewer roles must route rework to: stage="REFINE", status="TODO" (NEVER APPROVED/DONE).
+- Transition to DONE is strictly prohibited without stage="VERIFY" passing 100%.
