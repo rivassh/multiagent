@@ -237,3 +237,6 @@ Status updated to DONE.
 
 ## [turn · 2026-10-29T19:49:38Z]
 Created 17 BDD-derived tasks TASK-061 to TASK-077 from Behavior-Driven-Development feature files. Maps crawling, NLP extraction, AI evaluation, screening criteria, and shortlist generation.
+
+## [turn · 2026-10-30T14:25:00Z]
+Created TASK-078 (Implement BDD step definitions to pass all Behat scenarios) from current BDD scaffold work. FeatureContext.php has 91+ Given/When/Then methods as stubs; after 4 argument-binding fixes, Behat shows 6 passed / 21 undefined / 0 failed. Assigned to agent-mimo-cli-2289819 for implementation.
