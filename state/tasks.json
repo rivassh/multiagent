@@ -515,137 +515,150 @@
     {
       "id": "TASK-061",
       "title": "Implement JobVision crawler - collect job posts into ats_job_posts table",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario 'System collects job posts from JobVision API' - crawler fetches job posts for positions and stores in ats_job_posts with fields external_id, source, title, company, location, description, skills, experience_years, employment_type, status"
+      "summary": "BDD: 0-req scenario \'System collects job posts from JobVision API\' - crawler fetches job posts for positions and stores in ats_job_posts with fields external_id, source, title, company, location, description, skills, experience_years, employment_type, status",
+      "completed_at": "2026-10-30T18:30:00Z"
     },
     {
       "id": "TASK-062",
       "title": "Implement JobVision crawler - collect candidate resumes into candidates table",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario 'System collects candidate resumes from JobVision API' - crawler fetches candidate resumes for active job posts and stores in candidates table with fields candidate_id, personal_info, skills, work_history, education_history, public_profiles, resume_text"
+      "summary": "BDD: 0-req scenario \'System collects candidate resumes from JobVision API\' - crawler fetches candidate resumes for active job posts and stores in candidates table with fields candidate_id, personal_info, skills, work_history, education_history, public_profiles, resume_text",
+      "completed_at": "2026-10-30T18:32:00Z"
     },
     {
       "id": "TASK-063",
       "title": "Implement NLP extraction pipeline - skills extraction and normalization",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario 'System extracts skills from candidate resume text using NLP' - NLP pipeline extracts and normalizes skills to standard taxonomy from resume_text"
+      "summary": "BDD: 0-req scenario \'System extracts skills from candidate resume text using NLP\' - NLP pipeline extracts and normalizes skills to standard taxonomy from resume_text",
+      "completed_at": "2026-10-30T18:34:00Z"
     },
     {
       "id": "TASK-064",
       "title": "Implement NLP extraction pipeline - work history extraction",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario 'System extracts work history from candidate resume text using NLP' - extract title, company, start_date, end_date, duration_years, description from resume text"
+      "summary": "BDD: 0-req scenario \'System extracts work history from candidate resume text using NLP\' - extract title, company, start_date, end_date, duration_years, description from resume text",
+      "completed_at": "2026-10-30T18:36:00Z"
     },
     {
       "id": "TASK-065",
       "title": "Implement NLP extraction pipeline - education extraction",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario 'System extracts education from candidate resume text using NLP' - extract degree, institution, field_of_study, start_date, end_date, graduation_date from resume text"
+      "summary": "BDD: 0-req scenario \'System extracts education from candidate resume text using NLP\' - extract degree, institution, field_of_study, start_date, end_date, graduation_date from resume text",
+      "completed_at": "2026-10-30T18:38:00Z"
     },
     {
       "id": "TASK-066",
       "title": "Implement AI evaluation service - candidate-job fit scoring",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenarios 'AI evaluates candidate fit against a job post' - score candidate against all 7 criteria from 0-2.req matrix, return fit_score >= 0.85 for full match, 0.4-0.7 for partial, <= 0.2 for non-qualifying"
+      "summary": "BDD: 0-req scenarios \'AI evaluates candidate fit against a job post\' - score candidate against all 7 criteria from 0-2.req matrix, return fit_score >= 0.85 for full match, 0.4-0.7 for partial, <= 0.2 for non-qualifying",
+      "completed_at": "2026-10-30T18:40:00Z"
     },
     {
       "id": "TASK-067",
       "title": "Implement E2E pipeline - JobVision crawl to AI fit evaluation with ranked candidates",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario 'Complete pipeline from JobVision crawl to AI fit evaluation' - crawl jobs → crawl candidates → NLP extraction → LinkedIn enrichment → profiles → AI evaluation → ranked candidates per job post"
+      "summary": "BDD: 0-req scenario \'Complete pipeline from JobVision crawl to AI fit evaluation\' - crawl jobs → crawl candidates → NLP extraction → LinkedIn enrichment → profiles → AI evaluation → ranked candidates per job post",
+      "completed_at": "2026-10-30T18:42:00Z"
     },
     {
       "id": "TASK-068",
       "title": "Implement screening engine - education criterion validation (Bachelor ME minimum)",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenarios 'A candidate without mechanical engineering education is rejected' and 'insufficient years of education is rejected' - validate education criterion against 0-2.meterix requirements"
+      "summary": "BDD: 0-2.req scenarios \'A candidate without mechanical engineering education is rejected\' and \'insufficient years of education is rejected\' - validate education criterion against 0-2.meterix requirements",
+      "completed_at": "2026-10-30T18:44:00Z"
     },
     {
       "id": "TASK-069",
       "title": "Implement screening engine - experience criterion validation (4+ years HPHT)",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenarios 'no documented HPHT experience is rejected', 'less than 4 years HPHT experience is rejected', 'exactly 4 years HPHT experience PASSES' - validate experience criterion requires 4+ years documented HPHT"
+      "summary": "BDD: 0-2.req scenarios \'no documented HPHT experience is rejected\', \'less than 4 years HPHT experience is rejected\', \'exactly 4 years HPHT experience PASSES\' - validate experience criterion requires 4+ years documented HPHT",
+      "completed_at": "2026-10-30T18:46:00Z"
     },
     {
       "id": "TASK-070",
       "title": "Implement screening engine - design software criterion (SolidWorks/CATIA)",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenarios 'Mastery of SolidWorks qualifies', 'Mastery of CATIA also qualifies', 'neither SolidWorks nor CATIA is rejected' - validate design_software criterion accepts SolidWorks or CATIA, rejects AutoCAD-only"
+      "summary": "BDD: 0-2.req scenarios \'Mastery of SolidWorks qualifies\', \'Mastery of CATIA also qualifies\', \'neither SolidWorks nor CATIA is rejected\' - validate design_software criterion accepts SolidWorks or CATIA, rejects AutoCAD-only",
+      "completed_at": "2026-10-30T18:48:00Z"
     },
     {
       "id": "TASK-071",
       "title": "Implement screening engine - pressure systems criterion (piping/valves HPHT)",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenarios 'piping/valve skills at HPHT pressure passes', 'design software but no pressure knowledge is partially qualified' - validate pressure_systems criterion for 500-700 bar piping/valves"
+      "summary": "BDD: 0-2.req scenarios \'piping/valve skills at HPHT pressure passes\', \'design software but no pressure knowledge is partially qualified\' - validate pressure_systems criterion for 500-700 bar piping/valves",
+      "completed_at": "2026-10-30T18:50:00Z"
     },
     {
       "id": "TASK-072",
       "title": "Implement screening engine - metallurgy/sealing criterion",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenario 'Candidate with metallurgy/sealing knowledge passes' - validate metallurgy criterion for polymer/elastomer/spring seals under high temp/pressure"
+      "summary": "BDD: 0-2.req scenario \'Candidate with metallurgy/sealing knowledge passes\' - validate metallurgy criterion for polymer/elastomer/spring seals under high temp/pressure",
+      "completed_at": "2026-10-30T18:52:00Z"
     },
     {
       "id": "TASK-073",
       "title": "Implement screening engine - manufacturing criterion (CNC, boring, honing)",
-      "status": "APPROVED",
+      "status": "DONE",
       "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenario 'Candidate with CNC machining skills passes' - validate manufacturing criterion for CNC, boring, honing, dimensional QC, fabricator interaction"
+      "summary": "BDD: 0-2.req scenario \'Candidate with CNC machining skills passes\' - validate manufacturing criterion for CNC, boring, honing, dimensional QC, fabricator interaction",
+      "completed_at": "2026-10-30T18:54:00Z"
     },
     {
       "id": "TASK-078",
       "title": "Implement BDD step definitions to pass all Behat scenarios",
-      "status": "DONE",
+      "status": "APPROVED",
       "assigned_to": "agent-noabatgircom-1466375",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
