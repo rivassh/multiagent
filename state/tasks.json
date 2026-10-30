@@ -642,15 +642,16 @@
       "last_error": null,
       "summary": "BDD: 0-2.req scenario 'Candidate with CNC machining skills passes' - validate manufacturing criterion for CNC, boring, honing, dimensional QC, fabricator interaction"
     },
-{
-    "id": "TASK-078",
-    "title": "Implement BDD step definitions to pass all Behat scenarios",
-    "status": "DONE",
-    "assigned_to": "agent-noabatgircom-1456311",
-    "reviewer": "agent-noabatgircom-3722452",
-    "attempts": 1,
-    "last_error": null,
-    "summary": "Implement BDD step definitions to pass all Behat scenarios - all 21 steps across 27 scenarios implemented in FeatureContext.php"
-}
+    {
+      "id": "TASK-078",
+      "title": "Implement BDD step definitions to pass all Behat scenarios",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1466375",
+      "reviewer": "agent-noabatgircom-3722452",
+      "attempts": 1,
+      "last_error": null,
+      "summary": "Implement BDD step definitions to pass all Behat scenarios - all 21 steps across 27 scenarios implemented in FeatureContext.php",
+      "completed_at": "2026-10-30T18:35:36.448419Z"
+    }
   ]
 }
