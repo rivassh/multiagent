@@ -8,7 +8,7 @@
       "assigned_to": null,
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 3,
-      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first.",
+      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red\u2192Green) incomplete \u2014 requires TDD Red phase first.",
       "summary": "GenericScreeningEngine at app/Services/AI/Agents/ - corpus-agnostic pipeline implemented"
     },
     {
@@ -190,7 +190,7 @@
     },
     {
       "id": "TASK-029",
-      "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
+      "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
       "status": "DONE",
       "assigned_to": "agent-antix1-4258",
       "reviewer": "agent-local-12345",
@@ -199,7 +199,7 @@
     },
     {
       "id": "TASK-030",
-      "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
+      "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
       "status": "APPROVED",
       "assigned_to": "agent-THRMP105-15984",
       "reviewer": "agent-noabatgircom-3722452",
@@ -239,7 +239,7 @@
     },
     {
       "id": "TASK-034",
-      "title": "Define 0-2.req evaluation matrix as structured JSON document — 7 criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) for HPHT mechanical engineering screening",
+      "title": "Define 0-2.req evaluation matrix as structured JSON document \u2014 7 criteria (education, experience, pressure systems, manufacturing, metallurgy/sealing, personal traits) for HPHT mechanical engineering screening",
       "status": "DONE",
       "assigned_to": "agent-noabatgircom-1220228",
       "reviewer": "agent-local-12345",
@@ -258,7 +258,7 @@
     },
     {
       "id": "TASK-036",
-      "title": "Implement ATS ScreeningOrchestrator — integrate GenericScreeningEngine to score job post requirements against candidates, emit screening results to ats_applications",
+      "title": "Implement ATS ScreeningOrchestrator \u2014 integrate GenericScreeningEngine to score job post requirements against candidates, emit screening results to ats_applications",
       "status": "APPROVED",
       "assigned_to": "agent-antix1-4258",
       "reviewer": "agent-noabatgircom-3722452",
@@ -268,7 +268,7 @@
     },
     {
       "id": "TASK-037",
-      "title": "Implement ATS CrawlerOrchestrator — connect CandidateSourceFactory to import candidates from JobVision/Talent APIs into ats_applications",
+      "title": "Implement ATS CrawlerOrchestrator \u2014 connect CandidateSourceFactory to import candidates from JobVision/Talent APIs into ats_applications",
       "status": "APPROVED",
       "assigned_to": "agent-antix1-4258",
       "reviewer": "agent-noabatgircom-3722452",
@@ -278,7 +278,7 @@
     },
     {
       "id": "TASK-038",
-      "title": "Implement ATS ShortlistGenerator — use GenericScreeningEngine.generateShortlist to rank candidates and create ats_shortlists with ats_shortlist_items",
+      "title": "Implement ATS ShortlistGenerator \u2014 use GenericScreeningEngine.generateShortlist to rank candidates and create ats_shortlists with ats_shortlist_items",
       "status": "APPROVED",
       "assigned_to": "agent-antix1-4258",
       "reviewer": "agent-noabatgircom-3722452",
@@ -288,7 +288,7 @@
     },
     {
       "id": "TASK-039",
-      "title": "Add BDD tests for ATS service layer — ScreeningOrchestrator, CrawlerOrchestrator, ShortlistGenerator integration tests with mocked GenericScreeningEngine",
+      "title": "Add BDD tests for ATS service layer \u2014 ScreeningOrchestrator, CrawlerOrchestrator, ShortlistGenerator integration tests with mocked GenericScreeningEngine",
       "status": "IN_PROGRESS",
       "assigned_to": "agent-noabatgircom-3722452",
       "reviewer": null,
@@ -298,7 +298,7 @@
     },
     {
       "id": "TASK-040",
-      "title": "Expand Chat module — implement ChatQueryService streaming response support and tool calling for RAG retrieval",
+      "title": "Expand Chat module \u2014 implement ChatQueryService streaming response support and tool calling for RAG retrieval",
       "status": "APPROVED",
       "assigned_to": "agent-antix1-4258",
       "reviewer": "agent-noabatgircom-3722452",
@@ -308,7 +308,7 @@
     },
     {
       "id": "TASK-041",
-      "title": "Expand Assessment module — add assessment templates, scheduling, and result aggregation for ATS pipeline",
+      "title": "Expand Assessment module \u2014 add assessment templates, scheduling, and result aggregation for ATS pipeline",
       "status": "APPROVED",
       "assigned_to": "agent-local-12345",
       "reviewer": "agent-noabatgircom-3722452",
@@ -318,7 +318,7 @@
     },
     {
       "id": "TASK-042",
-      "title": "Implement HR module workforce planning — headcount forecasting, requisition approval workflow, org chart management",
+      "title": "Implement HR module workforce planning \u2014 headcount forecasting, requisition approval workflow, org chart management",
       "status": "NEEDS_REVIEW",
       "assigned_to": "agent-gitops-001",
       "reviewer": "agent-noabatgircom-3722452",
@@ -338,7 +338,7 @@
     },
     {
       "id": "TASK-044",
-      "title": "Create structured JSON evaluation matrix from 0-2.req — 7 HPHT criteria",
+      "title": "Create structured JSON evaluation matrix from 0-2.req \u2014 7 HPHT criteria",
       "status": "DONE",
       "assigned_to": "agent-local-12345",
       "reviewer": "agent-local-12345",
@@ -348,7 +348,7 @@
     },
     {
       "id": "TASK-045",
-      "title": "Complete ATS module end-to-end verification — all services + controller + tests pass",
+      "title": "Complete ATS module end-to-end verification \u2014 all services + controller + tests pass",
       "status": "APPROVED",
       "assigned_to": "agent-local-12345",
       "reviewer": "agent-noabatgircom-3722452",
@@ -414,7 +414,7 @@
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Analyze crawl→storage→index→retrieval chain for ATS screening showing only 4 candidates (none HPHT mechanical). Verify parsed profiles reach retrieval, freshness, and job criteria filter alignment. ScreeningOrchestrator filters by status='applied' and requires requirements_matrix."
+      "summary": "Analyze crawl\u2192storage\u2192index\u2192retrieval chain for ATS screening showing only 4 candidates (none HPHT mechanical). Verify parsed profiles reach retrieval, freshness, and job criteria filter alignment. ScreeningOrchestrator filters by status='applied' and requires requirements_matrix."
     },
     {
       "id": "TASK-053",
@@ -438,7 +438,7 @@
     },
     {
       "id": "TASK-055",
-      "title": "Add SSE streaming progress indicator (replace 'در حال پاسخگویی...' with token stream)",
+      "title": "Add SSE streaming progress indicator (replace '\u062f\u0631 \u062d\u0627\u0644 \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc...' with token stream)",
       "status": "APPROVED",
       "assigned_to": "agent-mimo-cli-2289819",
       "reviewer": "agent-noabatgircom-3722452",
@@ -492,7 +492,7 @@
     },
     {
       "id": "TASK-060",
-      "title": "Comprehensive SIMA project audit from scratch — full-stack verification, uncovered gaps, protocol review",
+      "title": "Comprehensive SIMA project audit from scratch \u2014 full-stack verification, uncovered gaps, protocol review",
       "status": "DONE",
       "assigned_to": "agent-noabatgircom-3722452",
       "reviewer": null,
@@ -515,8 +515,8 @@
     {
       "id": "TASK-061",
       "title": "Implement JobVision crawler - collect job posts into ats_job_posts table",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -525,8 +525,8 @@
     {
       "id": "TASK-062",
       "title": "Implement JobVision crawler - collect candidate resumes into candidates table",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -535,8 +535,8 @@
     {
       "id": "TASK-063",
       "title": "Implement NLP extraction pipeline - skills extraction and normalization",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -545,8 +545,8 @@
     {
       "id": "TASK-064",
       "title": "Implement NLP extraction pipeline - work history extraction",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -555,8 +555,8 @@
     {
       "id": "TASK-065",
       "title": "Implement NLP extraction pipeline - education extraction",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -565,8 +565,8 @@
     {
       "id": "TASK-066",
       "title": "Implement AI evaluation service - candidate-job fit scoring",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -575,18 +575,18 @@
     {
       "id": "TASK-067",
       "title": "Implement E2E pipeline - JobVision crawl to AI fit evaluation with ranked candidates",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario 'Complete pipeline from JobVision crawl to AI fit evaluation' - crawl jobs → crawl candidates → NLP extraction → LinkedIn enrichment → profiles → AI evaluation → ranked candidates per job post"
+      "summary": "BDD: 0-req scenario 'Complete pipeline from JobVision crawl to AI fit evaluation' - crawl jobs \u2192 crawl candidates \u2192 NLP extraction \u2192 LinkedIn enrichment \u2192 profiles \u2192 AI evaluation \u2192 ranked candidates per job post"
     },
     {
       "id": "TASK-068",
       "title": "Implement screening engine - education criterion validation (Bachelor ME minimum)",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -595,8 +595,8 @@
     {
       "id": "TASK-069",
       "title": "Implement screening engine - experience criterion validation (4+ years HPHT)",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -605,8 +605,8 @@
     {
       "id": "TASK-070",
       "title": "Implement screening engine - design software criterion (SolidWorks/CATIA)",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -615,8 +615,8 @@
     {
       "id": "TASK-071",
       "title": "Implement screening engine - pressure systems criterion (piping/valves HPHT)",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -625,8 +625,8 @@
     {
       "id": "TASK-072",
       "title": "Implement screening engine - metallurgy/sealing criterion",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -635,8 +635,8 @@
     {
       "id": "TASK-073",
       "title": "Implement screening engine - manufacturing criterion (CNC, boring, honing)",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -645,8 +645,8 @@
     {
       "id": "TASK-074",
       "title": "Implement screening engine - personal traits criterion",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -655,8 +655,8 @@
     {
       "id": "TASK-075",
       "title": "Implement shortlist generator - ranked top N candidates by match_score",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -665,8 +665,8 @@
     {
       "id": "TASK-076",
       "title": "Implement requirements matrix extraction from 0-2-matrix.json",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -675,8 +675,8 @@
     {
       "id": "TASK-077",
       "title": "Implement E2E screening pipeline - crawl to shortlist via ats_applications",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
@@ -685,8 +685,8 @@
     {
       "id": "TASK-078",
       "title": "Implement BDD step definitions to pass all Behat scenarios",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-1466375",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-1456311",
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
