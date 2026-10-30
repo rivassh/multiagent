@@ -163,3 +163,6 @@ Complete ATS module
 
 ## User Directive [2026-10-30T16:34:22Z] (Captured by agent-noabatgircom-1456311)
 Develop task 60 to 77 (SIMA project pipeline implementation)
+
+## User Directive [2026-10-30T16:51:49Z] (Captured by agent-noabatgircom-1466532)
+به agentای که در tmux -t 0:0 در حال انجام تسک های 61 تا 77 هست کمک کن طبق @AGENTS.md و رعایت پروتکل ها همکاری کن
