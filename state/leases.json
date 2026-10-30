@@ -3,11 +3,11 @@
   "leases": [
     {
       "resource": "tasks.json",
-      "holder": "agent-noabatgircom-1456311",
-      "lease_id": "ed4df12c-234c-42c4-b7fe-8869d15c1233",
-      "acquired_at": "2026-10-30T16:36:22Z",
-      "expires_at": "2026-10-30T16:38:22Z",
-      "last_heartbeat": "2026-10-30T16:36:22Z"
+      "holder": "agent-noabatgircom-1466375",
+      "lease_id": "f7e8c9b2-1a4d-4e3f-9b2a-8c7d6e5f4a3b",
+      "acquired_at": "2026-10-30T16:55:12Z",
+      "expires_at": "2026-10-30T16:57:12Z",
+      "last_heartbeat": "2026-10-30T16:55:12Z"
     }
   ]
 }
