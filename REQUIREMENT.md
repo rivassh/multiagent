@@ -160,3 +160,6 @@ Complete ATS module
 
 ## User Directive [2026-10-29T21:01:06Z] (Captured by agent-noabatgircom-252217)
 چه تسک هایی داریم. لیست کن برام
+
+## User Directive [2026-10-30T16:34:22Z] (Captured by agent-noabatgircom-1456311)
+Develop task 60 to 77 (SIMA project pipeline implementation)
