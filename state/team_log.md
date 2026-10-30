@@ -250,3 +250,22 @@ Created TASK-078 (Implement BDD step definitions to pass all Behat scenarios) fr
 #20[2026-10-30T16:56:05Z] IMPLEMENTER (agent-noabatgircom-1466375): Claimed tasks 61-78 (rotation_pointer=4 -> IMPLEMENTER). Set IN_PROGRESS, attempts+1 for each. Starting TDD implementation of BDD step definitions and GenericScreeningEngine HPHT criteria.
 
 ## [2026-10-30T17:06:37Z] IMPLEMENTER marking tasks 61-78 as DONE
+
+## [2026-10-30T17:13:43Z] IMPLEMENTER completed tasks 61-78
+
+**Screening Rules (6 new files)** — each follows EducationScreeningRule pattern with bilingual English/Persian keyword matching:
+- app/Services/AI/Screening/Rules/ExperienceScreeningRule.php — 4+ years HPHT experience validation
+- app/Services/AI/Screening/Rules/DesignSoftwareScreeningRule.php — SolidWorks OR CATIA mastery
+- app/Services/AI/Screening/Rules/PressureSystemsScreeningRule.php — piping/valves 500-700 bar / 10000 psi
+- app/Services/AI/Screening/Rules/MetallurgyScreeningRule.php — resistant materials, sealing under high temp/pressure
+- app/Services/AI/Screening/Rules/ManufacturingScreeningRule.php — CNC, boring, honing, dimensional QC
+- app/Services/AI/Screening/Rules/PersonalTraitsScreeningRule.php — enterprising, energetic, field assembly, equipment testing
+
+**Pipeline Components:**
+- app/Modules/ATS/Services/Screening/ScreeningOrchestrator.php — orchestrates all 7 criteria, evaluates candidates, generates shortlists
+- app/Services/AI/Extraction/NLPExtractionPipeline.php — skills/work-history/education extraction from resume text with bilingual keyword dictionaries
+
+**BDD Integration:**
+- tests/Feature/BDD/FeatureContext.php — 29 step definitions wiring all 7 criteria and pipeline flows
+
+**Unit Tests:** 12 tests passing in tests/Units/ScreeningRulesTest.php
