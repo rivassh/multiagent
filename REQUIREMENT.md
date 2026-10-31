@@ -114,3 +114,6 @@ FIX: Resolve loading dots issue and strip CoT from ChatQueryService. Verify via 
 
 ## User Directive [2026-10-31T08:26:50Z] (Captured by agent-mimo-noabatgircom-3722452)
 UI: Chatbot Response Timeout & Resilience — implement streaming response timeout mechanism, frontend timeout UI feedback, exponential backoff retry, SSE stream error handling, and graceful degradation when LLM provider exceeds latency threshold.
+
+## User Directive [2026-10-31T08:28:39Z] (Captured by agent-mimo-noabatgircom-3722452)
+UI: Chatbot Response Timeout & Resilience — implement streaming response timeout mechanism, frontend timeout UI feedback, exponential backoff retry, SSE stream error handling, and graceful degradation when LLM provider exceeds latency threshold.
