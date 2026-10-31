@@ -4,7 +4,9 @@ const path = require('path');
 const STATE_DIR = path.join(__dirname, 'tasks.json');
 const LEASES_FILE = path.join(__dirname, 'leases.json');
 const COUNCIL_FILE = path.join(__dirname, 'council.md');
-const E2E_ENDPOINT = 'sima.adlr.ir';
+const E2E_ENDPOINT = 'http://sima.adlr.ir';
+const E2E_CHAT_URL = 'http://sima.adlr.ir/api/v1/chat/completions';
+const E2E_WEB_URL = 'http://sima.adlr.ir/chat';
 
 class TaskRunner {
   constructor() {
@@ -63,7 +65,7 @@ class TaskRunner {
         console.log(`  Status: ${task.status} - task needs revision`);
         await this.processRevisionPhase(task);
       } else if (task.status === 'APPROVED') {
-        console.log(`  Status: APPROVED - verify stage`);
+        console.log(`  Status: APPROVED - verify stage (E2E verification on sima.adlr.ir)`);
         await this.processVerifyPhase(task);
       } else if (task.status === 'DONE') {
         console.log(`  Status: DONE - E2E verification gate check required`);
@@ -189,33 +191,95 @@ class TaskRunner {
 
   async performStageE2EVerification(task, isRetry = false) {
     console.log(`  🌐 E2E Testing ${E2E_ENDPOINT} against ${task.id}`);
+    console.log(`  🔍 Black-Box QA: Verifying endpoint ${E2E_WEB_URL}`);
 
-    const isSimpleTask = task.id.startsWith('TASK-00');
-    const isComplexTask = task.id.includes('Screen') || task.id.includes('Chat') || task.id.includes('RAG');
+    const checks = [];
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const webResult = await this.checkWebEndpoint(task);
+    checks.push(webResult);
 
-    let success = false;
-    let error = '';
+    const apiResult = await this.checkChatApiEndpoint(task);
+    checks.push(apiResult);
 
-    if (isComplexTask) {
-      success = Math.random() > 0.15;
-      error = 'Stage/E2E validation failed: endpoint returned error or timeout';
-    } else if (isSimpleTask) {
-      success = Math.random() > 0.25;
-      error = 'Simple endpoint validation failed';
-    } else {
-      success = Math.random() > 0.20;
-      error = 'Endpoint validation failed';
-    }
+    const allPassed = checks.every(c => c.passed);
+    const errors = checks.filter(c => !c.passed).map(c => c.error);
 
-    if (success) {
+    if (allPassed) {
       console.log(`  ✅ ${task.id} E2E verification on ${E2E_ENDPOINT} PASSED`);
     } else {
-      console.log(`  ❌ ${task.id} E2E verification on ${E2E_ENDPOINT} FAILED: ${error}`);
+      console.log(`  ❌ ${task.id} E2E verification on ${E2E_ENDPOINT} FAILED: ${errors.join('; ')}`);
     }
 
-    return { success, error, endpoint: E2E_ENDPOINT, retry: isRetry };
+    return {
+      success: allPassed,
+      error: errors.join('; ') || undefined,
+      endpoint: E2E_ENDPOINT,
+      retry: isRetry,
+      checks: checks.map(c => ({ name: c.name, passed: c.passed })),
+      timestamp: new Date().toISOString()
+    };
+  }
+
+  async checkWebEndpoint(task) {
+    const name = 'web_endpoint_check';
+    try {
+      const response = await fetch(E2E_WEB_URL, {
+        method: 'GET',
+        headers: { 'Accept': 'text/html' },
+        signal: AbortSignal.timeout(15000),
+      });
+
+      if (response.status !== 200) {
+        return { name, passed: false, error: `Web endpoint returned HTTP ${response.status}` };
+      }
+
+      const html = await response.text();
+      const hasChatUI = html.includes('composer') || html.includes('input') || html.includes('chat');
+      if (!hasChatUI) {
+        return { name, passed: false, error: 'Web page missing chat UI elements' };
+      }
+
+      return { name, passed: true, status: response.status, url: E2E_WEB_URL };
+    } catch (err) {
+      return { name, passed: false, error: `Fetch error: ${err.message}` };
+    }
+  }
+
+  async checkChatApiEndpoint(task) {
+    const name = 'chat_api_check';
+    try {
+      const response = await fetch(E2E_CHAT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          model: 'youse',
+          messages: [{ role: 'user', content: 'Hello, respond with a short greeting' }],
+        }),
+        signal: AbortSignal.timeout(30000),
+      });
+
+      if (response.status !== 200) {
+        return { name, passed: false, error: `Chat API returned HTTP ${response.status}` };
+      }
+
+      const body = await response.json();
+      const status = body?.status;
+      const hasContent = body?.data?.choices?.[0]?.message?.content;
+
+      if (status !== 'success' || !hasContent) {
+        return { name, passed: false, error: 'Chat API response missing success status or content' };
+      }
+
+      return {
+        name,
+        passed: true,
+        status: response.status,
+        content: hasContent,
+        url: E2E_CHAT_URL,
+      };
+    } catch (err) {
+      return { name, passed: false, error: `Fetch error: ${err.message}` };
+    }
   }
 
   async processRevisionPhase(task) {
