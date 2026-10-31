@@ -105,3 +105,9 @@ GitOps strict mode enabled. Dispatching tasks for Auth, History, and UI response
 
 ## User Directive [2026-10-31T07:56:09Z] (Captured by agent-noabatgircom-2254092)
 Read directive, initialize tasks for Auth, History persistence, and Prompt tuning following 8-stage GitOps protocol.
+
+## User Directive [2026-10-31T08:14:10Z] (Captured by agent-noabatgircom-2335435)
+Implement comprehensive chat/history persistence layer with retrieval for TASK-083 (sima subproject).
+
+## User Directive [2026-10-31T08:17:38Z] (Captured by agent-executive-boardroom)
+FIX: Resolve loading dots issue and strip CoT from ChatQueryService. Verify via https://sima.adlr.ir/chat
