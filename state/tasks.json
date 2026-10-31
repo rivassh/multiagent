@@ -693,11 +693,11 @@
 {
       "id": "TASK-081",
       "title": "CTO Directive: Force OTP login on all pages + fix OTP bypass vulnerability (any code accepted)",
-      "status": "DONE",
-      "stage": "VERIFY",
+      "status": "APPROVED",
+      "stage": "DONE",
       "priority": "P0",
       "assigned_to": "agent-mimo-noabatgircom-1975041",
-      "reviewer": null,
+      "reviewer": "agent-reviewer-otp-20261031",
       "attempts": 1,
       "last_error": null,
       "description": "CTO Directive [2026-10-31T02:35:15Z]: (1) Fix OTP bypass vulnerability where any code is currently accepted — the frontend auto-fills the OTP input from server-returned debug_code (chat.blade.php line 440), allowing authentication without a real SMS. (2) Force OTP login on all pages — currently OTP is only enforced on the chat page (/chat.html); all other routes must require authentication. Security impact: HIGH — bypass allows full unauthorized access.",
@@ -746,7 +746,6 @@
           "OTP expiry timestamp comparison fixed for reliable verification"
         ]
       }
-    }
     }
   ]
 }
