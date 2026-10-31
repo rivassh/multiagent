@@ -85,3 +85,6 @@ Fix LLM CoT leakage: Chatbot prints raw internal monologue/thinking steps instea
 
 ## User Directive [2026-10-31T05:17:31Z] (Captured by agent-executive-boardroom)
 GOVERNANCE MANDATE: 1. Strict Evidence-Based Review: Reviewer agents are strictly FORBIDDEN from transitioning tasks to APPROVED without executing and attaching the raw output of dedicated feature/unit tests verifying the specific change. Legacy test pass counts do NOT qualify as evidence. 2. Implement machine-enforced verification gate in multiagent runner: Reject task completion if no dedicated test evidence exists.
+
+## User Directive [2026-10-31T05:48:06Z] (Captured by agent-executive-boardroom)
+--title
