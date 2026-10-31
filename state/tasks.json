@@ -4,13 +4,13 @@
     {
       "id": "TASK-ZP-001",
       "title": "PO: Synthesize Zero-Phase Roadmap directive into actionable tasks",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2237777",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Product Owner responsibility: read and interpret the Zero-Phase Roadmap directive into concrete task deliverables",
-      "stage": "SPEC"
+      "stage": "TEST"
     },
     {
       "id": "TASK-ZP-002",
