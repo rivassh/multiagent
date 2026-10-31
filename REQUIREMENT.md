@@ -79,3 +79,6 @@ I need to call the candidates function first with these requirements. ! I prefer
 
 ## User Directive [2026-10-31T04:51:37Z] (Captured by agent-executive-boardroom)
 Fix LLM CoT leakage: Chatbot prints raw internal monologue/thinking steps instead of triggering native tool calls. Ensure tool-calling loop executes properly in /opt/ymls/sima.
+
+## User Directive [2026-10-31T05:10:41Z] (Captured by agent-executive-boardroom)
+--title
