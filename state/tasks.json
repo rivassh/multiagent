@@ -191,15 +191,6 @@
       "last_error": null
     },
     {
-      "id": "TASK-029",
-      "title": "Create ATS module structure in SIMA codebase (Talent Acquisition: crawlers \u2192 screening \u2192 shortlist \u2192 assessments)",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-2569315",
-      "reviewer": null,
-      "attempts": 1,
-      "last_error": null
-    },
-    {
       "id": "TASK-030",
       "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
       "status": "OPEN",
@@ -209,27 +200,9 @@
       "last_error": null
     },
     {
-      "id": "TASK-030",
-      "title": "Complete TASK-024 Generic Screening Engine review (status DONE, needs review claim)",
-      "status": "TODO",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null
-    },
-    {
       "id": "TASK-031",
       "title": "Lease infrastructure: clear expired lease (agent-noabatgircom-3925833) and enable active lease management for pending reviews",
       "status": "OPEN",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null
-    },
-    {
-      "id": "TASK-031",
-      "title": "Create docs/SPEC.md per AGENTS.md contract (architecture, API contracts, interfaces)",
-      "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
