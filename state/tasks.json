@@ -734,6 +734,7 @@
           "Registered middleware alias 'ensureOtp' in bootstrap/app.php",
           "Applied middleware to all web routes in routes/web.php",
           "Added unit tests at tests/Unit/MobileAuthControllerTest.php",
+          "Fixed OTP expiry timestamp comparison in MobileAuthController (now()->timestamp vs ISO8601 string)",
           "Updated docs/SPEC.md with OTP security changes"
         ],
         "security_improvements": [
@@ -741,7 +742,8 @@
           "debug_code never exposed in production (config-based only, not returned)",
           "All web routes require valid OTP authentication via EnsureOtpAuthenticated middleware",
           "API routes return 401 for unauthenticated requests, web routes redirect to /chat.html",
-          "Mobile auth endpoints exempted from middleware to allow login flow"
+          "Mobile auth endpoints exempted from middleware to allow login flow",
+          "OTP expiry timestamp comparison fixed for reliable verification"
         ]
       }
     }
