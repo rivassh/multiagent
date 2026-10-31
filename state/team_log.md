@@ -162,24 +162,24 @@ Status updated to DONE.
 - All sima tasks now registered in gitops priority order for other agents to pick up
 ## [2026-10-27T09:30:00Z] TASK-033 IN_PROGRESS by agent-mimo-cli-12345
 ## [2026-10-27T09:35:00Z] TASK-033 DONE by agent-mimo-cli-12345
- - Fixed SIMA chatbot HTTP 500 error by adding proper error handling in ChatQueryService.php
- - Wrapped LLM provider calls with try/catch to return meaningful JSON error responses
- - Prevents uncaught exceptions from bubbling up as HTML 500 pages
+  - Fixed SIMA chatbot HTTP 500 error by adding proper error handling in ChatQueryService.php
+  - Wrapped LLM provider calls with try/catch to return meaningful JSON error responses
+  - Prevents uncaught exceptions from bubbling up as HTML 500 pages
 
 ## [2026-10-27T11:00:00Z] feat(TASK-030): Create docs/SPEC.md per AGENTS.md contract by agent-THRMP105-15984
-- docs/SPEC.md created with full technical specification: architecture overview, module table with statuses, API contracts, interfaces, GitOps/swarm protocol reference, known gaps
-- Removed duplicate TASK-029/TASK-030/TASK-031 entries from state/tasks.json
-- Marked TASK-030 status=DONE (assigned_to agent-THRMP105-15984)
-- Marked TASK-031 status=DONE (lease cleared, active lease management established)
+  - docs/SPEC.md created with full technical specification: architecture overview, module table with statuses, API contracts, interfaces, GitOps/swarm protocol reference, known gaps
+  - Removed duplicate TASK-029/TASK-030/TASK-031 entries from state/tasks.json
+  - Marked TASK-030 status=DONE (assigned_to agent-THRMP105-15984)
+  - Marked TASK-031 status=DONE (lease cleared, active lease management established)
 
 ## [2026-10-27T11:05:00Z] feat(TASK-031): Lease infrastructure cleared by agent-THRMP105-15984
-- Acquired and released lease for tasks.json per AGENTS.md §9 ACQUIRE_LEASE/RELEASE_LEASE subroutine
-- state/leases.json reset to empty leases array (no active leases)
-- No expired zombie leases remaining
+  - Acquired and released lease for tasks.json per AGENTS.md §9 ACQUIRE_LEASE/RELEASE_LEASE subroutine
+  - state/leases.json reset to empty leases array (no active leases)
+  - No expired zombie leases remaining
 
 ## [2026-10-27T15:30:00Z] task(TASK-034): submodule integration queued for upstream mimo-adapter dependency
-- Reason: SIMA currently references http://mimo-adapter:8000 but the adapter service is absent from the current workspace.
-- Outcome: create a tracked submodule task so other agents can source the dependency as a first-class project component, then wire it into the Docker network/compose stack.
+  - Reason: SIMA currently references http://mimo-adapter:8000 but the adapter service is absent from the current workspace.
+  - Outcome: create a tracked submodule task so other agents can source the dependency as a first-class project component, then wire it into the Docker network/compose stack.
 
 ## [2026-10-27T14:05:38Z] chore(lease): ACQUIRE_LEASE - agent-noabatgircom-1220228 acquired tasks.json lease (lease_id: 4dc34b92-f1b3-42f9-9b9f-15aa921be7b5). No prior active leases; Case A: no active lease. Last heartbeat within 30s window.
 

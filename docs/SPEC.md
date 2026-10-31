@@ -11,7 +11,7 @@ Single Source of Truth (SSOT) for the SIMA project technical architecture, API c
 ## Modules
 | Module | Purpose | Status |
 |--------|---------|--------|
-| Talent Acquisition (ATS) | Candidate sourcing/screening from JobVision & Jobinja; screening engine; executive shortlist | Partial (API-only, TASK-027 FAIL); screening engine TASK-024 DONE |
+| Talent Acquisition (ATS) | Candidate sourcing/screening from JobVision & Jobinja; screening engine; executive shortlist | Partial (API-only, TASK-027 FAIL) |
 | Chat / Generative UI | Schema-driven dynamic UI (chart/table/card/form) via LLM-extracted schemas | Complete (TASK-025) |
 | Chat / SecurityModerator (Sanjeman) | Layer 6 guard: prompt injection, PII, toxicity | Complete (TASK-026) |
 | Chat / RAG | Hybrid retrieval: PostgreSQL FTS + pgvector → RRF | Complete (TASK-028) |
@@ -32,8 +32,6 @@ Single Source of Truth (SSOT) for the SIMA project technical architecture, API c
 See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, state/tasks.json, state/leases.json, state/team_log.md.
 
 ## Known Gaps
-- TASK-027: ATS module not found — Talent capability exists only as API endpoints; no dedicated ATS module structure exists in the SIMA codebase (substring matches are unrelated Talent API endpoints).
-- VectorRagBddTest: 28 pre-existing failures, explicitly scoped out of TASK-024 regression scope (pre-existing RAG subsystem infrastructure issue: LLM endpoints, vector store, DB migrations, env vars).
-- JobVision/LinkedIn: capability NOT READY (missing UI frontend, LinkedIn crawler implementation, LLM service verification, API credentials).
-- TASK-033: SIMA chatbot HTTP 500 error — resolved by adding proper error handling in ChatQueryService.php (try/catch around LLM provider calls, returning meaningful JSON error responses instead of uncaught exceptions).
-- OTP Security: Fixed OTP bypass vulnerability in chat.blade.php (debug_code auto-fill removed), added EnsureOtpAuthenticated middleware to force OTP login on all pages, restricted debug_code to dev_mode config only. (TASK-081)
+- TASK-027: ATS module not found — Talent capability exists only as API endpoints.
+- VectorRagBddTest: 28 pre-existing failures, explicitly scoped out of TASK-024.
+- JobVision/LinkedIn: capability NOT READY (missing UI frontend, LinkedIn crawler impl, LLM service verification, API credentials).
