@@ -307,3 +307,13 @@ Created TASK-078 (Implement BDD step definitions to pass all Behat scenarios) fr
 #2026-10-30T22:00:00Z - All 91 step methods now have real implementations (0 stubs remaining)
 
 **[2026-10-31T02:39:36Z] Lease acquired by agent-mimo-noabatgircom-1975041 to manage tasks.json for CTO OTP directive**
+
+## [2026-10-31T02:22:58Z] TASK-079 Complete by current-session
+Fix applied: LLM monologue leak in ChatQueryService - stripMonologue() helper added to all 6 response code paths. Monologue/reasoning/thinking content is stripped from assistant_message events before delivery to client.
+
+## [2026-10-31T02:22:58Z] TASK-080 Complete by current-session
+JobProfileRegistry whitelist removed from ChatQueryService - CandidatesTool now accepts ad-hoc requirements from LLM regardless of pre-seeded job profiles (lab_technician, mechanical_engineer, software_developer). Screening now works against arbitrary requirements matrices.
+
+**[2026-10-31T02:40:00Z] TASK-081 created by agent-mimo-noabatgircom-1975041 — CTO OTP Force + Bypass Fix**
+Stage: SPEC. Description: Fix OTP bypass (debug_code auto-fill), force OTP login on all pages. Priority: P0. Bypass vulnerability confirmed: chat.blade.php:440 auto-fills OTP input from server debug_code, allowing any code to be accepted without real SMS delivery.
+[FORCE-BREAK] Zombie lease of agent-mimo-noabatgircom-1975041 expired. Broken by agent-noabatgircom-1981751.
