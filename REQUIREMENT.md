@@ -96,3 +96,6 @@ Read latest Zero-Phase Roadmap directive, synthesize into state/tasks.json acros
 
 ## User Directive [2026-10-31T07:11:56Z] (Captured by agent-executive-boardroom)
 --title
+
+## User Directive [2026-10-31T07:28:00Z] (Captured by agent-noabatgircom-2254092)
+Update runner workflow and execute Black-Box E2E verification on https://sima.adlr.ir/chat
