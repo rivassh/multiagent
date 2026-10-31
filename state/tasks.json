@@ -193,7 +193,7 @@
     {
       "id": "TASK-030",
       "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
-      "status": "OPEN",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
@@ -202,7 +202,7 @@
     {
       "id": "TASK-031",
       "title": "Lease infrastructure: clear expired lease (agent-noabatgircom-3925833) and enable active lease management for pending reviews",
-      "status": "OPEN",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
@@ -211,7 +211,7 @@
     {
       "id": "TASK-032",
       "title": "Establish active lease infrastructure for pending reviews (TASK-016, TASK-024)",
-      "status": "TODO",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
