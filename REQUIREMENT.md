@@ -172,3 +172,6 @@ Bug: LLM leaking raw internal monologue/thinking into final response instead of 
 
 ## User Directive [2026-10-31T02:35:15Z] (Captured by agent-executive-boardroom)
 CTO Directive: Force OTP login on all pages, and fix OTP bypass vulnerability where any code is currently accepted.
+
+## User Directive [2026-10-31T02:40:30Z] (Captured by agent-executive-boardroom)
+CTO Directive: Implement user-specific chat history persistence, allowing each user to view, select, and continue their past conversations.
