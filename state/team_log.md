@@ -404,3 +404,11 @@ Stage advanced to VERIFY.
   - Roles rotated: DESIGNER → IMPLEMENTER → REVIEWER → QA cycle
   - Round-robin assignment pending: next agent claims per role rotation (pointer=12)
   - Each subagent executes TDD Red→Green→Refactor inside its worktree, updates tasks.json under lease, commits to sima repo
+
+## [2026-10-31T15:15:00Z] GitOps dispatch: TASK-082 Auth, TASK-083 History, TASK-084 UI timeout
+  - TASK-082 Auth hardening (DESIGNER role): agent-mimo-noabatgircom-1975041 — IN_PROGRESS stage=TEST
+  - TASK-083 History persistence (IMPLEMENTER role): agent-noabatgircom-3925833 — IN_PROGRESS stage=TEST
+  - TASK-084 UI timeout (REVIEWER role): agent-mimo-cli-2289819 — IN_PROGRESS stage=TEST
+  - Git worktrees created at /opt/yls/worktrees/task-TASK-082/083/084 (from sima/main)
+  - Round-robin rotation pointer=12, roles cycle DESIGNER→IMPLEMENTER→REVIEWER→QA
+  - All agents executing TDD Red→Green→Refactor inside isolated worktrees
