@@ -693,27 +693,37 @@
     {
       "id": "TASK-081",
       "title": "CTO Directive: Force OTP login on all pages + fix OTP bypass vulnerability (any code accepted)",
-      "status": "TODO",
+      "status": "IN_PROGRESS",
       "stage": "SPEC",
       "priority": "P0",
-      "assigned_to": null,
+      "assigned_to": "agent-mimo-noabatgircom-1975041",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "description": "CTO Directive [2026-10-31T02:35:15Z]: (1) Fix OTP bypass vulnerability where any code is currently accepted — the frontend auto-fills the OTP input from server-returned debug_code (chat.blade.php line 440), allowing authentication without a real SMS. (2) Force OTP login on all pages — currently OTP is only enforced on the chat page (/chat.html); all other routes must require authentication. Security impact: HIGH — bypass allows full unauthorized access.",
-      "requirements": {
-        "fixes": [
-          "Remove debug_code auto-fill from frontend OTP input (chat.blade.php line 439-441)",
-          "Remove debug_code from production server response when dev_mode is disabled",
-          "Enforce OTP authentication middleware on all routes, not just /chat.html",
-          "Add auth gate: if no valid token, redirect to OTP login screen on every page"
+      "spec": {
+        "vulnerability_root_cause": "chat.blade.php line 439-441: when server returns debug_code (dev_mode), frontend auto-fills OTP input, allowing anyone to bypass SMS verification",
+        "bypass_fix": [
+          "Remove debug_code auto-fill from JavaScript in chat.blade.php",
+          "Ensure debug_code only returned in local dev environment (not staging/production)",
+          "Clear any existing OTP values on page load for security"
         ],
-        "acceptance_criteria": [
-          "debug_code is never returned in production response (config-based dev mode only)",
-          "Frontend does not auto-fill OTP from API response",
-          "All protected routes return 401/redirect without valid auth token",
-          "Existing authenticated chat workflow continues to function",
-          "Unit tests cover MobileAuthController verifyOtp and OTP middleware"
+        "otp_enforcement": [
+          "Create OTP middleware: \App\Http\Middleware\EnsureOtpAuthenticated",
+          "Apply middleware to all routes except: /login, /otp, /logout, /api/mobile-auth/*, /api/health, /api/public/*",
+          "Unauthenticated requests to protected routes redirect to OTP login or return 401 for API"
+        ],
+        "files_to_modify": [
+          "resources/views/chat.blade.php (remove debug_code auto-fill)",
+          "app/Http/Middleware/EnsureOtpAuthenticated.php (new middleware)",
+          "app/Http/Kernel.php (register middleware in $middlewareGroups)",
+          "routes/web.php (check route protection)",
+          "routes/ui/api.php (check API protection)"
+        ],
+        "test_requirements": [
+          "Unit: MobileAuthControllerTest - verifyOtp validates code strictly",
+          "Unit: EnsureOtpAuthenticated - blocks unauthenticated access",
+          "Integration: Full OTP flow works, bypass attempt fails"
         ]
       }
     }
