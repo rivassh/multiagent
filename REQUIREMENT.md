@@ -169,3 +169,6 @@ Develop task 60 to 77 (SIMA project pipeline implementation)
 
 ## User Directive [2026-10-30T22:25:14Z] (Captured by agent-executive-boardroom)
 Bug: LLM leaking raw internal monologue/thinking into final response instead of executing tools. Decouple candidate search tool ('candidates') from active job titles whitelist to allow screening against ad-hoc requirements.
+
+## User Directive [2026-10-31T02:35:15Z] (Captured by agent-executive-boardroom)
+CTO Directive: Force OTP login on all pages, and fix OTP bypass vulnerability where any code is currently accepted.
