@@ -9,9 +9,9 @@
       "reviewer": "agent-noabatgircom-2254092",
       "attempts": 1,
       "last_error": null,
-      "summary": "Zero-Phase Roadmap directive synthesis complete and approved. 6/6 integration tests PASS with raw output evidence per TASK-082 governance mandate. All 12 ZP tasks (ZP-001..ZP-012) registered with correct metadata across PO/Architect/CTO/QA dimensions. Dependency chain ZP-001→ZP-012 sequential. Black-Box E2E verification on sima.adlr.ir completed.",
+      "summary": "Zero-Phase Roadmap directive synthesis complete and approved. 6/6 integration tests PASS with raw output evidence per TASK-082 governance mandate. All 12 ZP tasks (ZP-001..ZP-012) registered with correct metadata across PO/Architect/CTO/QA dimensions. Dependency chain ZP-001\u2192ZP-012 sequential. Black-Box E2E verification on sima.adlr.ir completed.",
       "stage": "DONE",
-      "evidence": "6/6 Integration tests PASS (zero_phase_roadmap_synthesis_test.py): version=1, no duplicates, all 12 ZP tasks present, ZP-001 at TEST/IN_PROGRESS/attempts=1, correct PO/Architect/CTO/QA dimension mapping, sequential dependency order ZP-001→ZP-012. E2E verification on sima.adlr.ir/chat passed.",
+      "evidence": "6/6 Integration tests PASS (zero_phase_roadmap_synthesis_test.py): version=1, no duplicates, all 12 ZP tasks present, ZP-001 at TEST/IN_PROGRESS/attempts=1, correct PO/Architect/CTO/QA dimension mapping, sequential dependency order ZP-001\u2192ZP-012. E2E verification on sima.adlr.ir/chat passed.",
       "implementation": {
         "synthesis_complete": true,
         "zero_phase_tasks_registered": 12,
@@ -21,7 +21,7 @@
           "CTO",
           "QA"
         ],
-        "dependency_chain": "ZP-001 → ZP-002 → ZP-003 → ZP-004 → ZP-005 → ZP-006 → ZP-007 → ZP-008 → ZP-009 → ZP-010 → ZP-011 → ZP-012",
+        "dependency_chain": "ZP-001 \u2192 ZP-002 \u2192 ZP-003 \u2192 ZP-004 \u2192 ZP-005 \u2192 ZP-006 \u2192 ZP-007 \u2192 ZP-008 \u2192 ZP-009 \u2192 ZP-010 \u2192 ZP-011 \u2192 ZP-012",
         "validation_evidence": "6/6 Integration tests PASS (zero_phase_roadmap_synthesis_test.py)",
         "acceptance_criteria": {
           "all_12_zp_tasks_registered": true,
@@ -100,7 +100,7 @@
       "stage": "DONE",
       "implementation": {
         "execution_queue": {
-          "dependency_graph": "ZP-001 → ZP-002 → ZP-003 → ZP-004 → ZP-005 → ZP-006 → ZP-007 → ZP-008 → ZP-009 → ZP-010 → ZP-011 → ZP-012",
+          "dependency_graph": "ZP-001 \u2192 ZP-002 \u2192 ZP-003 \u2192 ZP-004 \u2192 ZP-005 \u2192 ZP-006 \u2192 ZP-007 \u2192 ZP-008 \u2192 ZP-009 \u2192 ZP-010 \u2192 ZP-011 \u2192 ZP-012",
           "priority_levels": {
             "P0": [
               "ZP-001",
@@ -120,7 +120,7 @@
               "ZP-009"
             ]
           },
-          "queue_status": "All 12 tasks initialized, ZP-001 done, remaining ZP-002→ZP-012 IN_PROGRESS"
+          "queue_status": "All 12 tasks initialized, ZP-001 done, remaining ZP-002\u2192ZP-012 IN_PROGRESS"
         },
         "acceptance_criteria": {
           "task_prioritization": "P0 tasks are governance/reviewer roles (ZP-001, ZP-010, ZP-011, ZP-012)",
@@ -422,7 +422,7 @@
     },
     {
       "id": "TASK-079",
-      "title": "Fix LLM monologue leak in ChatQueryService — strip raw thinking/reasoning content from final response",
+      "title": "Fix LLM monologue leak in ChatQueryService \u2014 strip raw thinking/reasoning content from final response",
       "status": "DONE",
       "assigned_to": null,
       "reviewer": "agent-noabatgircom-3722452",
@@ -446,6 +446,69 @@
         "verification_type": "Black-Box QA Stage/E2E",
         "result": "PASSED"
       }
+    },
+    {
+      "id": "TASK-082",
+      "title": "Auth: Multi-Factor Authentication & Security Hardening",
+      "status": "TODO",
+      "assigned_to": "agent-noabatgircom-2237777",
+      "reviewer": "",
+      "attempts": 0,
+      "last_error": null,
+      "summary": "",
+      "stage": "SPEC",
+      "description": "Harden authentication system \u2014 extend TASK-081 OTP fix with multi-factor auth, session management hardening, rate limiting on login attempts, and secure token validation. Address remaining security gaps in mobile auth, API key validation, and role permission enforcement.",
+      "evidence": "",
+      "e2e_verification_results": {
+        "endpoint": "https://sima.adlr.ir/chat",
+        "verified": false,
+        "timestamp": "",
+        "verification_type": "Black-Box QA Stage/E2E",
+        "result": ""
+      },
+      "implementation": {}
+    },
+    {
+      "id": "TASK-083",
+      "title": "History: Conversation Persistence & Retrieval Layer",
+      "status": "TODO",
+      "assigned_to": "agent-noabatgircom-3925833",
+      "reviewer": "",
+      "attempts": 0,
+      "last_error": null,
+      "summary": "",
+      "stage": "SPEC",
+      "description": "Implement comprehensive chat/history persistence layer with retrieval \u2014 build DatabaseConversationRepository backed by PostgreSQL, add conversation history API endpoints with search/filter by job, date range, and candidate, and integrate history display into chat UI. Ensure parity with existing ChatHistoryService.",
+      "evidence": "",
+      "e2e_verification_results": {
+        "endpoint": "https://sima.adlr.ir/chat",
+        "verified": false,
+        "timestamp": "",
+        "verification_type": "Black-Box QA Stage/E2E",
+        "result": ""
+      },
+      "implementation": {}
+    },
+    {
+      "id": "TASK-084",
+      "title": "UI: Chatbot Response Timeout & Resilience",
+      "status": "TODO",
+      "assigned_to": "agent-mimo-cli-2289819",
+      "reviewer": "",
+      "attempts": 0,
+      "last_error": null,
+      "summary": "",
+      "stage": "SPEC",
+      "description": "UI response timeout handling for chatbot \u2014 implement streaming response timeout mechanism, frontend timeout UI feedback, exponential backoff retry, SSE stream error handling, and graceful degradation when LLM provider exceeds latency threshold.",
+      "evidence": "",
+      "e2e_verification_results": {
+        "endpoint": "https://sima.adlr.ir/chat",
+        "verified": false,
+        "timestamp": "",
+        "verification_type": "Black-Box QA Stage/E2E",
+        "result": ""
+      },
+      "implementation": {}
     }
   ]
 }
