@@ -16,6 +16,8 @@
 - **state/team_log.md**: Append-only ledger of actions, reviews, and test runs.
 - **state/council.md**: Design Council protocol and decisions.
 - **state/inbox/**: FIFO mailbox for inter-agent message passing (Reviewer → CodeWriter, etc.).
+- **PROTOCOLS/REVIEWER.md**: Reviewer agent protocols including evidence-based review gate and Black-Box QA stage/E2E verification requirements.
+- **state/runner_workflow.js**: Multi-agent runner workflow enforcing evidence-based verification gates and stage/E2E verification on sima.adlr.ir before DONE status.
 
 ## 3. Direct User Chat Interception
 When a human operator enters instructions, bug reports, feature requests, or questions directly in the chat interface:

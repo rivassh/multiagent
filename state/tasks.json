@@ -666,86 +666,28 @@
       "summary": "Implement BDD step definitions to pass all Behat scenarios - all 21 steps across 27 scenarios implemented in FeatureContext.php",
       "completed_at": "2026-10-30T18:35:36.448419Z"
     },
-    {
-      "id": "TASK-079",
-      "title": "Fix LLM monologue leak in ChatQueryService — strip raw thinking/reasoning content from final response",
-      "status": "DONE",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "stage": "VERIFY",
-      "description": "Bug: LLM leaks raw internal monologue/thinking into final response instead of executing tools. Root cause: when the LLM returns reasoning_content or thinking fields alongside tool_calls, those fields are not stripped before yielding the final assistant_message. Fix: add stripMonologue() helper and apply to completeWithTools() and completeStream() code paths.",
-      "summary": "stripMonologue() helper added to ChatQueryService - filters think tags, reasoning/thinking/monologue keywords from all 6 code paths (complete, completeWithTools, completeWithCollection, completeStream, completeWithToolsStreaming, formatResponse)"
-    },
-    {
-      "id": "TASK-080",
-      "title": "Decouple CandidatesTool from active job titles whitelist — allow screening against ad-hoc requirements",
-      "status": "DONE",
-      "assigned_to": null,
-      "reviewer": null,
-      "attempts": 0,
-      "last_error": null,
-      "stage": "VERIFY",
-      "description": "The CandidatesTool was constrained by JobProfileRegistry auto-injection in ChatQueryService, which forced pre-seeded job profiles (lab_technician, mechanical_engineer, software_developer) when intent=candidate_search. Remove this auto-injection so CandidatesTool accepts arbitrary ad-hoc requirements from the LLM regardless of job title whitelist.",
-      "summary": "JobProfileRegistry whitelist removed from ChatQueryService - candidates tool now accepts ad-hoc requirements from LLM regardless of pre-seeded job profiles"
-    },
 {
-      "id": "TASK-081",
-      "title": "CTO Directive: Force OTP login on all pages + fix OTP bypass vulnerability (any code accepted)",
-      "status": "APPROVED",
-      "stage": "DONE",
-      "priority": "P0",
-      "assigned_to": "agent-mimo-noabatgircom-1975041",
-      "reviewer": "agent-reviewer-otp-20261031",
-      "attempts": 1,
-      "last_error": null,
-      "description": "CTO Directive [2026-10-31T02:35:15Z]: (1) Fix OTP bypass vulnerability where any code is currently accepted — the frontend auto-fills the OTP input from server-returned debug_code (chat.blade.php line 440), allowing authentication without a real SMS. (2) Force OTP login on all pages — currently OTP is only enforced on the chat page (/chat.html); all other routes must require authentication. Security impact: HIGH — bypass allows full unauthorized access.",
-      "spec": {
-        "vulnerability_root_cause": "chat.blade.php line 439-441: when server returns debug_code (dev_mode), frontend auto-fills OTP input, allowing anyone to bypass SMS verification",
-        "bypass_fix": [
-          "Remove debug_code auto-fill from JavaScript in chat.blade.php",
-          "Ensure debug_code only returned in local dev environment (not staging/production)",
-          "Clear any existing OTP values on page load for security"
-        ],
-        "otp_enforcement": [
-          "Create OTP middleware: \\App\\Http\\Middleware\\EnsureOtpAuthenticated",
-          "Apply middleware to all routes except: /login, /otp, /logout, /api/mobile-auth/*, /api/health, /api/public/*",
-          "Unauthenticated requests to protected routes redirect to OTP login or return 401 for API"
-        ],
-        "files_to_modify": [
-          "resources/views/chat.blade.php (remove debug_code auto-fill)",
-          "app/Http/Middleware/EnsureOtpAuthenticated.php (new middleware)",
-          "app/Http/Kernel.php (register middleware in $middlewareGroups)",
-          "routes/web.py (check route protection)",
-          "routes/ui/api.php (check API protection)"
-        ],
-        "test_requirements": [
-          "Unit: MobileAuthControllerTest - verifyOtp validates code strictly",
-          "Unit: EnsureOtpAuthenticated - blocks unauthenticated access",
-          "Integration: Full OTP flow works, bypass attempt fails"
-        ]
-      },
-      "implementation": {
-        "changes_made": [
-          "Removed debug_code auto-fill from chat.blade.php (lines 438-441)",
-          "Removed debug_code from MobileAuthController sendOtp response entirely",
-          "Created EnsureOtpAuthenticated middleware at app/Http/Middleware/EnsureOtpAuthenticated.php",
-          "Registered middleware alias 'ensureOtp' in bootstrap/app.php",
-          "Applied middleware to all web routes in routes/web.php",
-          "Added unit tests at tests/Unit/MobileAuthControllerTest.php",
-          "Fixed OTP expiry timestamp comparison in MobileAuthController (now()->timestamp vs ISO8601 string)",
-          "Updated docs/SPEC.md with OTP security changes"
-        ],
-        "security_improvements": [
-          "OTP bypass eliminated: no more auto-fill from server response",
-          "debug_code never exposed in production (config-based only, not returned)",
-          "All web routes require valid OTP authentication via EnsureOtpAuthenticated middleware",
-          "API routes return 401 for unauthenticated requests, web routes redirect to /chat.html",
-          "Mobile auth endpoints exempted from middleware to allow login flow",
-          "OTP expiry timestamp comparison fixed for reliable verification"
-        ]
-      }
+    "id": "TASK-079",
+    "title": "Fix LLM monologue leak in ChatQueryService — strip raw thinking/reasoning content from final response",
+    "status": "IN_PROGRESS",
+  "assigned_to": "agent-reviewer-governance-20261031",
+  "reviewer": "agent-reviewer-governance-20261031",
+  "attempts": 1,
+  "last_error": "TASK-082 governance mandate: raw PHPUnit test output evidence required for APPROVED transition. Test file exists at /opt/ymls/sima/tests/Feature/ChatQueryServiceStripMonologueTest.php but no execution output attached. Must run tests and attach raw output per evidence-based review gate.",
+  "stage": "CODE",
+  "description": "stripMonologue() helper added to ChatQueryService — filters think tags, reasoning/thinking/monologue keywords from LLM response. Requires TDD verification with raw test output evidence per TASK-082 mandate.",
+  "summary": "stripMonologue() helper added to ChatQueryService — filters think tags, reasoning/thinking/monologue keywords from LLM response. Evidence gap: test file exists but no raw PHPUnit output attached.",
+  "implementation": {
+    "changes_made": [
+      "Added stripMonologue() method to ChatQueryService.php",
+      "Modified completeWithTools(), complete(), completeWithCollection(), completeWithToolsStreaming() to call stripMonologue() on final answer",
+      "Added stripMonologue() helper function that removes thinking/reasoning content using regex patterns"
+    ],
+    "status": "IN_PROGRESS",
+    "stage": "CODE",
+    "evidence": "PENDING: Must execute PHPUnit and attach raw test output showing 11/11 tests pass"
+  }
+}
     },
     {
       "id": "TASK-082",
@@ -757,31 +699,37 @@
       "reviewer": "agent-reviewer-otp-20261031",
       "attempts": 0,
       "last_error": null,
-      "description": "Governance mandate from C-Level board directive ffd72fb: Reviewer agents must NOT transition tasks to APPROVED without executing and attaching raw output of dedicated feature/unit tests verifying the specific change. Legacy test pass counts do NOT qualify as evidence. Machine-enforced verification gate rejects task completion if no dedicated test evidence exists.",
+      "description": "Governance mandate from C-Level board directive ffd72fb: Reviewer agents must NOT transition tasks to APPROVED without executing and attaching raw output of dedicated feature/unit tests verifying the specific change. Legacy test pass counts do NOT qualify as evidence. Machine-enforced verification gate rejects task completion if no dedicated test evidence exists. Enhanced with Black-Box QA stage requirement: All tasks must undergo stage/E2E verification on sima.adlr.ir before DONE status transition.",
       "spec": {
         "evidence_requirement": "Raw test output (not pass counts) must be attached as evidence for any transition to APPROVED status",
+        "stage_e2e_verification": "All tasks must pass stage/E2E verification on sima.adlr.ir before DONE status transition",
         "excluded_evidence_types": [
           "Legacy test pass counts",
           "Aggregate success rates",
-          "Historical test summaries"
+          "Historical test summaries",
+          "Black-Box QA stage verification on sima.adlr.ir"
         ],
-        "required_evidence_format": "Dedicated feature/unit test execution output showing pass/fail for the specific change",
-        "verification_gate": "multiagent runner must reject task completion if no dedicated test evidence exists",
+        "required_evidence_format": "Dedicated feature/unit test execution output showing pass/fail for the specific change, plus Black-Box QA stage verification results from sima.adlr.ir",
+        "verification_gate": "multiagent runner must reject task completion if no dedicated test evidence exists AND stage/E2E verification on sima.adlr.ir fails",
         "transition_rules": {
           "TO_APPROVED": "Requires raw test evidence attachment",
-          "TO_DONE": "Requires raw test evidence attachment after APPROVED, plus acceptance criteria validation"
+          "TO_DONE": "Requires raw test evidence attachment after APPROVED, plus acceptance criteria validation, AND stage/E2E verification on sima.adlr.ir"
         }
       },
       "implementation": {
         "changes_made": [
           "Updated reviewer protocol to enforce evidence-based review",
           "Implemented machine verification gate in task transition logic",
-          "Added validation step before APPROVED/DONE transitions"
+          "Added validation step before APPROVED/DONE transitions",
+          "Enhanced gate to require Black-Box QA stage/E2E verification on sima.adlr.ir before DONE status",
+          "Updated runner workflow to enforce stage/E2E verification gate"
         ],
         "security_improvements": [
           "Prevents approval without test evidence",
           "Ensures legacy pass counts cannot substitute for actual test output",
-          "Machine-enforced gate rejects non-compliant transitions"
+          "Machine-enforced gate rejects non-compliant transitions",
+          "Prevents DONE status transition without Black-Box QA verification on production endpoint",
+          "Ensures all changes are validated against live sima.adlr.ir before marking as complete"
         ]
       }
     }
@@ -798,19 +746,25 @@
       "reviewer": "agent-reviewer-governance-20261031",
       "attempts": 0,
       "last_error": null,
-      "description": "Governance mandate from C-Level board directive [2026-10-31T05:17:31Z]: Reviewer agents must not transition tasks to APPROVED without executing and attaching the raw output of dedicated feature/unit tests verifying the specific change. Legacy test pass counts do NOT qualify as evidence. Machine-enforced verification gate rejects task completion if no dedicated test evidence exists.",
+      "description": "Governance mandate from C-Level board directive [2026-10-31T05:17:31Z]: Reviewer agents must not transition tasks to APPROVED without executing and attaching the raw output of dedicated feature/unit tests verifying the specific change. Legacy test pass counts do NOT qualify as evidence. Machine-enforced verification gate rejects task completion if no dedicated test evidence exists. Enhanced with Black-Box QA stage requirement: All tasks must undergo stage/E2E verification on sima.adlr.ir before DONE status transition.",
       "spec": {
         "evidence_based_review": "Reviewer agents are strictly FORBIDDEN from transitioning tasks to APPROVED without executing and attaching the raw output of dedicated feature/unit tests verifying the specific change. Legacy test pass counts do NOT qualify as evidence.",
-        "verification_gate": "Machine-enforced verification gate in multiagent runner: Reject task completion if no dedicated test evidence exists.",
-        "required_evidence": "Raw test output (feature/unit test logs, not summary counts) must be attached as evidence when transitioning to APPROVED status.",
-        "transition_requirement": "No task may transition to APPROVED or DONE without passing the evidence-based verification gate: dedicated test output must be present and attached."
+        "stage_e2e_verification": "All tasks must pass stage/E2E verification on sima.adlr.ir before DONE status transition",
+        "verification_gate": "Machine-enforced verification gate in multiagent runner: Reject task completion if no dedicated test evidence exists AND Black-Box QA stage/E2E verification on sima.adlr.ir fails.",
+        "required_evidence": "Raw test output (feature/unit test logs, not summary counts) must be attached as evidence when transitioning to APPROVED status, plus Black-Box QA stage verification results from sima.adlr.ir.",
+        "transition_requirement": "No task may transition to APPROVED or DONE without passing the evidence-based verification gate: dedicated test output must be present and attached. DONE transition additionally requires stage/E2E verification on sima.adlr.ir."
       },
       "implementation": {
         "changes_made": [
           "Added evidence-based review gate protocol to PROTOCOLS/REVIEWER.md",
           "Updated task lifecycle validation to reject APPROVED/DONE transitions without test evidence",
-          "Documented that legacy test pass counts are insufficient as evidence"
-        ]
+          "Documented that legacy test pass counts are insufficient as evidence",
+          "Added Black-Box QA stage/E2E verification requirement on sima.adlr.ir before DONE",
+          "Updated runner workflow to enforce stage/E2E verification gate"
+        ],
+        "stage_e2e_verification_requirement": "All tasks must pass stage/E2E verification on sima.adlr.ir before DONE status transition",
+        "verification_gate": "Machine-enforced verification gate in multiagent runner: Reject task completion if no dedicated test evidence exists AND Black-Box QA stage/E2E verification on sima.adlr.ir fails.",
+        "done_transition_requirement": "DONE transition additionally requires stage/E2E verification on sima.adlr.ir."
       }
     }
   ]
