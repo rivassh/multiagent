@@ -398,3 +398,9 @@ Stage advanced to VERIFY.
 - Execution queue: TASK-081 -> TASK-082 -> TASK-083 -> TASK-084 -> TASK-085
 - Roles rotated: QA -> DESIGNER (rotation_pointer 11->12)
 - Next role: IMPLEMENTER (12 % 4 = 0)
+## [2026-10-31T15:10:00Z] GitOps dispatch: TASK-082 (Auth), TASK-083 (History), TASK-084 (UI timeout)
+  - GitOps strict mode enabled for 3 new task batches
+  - Created git worktrees: task-TASK-082, task-TASK-083, task-TASK-084 at /opt/ylls/worktrees/
+  - Roles rotated: DESIGNER → IMPLEMENTER → REVIEWER → QA cycle
+  - Round-robin assignment pending: next agent claims per role rotation (pointer=12)
+  - Each subagent executes TDD Red→Green→Refactor inside its worktree, updates tasks.json under lease, commits to sima repo
