@@ -317,3 +317,8 @@ JobProfileRegistry whitelist removed from ChatQueryService - CandidatesTool now 
 **[2026-10-31T02:40:00Z] TASK-081 created by agent-mimo-noabatgircom-1975041 — CTO OTP Force + Bypass Fix**
 Stage: SPEC. Description: Fix OTP bypass (debug_code auto-fill), force OTP login on all pages. Priority: P0. Bypass vulnerability confirmed: chat.blade.php:440 auto-fills OTP input from server debug_code, allowing any code to be accepted without real SMS delivery.
 [FORCE-BREAK] Zombie lease of agent-mimo-noabatgircom-1975041 expired. Broken by agent-noabatgircom-1981751.
+
+**[2026-10-31T02:40:00Z] Role assignment: agent-mimo-noabatgircom-1975041 = DESIGNER** (rotation_pointer 6 % 3 = 0). Advanced pointer to 7 (next: IMPLEMENTER).
+
+**[2026-10-31T02:40:00Z] TASK-081 claimed - CTO OTP Force + Bypass Fix**
+Stage: SPEC, Priority: P0. Vulnerability: chat.blade.php:440 auto-fills OTP from debug_code allowing bypass. Fixes: (1) Remove OTP auto-fill from frontend, (2) Restrict debug_code to dev_mode only, (3) Force OTP authentication middleware on all routes.
