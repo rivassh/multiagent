@@ -407,6 +407,8 @@ Stage advanced to VERIFY.
 
 ## [2026-10-31T10:27:00Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired lease on tasks.json (lease id: ac091742-c16b-4a20-bb54-3309a254b8c0)
 
+## [2026-10-31T10:28:00Z] RELEASE_LEASE: agent-noabatgircom-2254092 released lease on tasks.json
+
 ## [2026-10-31T15:15:00Z] GitOps dispatch: TASK-082 Auth, TASK-083 History, TASK-084 UI timeout
   - TASK-082 Auth hardening (DESIGNER role): agent-mimo-noabatgircom-1975041 — IN_PROGRESS stage=TEST
   - TASK-083 History persistence (IMPLEMENTER role): agent-noabatgircom-3925833 — IN_PROGRESS stage=TEST
