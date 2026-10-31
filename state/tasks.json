@@ -690,11 +690,11 @@
       "description": "The CandidatesTool was constrained by JobProfileRegistry auto-injection in ChatQueryService, which forced pre-seeded job profiles (lab_technician, mechanical_engineer, software_developer) when intent=candidate_search. Remove this auto-injection so CandidatesTool accepts arbitrary ad-hoc requirements from the LLM regardless of job title whitelist.",
       "summary": "JobProfileRegistry whitelist removed from ChatQueryService - candidates tool now accepts ad-hoc requirements from LLM regardless of pre-seeded job profiles"
     },
-    {
+{
       "id": "TASK-081",
       "title": "CTO Directive: Force OTP login on all pages + fix OTP bypass vulnerability (any code accepted)",
       "status": "IN_PROGRESS",
-      "stage": "SPEC",
+      "stage": "CODE",
       "priority": "P0",
       "assigned_to": "agent-mimo-noabatgircom-1975041",
       "reviewer": null,
@@ -709,7 +709,7 @@
           "Clear any existing OTP values on page load for security"
         ],
         "otp_enforcement": [
-          "Create OTP middleware: \App\Http\Middleware\EnsureOtpAuthenticated",
+          "Create OTP middleware: \\App\\Http\\Middleware\\EnsureOtpAuthenticated",
           "Apply middleware to all routes except: /login, /otp, /logout, /api/mobile-auth/*, /api/health, /api/public/*",
           "Unauthenticated requests to protected routes redirect to OTP login or return 401 for API"
         ],
@@ -725,7 +725,26 @@
           "Unit: EnsureOtpAuthenticated - blocks unauthenticated access",
           "Integration: Full OTP flow works, bypass attempt fails"
         ]
+      },
+      "implementation": {
+        "changes_made": [
+          "Removed debug_code auto-fill from chat.blade.php (lines 438-441)",
+          "Removed debug_code from MobileAuthController sendOtp response entirely",
+          "Created EnsureOtpAuthenticated middleware at app/Http/Middleware/EnsureOtpAuthenticated.php",
+          "Registered middleware alias 'ensureOtp' in bootstrap/app.php",
+          "Applied middleware to all web routes in routes/web.php",
+          "Added unit tests at tests/Unit/MobileAuthControllerTest.php",
+          "Updated docs/SPEC.md with OTP security changes"
+        ],
+        "security_improvements": [
+          "OTP bypass eliminated: no more auto-fill from server response",
+          "debug_code never exposed in production (config-based only, not returned)",
+          "All web routes require valid OTP authentication via EnsureOtpAuthenticated middleware",
+          "API routes return 401 for unauthenticated requests, web routes redirect to /chat.html",
+          "Mobile auth endpoints exempted from middleware to allow login flow"
+        ]
       }
+    }
     }
   ]
 }
