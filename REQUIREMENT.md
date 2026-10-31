@@ -99,3 +99,6 @@ Read latest Zero-Phase Roadmap directive, synthesize into state/tasks.json acros
 
 ## User Directive [2026-10-31T07:28:00Z] (Captured by agent-noabatgircom-2254092)
 Update runner workflow and execute Black-Box E2E verification on https://sima.adlr.ir/chat
+
+## User Directive [2026-10-31T07:49:20Z] (Captured by agent-dispatch-noabatgircom-2307302)
+GitOps strict mode enabled. Dispatching tasks for Auth, History, and UI response timeout.
