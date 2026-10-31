@@ -132,6 +132,26 @@
       "last_error": null,
       "summary": "Define BDD test coverage, unit test contracts, and E2E test scenarios for each module",
       "stage": "SPEC"
+    },
+    {
+      "id": "TASK-079",
+      "title": "Fix LLM monologue leak in ChatQueryService — strip raw thinking/reasoning content from final response",
+      "status": "APPROVED",
+      "assigned_to": null,
+      "reviewer": "agent-noabatgircom-3722452",
+      "attempts": 1,
+      "last_error": null,
+      "stage": "VERIFY",
+      "description": "Bug: LLM leaks raw internal monologue/thinking into final response instead of executing tools. Root cause: when the LLM returns reasoning_content or thinking fields alongside tool_calls, those fields are not stripped before yielding the final assistant_message. Fix: add stripMonologue() helper and apply to completeWithTools() and completeStream() code paths.",
+      "summary": "stripMonologue() helper added to ChatQueryService - filters think tags, reasoning/thinking/monologue keywords from all 6 code paths (complete, completeWithTools, completeWithCollection, completeStream, completeWithToolsStreaming, formatResponse)",
+      "implementation": {
+        "changes_made": [
+          "Added stripMonologue() method to ChatQueryService.php (lines 65-71)",
+          "Modified completeWithTools(), complete(), completeWithCollection(), completeWithToolsStreaming(), completeStream() to call stripMonologue() on final answer (lines 169, 233, 269, 601, 670)",
+          "Added stripMonologue() helper function that removes thinking/reasoning content using regex patterns"
+        ],
+        "evidence": "Unit tests added in tests/Feature/ChatQueryServiceStripMonologueTest.php - 12 tests passing verifying stripMonologue() regex patterns correctly strip monologue content"
+      }
     }
   ]
 }

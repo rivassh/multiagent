@@ -72517,3 +72517,131 @@ sima-sima-nginx-1: Up 3 days
 sima-sima-nginx-1: Up 3 days
 nginx-certbot-nginx-1: Up 12 hours (healthy)
 nginx-certbot-certbot-1: Up 7 days
+[2026-10-31T06:21:46Z] --- CYCLE ---
+[2026-10-31T06:21:46Z] CHANGED: multiagent_team_log (/opt/multiagent/state/team_log.md)
+[2026-10-31T06:21:46Z] DIRTY: sima has uncommitted changes
+ M TODO.md
+ M app/Http/Middleware/EnsureOtpAuthenticated.php
+ M app/Modules/ATS/Services/Screening/ScreeningOrchestrator.php
+ M app/Modules/Chat/Services/ChatQueryService.php
+ M app/Modules/Chat/Services/JobProfileRegistry.php
+ M app/Providers/ChatServiceProvider.php
+ M routes/ui/api.php
+ m services/modular-mimo-adapter
+?? app/Services/AI/Extraction/
+?? app/Services/AI/Screening/Rules/DesignSoftwareScreeningRule.php
+?? app/Services/AI/Screening/Rules/ExperienceScreeningRule.php
+?? app/Services/AI/Screening/Rules/ManufacturingScreeningRule.php
+?? app/Services/AI/Screening/Rules/MetallurgyScreeningRule.php
+?? app/Services/AI/Screening/Rules/PersonalTraitsScreeningRule.php
+?? app/Services/AI/Screening/Rules/PressureSystemsScreeningRule.php
+?? tests/Feature/ChatQueryServiceStripMonologueTest.php
+?? tests/Unit/EnsureOtpAuthenticatedTest.php
+?? tests/Units/ScreeningRulesTest.php
+?? tests/feature_test.php
+[2026-10-31T06:21:48Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-31T06:21:51Z] DOCKER: sima containers running
+sima-sima-app-1: Up 2 hours
+sima-sima-db-1: Up 2 hours
+sima-sima-nginx-1: Up 3 days
+[2026-10-31T06:21:51Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 3 days
+nginx-certbot-nginx-1: Up 12 hours (healthy)
+nginx-certbot-certbot-1: Up 7 days
+[2026-10-31T06:22:51Z] --- CYCLE ---
+[2026-10-31T06:22:51Z] DIRTY: sima has uncommitted changes
+ M TODO.md
+ M app/Http/Middleware/EnsureOtpAuthenticated.php
+ M app/Modules/ATS/Services/Screening/ScreeningOrchestrator.php
+ M app/Modules/Chat/Services/ChatQueryService.php
+ M app/Modules/Chat/Services/JobProfileRegistry.php
+ M app/Providers/ChatServiceProvider.php
+ M routes/ui/api.php
+ m services/modular-mimo-adapter
+?? app/Services/AI/Extraction/
+?? app/Services/AI/Screening/Rules/DesignSoftwareScreeningRule.php
+?? app/Services/AI/Screening/Rules/ExperienceScreeningRule.php
+?? app/Services/AI/Screening/Rules/ManufacturingScreeningRule.php
+?? app/Services/AI/Screening/Rules/MetallurgyScreeningRule.php
+?? app/Services/AI/Screening/Rules/PersonalTraitsScreeningRule.php
+?? app/Services/AI/Screening/Rules/PressureSystemsScreeningRule.php
+?? tests/Feature/ChatQueryServiceStripMonologueTest.php
+?? tests/Unit/EnsureOtpAuthenticatedTest.php
+?? tests/Units/ScreeningRulesTest.php
+?? tests/feature_test.php
+[2026-10-31T06:22:53Z] DIRTY: multiagent has uncommitted changes
+ M state/watchdog.log
+[2026-10-31T06:22:56Z] DOCKER: sima containers running
+sima-sima-app-1: Up 2 hours
+sima-sima-db-1: Up 2 hours
+sima-sima-nginx-1: Up 3 days
+[2026-10-31T06:22:56Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 3 days
+nginx-certbot-nginx-1: Up 12 hours (healthy)
+nginx-certbot-certbot-1: Up 7 days
+[2026-10-31T06:23:56Z] --- CYCLE ---
+[2026-10-31T06:23:56Z] CHANGED: multiagent_tasks (/opt/multiagent/state/tasks.json)
+[2026-10-31T06:23:56Z] DIRTY: sima has uncommitted changes
+ M TODO.md
+ M app/Http/Middleware/EnsureOtpAuthenticated.php
+ M app/Modules/ATS/Services/Screening/ScreeningOrchestrator.php
+ M app/Modules/Chat/Services/ChatQueryService.php
+ M app/Modules/Chat/Services/JobProfileRegistry.php
+ M app/Providers/ChatServiceProvider.php
+ M routes/ui/api.php
+ m services/modular-mimo-adapter
+?? app/Services/AI/Extraction/
+?? app/Services/AI/Screening/Rules/DesignSoftwareScreeningRule.php
+?? app/Services/AI/Screening/Rules/ExperienceScreeningRule.php
+?? app/Services/AI/Screening/Rules/ManufacturingScreeningRule.php
+?? app/Services/AI/Screening/Rules/MetallurgyScreeningRule.php
+?? app/Services/AI/Screening/Rules/PersonalTraitsScreeningRule.php
+?? app/Services/AI/Screening/Rules/PressureSystemsScreeningRule.php
+?? tests/Feature/ChatQueryServiceStripMonologueTest.php
+?? tests/Unit/EnsureOtpAuthenticatedTest.php
+?? tests/Units/ScreeningRulesTest.php
+?? tests/feature_test.php
+[2026-10-31T06:23:59Z] DIRTY: multiagent has uncommitted changes
+ M state/tasks.json
+ M state/watchdog.log
+[2026-10-31T06:24:01Z] DOCKER: sima containers running
+sima-sima-app-1: Up 2 hours
+sima-sima-db-1: Up 2 hours
+sima-sima-nginx-1: Up 3 days
+[2026-10-31T06:24:01Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 3 days
+nginx-certbot-nginx-1: Up 12 hours (healthy)
+nginx-certbot-certbot-1: Up 7 days
+[2026-10-31T06:25:01Z] --- CYCLE ---
+[2026-10-31T06:25:01Z] DIRTY: sima has uncommitted changes
+ M TODO.md
+ M app/Http/Middleware/EnsureOtpAuthenticated.php
+ M app/Modules/ATS/Services/Screening/ScreeningOrchestrator.php
+ M app/Modules/Chat/Services/ChatQueryService.php
+ M app/Modules/Chat/Services/JobProfileRegistry.php
+ M app/Providers/ChatServiceProvider.php
+ M routes/ui/api.php
+ m services/modular-mimo-adapter
+?? app/Services/AI/Extraction/
+?? app/Services/AI/Screening/Rules/DesignSoftwareScreeningRule.php
+?? app/Services/AI/Screening/Rules/ExperienceScreeningRule.php
+?? app/Services/AI/Screening/Rules/ManufacturingScreeningRule.php
+?? app/Services/AI/Screening/Rules/MetallurgyScreeningRule.php
+?? app/Services/AI/Screening/Rules/PersonalTraitsScreeningRule.php
+?? app/Services/AI/Screening/Rules/PressureSystemsScreeningRule.php
+?? tests/Feature/ChatQueryServiceStripMonologueTest.php
+?? tests/Unit/EnsureOtpAuthenticatedTest.php
+?? tests/Units/ScreeningRulesTest.php
+?? tests/feature_test.php
+[2026-10-31T06:25:04Z] DIRTY: multiagent has uncommitted changes
+ M state/tasks.json
+ M state/watchdog.log
+[2026-10-31T06:25:06Z] DOCKER: sima containers running
+sima-sima-app-1: Up 2 hours
+sima-sima-db-1: Up 2 hours
+sima-sima-nginx-1: Up 3 days
+[2026-10-31T06:25:06Z] DOCKER: nginx containers running
+sima-sima-nginx-1: Up 3 days
+nginx-certbot-nginx-1: Up 12 hours (healthy)
+nginx-certbot-certbot-1: Up 7 days
