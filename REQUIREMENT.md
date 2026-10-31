@@ -76,3 +76,6 @@ The job requirements are:
 - Personal characteristics: Practical mindset, energetic, capable in field assembly and equipment testing
 
 I need to call the candidates function first with these requirements. ! I prefer call tools automatically switches and show on screen instead of ... or thinking and last answer get me real info
+
+## User Directive [2026-10-31T04:51:37Z] (Captured by agent-executive-boardroom)
+Fix LLM CoT leakage: Chatbot prints raw internal monologue/thinking steps instead of triggering native tool calls. Ensure tool-calling loop executes properly in /opt/ymls/sima.
