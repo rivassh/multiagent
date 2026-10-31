@@ -520,7 +520,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario \'System collects job posts from JobVision API\' - crawler fetches job posts for positions and stores in ats_job_posts with fields external_id, source, title, company, location, description, skills, experience_years, employment_type, status",
+      "summary": "BDD: 0-req scenario 'System collects job posts from JobVision API' - crawler fetches job posts for positions and stores in ats_job_posts with fields external_id, source, title, company, location, description, skills, experience_years, employment_type, status",
       "completed_at": "2026-10-30T18:30:00Z"
     },
     {
@@ -531,7 +531,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario \'System collects candidate resumes from JobVision API\' - crawler fetches candidate resumes for active job posts and stores in candidates table with fields candidate_id, personal_info, skills, work_history, education_history, public_profiles, resume_text",
+      "summary": "BDD: 0-req scenario 'System collects candidate resumes from JobVision API' - crawler fetches candidate resumes for active job posts and stores in candidates table with fields candidate_id, personal_info, skills, work_history, education_history, public_profiles, resume_text",
       "completed_at": "2026-10-30T18:32:00Z"
     },
     {
@@ -542,7 +542,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario \'System extracts skills from candidate resume text using NLP\' - NLP pipeline extracts and normalizes skills to standard taxonomy from resume_text",
+      "summary": "BDD: 0-req scenario 'System extracts skills from candidate resume text using NLP' - NLP pipeline extracts and normalizes skills to standard taxonomy from resume_text",
       "completed_at": "2026-10-30T18:34:00Z"
     },
     {
@@ -553,7 +553,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario \'System extracts work history from candidate resume text using NLP\' - extract title, company, start_date, end_date, duration_years, description from resume text",
+      "summary": "BDD: 0-req scenario 'System extracts work history from candidate resume text using NLP' - extract title, company, start_date, end_date, duration_years, description from resume text",
       "completed_at": "2026-10-30T18:36:00Z"
     },
     {
@@ -564,7 +564,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario \'System extracts education from candidate resume text using NLP\' - extract degree, institution, field_of_study, start_date, end_date, graduation_date from resume text",
+      "summary": "BDD: 0-req scenario 'System extracts education from candidate resume text using NLP' - extract degree, institution, field_of_study, start_date, end_date, graduation_date from resume text",
       "completed_at": "2026-10-30T18:38:00Z"
     },
     {
@@ -575,7 +575,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenarios \'AI evaluates candidate fit against a job post\' - score candidate against all 7 criteria from 0-2.req matrix, return fit_score >= 0.85 for full match, 0.4-0.7 for partial, <= 0.2 for non-qualifying",
+      "summary": "BDD: 0-req scenarios 'AI evaluates candidate fit against a job post' - score candidate against all 7 criteria from 0-2.req matrix, return fit_score >= 0.85 for full match, 0.4-0.7 for partial, <= 0.2 for non-qualifying",
       "completed_at": "2026-10-30T18:40:00Z"
     },
     {
@@ -586,7 +586,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-req scenario \'Complete pipeline from JobVision crawl to AI fit evaluation\' - crawl jobs → crawl candidates → NLP extraction → LinkedIn enrichment → profiles → AI evaluation → ranked candidates per job post",
+      "summary": "BDD: 0-req scenario 'Complete pipeline from JobVision crawl to AI fit evaluation' - crawl jobs → crawl candidates → NLP extraction → LinkedIn enrichment → profiles → AI evaluation → ranked candidates per job post",
       "completed_at": "2026-10-30T18:42:00Z"
     },
     {
@@ -597,7 +597,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenarios \'A candidate without mechanical engineering education is rejected\' and \'insufficient years of education is rejected\' - validate education criterion against 0-2.meterix requirements",
+      "summary": "BDD: 0-2.req scenarios 'A candidate without mechanical engineering education is rejected' and 'insufficient years of education is rejected' - validate education criterion against 0-2.meterix requirements",
       "completed_at": "2026-10-30T18:44:00Z"
     },
     {
@@ -608,7 +608,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenarios \'no documented HPHT experience is rejected\', \'less than 4 years HPHT experience is rejected\', \'exactly 4 years HPHT experience PASSES\' - validate experience criterion requires 4+ years documented HPHT",
+      "summary": "BDD: 0-2.req scenarios 'no documented HPHT experience is rejected', 'less than 4 years HPHT experience is rejected', 'exactly 4 years HPHT experience PASSES' - validate experience criterion requires 4+ years documented HPHT",
       "completed_at": "2026-10-30T18:46:00Z"
     },
     {
@@ -619,7 +619,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenarios \'Mastery of SolidWorks qualifies\', \'Mastery of CATIA also qualifies\', \'neither SolidWorks nor CATIA is rejected\' - validate design_software criterion accepts SolidWorks or CATIA, rejects AutoCAD-only",
+      "summary": "BDD: 0-2.req scenarios 'Mastery of SolidWorks qualifies', 'Mastery of CATIA also qualifies', 'neither SolidWorks nor CATIA is rejected' - validate design_software criterion accepts SolidWorks or CATIA, rejects AutoCAD-only",
       "completed_at": "2026-10-30T18:48:00Z"
     },
     {
@@ -630,7 +630,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenarios \'piping/valve skills at HPHT pressure passes\', \'design software but no pressure knowledge is partially qualified\' - validate pressure_systems criterion for 500-700 bar piping/valves",
+      "summary": "BDD: 0-2.req scenarios 'piping/valve skills at HPHT pressure passes', 'design software but no pressure knowledge is partially qualified' - validate pressure_systems criterion for 500-700 bar piping/valves",
       "completed_at": "2026-10-30T18:50:00Z"
     },
     {
@@ -641,7 +641,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenario \'Candidate with metallurgy/sealing knowledge passes\' - validate metallurgy criterion for polymer/elastomer/spring seals under high temp/pressure",
+      "summary": "BDD: 0-2.req scenario 'Candidate with metallurgy/sealing knowledge passes' - validate metallurgy criterion for polymer/elastomer/spring seals under high temp/pressure",
       "completed_at": "2026-10-30T18:52:00Z"
     },
     {
@@ -652,7 +652,7 @@
       "reviewer": "agent-noabatgircom-3722452",
       "attempts": 1,
       "last_error": null,
-      "summary": "BDD: 0-2.req scenario \'Candidate with CNC machining skills passes\' - validate manufacturing criterion for CNC, boring, honing, dimensional QC, fabricator interaction",
+      "summary": "BDD: 0-2.req scenario 'Candidate with CNC machining skills passes' - validate manufacturing criterion for CNC, boring, honing, dimensional QC, fabricator interaction",
       "completed_at": "2026-10-30T18:54:00Z"
     },
     {
@@ -665,6 +665,57 @@
       "last_error": null,
       "summary": "Implement BDD step definitions to pass all Behat scenarios - all 21 steps across 27 scenarios implemented in FeatureContext.php",
       "completed_at": "2026-10-30T18:35:36.448419Z"
+    },
+    {
+      "id": "TASK-079",
+      "title": "Fix LLM monologue leak in ChatQueryService — strip raw thinking/reasoning content from final response",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "stage": "VERIFY",
+      "description": "Bug: LLM leaks raw internal monologue/thinking into final response instead of executing tools. Root cause: when the LLM returns reasoning_content or thinking fields alongside tool_calls, those fields are not stripped before yielding the final assistant_message. Fix: add stripMonologue() helper and apply to completeWithTools() and completeStream() code paths.",
+      "summary": "stripMonologue() helper added to ChatQueryService - filters think tags, reasoning/thinking/monologue keywords from all 6 code paths (complete, completeWithTools, completeWithCollection, completeStream, completeWithToolsStreaming, formatResponse)"
+    },
+    {
+      "id": "TASK-080",
+      "title": "Decouple CandidatesTool from active job titles whitelist — allow screening against ad-hoc requirements",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "stage": "VERIFY",
+      "description": "The CandidatesTool was constrained by JobProfileRegistry auto-injection in ChatQueryService, which forced pre-seeded job profiles (lab_technician, mechanical_engineer, software_developer) when intent=candidate_search. Remove this auto-injection so CandidatesTool accepts arbitrary ad-hoc requirements from the LLM regardless of job title whitelist.",
+      "summary": "JobProfileRegistry whitelist removed from ChatQueryService - candidates tool now accepts ad-hoc requirements from LLM regardless of pre-seeded job profiles"
+    },
+    {
+      "id": "TASK-081",
+      "title": "CTO Directive: Force OTP login on all pages + fix OTP bypass vulnerability (any code accepted)",
+      "status": "TODO",
+      "stage": "SPEC",
+      "priority": "P0",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "description": "CTO Directive [2026-10-31T02:35:15Z]: (1) Fix OTP bypass vulnerability where any code is currently accepted — the frontend auto-fills the OTP input from server-returned debug_code (chat.blade.php line 440), allowing authentication without a real SMS. (2) Force OTP login on all pages — currently OTP is only enforced on the chat page (/chat.html); all other routes must require authentication. Security impact: HIGH — bypass allows full unauthorized access.",
+      "requirements": {
+        "fixes": [
+          "Remove debug_code auto-fill from frontend OTP input (chat.blade.php line 439-441)",
+          "Remove debug_code from production server response when dev_mode is disabled",
+          "Enforce OTP authentication middleware on all routes, not just /chat.html",
+          "Add auth gate: if no valid token, redirect to OTP login screen on every page"
+        ],
+        "acceptance_criteria": [
+          "debug_code is never returned in production response (config-based dev mode only)",
+          "Frontend does not auto-fill OTP from API response",
+          "All protected routes return 401/redirect without valid auth token",
+          "Existing authenticated chat workflow continues to function",
+          "Unit tests cover MobileAuthController verifyOtp and OTP middleware"
+        ]
+      }
     }
   ]
 }
