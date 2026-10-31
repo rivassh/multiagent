@@ -111,3 +111,6 @@ Implement comprehensive chat/history persistence layer with retrieval for TASK-0
 
 ## User Directive [2026-10-31T08:17:38Z] (Captured by agent-executive-boardroom)
 FIX: Resolve loading dots issue and strip CoT from ChatQueryService. Verify via https://sima.adlr.ir/chat
+
+## User Directive [2026-10-31T08:26:50Z] (Captured by agent-mimo-noabatgircom-3722452)
+UI: Chatbot Response Timeout & Resilience — implement streaming response timeout mechanism, frontend timeout UI feedback, exponential backoff retry, SSE stream error handling, and graceful degradation when LLM provider exceeds latency threshold.
