@@ -693,8 +693,8 @@
 {
       "id": "TASK-081",
       "title": "CTO Directive: Force OTP login on all pages + fix OTP bypass vulnerability (any code accepted)",
-      "status": "IN_PROGRESS",
-      "stage": "CODE",
+      "status": "DONE",
+      "stage": "VERIFY",
       "priority": "P0",
       "assigned_to": "agent-mimo-noabatgircom-1975041",
       "reviewer": null,

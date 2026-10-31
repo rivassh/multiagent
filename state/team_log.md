@@ -325,3 +325,6 @@ Stage: SPEC, Priority: P0. Vulnerability: chat.blade.php:440 auto-fills OTP from
 
 **[2026-10-31T02:42:00Z] TASK-081 CODE stage - CTO OTP Force + Bypass Fix implemented**
 Changes: (1) chat.blade.php - removed debug_code auto-fill (lines 438-441 eliminated). (2) MobileAuthController.php - removed debug_code from sendOtp response entirely. (3) Created EnsureOtpAuthenticated middleware forcing OTP login on all web routes. (4) bootstrap/app.php - registered middleware alias. (5) routes/web.php - applied middleware to all routes. (6) tests/Unit/MobileAuthControllerTest.php - unit tests for OTP verification. (7) docs/SPEC.md - updated Known Gaps with OTP security changes.
+
+**[2026-10-31T02:43:00Z] TASK-081 COMPLETED - CTO OTP Force + Bypass Fix VERIFIED**
+All changes implemented per CTO directive [2026-10-31T02:35:15Z]. OTP bypass vulnerability eliminated: debug_code auto-fill removed from frontend, debug_code removed from server response, EnsureOtpAuthenticated middleware created and applied to all web routes forcing OTP login. Unit tests created at tests/Unit/MobileAuthControllerTest.php. SPEC.md updated. Task ready for review.
