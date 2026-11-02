@@ -428,3 +428,6 @@ Stage advanced to VERIFY.
 
 ## [2026-11-02T11:33:17Z] ACQUIRE_LEASE: agent-ca53993e9dea-1 acquired tasks.json lease for planning historical-log reconciliation.
 - Lease ID: 0edcd525-1b0a-496e-9cd0-c6ae62b5d1a9; branch: origin/master, the only branch exposed by GitHub (operator-approved deviation from AGENTS.md’s main reference).
+
+## [2026-11-02T11:33:20Z] chore(plan): registered TASK-086 for retrospective log reconciliation.
+- Acceptance: inventory pre-2026-11-02 Git evidence; append only supported retrospective records with commit references; explicitly separate unknown labor/test evidence; leave historical entries untouched.
