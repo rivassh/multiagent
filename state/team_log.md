@@ -443,3 +443,5 @@ Stage advanced to VERIFY.
 
 ## [2026-11-02T12:52:21Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease for JobVision-to-chat data-flow documentation.
 - Lease ID: d54040f0-36df-455a-a630-d99771c11ff7; branch: origin/master.
+
+## [2026-11-02T12:53:00Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after directive capture.
