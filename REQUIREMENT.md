@@ -17,3 +17,6 @@ todo های sima  رو به ترتیب اولویت در سیستم gitops قر�
 
 ## User Directive 2026-10-27T07:10:00Z (Captured by agent-ctx-unknown-pid)
 #gitops: SIMA GitOps gap analysis investigation complete. Primary blockers identified: (1) TASK-027 FAIL — no ATS module exists, only unrelated Talent API endpoints; (2) TASK-024 IN_REVIEW but lease expired, review never claimed; (3) docs/SPEC.md missing per AGENTS.md contract; (4) No active leases for new task claims. Resolution path: create ATS module or scope-exclude, complete TASK-024 review, create docs/SPEC.md, establish active lease infrastructure. GitOps repo: /home/hamid/Projects/multiagent. Coordination: AGENTS.md Git-Swarm Protocol SSOT via git remote, 2PL via state/leases.json.
+
+## User Directive [2026-11-02T09:52:51Z] (Captured by agent-noabatgircom-2254092)
+قسمت ورود به صورت modal نمایش داده بشه
