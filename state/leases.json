@@ -6,8 +6,8 @@
             "holder": "agent-ca53993e9dea-1",
             "lease_id": "1fd3c477-6368-412f-9b9f-0f0234c418cc",
             "acquired_at": "2026-11-02T11:28:09Z",
-            "expires_at": "2026-11-02T11:30:09Z",
-            "last_heartbeat": "2026-11-02T11:28:09Z"
+            "expires_at": "2026-11-02T11:32:15Z",
+            "last_heartbeat": "2026-11-02T11:30:15Z"
         }
     ]
 }\n
