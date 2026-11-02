@@ -226,6 +226,42 @@
       "attempts": 0,
       "last_error": null,
       "summary": "Audit multiagent and SIMA Git histories through 2026-11-01 against state/team_log.md and related task records. Append date-stamped retrospective entries for evidenced implementation work whose outcome is not logged, citing commit hashes and source scope. Preserve all prior log text; do not infer labor hours, test results, manual work, or completion status from commits alone. Correct tracker discrepancies only where Git/file evidence is conclusive; record unresolved gaps explicitly."
+    },
+    {
+      "id": "TASK-087",
+      "title": "Define privacy-safe chat analytics event contract and capture tool traces",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-088",
+      "title": "Create isolated MongoDB analytics Compose stack and analyst access",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-089",
+      "title": "Implement privacy-safe, idempotent incremental SQL-to-MongoDB ETL",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-090",
+      "title": "Add analytics data checks, analyst guide, and sample MongoDB queries",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
     }
   ]
 }
