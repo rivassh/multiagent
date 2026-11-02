@@ -438,3 +438,5 @@ Stage advanced to VERIFY.
 - Lease ID: f29f1c6e-a49b-4acd-b43d-f2fc9ffb16bd.
 
 ## [2026-11-02T11:35:00Z] chore(plan): restored original task-file formatting; kept the TASK-086 addition surgical.
+
+## [2026-11-02T11:35:04Z] RELEASE_LEASE: agent-ca53993e9dea-1 released tasks.json after surgical TASK-086 formatting correction.
