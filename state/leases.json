@@ -4,9 +4,9 @@
         {
             "resource": "tasks.json",
             "holder": "agent-noabatgircom-2254092",
-            "lease_id": "4baaff82-ab75-49e1-93ca-ef964bd0f772",
-            "acquired_at": "2026-11-02T13:19:04Z",
-            "expires_at": "2026-11-02T13:21:04Z"
+            "lease_id": "d27f95bc-0e91-4c85-8ba9-ac5ecc12844c",
+            "acquired_at": "2026-11-02T14:00:47Z",
+            "expires_at": "2026-11-02T14:02:47Z"
         }
     ]
 }
