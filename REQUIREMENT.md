@@ -20,3 +20,12 @@ todo های sima  رو به ترتیب اولویت در سیستم gitops قر�
 
 ## User Directive [2026-11-02T09:52:51Z] (Captured by agent-noabatgircom-2254092)
 قسمت ورود به صورت modal نمایش داده بشه
+
+## User Directive [2026-11-02T11:16:24Z] (Captured by agent-noabatgircom-2254092)
+مهاجرت نمی خوام بکنم. می خوام یه کپی داشته باشم جدا اصلا داکر کامپوزش هم جدا. حالت data analyse یه سری آدم بشینن روی این دیتا کار کنند. pipline حساب می شه یه جورایی یا etl به یه دیتابیس دیگه
+
+## User Directive [2026-11-02T11:16:24Z] (Captured by agent-noabatgircom-2254092)
+عالی. برو جلو
+
+## User Directive [2026-11-02T11:24:41Z] (Captured by agent-noabatgircom-2254092)
+انجام شد
