@@ -436,3 +436,5 @@ Stage advanced to VERIFY.
 
 ## [2026-11-02T11:34:57Z] ACQUIRE_LEASE: agent-ca53993e9dea-1 acquired tasks.json lease for surgical task-file formatting correction.
 - Lease ID: f29f1c6e-a49b-4acd-b43d-f2fc9ffb16bd.
+
+## [2026-11-02T11:35:00Z] chore(plan): restored original task-file formatting; kept the TASK-086 addition surgical.
