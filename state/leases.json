@@ -1,4 +1,13 @@
 {
     "version": 1,
-    "leases": []
+    "leases": [
+        {
+            "resource": "tasks.json",
+            "holder": "agent-ca53993e9dea-1",
+            "lease_id": "0edcd525-1b0a-496e-9cd0-c6ae62b5d1a9",
+            "acquired_at": "2026-11-02T11:33:17Z",
+            "expires_at": "2026-11-02T11:35:17Z",
+            "last_heartbeat": "2026-11-02T11:33:17Z"
+        }
+    ]
 }
