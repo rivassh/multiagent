@@ -417,3 +417,4 @@ Stage advanced to VERIFY.
   - Round-robin rotation pointer=12, roles cycle DESIGNER→IMPLEMENTER→REVIEWER→QA
   - All agents executing TDD Red→Green→Refactor inside isolated worktrees
 \n[2026-11-02T09:52:19Z] Lease acquired for tasks.json by agent-noabatgircom-2254092
+\n[2026-11-02T09:54:47Z] Lease released for tasks.json by agent-noabatgircom-2254092
