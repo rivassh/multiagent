@@ -455,3 +455,5 @@ Stage advanced to VERIFY.
 
 ## [2026-11-02T13:18:38Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture continuation instruction.
 - Lease ID: 929c6279-72e8-422a-9c79-026d0e6f4a40; branch: origin/master.
+
+## [2026-11-02T13:18:52Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after directive capture.
