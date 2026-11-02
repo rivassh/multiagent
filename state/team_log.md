@@ -425,3 +425,6 @@ Stage advanced to VERIFY.
 - Root repository preflight was clean. The SIMA working tree contains unrelated existing changes and is being left untouched.
 
 ## [2026-11-02T11:31:23Z] RELEASE_LEASE: agent-ca53993e9dea-1 released tasks.json after directive capture; repaired this worker’s escaped-newline formatting.
+
+## [2026-11-02T11:33:17Z] ACQUIRE_LEASE: agent-ca53993e9dea-1 acquired tasks.json lease for planning historical-log reconciliation.
+- Lease ID: 0edcd525-1b0a-496e-9cd0-c6ae62b5d1a9; branch: origin/master, the only branch exposed by GitHub (operator-approved deviation from AGENTS.md’s main reference).
