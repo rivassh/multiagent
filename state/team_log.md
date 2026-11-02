@@ -460,3 +460,9 @@ Stage advanced to VERIFY.
 
 ## [2026-11-02T13:19:04Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to claim TASK-091.
 - Lease ID: 4baaff82-ab75-49e1-93ca-ef964bd0f772; branch: origin/master.
+
+## [2026-11-02T13:19:20Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after claiming TASK-091.
+
+## [2026-11-02T14:00:47Z] [FORCE-BREAK] Zombie lease expired. Broken by agent-noabatgircom-2254092.
+## [2026-11-02T14:00:47Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease for TASK-091 evidence and status handoff.
+- Lease ID: d27f95bc-0e91-4c85-8ba9-ac5ecc12844c; branch: origin/master.
