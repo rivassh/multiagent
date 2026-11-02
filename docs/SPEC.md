@@ -35,6 +35,7 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 - TASK-027: ATS module not found — Talent capability exists only as API endpoints.
 - VectorRagBddTest: 28 pre-existing failures, explicitly scoped out of TASK-024.
 - JobVision/LinkedIn: capability NOT READY (missing UI frontend, LinkedIn crawler impl, LLM service verification, API credentials).
+- JobVision-to-chat trace (2026-11-02): local PostgreSQL had 15 active posts, but replaying the observed list query retrieved five closed rows; the runtime `schedule:list` was empty and a read-only JobVision request returned HTTP 401. The external source total is therefore unverified. See the SIMA worktree's `docs/jobvision-chat-data-flow.md`.
 
 ## Separate Chat Analytics Pipeline
 

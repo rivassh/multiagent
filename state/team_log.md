@@ -470,3 +470,12 @@ Stage advanced to VERIFY.
 ## [2026-11-02T14:05:37Z] [FORCE-BREAK] Zombie lease expired. Broken by agent-noabatgircom-2254092.
 ## [2026-11-02T14:05:37Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 renewed ownership for TASK-091 evidence handoff.
 - Lease ID: 3d97b9ad-cd05-4d4d-98e8-beb13644c189; branch: origin/master.
+
+## [2026-11-02T14:05:50Z] TASK-091 implementation handoff: JobVision-to-chat flow guide and live read-only findings.
+- Added developer guide `docs/jobvision-chat-data-flow.md` to the SIMA worktree and linked it from its README; only those documentation files were changed in that worktree.
+- Read-only PostgreSQL result: 137 `job_posts` total, source `jobvision`; status counts active=15, closed=105, draft=17.
+- Exact retriever replay for `عناوین شغلی موجود رو لیست کن` returned five rows (IDs 109, 121, 122, 132, 136), all `closed`; four distinct titles match the four-title chat answer.
+- `php artisan schedule:list` output: `INFO  No scheduled tasks have been defined.` The inspected Laravel 13 bootstrap loads `routes/console.php`, not the legacy `App\Console\Kernel` where the two JobVision schedules are declared.
+- A one-item read-only request to the configured JobVision list endpoint returned HTTP 401, no `totalCount`/`tabsCount`; no cached token was present, the configured fallback was present, and no token value was emitted. Latest local `job_posts.updated_at`: `2026-11-02 07:01:25`.
+- Validation: `git -C /home/hamid/Projects/sima diff --check -- README.md` passed; every documented code entry point exists. Documentation-only change; no application tests run.
+- No source data or credentials changed. Task moved to NEEDS_REVIEW; the authoritative JobVision total remains unverified due to HTTP 401.
