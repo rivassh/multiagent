@@ -266,12 +266,12 @@
     {
       "id": "TASK-091",
       "title": "Trace and document JobVision-to-chat job-post data flow",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
-      "last_error": null,
-      "summary": "Trace the JobVision ingestion/synchronization path through source APIs, operational databases, indexing or vector stores, chat retrieval, tool execution, and answer persistence. Identify every database read and write, the records and identifiers involved, sync schedule/watermarks/deletion behavior, and the code/config owners. Compare the reported 15-job count against authoritative source, operational tables, and chat-readable collections using reproducible read-only checks; explain any discrepancy with evidence. Add a developer-facing document with a flow diagram or ordered stages, database inventory, relevant entry points/configuration, verification commands, and known gaps. Do not change data or credentials and do not claim a sync defect without evidence."
+      "last_error": "JobVision source parity remains unverified: the read-only JobVision list request returned HTTP 401 without pagination totals. The runtime schedule:list reports no registered schedule tasks. The guide documents these blockers and the observed chat retrieval mismatch; review the deliverable without treating the local 15-active count as source parity.",
+      "summary": "Created SIMA/docs/jobvision-chat-data-flow.md and linked it from SIMA README. Read-only PostgreSQL checks found 137 job_posts (15 active, 105 closed, 17 draft). Replaying the exact question through the configured retriever returned five rows, all closed, representing the four distinct titles in the answer. The current Laravel runtime has no registered schedule tasks despite declarations in the legacy Console Kernel, and the configured JobVision endpoint returned 401. No data or credentials were changed. External source total is unresolved; see the guide for details and safe verification steps."
     }
   ]
 }
