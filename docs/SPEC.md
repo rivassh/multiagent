@@ -62,3 +62,4 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 2. TASK-088: create the separate MongoDB/ETL Compose environment and safe analyst read-only access.
 3. TASK-089: implement and test the privacy-sanitizing, idempotent backfill/incremental ETL.
 4. TASK-090: add verification/quality checks and analyst operating documentation and queries.
+5. TASK-091: trace and document JobVision ingestion/synchronization, database reads and writes, chat retrieval, and the reported job-count discrepancy using read-only evidence.
