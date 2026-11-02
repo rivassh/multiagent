@@ -266,10 +266,10 @@
     {
       "id": "TASK-091",
       "title": "Trace and document JobVision-to-chat job-post data flow",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Trace the JobVision ingestion/synchronization path through source APIs, operational databases, indexing or vector stores, chat retrieval, tool execution, and answer persistence. Identify every database read and write, the records and identifiers involved, sync schedule/watermarks/deletion behavior, and the code/config owners. Compare the reported 15-job count against authoritative source, operational tables, and chat-readable collections using reproducible read-only checks; explain any discrepancy with evidence. Add a developer-facing document with a flow diagram or ordered stages, database inventory, relevant entry points/configuration, verification commands, and known gaps. Do not change data or credentials and do not claim a sync defect without evidence."
     }
