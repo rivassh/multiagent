@@ -431,3 +431,5 @@ Stage advanced to VERIFY.
 
 ## [2026-11-02T11:33:20Z] chore(plan): registered TASK-086 for retrospective log reconciliation.
 - Acceptance: inventory pre-2026-11-02 Git evidence; append only supported retrospective records with commit references; explicitly separate unknown labor/test evidence; leave historical entries untouched.
+
+## [2026-11-02T11:33:23Z] RELEASE_LEASE: agent-ca53993e9dea-1 released tasks.json after registering TASK-086.
