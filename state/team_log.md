@@ -433,3 +433,6 @@ Stage advanced to VERIFY.
 - Acceptance: inventory pre-2026-11-02 Git evidence; append only supported retrospective records with commit references; explicitly separate unknown labor/test evidence; leave historical entries untouched.
 
 ## [2026-11-02T11:33:23Z] RELEASE_LEASE: agent-ca53993e9dea-1 released tasks.json after registering TASK-086.
+
+## [2026-11-02T11:34:57Z] ACQUIRE_LEASE: agent-ca53993e9dea-1 acquired tasks.json lease for surgical task-file formatting correction.
+- Lease ID: f29f1c6e-a49b-4acd-b43d-f2fc9ffb16bd.
