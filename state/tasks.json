@@ -272,6 +272,16 @@
       "attempts": 1,
       "last_error": "JobVision source parity remains unverified: the read-only JobVision list request returned HTTP 401 without pagination totals. The runtime schedule:list reports no registered schedule tasks. The guide documents these blockers and the observed chat retrieval mismatch; review the deliverable without treating the local 15-active count as source parity.",
       "summary": "Created SIMA/docs/jobvision-chat-data-flow.md and linked it from SIMA README. Read-only PostgreSQL checks found 137 job_posts (15 active, 105 closed, 17 draft). Replaying the exact question through the configured retriever returned five rows, all closed, representing the four distinct titles in the answer. The current Laravel runtime has no registered schedule tasks despite declarations in the legacy Console Kernel, and the configured JobVision endpoint returned 401. No data or credentials were changed. External source total is unresolved; see the guide for details and safe verification steps."
+    },
+    {
+      "id": "TASK-092",
+      "title": "Add Mermaid sequence diagram for JobVision-to-chat data flow",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Add a readable Mermaid sequence diagram to SIMA/docs/jobvision-chat-data-flow.md covering the JobVision API, collector and normalization/upsert into PostgreSQL, Redis token cache, chat request and intent routing, PostgreSQL retrieval (top-k and unfiltered status), LLM adapter/provider, response, and conversation persistence. Mark the inactive scheduler and unverified JobVision API total as caveats without implying source parity."
     }
   ]
 }
