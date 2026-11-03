@@ -105,6 +105,9 @@ har رو یه بار بیشتر نمی دیم قضیه ش چیه انقدر گی
 ## User Directive [2026-11-03T13:49:08Z] (Captured by agent-noabatgircom-2254092)
 تمام اطلاعات حساسش رو تغییر دادم تا دیگر نگرانی نداشته باشی. بررسی کن و flow رو در بیار
 
+## User Directive [2026-11-03T13:56:04Z] (Captured by agent-noabatgircom-2254092)
+خیلی خب. به یه دولوپر دیگه می گم این کار رو بکنه. چی کار باید بکنه با har ؟
+
 ## User Directive [2026-11-03T13:18:04Z] (Captured by agent-noabatgircom-2254092)
 این هم har از لینکدین. چی کار کنیم؟
 
