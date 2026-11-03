@@ -614,3 +614,5 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T09:01:13Z] chore(claim): claimed TASK-049 by antix1.
 - Status set to IN_PROGRESS; attempts incremented to 2; implementation will cover tracked chat view, CDN version pinning, safe DOMPurify rendering, and focused regression tests.
+
+## [2026-11-03T09:02:05Z] RELEASE_LEASE: antix1 released tasks.json after claiming TASK-049.
