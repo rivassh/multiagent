@@ -37,6 +37,13 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 - JobVision/LinkedIn: capability NOT READY (missing UI frontend, LinkedIn crawler impl, LLM service verification, API credentials).
 - JobVision-to-chat trace (2026-11-02): local PostgreSQL had 15 active posts, but replaying the observed list query retrieved five closed rows; the runtime `schedule:list` was empty and a read-only JobVision request returned HTTP 401. The external source total is therefore unverified. See the SIMA worktree's `docs/jobvision-chat-data-flow.md`.
 
+## Source Ingestion Without an API
+- Prefer documented provider APIs when available; when access is unavailable, an operator may supply an authorized browser export such as HAR as an explicit input to a local, source-specific adapter.
+- Treat HAR files as sensitive: strip cookies, authorization headers, tokens, and other session secrets before persistence or logging; process locally and never replay captured credentials.
+- Extract only fields needed for an approved purpose, normalize into the shared profile/source schema, preserve source and capture-time provenance, deduplicate deterministically, validate uncertain fields, and require human review where extraction is ambiguous.
+- Do not bypass authentication, access controls, CAPTCHAs, or rate limits; do not automate broad profile harvesting. Respect provider terms and applicable privacy rules.
+- Use synthetic fixtures for parser and pipeline tests. New sources should be onboarded through a concise adapter checklist and reusable validation, redaction, normalization, and upsert stages rather than one-off scripts.
+
 ## Separate Chat Analytics Pipeline
 
 ### Goal and deployment boundary
