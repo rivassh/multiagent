@@ -276,10 +276,10 @@
     {
       "id": "TASK-092",
       "title": "Add Mermaid sequence diagram for JobVision-to-chat data flow",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Add a readable Mermaid sequence diagram to SIMA/docs/jobvision-chat-data-flow.md covering the JobVision API, collector and normalization/upsert into PostgreSQL, Redis token cache, chat request and intent routing, PostgreSQL retrieval (top-k and unfiltered status), LLM adapter/provider, response, and conversation persistence. Mark the inactive scheduler and unverified JobVision API total as caveats without implying source parity."
     }
