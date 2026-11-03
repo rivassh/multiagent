@@ -292,6 +292,16 @@
       "attempts": 0,
       "last_error": null,
       "summary": "Trace the provided HAR without exposing credentials. Do not copy candidate-portal tokens into the employer crawler configuration: the HAR has no GetListOfJobPosts request or login/refresh exchange. Make token rotation safe and reliable: detect/evict expired cached JWTs, clear rejected cache tokens on HTTP 401/403, provide a hidden-input operator recovery path that does not put tokens in CLI arguments/logs, document that automatic refresh is unsupported unless JobVision provides a verified refresh endpoint/credential, and keep actual secrets only in ignored local runtime configuration or an approved secret manager. Test token expiry, cache invalidation/fallback, and credential redaction."
+    },
+    {
+      "id": "TASK-094",
+      "title": "Fix chat NetworkError and job-description responses",
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": null,
+      "summary": "Trace the browser-to-Laravel-to-OpenWebUI request path and fix the root cause of chat NetworkError (including proxy/server timeouts and useful frontend error/retry behavior). Expand Persian/English job-description intent and ensure it returns actual matching JobVision description data when present. Add targeted regression coverage and validate using sudo docker only; do not install/run dependencies on the host."
     }
   ]
 }

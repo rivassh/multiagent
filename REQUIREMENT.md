@@ -52,3 +52,6 @@ continue
 ## User Directive [2026-11-03T09:08:05Z] (Captured by agent-noabatgircom-2254092)
 خطا در ارتباط با دستیار: NetworkError when attempting to fetch resource.
 جواب شرح شغلی رو نمی ده چت بات
+
+## User Directive [2026-11-03T09:53:42Z] (Captured by agent-noabatgircom-2254092)
+همه کارهات رو با sudo docker انجام بده جتی npm install . continue
