@@ -306,10 +306,10 @@
     {
       "id": "TASK-095",
       "title": "Define reusable HAR-based ingestion workflow for sources without APIs",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Design a repeatable, quick-to-start workflow for bringing user-provided browser exports (starting with LinkedIn profile data) into the existing data pipeline when no API access is available. Specify supported input/export types and a source-neutral adapter contract; a guided source-onboarding checklist; extraction, schema normalization, deduplication, provenance, validation, and safe persistence; credential/session-secret scrubbing and PII minimization; and a human-reviewed path for ambiguous or incomplete fields. HAR processing must be local and limited to data the operator is authorized to access; never replay captured credentials, bypass access controls/CAPTCHAs/rate limits, or automate profile harvesting. Preserve strict backward compatibility: JobVision's current adapter, configuration, routes, schema, schedules, and default behavior must remain unchanged; add the HAR path as an isolated, opt-in adapter and do not require JobVision migrations/config changes. Add regression tests proving existing JobVision behavior and synthetic fixtures for the new path, plus a short operator guide so future sources can be onboarded by a concise request. Do not inspect or copy secrets from .env or HAR files."
     }
