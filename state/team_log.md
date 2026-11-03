@@ -608,6 +608,8 @@ Stage advanced to VERIFY.
 ## [2026-11-03T13:45:10Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture HAR expiry clarification.
 - Lease ID: cf04996c-4e71-4193-8d42-579dedd4dab9; expires at 2026-11-03T13:47:10Z; branch: origin/master.
 
+## [2026-11-03T13:45:32Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording HAR expiry clarification.
+
 ## [2026-11-03T13:18:27Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording the LinkedIn HAR question.
 
 ## [2026-11-03T13:08:05Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording LinkedIn HAR input question.
