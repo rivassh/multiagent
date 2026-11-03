@@ -719,3 +719,10 @@ OK
 - Dashboard search uses an Elasticsearch read model so filter additions do not require relational schema changes.
 - HR index design should permit future separately authorized RAG collection reuse; the dashboard remains independent of chatbot code.
 - REQUIREMENT.md and TASK-HR-002/TASK-HR-003 record the expanded scope.
+
+## [2026-11-03T17:57:18Z] TASK-HR-001 implementation completed; submitted for review.
+- Added explicit `sima` (default) and `hr` scopes to `state/runner_workflow.js`; scope filtering limits Sima to `TASK-NNN` and HR to `TASK-HR-NNN`.
+- The runner skips tasks whose `depends_on` prerequisites are not all `DONE`, and skips malformed dependency values.
+- Added focused scope/dependency tests in `tests/Feature/runner_workflow.test.cjs` and documented CLI usage in `docs/SPEC.md`.
+- Verification: `node --check state/runner_workflow.js` passed; `node --test tests/Feature/runner_workflow.test.cjs` passed 3/3 tests; invalid `--scope bogus` was rejected with exit code 1; `git diff --check` passed.
+- `TASK-HR-001` moved to `NEEDS_REVIEW`; no SIMA application worktree files were changed.

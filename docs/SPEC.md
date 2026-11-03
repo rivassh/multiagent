@@ -36,6 +36,7 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 - Existing Sima work remains under `TASK-NNN` IDs.
 - HR subproject work uses `TASK-HR-NNN` IDs in the shared queue; an explicit HR request may only claim/review HR-prefixed tasks and must never fall back to general Sima tasks.
 - Optional `depends_on` task IDs gate selection until all prerequisites are `DONE`. Both namespaces use the same lease and lifecycle.
+- `node state/runner_workflow.js` runs the default Sima scope (`TASK-NNN` only); use `node state/runner_workflow.js --scope hr` to process only `TASK-HR-NNN` tasks. Tasks with unmet or invalid `depends_on` values are skipped.
 
 ### HR dashboard and filters
 - The HR dashboard is a conventional, independently usable UI; chatbot interaction is not required.

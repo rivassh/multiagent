@@ -9,15 +9,45 @@ const E2E_CHAT_URL = 'http://sima.adlr.ir/api/v1/chat/completions';
 const E2E_WEB_URL = 'http://sima.adlr.ir/chat';
 
 class TaskRunner {
-  constructor() {
+  constructor({ scope = 'sima', tasksFile = STATE_DIR, leasesFile = LEASES_FILE } = {}) {
+    this.scope = TaskRunner.validateScope(scope);
+    this.tasksFile = tasksFile;
+    this.leasesFile = leasesFile;
     this.tasks = this.loadTasks();
     this.leases = this.loadLeases();
     this.e2eVerificationResults = new Map();
   }
 
+  static validateScope(scope) {
+    if (scope !== 'sima' && scope !== 'hr') {
+      throw new Error(`Unsupported task scope "${scope}"; expected "sima" or "hr"`);
+    }
+    return scope;
+  }
+
+  static parseScope(args = process.argv.slice(2)) {
+    let scope = 'sima';
+    for (let index = 0; index < args.length; index += 1) {
+      const argument = args[index];
+      if (argument === '--scope') {
+        const value = args[index + 1];
+        if (!value || value.startsWith('--')) {
+          throw new Error('Missing value for --scope');
+        }
+        scope = value;
+        index += 1;
+      } else if (argument.startsWith('--scope=')) {
+        scope = argument.slice('--scope='.length);
+      } else {
+        throw new Error(`Unknown argument "${argument}"`);
+      }
+    }
+    return TaskRunner.validateScope(scope);
+  }
+
   loadTasks() {
     try {
-      const data = fs.readFileSync(STATE_DIR, 'utf8');
+      const data = fs.readFileSync(this.tasksFile, 'utf8');
       return JSON.parse(data);
     } catch (error) {
       console.error('Error loading tasks:', error);
@@ -27,7 +57,7 @@ class TaskRunner {
 
   loadLeases() {
     try {
-      const data = fs.readFileSync(LEASES_FILE, 'utf8');
+      const data = fs.readFileSync(this.leasesFile, 'utf8');
       return JSON.parse(data);
     } catch (error) {
       console.error('Error loading leases:', error);
@@ -36,17 +66,35 @@ class TaskRunner {
   }
 
   saveTasks() {
-    fs.writeFileSync(STATE_DIR, JSON.stringify(this.tasks, null, 2));
+    fs.writeFileSync(this.tasksFile, JSON.stringify(this.tasks, null, 2));
   }
 
   saveLeases() {
-    fs.writeFileSync(LEASES_FILE, JSON.stringify(this.leases, null, 2));
+    fs.writeFileSync(this.leasesFile, JSON.stringify(this.leases, null, 2));
   }
 
   async processTaskLifecycle() {
-    console.log('🔄 Starting task lifecycle processing...');
+    console.log(`🔄 Starting ${this.scope} task lifecycle processing...`);
 
-    for (const task of this.tasks.tasks) {
+    const tasksById = new Map(this.tasks.tasks.map(task => [task.id, task]));
+    const scopedTasks = this.tasks.tasks.filter(task => (
+      this.scope === 'hr'
+        ? /^TASK-HR-\d{3}$/.test(task.id)
+        : /^TASK-\d{3}$/.test(task.id)
+    ));
+
+    for (const task of scopedTasks) {
+      const dependencies = task.depends_on ?? [];
+      if (!Array.isArray(dependencies)) {
+        console.error(`  ❌ Skipping ${task.id}; depends_on must be an array`);
+        continue;
+      }
+      const unmetDependencies = dependencies.filter(id => tasksById.get(id)?.status !== 'DONE');
+      if (unmetDependencies.length > 0) {
+        console.log(`  ⏭️ Skipping ${task.id}; unmet dependencies: ${unmetDependencies.join(', ')}`);
+        continue;
+      }
+
       console.log(`\n📋 Processing ${task.id}: ${task.title}`);
 
       if (task.status === 'TODO' || task.status === 'IN_PROGRESS') {
@@ -335,6 +383,11 @@ class TaskRunner {
 module.exports = TaskRunner;
 
 if (require.main === module) {
-  const runner = new TaskRunner();
-  runner.run();
+  try {
+    const runner = new TaskRunner({ scope: TaskRunner.parseScope() });
+    runner.run();
+  } catch (error) {
+    console.error('❌ Runner workflow failed:', error.message);
+    process.exitCode = 1;
+  }
 }
