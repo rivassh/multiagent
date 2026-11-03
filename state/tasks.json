@@ -342,7 +342,7 @@
       "attempts": 0,
       "last_error": null,
       "depends_on": ["TASK-HR-001"],
-      "summary": "After TASK-HR-001 is DONE, inspect the existing HR module, data model, permissions, and dashboard surfaces. Define and document dashboard acceptance criteria and an extensible filter contract covering filter metadata/options, validated operators and values, sorting, pagination, and aggregations/facets. Keep the UI independent from a search backend and define how the same filter contract can map to the current data source and Elasticsearch queries/index mappings; identify source-of-truth, index freshness, and unsupported-filter behavior before choosing Elasticsearch as the execution backend. Do not execute arbitrary client-provided query DSL. Do not modify the Sima application in this design task."
+      "summary": "After TASK-HR-001 is DONE, inspect the existing HR module, data model, permissions, and dashboard surfaces. Define dashboard acceptance criteria and an Elasticsearch-first filter contract for filter metadata/options, validated operators and values, sorting, pagination, and facets/aggregations. The dashboard must query an Elasticsearch HR read-model/index; adding a supported filter must not require adding a relational database column or changing the transactional database schema. Design a safe, extensible index document/mapping strategy for new searchable attributes (for example controlled dynamic templates or a typed attributes object), while preventing mapping explosion and arbitrary client-supplied query DSL. Document source-of-truth, ingestion/synchronization and freshness, mapping version/reindex strategy, authorization/PII controls, and unsupported-field behavior. Shape the HR index so it can later be exposed as a separately authorized RAG collection without coupling the dashboard to chatbot code; RAG implementation is not part of this task. Do not modify the Sima application in this design task."
     },
     {
       "id": "TASK-HR-003",
@@ -353,7 +353,7 @@
       "attempts": 0,
       "last_error": null,
       "depends_on": ["TASK-HR-002"],
-      "summary": "Implement and test the HR dashboard against the approved TASK-HR-002 contract. Provide a conventional dashboard independent of chatbot interaction and make adding supported filters a small, well-defined change. Keep dashboard components independent of backend query syntax; implement the selected current-data provider and, if the approved data flow/index freshness contract supports it, an Elasticsearch provider using allowlisted fields/operators and mapped index fields. Preserve existing HR permissions and unrelated local changes; only stage files belonging to this task, and do not claim or change any TASK-NNN work."
+      "summary": "Implement and test the conventional HR dashboard against the approved TASK-HR-002 contract. Elasticsearch is the dashboard query/read-model backend; do not add relational database columns or alter transactional schema just to support new dashboard filters. Make filter additions a small, well-defined configuration/indexing/query change using validated allowlisted fields/operators and the approved extensible mapping strategy; never accept arbitrary client Elasticsearch DSL. Preserve existing HR permissions, source synchronization/freshness expectations, and unrelated local changes. Keep the index compatible with later separately authorized RAG reuse, but do not implement RAG in this task. Only stage files belonging to this task, and do not claim or change any TASK-NNN work."
     }
   ]
 }

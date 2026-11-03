@@ -39,9 +39,11 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 
 ### HR dashboard and filters
 - The HR dashboard is a conventional, independently usable UI; chatbot interaction is not required.
-- Filter controls and UI state must use a backend-neutral contract for filter definitions/options, validated operators and values, sort, pagination, and facets/aggregations. Adding an approved filter should not require editing backend query construction in multiple UI components.
-- Keep query execution behind a provider/adapter boundary. Map allowlisted filter fields and operators to the current authoritative data source and, when its indexing and freshness contract is verified, to Elasticsearch queries and mapped index fields. Never accept arbitrary client-supplied Elasticsearch DSL.
-- Before making Elasticsearch the source for dashboard results, document index ownership, synchronization/freshness expectations, and behavior for unsupported or not-yet-indexed fields.
+- Elasticsearch is the dashboard's search/read-model backend so adding dashboard filters does not require adding relational database columns or changing transactional schema. Keep the UI filter contract separate from Elasticsearch DSL, but make Elasticsearch the required execution target for dashboard search.
+- Filter controls and API state must support validated fields/operators/values, sort, pagination, and facets/aggregations. Add a supported filter through a small, defined field/attribute, index, and query configuration path rather than duplicating query construction across UI components.
+- The HR index must use an intentional extensible mapping/document strategy for new searchable attributes without uncontrolled dynamic mapping or mapping explosion. Never accept arbitrary client-supplied Elasticsearch DSL.
+- Document the source of truth, index ownership, synchronization/freshness, mapping version/reindex strategy, authorization/PII boundaries, and unsupported-field behavior. Treat Elasticsearch as a derived search/read model, not the transactional source of truth.
+- Shape HR documents and collection boundaries for possible future reuse as a separately authorized RAG collection. This is a compatibility goal; the HR dashboard does not depend on chatbot code, and RAG implementation is outside its scope.
 
 ## Known Gaps
 - TASK-027: ATS module not found — Talent capability exists only as API endpoints.
