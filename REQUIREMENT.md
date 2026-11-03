@@ -58,3 +58,6 @@ continue
 
 ## User Directive [2026-11-03T09:53:42Z] (Captured by agent-noabatgircom-2254092)
 همه کارهات رو با sudo docker انجام بده جتی npm install . continue
+
+## User Directive [2026-11-03T10:35:34Z] (Captured by agent-noabatgircom-2254092)
+کاملتر کن
