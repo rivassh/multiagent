@@ -276,12 +276,12 @@
     {
       "id": "TASK-092",
       "title": "Add Mermaid sequence diagram for JobVision-to-chat data flow",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
-      "last_error": null,
-      "summary": "Add a readable Mermaid sequence diagram to SIMA/docs/jobvision-chat-data-flow.md covering the JobVision API, collector and normalization/upsert into PostgreSQL, Redis token cache, chat request and intent routing, PostgreSQL retrieval (top-k and unfiltered status), LLM adapter/provider, response, and conversation persistence. Mark the inactive scheduler and unverified JobVision API total as caveats without implying source parity."
+      "last_error": "The SIMA guide is untracked on local develop in a pre-existing dirty worktree; it was not committed or pushed there to avoid bundling unrelated changes. Review/publish separately.",
+      "summary": "Added a Mermaid sequence diagram to SIMA/docs/jobvision-chat-data-flow.md. It shows the scheduler caveat, paged JobVision collection and normalization/upserts, Redis token cache, PostgreSQL storage, chat intent/retrieval (top_k=5 with no status filter), LLM path, and conversation persistence; it also marks the observed HTTP 401 and unverified upstream total. Validation passed: 15 required flow/caveat terms, balanced Markdown fences, and no trailing whitespace. The SIMA checkout has extensive pre-existing changes on develop, so the guide remains untracked there rather than committing unrelated files."
     }
   ]
 }
