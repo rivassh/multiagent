@@ -582,6 +582,8 @@ Stage advanced to VERIFY.
 ## [2026-11-03T12:05:30Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to record one-time HAR clarification.
 - Lease ID: 035f6a84-dbaa-4840-83e5-93e2f204acc9; expires at 2026-11-03T12:07:30Z; branch: origin/master.
 
+## [2026-11-03T12:05:47Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording one-time HAR clarification.
+
 ## [2026-11-03T12:02:44Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording the revised backlog review request.
 
 ## [2026-11-03T11:55:20Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording the revised backlog review request.
