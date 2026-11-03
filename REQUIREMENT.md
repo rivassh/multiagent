@@ -39,3 +39,6 @@ todo های sima  رو به ترتیب اولویت در سیستم gitops قر�
 
 ## User Directive [2026-11-02T13:18:37Z] (Captured by agent-noabatgircom-2254092)
 continue
+
+## User Directive [2026-11-03T05:36:55Z] (Captured by agent-noabatgircom-2254092)
+آماده کن
