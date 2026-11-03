@@ -322,6 +322,27 @@
       "attempts": 2,
       "last_error": "Production sima.adlr.ir stage/E2E verification has not been run; required before transition to DONE.",
       "summary": "Pinned the tracked resources/views/chat.blade.php dependencies to marked@12.0.2 and DOMPurify@3.1.7, retained marked.parse + DOMPurify.sanitize before the assistant innerHTML sink, and added a safe escaped-text fallback if a CDN dependency is unavailable. Added tests/Feature/test_chat_markdown_rendering.py. Focused Docker test output: 2 tests passed. Browser runtime smoke on localhost:8015 confirmed heading/bold rendering and removal of javascript: href and onerror. public/chat.html is not tracked in this checkout and is out of scope. Production stage/E2E remains required before DONE."
+    },
+    {
+      "id": "TASK-HR-001",
+      "title": "Add HR task namespace isolation to the GitOps runner",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Make state/runner_workflow.js require or accept an explicit task scope so HR execution processes only TASK-HR-NNN items and default Sima execution processes only TASK-NNN items. Respect depends_on prerequisites, add focused tests for scope isolation, and preserve the existing Sima runner behavior. Do not modify the Sima application worktree."
+    },
+    {
+      "id": "TASK-HR-002",
+      "title": "Build the HR dashboard as a scoped Sima subproject",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": ["TASK-HR-001"],
+      "summary": "After TASK-HR-001 is DONE, inspect the existing HR module and dashboard surfaces, define dashboard acceptance criteria from the current data model and permissions, then implement and test the HR dashboard. Keep this work in the HR namespace; do not claim, edit, or change the status of TASK-NNN work. Preserve unrelated local changes in the Sima repository and stage only files belonging to this task."
     }
   ]
 }

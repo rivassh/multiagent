@@ -32,6 +32,11 @@ Single Source of Truth (SSOT) for the SIMA project technical architecture, API c
 ## GitOps / Swarm Protocol Reference
 See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, state/tasks.json, state/leases.json, state/team_log.md.
 
+### Task namespaces
+- Existing Sima work remains under `TASK-NNN` IDs.
+- HR subproject work uses `TASK-HR-NNN` IDs in the shared queue; an explicit HR request may only claim/review HR-prefixed tasks and must never fall back to general Sima tasks.
+- Optional `depends_on` task IDs gate selection until all prerequisites are `DONE`. Both namespaces use the same lease and lifecycle.
+
 ## Known Gaps
 - TASK-027: ATS module not found — Talent capability exists only as API endpoints.
 - VectorRagBddTest: 28 pre-existing failures, explicitly scoped out of TASK-024.
