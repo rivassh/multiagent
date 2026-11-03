@@ -305,13 +305,13 @@
     },
     {
       "id": "TASK-095",
-      "title": "Define reusable HAR-based ingestion workflow for sources without APIs",
+      "title": "Build an isolated LinkedIn profile adapter with one-time HAR reconnaissance",
       "status": "IN_PROGRESS",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
       "last_error": null,
-      "summary": "Design a repeatable, quick-to-start workflow for bringing user-provided browser exports (starting with LinkedIn profile data) into the existing data pipeline when no API access is available. Specify supported input/export types and a source-neutral adapter contract; a guided source-onboarding checklist; extraction, schema normalization, deduplication, provenance, validation, and safe persistence; credential/session-secret scrubbing and PII minimization; and a human-reviewed path for ambiguous or incomplete fields. HAR processing must be local and limited to data the operator is authorized to access; never replay captured credentials, bypass access controls/CAPTCHAs/rate limits, or automate profile harvesting. Preserve strict backward compatibility: JobVision's current adapter, configuration, routes, schema, schedules, and default behavior must remain unchanged; add the HAR path as an isolated, opt-in adapter and do not require JobVision migrations/config changes. Add regression tests proving existing JobVision behavior and synthetic fixtures for the new path, plus a short operator guide so future sources can be onboarded by a concise request. Do not inspect or copy secrets from .env or HAR files."
+      "summary": "Use a one-time, local, authorized HAR review only to understand browser request/response data shape for developer reconnaissance; do not replay requests or use captured credentials/session tokens. Implement a separate LinkedIn profile adapter that accepts operator-provided profile JSON and maps only fields present in the input into the shared profile contract, with preview and provenance. Do not build automated LinkedIn endpoint scraping or a recurring HAR ingestion feature. If the HAR contains private/API endpoints requiring authenticated replay or access-control workarounds, stop at documenting the limitation. Keep LinkedIn source IDs namespaced separately from JobVision, require explicit human approval before persistence if persistence is in scope, and preserve JobVision adapter, routes, schema, config, schedules, and default behavior. Add synthetic parser/preview tests and JobVision regression checks without Docker/network; do not inspect .env or place real HAR/person data in code, fixtures, logs, or docs."
     },
     {
       "id": "TASK-049",

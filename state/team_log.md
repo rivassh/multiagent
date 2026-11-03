@@ -591,6 +591,10 @@ Stage advanced to VERIFY.
 ## [2026-11-03T12:41:38Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to begin the clarified LinkedIn adapter work.
 - Lease ID: c70b18ec-cd7c-43a5-874b-d6f26102766b; expires at 2026-11-03T12:43:38Z; branch: origin/master.
 
+## [2026-11-03T12:44:07Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to align TASK-095 with one-time HAR reconnaissance and JSON adapter scope.
+- Lease ID: 116d045f-bd81-4468-8853-c00bd2b91cc7; expires at 2026-11-03T12:46:07Z; branch: origin/master.
+
+
 ## [2026-11-03T12:42:06Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording the start directive.
 
 ## [2026-11-03T12:38:51Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording HAR reconnaissance clarification.
@@ -666,3 +670,8 @@ OK
 - `git diff --check` passed. Production sima.adlr.ir stage/E2E has not been run and remains required before DONE.
 
 ## [2026-11-03T09:10:11Z] RELEASE_LEASE: antix1 released tasks.json after handing off TASK-049 for review.
+
+## [2026-11-03T12:44:30Z] TASK-095 scope correction: one-time developer HAR reconnaissance and offline LinkedIn JSON adapter.
+- HAR is not an ingestion feature or product input. No request replay, credential use, private endpoint automation, or access-control bypass; stop if the implementation depends on those.
+- The adapter accepts explicit profile JSON, emits a provenance-bearing preview, namespaces LinkedIn away from JobVision, and requires approval before any persistence.
+- JobVision behavior remains unchanged; tests use synthetic data and avoid Docker/network.
