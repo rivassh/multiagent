@@ -600,6 +600,11 @@ Stage advanced to VERIFY.
 ## [2026-11-03T13:14:29Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture response-direction preference.
 - Lease ID: 39fa21de-644d-4bb5-9586-2a4319805720; expires at 2026-11-03T13:16:29Z; branch: origin/master.
 
+## [2026-11-03T13:14:51Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording response-direction preference.
+
+## [2026-11-03T13:17:38Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture the LinkedIn HAR question.
+- Lease ID: 92b52d29-bc7e-42d7-ac94-e46473140d76; expires at 2026-11-03T13:19:38Z; branch: origin/master.
+
 ## [2026-11-03T13:08:05Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording LinkedIn HAR input question.
 
 ## [2026-11-03T12:46:18Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after updating TASK-095 and SPEC scope.
