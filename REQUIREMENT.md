@@ -46,6 +46,9 @@ continue
 ## User Directive [2026-11-03T06:09:14Z] (Captured by agent-noabatgircom-2254092)
 الان token جدید بدم؟
 
+## User Directive [2026-11-03T06:16:08Z] (Captured by agent-noabatgircom-2254092)
+@jobvision..ir_har.har رو بررسی کن هم توکن جدید هست که می تونی در .env جدید جاگذاری کنی و کارهای لازم رو انجام بدی که کار کنه و هم روندی که اگر expire شد درستش کنی
+
 ## User Directive [2026-11-03T09:08:05Z] (Captured by agent-noabatgircom-2254092)
 خطا در ارتباط با دستیار: NetworkError when attempting to fetch resource.
 جواب شرح شغلی رو نمی ده چت بات
