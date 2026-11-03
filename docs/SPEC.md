@@ -39,12 +39,12 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 - JobVision-to-chat trace (2026-11-02): local PostgreSQL had 15 active posts, but replaying the observed list query retrieved five closed rows; the runtime `schedule:list` was empty and a read-only JobVision request returned HTTP 401. The external source total is therefore unverified. See the SIMA worktree's `docs/jobvision-chat-data-flow.md`.
 
 ## Source Ingestion Without an API
-- Prefer documented provider APIs when available; when access is unavailable, an operator may supply an authorized browser export such as HAR as an explicit input to a local, source-specific adapter.
-- Treat HAR files as sensitive: strip cookies, authorization headers, tokens, and other session secrets before persistence or logging; process locally and never replay captured credentials.
-- Extract only fields needed for an approved purpose, normalize into the shared profile/source schema, preserve source and capture-time provenance, deduplicate deterministically, validate uncertain fields, and require human review where extraction is ambiguous.
-- Do not bypass authentication, access controls, CAPTCHAs, or rate limits; do not automate broad profile harvesting. Respect provider terms and applicable privacy rules.
-- Use synthetic fixtures for parser and pipeline tests. New sources should be onboarded through a concise adapter checklist and reusable validation, redaction, normalization, and upsert stages rather than one-off scripts.
-- Backward compatibility is mandatory: add HAR ingestion as an isolated, opt-in source adapter. Existing JobVision adapter/configuration, routes, database schema, scheduler behavior, and defaults must remain unchanged; LinkedIn/HAR support must not require JobVision migrations or configuration changes. Regression tests must verify the existing JobVision path alongside synthetic tests for the new adapter.
+- A HAR may be reviewed once, locally, by an authorized developer solely to understand request/response shapes and inform implementation. It is not a product input or recurring ingestion format; do not commit, log, retain, or use real HAR data in tests.
+- Never replay captured requests or use captured cookies, tokens, or authorization headers. Do not automate access to private/unofficial LinkedIn endpoints, bypass access controls/CAPTCHAs/rate limits, or implement broad profile harvesting. If safe authorized access cannot be established, document the limitation and stop at an offline JSON adapter.
+- The persistent LinkedIn adapter accepts explicit operator-provided profile JSON, maps only present fields into the shared profile contract, and returns a provenance-bearing preview. Missing values remain unknown; preview alone does not persist data.
+- Keep LinkedIn source identity namespaced separately from JobVision. Human approval is required before any persistent import, and only approved normalized fields may be saved.
+- Use synthetic fixtures for parser and pipeline tests. New sources should be onboarded through reusable validation and normalization rather than one-off scripts.
+- Backward compatibility is mandatory: existing JobVision adapter/configuration, routes, database schema, scheduler behavior, and defaults remain unchanged; LinkedIn support must not require JobVision migrations or configuration changes. Regression tests verify the existing JobVision path alongside synthetic tests for the new adapter.
 
 ## Separate Chat Analytics Pipeline
 
