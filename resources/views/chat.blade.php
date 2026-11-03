@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دستیار هوش مصنوعی SIMA</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
     <style>
         :root {
             --bg: #f8fafc;
@@ -289,6 +289,16 @@
     // Markdown rendering function (uses marked.js + DOMPurify)
     function renderMarkdown(text) {
         if (!text) return '';
+        if (typeof marked === 'undefined' || typeof DOMPurify === 'undefined') {
+            return String(text).replace(/[&<>"']/g, (character) => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            })[character]);
+        }
+
         return DOMPurify.sanitize(marked.parse(text));
     }
 

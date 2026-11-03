@@ -316,12 +316,12 @@
     {
       "id": "TASK-049",
       "title": "Fix and verify chat Markdown rendering dependencies",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "antix1",
       "reviewer": null,
       "attempts": 2,
-      "last_error": null,
-      "summary": "Acceptance criteria: (1) pin exact marked and DOMPurify versions in each in-scope tracked chat UI; (2) preserve the compatible marked.parse call and sanitize generated HTML with DOMPurify before inserting it into the DOM; (3) add dedicated tests proving Markdown formatting renders and unsafe HTML/URLs are removed while expected formatting remains; (4) public/chat.html is out of scope unless a tracked/current equivalent is discovered; (5) run the focused tests and provide raw output, then perform the required stage/E2E check before marking DONE."
+      "last_error": "Production sima.adlr.ir stage/E2E verification has not been run; required before transition to DONE.",
+      "summary": "Pinned the tracked resources/views/chat.blade.php dependencies to marked@12.0.2 and DOMPurify@3.1.7, retained marked.parse + DOMPurify.sanitize before the assistant innerHTML sink, and added a safe escaped-text fallback if a CDN dependency is unavailable. Added tests/Feature/test_chat_markdown_rendering.py. Focused Docker test output: 2 tests passed. Browser runtime smoke on localhost:8015 confirmed heading/bold rendering and removal of javascript: href and onerror. public/chat.html is not tracked in this checkout and is out of scope. Production stage/E2E remains required before DONE."
     }
   ]
 }

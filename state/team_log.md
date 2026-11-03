@@ -619,3 +619,18 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T09:08:18Z] ACQUIRE_LEASE: antix1 acquired tasks.json lease to hand off TASK-049.
 - Lease ID: c514ba09-e59e-46ae-871f-1014720c9cd8; expires at 2026-11-03T09:10:18Z; branch: origin/master.
+
+## [2026-11-03T09:08:18Z] TASK-049 implementation complete; NEEDS_REVIEW by antix1
+- Updated resources/views/chat.blade.php to pin marked@12.0.2 and DOMPurify@3.1.7, preserve `marked.parse()` followed by `DOMPurify.sanitize()` before assistant HTML insertion, and safely escape plain text if either CDN library is unavailable.
+- Added tests/Feature/test_chat_markdown_rendering.py. TDD red phase failed because both CDN URLs were unpinned; after implementation, focused output:
+```text
+test_markdown_and_sanitizer_cdn_versions_are_pinned (__main__.ChatMarkdownRenderingTest.test_markdown_and_sanitizer_cdn_versions_are_pinned) ... ok
+test_markdown_is_parsed_then_sanitized_before_insertion (__main__.ChatMarkdownRenderingTest.test_markdown_is_parsed_then_sanitized_before_insertion) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK
+```
+- Browser runtime smoke on the running localhost chat page returned `{"renderer":"function","heading":"Safe heading","bold":"bold","unsafeHref":null,"imageOnerror":null}` for Markdown containing both expected formatting and malicious HTML/URL input.
+- `git diff --check` passed. Production sima.adlr.ir stage/E2E has not been run and remains required before DONE.
