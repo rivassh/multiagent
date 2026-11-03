@@ -491,3 +491,5 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T05:38:24Z] chore(plan): registered TASK-092 for the JobVision-to-chat sequence diagram.
 - Acceptance: document the ingestion, database, retrieval, model, and persistence hops in Mermaid, and explicitly label the inactive scheduler and unverified external total as caveats.
+
+## [2026-11-03T05:38:59Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after registering TASK-092.
