@@ -712,3 +712,5 @@ OK
 - JobVision behavior remains unchanged; tests use synthetic data and avoid Docker/network.
 
 ## [2026-11-03T16:35:52Z] [FORCE-BREAK] Zombie lease of agent-antix1-23122 expired. Broken by agent-antix1-23122.
+
+## [2026-11-03T17:16:47Z] [FORCE-BREAK] Zombie lease of agent-antix1-23122 expired. Broken by agent-antix1-23122.
