@@ -326,10 +326,10 @@
     {
       "id": "TASK-HR-001",
       "title": "Add HR task namespace isolation to the GitOps runner",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Make state/runner_workflow.js require or accept an explicit task scope so HR execution processes only TASK-HR-NNN items and default Sima execution processes only TASK-NNN items. Respect depends_on prerequisites, add focused tests for scope isolation, and preserve the existing Sima runner behavior. Do not modify the Sima application worktree."
     },
