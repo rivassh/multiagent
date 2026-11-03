@@ -64,3 +64,7 @@ continue
 
 ## User Directive [2026-11-03T07:20:46Z] (Captured by agent-noabatgircom-2254092)
 متاسفانه فرصت گرفتن api نداریم و خیلی موارد بعد از این هم این طور خواهند بود. هدف طرح ریزی روالی کلی است که بعد از این با یک اشاره سریع تر انجام بشه
+
+## User Directive [2026-11-03T07:28:34Z] (Captured by agent-noabatgircom-2254092)
+اگر شروع کنی کارها رو انجام دادن به روال کنونی که برای jobvision هست آسیبی وارد نمی شه که؟ 
+backward compability رعایت می شه؟
