@@ -22,6 +22,7 @@ Single Source of Truth (SSOT) for the SIMA project technical architecture, API c
 ## API Contracts
 - Talent: `/api/v1/talent/screen`, `/api/v1/talent/shortlist-top`, `/api/v1/talent/screening/{jobId}`
 - Chat: SSE via `App\Services\AI\Streaming\SSEHandler`; conversation persistence via `ChatConversation`
+- Chat Markdown rendering: pin exact versions of `marked` and `DOMPurify` in each tracked chat UI, render with the compatible `marked.parse()` API, and sanitize generated HTML with DOMPurify before DOM insertion. Regression tests must cover expected formatting and rejection of unsafe HTML/URLs.
 - Health: aggregate DB, ES, LLM status
 
 ## Interfaces
