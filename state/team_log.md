@@ -581,3 +581,9 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T08:09:31Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to hand off TASK-094.
 - Lease ID: 8b343b3c-bde3-4ad0-8d38-7de06f3fcdf9; expires at 2026-11-03T08:11:31Z; branch: origin/master.
+
+## [2026-11-03T08:09:31Z] TASK-094 implementation complete; NEEDS_REVIEW by agent-noabatgircom-2254092
+- Added deterministic Persian/English database-backed answers for job descriptions, title search, current counts and filters, latest status, history, changes, and application-count trends; preserved job descriptions during normalization and collection.
+- Improved frontend connection/API error reporting and retry flow; aligned OpenWebUI and Nginx timeout settings.
+- Validation via sudo Docker: 6 focused PHP test files passed (65 tests, 285 assertions); Vite production build passed; Nginx configuration syntax check passed; diff check passed.
+- Limitation: the production NetworkError was not reproduced, so its exact live-network root cause still needs verification during review.
