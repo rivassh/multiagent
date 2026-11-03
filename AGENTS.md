@@ -5,6 +5,7 @@
 - Distributed Concurrency: Two-Phase Locking (2PL) via TTL-backed leases in state/leases.json. No state mutation without holding an active lease.
 - Identity: Worker identity is read from YOUR_ID env. If unset, derive once and freeze: YOUR_ID="agent-" + hostname + "-" + pid.
 - Append-Only History: state/team_log.md is strictly append-only. Never rewrite or truncate past entries.
+- Task namespaces: Existing Sima tasks use `TASK-NNN`; HR subproject tasks use `TASK-HR-NNN` in the same `state/tasks.json` queue and under the same lease.
 - Strict TDD: Red (failing test) -> Green (minimal implementation) -> Refactor/Verify.
 
 2. Shared File Contracts
@@ -91,7 +92,11 @@ Phase 0: Preflight Cleanliness
 Phase 1: Planning, Review-Claim, or Task-Claim
 1. Call SUBROUTINE: ACQUIRE_LEASE.
 2. Inspect REQUIREMENT.md and state/tasks.json (initialize if missing: {"version": 1, "tasks": []}).
-3. Select route:
+3. Determine the requested task scope before selecting a task:
+   - If the user explicitly requests HR tasks, consider only IDs matching `TASK-HR-NNN`; never fall back to a `TASK-NNN` item. If no HR task is actionable, release the lease and report that no HR task is ready.
+   - Otherwise, consider only IDs matching `TASK-NNN`; do not select HR tasks unless the user explicitly requests the HR scope or names an exact HR task ID.
+   - If a task has `depends_on`, it is actionable only after every referenced task is `DONE`.
+4. Select route:
 
    - CASE A: New/Unprocessed Requirements Exist
      - Decompose delta requirements into sequential, atomic tasks adhering to TDD.
@@ -105,6 +110,7 @@ Phase 1: Planning, Review-Claim, or Task-Claim
          "attempts": 0,
          "last_error": null
        }
+       For HR subproject tasks, use the `TASK-HR-XXX` ID namespace.
      - Update state/tasks.json and refine docs/SPEC.md.
      - Run:
        git add state/tasks.json docs/
@@ -187,4 +193,3 @@ Phase 3: Atomic State Handoff (TWO-PHASE LOCKING)
    If rejected, perform: git pull --rebase origin main and push again.
 5. Call SUBROUTINE: RELEASE_LEASE.
 6. Terminate iteration cleanly.
-
