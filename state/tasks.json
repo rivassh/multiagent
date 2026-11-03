@@ -316,11 +316,11 @@
     {
       "id": "TASK-049",
       "title": "Fix and verify chat Markdown rendering dependencies",
-      "status": "REVISE",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "antix1",
       "reviewer": null,
-      "attempts": 1,
-      "last_error": "Reviewer found unpinned marked and DOMPurify CDN URLs in resources/views/chat.blade.php and no dedicated Markdown rendering/sanitization regression coverage. The historical log also references public/chat.html, which is absent from the current checkout; confirm scope against tracked files before changing it.",
+      "attempts": 2,
+      "last_error": null,
       "summary": "Acceptance criteria: (1) pin exact marked and DOMPurify versions in each in-scope tracked chat UI; (2) preserve the compatible marked.parse call and sanitize generated HTML with DOMPurify before inserting it into the DOM; (3) add dedicated tests proving Markdown formatting renders and unsafe HTML/URLs are removed while expected formatting remains; (4) public/chat.html is out of scope unless a tracked/current equivalent is discovered; (5) run the focused tests and provide raw output, then perform the required stage/E2E check before marking DONE."
     }
   ]
