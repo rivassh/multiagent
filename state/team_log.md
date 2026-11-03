@@ -714,3 +714,8 @@ OK
 ## [2026-11-03T16:35:52Z] [FORCE-BREAK] Zombie lease of agent-antix1-23122 expired. Broken by agent-antix1-23122.
 
 ## [2026-11-03T17:16:47Z] [FORCE-BREAK] Zombie lease of agent-antix1-23122 expired. Broken by agent-antix1-23122.
+
+## [2026-11-03T17:33:32Z] HR dashboard Elasticsearch architecture clarified.
+- Dashboard search uses an Elasticsearch read model so filter additions do not require relational schema changes.
+- HR index design should permit future separately authorized RAG collection reuse; the dashboard remains independent of chatbot code.
+- REQUIREMENT.md and TASK-HR-002/TASK-HR-003 record the expanded scope.
