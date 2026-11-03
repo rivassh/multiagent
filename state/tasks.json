@@ -302,6 +302,16 @@
       "attempts": 1,
       "last_error": null,
       "summary": "Trace the browser-to-Laravel-to-OpenWebUI request path and fix the root cause of chat NetworkError (including proxy/server timeouts and useful frontend error/retry behavior). Expand Persian/English deterministic intents and database-backed answers across job-description, title search, current count/filter, latest state, history, changes, and application-count questions where the stored schema supports them. Add targeted regression coverage and validate using sudo docker only; do not install/run dependencies on the host."
+    },
+    {
+      "id": "TASK-095",
+      "title": "Define reusable HAR-based ingestion workflow for sources without APIs",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Design a repeatable, quick-to-start workflow for bringing user-provided browser exports (starting with LinkedIn profile data) into the existing data pipeline when no API access is available. Specify supported input/export types and a source-neutral adapter contract; a guided source-onboarding checklist; extraction, schema normalization, deduplication, provenance, validation, and safe persistence; credential/session-secret scrubbing and PII minimization; and a human-reviewed path for ambiguous or incomplete fields. HAR processing must be local and limited to data the operator is authorized to access; never replay captured credentials, bypass access controls/CAPTCHAs/rate limits, or automate profile harvesting. Include synthetic fixtures and acceptance tests, plus a short operator guide so future sources can be onboarded by a concise request. Do not inspect or copy secrets from .env or HAR files."
     }
   ]
 }
