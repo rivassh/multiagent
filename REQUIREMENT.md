@@ -69,6 +69,9 @@ continue
 اگر شروع کنی کارها رو انجام دادن به روال کنونی که برای jobvision هست آسیبی وارد نمی شه که؟ 
 backward compability رعایت می شه؟
 
+## User Directive [2026-11-03T17:43:53Z] (Captured by agent-noabatgircom-2254092)
+یکی از task-hr ها رو شروع کن
+
 ## User Directive [2026-11-03T07:33:23Z] (Captured by agent-noabatgircom-2254092)
 حاضری شروع کنیم؟
 
