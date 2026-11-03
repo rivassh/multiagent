@@ -77,3 +77,6 @@ backward compability رعایت می شه؟
 
 ## User Directive [2026-11-03T08:48:12Z] (Captured by antix1)
 می تونی خودت این کار رو بکنی؟
+
+## User Directive [2026-11-03T08:59:39Z] (Captured by antix1)
+ادامه بده
