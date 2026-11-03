@@ -483,3 +483,5 @@ Stage advanced to VERIFY.
 ## [2026-11-03T05:36:28Z] [FORCE-BREAK] Zombie lease of agent-noabatgircom-2254092 expired. Broken by agent-noabatgircom-2254092.
 ## [2026-11-03T05:36:28Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease for requested JobVision flow diagram.
 - Lease ID: 26255f27-6ab0-498d-9b1d-7bb759778d4f; expires at 2026-11-03T05:38:28Z; branch: origin/master.
+
+## [2026-11-03T05:37:23Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after directive capture.
