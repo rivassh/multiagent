@@ -312,6 +312,16 @@
       "attempts": 1,
       "last_error": null,
       "summary": "Design a repeatable, quick-to-start workflow for bringing user-provided browser exports (starting with LinkedIn profile data) into the existing data pipeline when no API access is available. Specify supported input/export types and a source-neutral adapter contract; a guided source-onboarding checklist; extraction, schema normalization, deduplication, provenance, validation, and safe persistence; credential/session-secret scrubbing and PII minimization; and a human-reviewed path for ambiguous or incomplete fields. HAR processing must be local and limited to data the operator is authorized to access; never replay captured credentials, bypass access controls/CAPTCHAs/rate limits, or automate profile harvesting. Preserve strict backward compatibility: JobVision's current adapter, configuration, routes, schema, schedules, and default behavior must remain unchanged; add the HAR path as an isolated, opt-in adapter and do not require JobVision migrations/config changes. Add regression tests proving existing JobVision behavior and synthetic fixtures for the new path, plus a short operator guide so future sources can be onboarded by a concise request. Do not inspect or copy secrets from .env or HAR files."
+    },
+    {
+      "id": "TASK-049",
+      "title": "Fix and verify chat Markdown rendering dependencies",
+      "status": "REVISE",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 1,
+      "last_error": "Reviewer found unpinned marked and DOMPurify CDN URLs in resources/views/chat.blade.php and no dedicated Markdown rendering/sanitization regression coverage. The historical log also references public/chat.html, which is absent from the current checkout; confirm scope against tracked files before changing it.",
+      "summary": "Acceptance criteria: (1) pin exact marked and DOMPurify versions in each in-scope tracked chat UI; (2) preserve the compatible marked.parse call and sanitize generated HTML with DOMPurify before inserting it into the DOM; (3) add dedicated tests proving Markdown formatting renders and unsafe HTML/URLs are removed while expected formatting remains; (4) public/chat.html is out of scope unless a tracked/current equivalent is discovered; (5) run the focused tests and provide raw output, then perform the required stage/E2E check before marking DONE."
     }
   ]
 }

@@ -594,3 +594,10 @@ Stage advanced to VERIFY.
 ## [2026-11-03T08:10:47Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after handing off TASK-094 for review.
 
 ## [2026-11-03T08:49:03Z] RELEASE_LEASE: antix1 released tasks.json after capturing the TASK-049 remediation directive.
+
+## [2026-11-03T08:49:46Z] ACQUIRE_LEASE: antix1 acquired tasks.json lease to register TASK-049 remediation.
+- Lease ID: f70bddf7-3982-40e9-bfa7-7e64c0054f3d; expires at 2026-11-03T08:51:46Z; branch: origin/master.
+
+## [2026-11-03T08:49:46Z] Planning: TASK-049 restored as REVISE by antix1.
+- Re-registered the historical task in state/tasks.json with explicit Markdown rendering, pinned CDN dependency, sanitization, and regression-test acceptance criteria.
+- Scoped the absent public/chat.html file out unless a tracked equivalent is found; added the rendering contract to docs/SPEC.md.
