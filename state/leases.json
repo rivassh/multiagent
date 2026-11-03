@@ -1,12 +1,4 @@
 {
     "version": 1,
-    "leases": [
-        {
-            "resource": "tasks.json",
-            "holder": "agent-noabatgircom-2254092",
-            "lease_id": "f1a23de2-578c-4868-8f80-e4300c2d9a6a",
-            "acquired_at": "2026-11-03T12:02:21Z",
-            "expires_at": "2026-11-03T12:04:21Z"
-        }
-    ]
+    "leases": []
 }
