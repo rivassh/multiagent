@@ -479,3 +479,7 @@ Stage advanced to VERIFY.
 - A one-item read-only request to the configured JobVision list endpoint returned HTTP 401, no `totalCount`/`tabsCount`; no cached token was present, the configured fallback was present, and no token value was emitted. Latest local `job_posts.updated_at`: `2026-11-02 07:01:25`.
 - Validation: `git -C /home/hamid/Projects/sima diff --check -- README.md` passed; every documented code entry point exists. Documentation-only change; no application tests run.
 - No source data or credentials changed. Task moved to NEEDS_REVIEW; the authoritative JobVision total remains unverified due to HTTP 401.
+
+## [2026-11-03T05:36:28Z] [FORCE-BREAK] Zombie lease of agent-noabatgircom-2254092 expired. Broken by agent-noabatgircom-2254092.
+## [2026-11-03T05:36:28Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease for requested JobVision flow diagram.
+- Lease ID: 26255f27-6ab0-498d-9b1d-7bb759778d4f; expires at 2026-11-03T05:38:28Z; branch: origin/master.
