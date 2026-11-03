@@ -514,3 +514,5 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T06:09:14Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture token question.
 - Lease ID: f6ef08d5-635f-430a-adf3-caa3af4df343; expires at 2026-11-03T06:11:14Z; branch: origin/master.
+
+## [2026-11-03T06:09:47Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after directive capture.
