@@ -78,6 +78,9 @@ backward compability رعایت می شه؟
 ## User Directive [2026-11-03T11:54:40Z] (Captured by agent-noabatgircom-2254092)
 اصلاح شد. دوباره بررسی کن
 
+## User Directive [2026-11-03T12:01:52Z] (Captured by agent-noabatgircom-2254092)
+اصلاح شد. دیگه موردی نیست؟ بریم برای شروع کار؟
+
 ## User Directive [2026-11-03T08:48:12Z] (Captured by antix1)
 می تونی خودت این کار رو بکنی؟
 
