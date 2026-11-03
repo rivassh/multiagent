@@ -570,4 +570,6 @@ Stage advanced to VERIFY.
 ## [2026-11-03T07:34:08Z] chore(claim): claimed TASK-095 by agent-noabatgircom-2254092.
 - Scope: implement a source-neutral, opt-in browser-export ingestion path while preserving JobVision behavior; do not inspect `.env` or HAR data.
 
+## [2026-11-03T07:34:31Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after claiming TASK-095.
+
 ## [2026-11-03T07:24:54Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after registering TASK-095.
