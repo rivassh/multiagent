@@ -488,3 +488,6 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T05:37:55Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to plan the requested flow diagram.
 - Lease ID: 46f205c6-0b9a-42f7-94e5-123662afff4c; expires at 2026-11-03T05:39:55Z; branch: origin/master.
+
+## [2026-11-03T05:38:24Z] chore(plan): registered TASK-092 for the JobVision-to-chat sequence diagram.
+- Acceptance: document the ingestion, database, retrieval, model, and persistence hops in Mermaid, and explicitly label the inactive scheduler and unverified external total as caveats.
