@@ -43,6 +43,7 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 - Extract only fields needed for an approved purpose, normalize into the shared profile/source schema, preserve source and capture-time provenance, deduplicate deterministically, validate uncertain fields, and require human review where extraction is ambiguous.
 - Do not bypass authentication, access controls, CAPTCHAs, or rate limits; do not automate broad profile harvesting. Respect provider terms and applicable privacy rules.
 - Use synthetic fixtures for parser and pipeline tests. New sources should be onboarded through a concise adapter checklist and reusable validation, redaction, normalization, and upsert stages rather than one-off scripts.
+- Backward compatibility is mandatory: add HAR ingestion as an isolated, opt-in source adapter. Existing JobVision adapter/configuration, routes, database schema, scheduler behavior, and defaults must remain unchanged; LinkedIn/HAR support must not require JobVision migrations or configuration changes. Regression tests must verify the existing JobVision path alongside synthetic tests for the new adapter.
 
 ## Separate Chat Analytics Pipeline
 
