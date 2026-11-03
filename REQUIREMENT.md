@@ -99,6 +99,9 @@ har رو یه بار بیشتر نمی دیم قضیه ش چیه انقدر گی
 ## User Directive [2026-11-03T13:14:08Z] (Captured by agent-noabatgircom-2254092)
 چون فارسی هایی که تایپ می کنی چپ به راست هست خوب نمی فهمم چی می گی. یا انگلیسی جواب بده یا راست به چپ فارسی بنویس
 
+## User Directive [2026-11-03T13:18:04Z] (Captured by agent-noabatgircom-2254092)
+این هم har از لینکدین. چی کار کنیم؟
+
 ## User Directive [2026-11-03T08:48:12Z] (Captured by antix1)
 می تونی خودت این کار رو بکنی؟
 
