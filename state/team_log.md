@@ -570,6 +570,8 @@ Stage advanced to VERIFY.
 ## [2026-11-03T07:50:59Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to record Docker network coordination pause.
 - Lease ID: 7239899f-680f-42ad-a50f-f2c1e9d24dd8; expires at 2026-11-03T07:52:59Z; branch: origin/master.
 
+## [2026-11-03T07:51:24Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording Docker network coordination pause.
+
 ## [2026-11-03T07:34:08Z] chore(claim): claimed TASK-095 by agent-noabatgircom-2254092.
 - Scope: implement a source-neutral, opt-in browser-export ingestion path while preserving JobVision behavior; do not inspect `.env` or HAR data.
 
