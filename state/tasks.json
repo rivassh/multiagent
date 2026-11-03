@@ -335,14 +335,25 @@
     },
     {
       "id": "TASK-HR-002",
-      "title": "Build the HR dashboard as a scoped Sima subproject",
+      "title": "Define the HR dashboard and extensible filter contract",
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
       "attempts": 0,
       "last_error": null,
       "depends_on": ["TASK-HR-001"],
-      "summary": "After TASK-HR-001 is DONE, inspect the existing HR module and dashboard surfaces, define dashboard acceptance criteria from the current data model and permissions, then implement and test the HR dashboard. Keep this work in the HR namespace; do not claim, edit, or change the status of TASK-NNN work. Preserve unrelated local changes in the Sima repository and stage only files belonging to this task."
+      "summary": "After TASK-HR-001 is DONE, inspect the existing HR module, data model, permissions, and dashboard surfaces. Define and document dashboard acceptance criteria and an extensible filter contract covering filter metadata/options, validated operators and values, sorting, pagination, and aggregations/facets. Keep the UI independent from a search backend and define how the same filter contract can map to the current data source and Elasticsearch queries/index mappings; identify source-of-truth, index freshness, and unsupported-filter behavior before choosing Elasticsearch as the execution backend. Do not execute arbitrary client-provided query DSL. Do not modify the Sima application in this design task."
+    },
+    {
+      "id": "TASK-HR-003",
+      "title": "Implement the HR dashboard with extensible filters",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": ["TASK-HR-002"],
+      "summary": "Implement and test the HR dashboard against the approved TASK-HR-002 contract. Provide a conventional dashboard independent of chatbot interaction and make adding supported filters a small, well-defined change. Keep dashboard components independent of backend query syntax; implement the selected current-data provider and, if the approved data flow/index freshness contract supports it, an Elasticsearch provider using allowlisted fields/operators and mapped index fields. Preserve existing HR permissions and unrelated local changes; only stage files belonging to this task, and do not claim or change any TASK-NNN work."
     }
   ]
 }

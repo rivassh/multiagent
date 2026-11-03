@@ -37,6 +37,12 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 - HR subproject work uses `TASK-HR-NNN` IDs in the shared queue; an explicit HR request may only claim/review HR-prefixed tasks and must never fall back to general Sima tasks.
 - Optional `depends_on` task IDs gate selection until all prerequisites are `DONE`. Both namespaces use the same lease and lifecycle.
 
+### HR dashboard and filters
+- The HR dashboard is a conventional, independently usable UI; chatbot interaction is not required.
+- Filter controls and UI state must use a backend-neutral contract for filter definitions/options, validated operators and values, sort, pagination, and facets/aggregations. Adding an approved filter should not require editing backend query construction in multiple UI components.
+- Keep query execution behind a provider/adapter boundary. Map allowlisted filter fields and operators to the current authoritative data source and, when its indexing and freshness contract is verified, to Elasticsearch queries and mapped index fields. Never accept arbitrary client-supplied Elasticsearch DSL.
+- Before making Elasticsearch the source for dashboard results, document index ownership, synchronization/freshness expectations, and behavior for unsupported or not-yet-indexed fields.
+
 ## Known Gaps
 - TASK-027: ATS module not found — Talent capability exists only as API endpoints.
 - VectorRagBddTest: 28 pre-existing failures, explicitly scoped out of TASK-024.
