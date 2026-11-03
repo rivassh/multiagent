@@ -61,3 +61,6 @@ continue
 
 ## User Directive [2026-11-03T10:35:34Z] (Captured by agent-noabatgircom-2254092)
 کاملتر کن
+
+## User Directive [2026-11-03T07:20:46Z] (Captured by agent-noabatgircom-2254092)
+متاسفانه فرصت گرفتن api نداریم و خیلی موارد بعد از این هم این طور خواهند بود. هدف طرح ریزی روالی کلی است که بعد از این با یک اشاره سریع تر انجام بشه
