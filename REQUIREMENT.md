@@ -71,3 +71,6 @@ backward compability رعایت می شه؟
 
 ## User Directive [2026-11-03T07:33:23Z] (Captured by agent-noabatgircom-2254092)
 حاضری شروع کنیم؟
+
+## User Directive [2026-11-03T07:50:12Z] (Captured by agent-noabatgircom-2254092)
+مثه اینکه همزمان کسی داره روی network شبکه داکر این پروژه کار می کنه. نقشه رو نشون بده اگر به مشکلی خوردی  تا بعدش بگم چی کار کنیم
