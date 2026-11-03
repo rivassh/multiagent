@@ -530,3 +530,6 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T06:24:24Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture and plan NetworkError follow-up.
 - Lease ID: 225996b8-3aaf-46e9-a3d0-5dcdfec63170; expires at 2026-11-03T06:26:24Z; branch: origin/master.
+
+## [2026-11-03T06:25:49Z] RELEASE_LEASE: agent-noabatgircom-2254092 registered and claimed TASK-094.
+- TASK-094 is IN_PROGRESS; implementation/verification will use sudo Docker only.
