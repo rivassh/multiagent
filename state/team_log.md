@@ -594,6 +594,9 @@ Stage advanced to VERIFY.
 ## [2026-11-03T12:44:07Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to align TASK-095 with one-time HAR reconnaissance and JSON adapter scope.
 - Lease ID: 116d045f-bd81-4468-8853-c00bd2b91cc7; expires at 2026-11-03T12:46:07Z; branch: origin/master.
 
+## [2026-11-03T13:07:44Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture LinkedIn HAR input question.
+- Lease ID: 07839971-c241-4c9b-aead-6f722d144bbc; expires at 2026-11-03T13:09:44Z; branch: origin/master.
+
 ## [2026-11-03T12:46:18Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after updating TASK-095 and SPEC scope.
 
 
