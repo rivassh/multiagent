@@ -555,3 +555,8 @@ Stage advanced to VERIFY.
 - Lease ID: bd9296f8-5733-4e6a-ab5a-4c705b938fc0; expires at 2026-11-03T07:22:46Z; branch: origin/master.
 
 ## [2026-11-03T07:21:12Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after directive capture.
+
+## [2026-11-03T07:23:20Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to register reusable source-ingestion planning task.
+- Lease ID: 1e660252-b9ee-4bf2-94fb-ceed01110334; expires at 2026-11-03T07:25:20Z; branch: origin/master.
+
+## [2026-11-03T07:24:54Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after registering TASK-095.
