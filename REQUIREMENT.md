@@ -84,6 +84,9 @@ backward compability رعایت می شه؟
 ## User Directive [2026-11-03T12:04:58Z] (Captured by agent-noabatgircom-2254092)
 har رو یه بار بیشتر نمی دیم قضیه ش چیه انقدر گیر داری روی اون؟ الگو بر می داری برای مثلا لینکدین و بعد میریزمش دور. بیشتر توضیح می دی؟
 
+## User Directive [2026-11-03T12:33:28Z] (Captured by agent-noabatgircom-2254092)
+اصلاح شد. دیگه حرفی نیست؟
+
 ## User Directive [2026-11-03T08:48:12Z] (Captured by antix1)
 می تونی خودت این کار رو بکنی؟
 
