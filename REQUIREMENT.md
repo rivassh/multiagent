@@ -93,6 +93,9 @@ har رو یه بار بیشتر نمی دیم قضیه ش چیه انقدر گی
 ## User Directive [2026-11-03T12:40:58Z] (Captured by agent-noabatgircom-2254092)
 شروع کنیم؟
 
+## User Directive [2026-11-03T13:07:21Z] (Captured by agent-noabatgircom-2254092)
+الان دقیقا چی لازم داری؟ har از لینکدین در بیارم؟
+
 ## User Directive [2026-11-03T08:48:12Z] (Captured by antix1)
 می تونی خودت این کار رو بکنی؟
 
