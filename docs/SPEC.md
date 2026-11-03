@@ -65,3 +65,4 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 4. TASK-090: add verification/quality checks and analyst operating documentation and queries.
 5. TASK-091: trace and document JobVision ingestion/synchronization, database reads and writes, chat retrieval, and the reported job-count discrepancy using read-only evidence.
 6. TASK-092: add a Mermaid sequence diagram for the JobVision-to-chat flow, including storage boundaries, retrieval limitations, and the observed sync caveats.
+7. TASK-093: secure JobVision employer-token configuration and expiry recovery; do not treat candidate-portal HAR credentials as employer credentials or implement refresh without a verified provider endpoint.

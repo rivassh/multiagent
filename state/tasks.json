@@ -282,6 +282,16 @@
       "attempts": 1,
       "last_error": "The SIMA guide is untracked on local develop in a pre-existing dirty worktree; it was not committed or pushed there to avoid bundling unrelated changes. Review/publish separately.",
       "summary": "Added a Mermaid sequence diagram to SIMA/docs/jobvision-chat-data-flow.md. It shows the scheduler caveat, paged JobVision collection and normalization/upserts, Redis token cache, PostgreSQL storage, chat intent/retrieval (top_k=5 with no status filter), LLM path, and conversation persistence; it also marks the observed HTTP 401 and unverified upstream total. Validation passed: 15 required flow/caveat terms, balanced Markdown fences, and no trailing whitespace. The SIMA checkout has extensive pre-existing changes on develop, so the guide remains untracked there rather than committing unrelated files."
+    },
+    {
+      "id": "TASK-093",
+      "title": "Secure JobVision employer token configuration and expiry recovery",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Trace the provided HAR without exposing credentials. Do not copy candidate-portal tokens into the employer crawler configuration: the HAR has no GetListOfJobPosts request or login/refresh exchange. Make token rotation safe and reliable: detect/evict expired cached JWTs, clear rejected cache tokens on HTTP 401/403, provide a hidden-input operator recovery path that does not put tokens in CLI arguments/logs, document that automatic refresh is unsupported unless JobVision provides a verified refresh endpoint/credential, and keep actual secrets only in ignored local runtime configuration or an approved secret manager. Test token expiry, cache invalidation/fallback, and credential redaction."
     }
   ]
 }

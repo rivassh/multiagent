@@ -519,3 +519,9 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T06:16:08Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease for JobVision token refresh investigation.
 - Lease ID: 81505948-96c3-4605-91ff-c7608867c2ea; expires at 2026-11-03T06:18:08Z; branch: origin/master.
+
+## [FORCE-BREAK] Zombie lease of agent-noabatgircom-2254092 expired. Broken by agent-noabatgircom-2254092.
+## [2026-11-03T06:20:18Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to plan secure JobVision token recovery.
+- Lease ID: abd2744f-1f8f-4b69-93ed-fc5b089ce2b5; expires at 2026-11-03T06:22:18Z; branch: origin/master.
+
+## [2026-11-03T06:16:41Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after directive capture.
