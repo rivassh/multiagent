@@ -286,10 +286,10 @@
     {
       "id": "TASK-093",
       "title": "Secure JobVision employer token configuration and expiry recovery",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Trace the provided HAR without exposing credentials. Do not copy candidate-portal tokens into the employer crawler configuration: the HAR has no GetListOfJobPosts request or login/refresh exchange. Make token rotation safe and reliable: detect/evict expired cached JWTs, clear rejected cache tokens on HTTP 401/403, provide a hidden-input operator recovery path that does not put tokens in CLI arguments/logs, document that automatic refresh is unsupported unless JobVision provides a verified refresh endpoint/credential, and keep actual secrets only in ignored local runtime configuration or an approved secret manager. Test token expiry, cache invalidation/fallback, and credential redaction."
     },
