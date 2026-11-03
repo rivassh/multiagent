@@ -585,6 +585,8 @@ Stage advanced to VERIFY.
 ## [2026-11-03T12:34:11Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture final review request for LinkedIn adapter plan.
 - Lease ID: cdace50a-f11d-476b-ab71-e7ab4925c6e2; expires at 2026-11-03T12:36:11Z; branch: origin/master.
 
+## [2026-11-03T12:34:38Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording the LinkedIn adapter plan review request.
+
 ## [2026-11-03T12:05:47Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording one-time HAR clarification.
 
 ## [2026-11-03T12:02:44Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording the revised backlog review request.
