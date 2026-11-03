@@ -301,7 +301,7 @@
       "reviewer": null,
       "attempts": 1,
       "last_error": null,
-      "summary": "Trace the browser-to-Laravel-to-OpenWebUI request path and fix the root cause of chat NetworkError (including proxy/server timeouts and useful frontend error/retry behavior). Expand Persian/English job-description intent and ensure it returns actual matching JobVision description data when present. Add targeted regression coverage and validate using sudo docker only; do not install/run dependencies on the host."
+      "summary": "Trace the browser-to-Laravel-to-OpenWebUI request path and fix the root cause of chat NetworkError (including proxy/server timeouts and useful frontend error/retry behavior). Expand Persian/English deterministic intents and database-backed answers across job-description, title search, current count/filter, latest state, history, changes, and application-count questions where the stored schema supports them. Add targeted regression coverage and validate using sudo docker only; do not install/run dependencies on the host."
     }
   ]
 }
