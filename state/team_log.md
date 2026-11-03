@@ -603,3 +603,6 @@ Stage advanced to VERIFY.
 - Scoped the absent public/chat.html file out unless a tracked equivalent is found; added the rendering contract to docs/SPEC.md.
 
 ## [2026-11-03T08:51:35Z] RELEASE_LEASE: antix1 released tasks.json after registering TASK-049 remediation.
+
+## [2026-11-03T08:59:39Z] ACQUIRE_LEASE: antix1 acquired tasks.json lease to capture directive and claim TASK-049.
+- Lease ID: ba77cb19-4604-4934-9f75-79e4a77d1360; expires at 2026-11-03T09:01:39Z; branch: origin/master.
