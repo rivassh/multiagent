@@ -43,6 +43,9 @@ continue
 ## User Directive [2026-11-03T05:36:55Z] (Captured by agent-noabatgircom-2254092)
 آماده کن
 
+## User Directive [2026-11-03T06:09:14Z] (Captured by agent-noabatgircom-2254092)
+الان token جدید بدم؟
+
 ## User Directive [2026-11-03T09:08:05Z] (Captured by agent-noabatgircom-2254092)
 خطا در ارتباط با دستیار: NetworkError when attempting to fetch resource.
 جواب شرح شغلی رو نمی ده چت بات
