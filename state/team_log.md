@@ -503,3 +503,9 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T05:58:03Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease for TASK-092 handoff.
 - Lease ID: e0503287-df80-4a0e-896f-89b95fe9b367; expires at 2026-11-03T06:00:03Z; branch: origin/master.
+
+## [2026-11-03T05:59:04Z] TASK-092 implementation handoff: Mermaid JobVision-to-chat sequence diagram added.
+- Diagram includes the scheduled/manual collector triggers, paginated API requests, Redis token lookup, normalization and PostgreSQL upserts, chat intent routing, top-5 status-unfiltered SQL retrieval, LLM request/response, and chat-history persistence.
+- Caveats identify that `schedule:list` was empty in the checked runtime and the read-only JobVision request returned HTTP 401; no upstream total/parity is claimed.
+- Validation output: `PASS: Mermaid section found; 15 required flow/caveat terms present; Markdown fences and whitespace valid.`
+- SIMA `/opt/ymls/sima` is on local `develop` with many pre-existing changes; only the guide was changed and it remains untracked rather than committing/pushing unrelated work. Task moved to NEEDS_REVIEW.
