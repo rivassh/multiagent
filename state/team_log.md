@@ -611,3 +611,6 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T09:01:13Z] ACQUIRE_LEASE: antix1 acquired tasks.json lease to claim TASK-049.
 - Lease ID: 4194a0ce-7100-4b89-8f61-ec6762b38c58; expires at 2026-11-03T09:03:13Z; branch: origin/master.
+
+## [2026-11-03T09:01:13Z] chore(claim): claimed TASK-049 by antix1.
+- Status set to IN_PROGRESS; attempts incremented to 2; implementation will cover tracked chat view, CDN version pinning, safe DOMPurify rendering, and focused regression tests.
