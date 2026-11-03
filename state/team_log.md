@@ -601,3 +601,5 @@ Stage advanced to VERIFY.
 ## [2026-11-03T08:49:46Z] Planning: TASK-049 restored as REVISE by antix1.
 - Re-registered the historical task in state/tasks.json with explicit Markdown rendering, pinned CDN dependency, sanitization, and regression-test acceptance criteria.
 - Scoped the absent public/chat.html file out unless a tracked equivalent is found; added the rendering contract to docs/SPEC.md.
+
+## [2026-11-03T08:51:35Z] RELEASE_LEASE: antix1 released tasks.json after registering TASK-049 remediation.
