@@ -553,3 +553,5 @@ Stage advanced to VERIFY.
 
 ## [2026-11-03T07:20:46Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture and plan reusable HAR-based source ingestion.
 - Lease ID: bd9296f8-5733-4e6a-ab5a-4c705b938fc0; expires at 2026-11-03T07:22:46Z; branch: origin/master.
+
+## [2026-11-03T07:21:12Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after directive capture.
