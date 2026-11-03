@@ -1,12 +1,4 @@
 {
     "version": 1,
-    "leases": [
-        {
-            "resource": "tasks.json",
-            "holder": "agent-antix1-23122",
-            "lease_id": "9e7b4b4e-8c14-4f5b-9b22-bb40733a8231",
-            "acquired_at": "2026-11-03T17:16:47Z",
-            "expires_at": "2026-11-03T17:18:47Z"
-        }
-    ]
+    "leases": []
 }
