@@ -710,3 +710,5 @@ OK
 - HAR is not an ingestion feature or product input. No request replay, credential use, private endpoint automation, or access-control bypass; stop if the implementation depends on those.
 - The adapter accepts explicit profile JSON, emits a provenance-bearing preview, namespaces LinkedIn away from JobVision, and requires approval before any persistence.
 - JobVision behavior remains unchanged; tests use synthetic data and avoid Docker/network.
+
+## [2026-11-03T16:35:52Z] [FORCE-BREAK] Zombie lease of agent-antix1-23122 expired. Broken by agent-antix1-23122.
