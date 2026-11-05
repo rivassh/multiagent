@@ -140,3 +140,15 @@ har رو یه بار بیشتر نمی دیم قضیه ش چیه انقدر گی
 
 ## User Directive [2026-11-03T18:00:25Z] (Captured by agent-noabatgircom-2254092)
 تسک جدیدی از  task-hr ها بردار
+
+## User Directive [2026-11-05T11:53:58Z] (Captured by agent-noabatgircom-2254092)
+منظورم این بود به پوشه قبل و multiagent بری و از محتوای اون سر در بیاری. یه جور gitops هست برای انجام کارها با چند agent که می خوام باهاش آشنا بشی و تسک های این پروژه رو با اون انجام بدیم. مثلا task-omr-001
+
+## User Directive [2026-11-05T11:53:58Z] (Captured by agent-noabatgircom-2254092)
+افزودن namespace و scope مستقل OMR برای task-omr-001 (پیشنهادی)
+
+## User Directive [2026-11-05T11:53:58Z] (Captured by agent-noabatgircom-2254092)
+نه اون فقط یه مثال بود. تسک ها رو بچین حالا که با ساختار آشنا شدی.
+
+## User Directive [2026-11-05T11:53:58Z] (Captured by agent-noabatgircom-2254092)
+یک endpoint استیجینگ OMR دارم و بعداً آدرسش را می‌دهم

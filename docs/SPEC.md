@@ -35,8 +35,9 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 ### Task namespaces
 - Existing Sima work remains under `TASK-NNN` IDs.
 - HR subproject work uses `TASK-HR-NNN` IDs in the shared queue; an explicit HR request may only claim/review HR-prefixed tasks and must never fall back to general Sima tasks.
-- Optional `depends_on` task IDs gate selection until all prerequisites are `DONE`. Both namespaces use the same lease and lifecycle.
-- `node state/runner_workflow.js` runs the default Sima scope (`TASK-NNN` only); use `node state/runner_workflow.js --scope hr` to process only `TASK-HR-NNN` tasks. Tasks with unmet or invalid `depends_on` values are skipped.
+- OMR project work uses `TASK-OMR-NNN` IDs in the shared queue; an explicit OMR request may only claim/review OMR-prefixed tasks and must never fall back to Sima or HR tasks.
+- Optional `depends_on` task IDs gate selection until all prerequisites are `DONE`. All namespaces use the same lease and lifecycle.
+- `node state/runner_workflow.js` runs the default Sima scope (`TASK-NNN` only); use `--scope hr` for `TASK-HR-NNN` and `--scope omr` for `TASK-OMR-NNN`. OMR stage/E2E checks must use explicitly configured OMR URLs and must never fall back to SIMA endpoints. Missing OMR endpoint configuration blocks E2E verification without making a network request. Tasks with unmet or invalid `depends_on` values are skipped.
 
 ### HR dashboard and filters
 - The HR dashboard is a conventional, independently usable UI; chatbot interaction is not required.
