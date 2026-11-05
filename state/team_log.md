@@ -731,3 +731,9 @@ OK
 - Preserved existing untracked `omr` symlink and backlog CSV; no reset or clean was run.
 
 ## [2026-11-05T11:53:05Z] RENEW_LEASE: agent-noabatgircom-2254092 extended tasks.json lease while planning OMR scope.
+
+## [2026-11-05T15:24:33Z] TASK-095 implementation complete; handoff to review.
+- Completed the isolated LinkedIn profile preview adapter in the SIMA workspace: operator-provided JSON is mapped into the shared profile contract without persistent writes, browser/session replay, or HAR retention.
+- Added targeted synthetic regression coverage for nested LinkedIn objects and common alias keys; contact values remain redacted from preview output.
+- Validation: `cd /opt/ymls/sima && ./vendor/bin/phpunit tests/Unit/LinkedInProfileJsonAdapterTest.php --colors=never` passed (`7` tests, `34` assertions).
+- Status updated to `NEEDS_REVIEW`; no JobVision adapter/configuration behavior was changed.
