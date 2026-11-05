@@ -306,12 +306,12 @@
     {
       "id": "TASK-095",
       "title": "Build an isolated LinkedIn profile adapter with one-time HAR reconnaissance",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
       "last_error": null,
-      "summary": "Use a one-time, local, authorized HAR review only to understand browser request/response data shape for developer reconnaissance; do not replay requests or use captured credentials/session tokens. Implement a separate LinkedIn profile adapter that accepts operator-provided profile JSON and maps only fields present in the input into the shared profile contract, with preview and provenance. Do not build automated LinkedIn endpoint scraping or a recurring HAR ingestion feature. If the HAR contains private/API endpoints requiring authenticated replay or access-control workarounds, stop at documenting the limitation. Keep LinkedIn source IDs namespaced separately from JobVision, require explicit human approval before persistence if persistence is in scope, and preserve JobVision adapter, routes, schema, config, schedules, and default behavior. Add synthetic parser/preview tests and JobVision regression checks without Docker/network; do not inspect .env or place real HAR/person data in code, fixtures, logs, or docs."
+      "summary": "Completed the isolated LinkedIn JSON adapter and preview/provenance contract without creating recurring HAR ingestion or replay workflows. The adapter accepts operator-provided profile JSON, redacts contact fields, preserves JobVision behavior unchanged, and requires explicit human approval before persistence. Added focused synthetic tests for LinkedIn alias/nested-field mapping and verified the adapter test suite passes without Docker or network access."
     },
     {
       "id": "TASK-049",
@@ -354,6 +354,71 @@
       "last_error": null,
       "depends_on": ["TASK-HR-002"],
       "summary": "Implement and test the conventional HR dashboard against the approved TASK-HR-002 contract. Elasticsearch is the dashboard query/read-model backend; do not add relational database columns or alter transactional schema just to support new dashboard filters. Make filter additions a small, well-defined configuration/indexing/query change using validated allowlisted fields/operators and the approved extensible mapping strategy; never accept arbitrary client Elasticsearch DSL. Preserve existing HR permissions, source synchronization/freshness expectations, and unrelated local changes. Keep the index compatible with later separately authorized RAG reuse, but do not implement RAG in this task. Only stage files belonging to this task, and do not claim or change any TASK-NNN work."
+    },
+    {
+      "id": "TASK-OMR-001",
+      "title": "Add isolated OMR namespace and scope to the GitOps runner",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Extend state/runner_workflow.js and its tests to accept --scope omr and process only TASK-OMR-NNN tasks, preserving default Sima and explicit HR isolation. Configure OMR stage/E2E checks through explicit OMR-specific web/API URLs; never call SIMA URLs for OMR tasks. If OMR URLs are absent, return a clear blocked verification result without network access. Do not modify the OMR application worktree."
+    },
+    {
+      "id": "TASK-OMR-002",
+      "title": "Document OMR architecture and service contracts",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": ["TASK-OMR-001"],
+      "summary": "Inspect the OMR repository and document its current pipeline, OCR service, dashboard, template/scoring/reporting boundaries, input/output contracts, configuration, test commands, and known limitations in an OMR-specific technical specification. Treat current uncommitted project files as user-owned; do not stage or modify application code."
+    },
+    {
+      "id": "TASK-OMR-003",
+      "title": "Add regression tests for template-aware answer extraction",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": ["TASK-OMR-002"],
+      "summary": "Add deterministic synthetic tests that exercise ImageProcessor with populated template pages, asserting question-to-row mapping, selected option IDs, empty answers, and double marks. Include noisy/skewed inputs only where fixtures are stable. Demonstrate the relevant failing behavior before implementation; do not weaken thresholds or rely on the current empty-template fallback."
+    },
+    {
+      "id": "TASK-OMR-004",
+      "title": "Implement template-aware row and mark detection",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": ["TASK-OMR-003"],
+      "summary": "Fix template-backed question row segmentation and bubble selection to satisfy TASK-OMR-003 while preserving the generic fallback and existing question/option identifiers. Validate the focused tests and full existing Python test suite; do not alter unrelated dirty worktree files."
+    },
+    {
+      "id": "TASK-OMR-005",
+      "title": "Add OCR service API lifecycle tests",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": ["TASK-OMR-002"],
+      "summary": "Add isolated tests for the FastAPI upload, task creation/processing/status, and JSON/CSV/XLSX result contracts using temporary directories and synthetic inputs. Cover invalid uploads and processing errors; avoid shared /tmp state, production data, and network dependencies."
+    },
+    {
+      "id": "TASK-OMR-006",
+      "title": "Make OCR service paths deployment-configurable",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": ["TASK-OMR-005"],
+      "summary": "Remove developer-machine absolute paths from OCR service runtime configuration and make input, source, output, template, and result paths explicit environment/config values with safe defaults. Update the service/container documentation and test that configured paths are honored without changing existing deployment behavior."
     }
   ]
 }
