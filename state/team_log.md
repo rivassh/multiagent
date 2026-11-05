@@ -726,3 +726,6 @@ OK
 - Added focused scope/dependency tests in `tests/Feature/runner_workflow.test.cjs` and documented CLI usage in `docs/SPEC.md`.
 - Verification: `node --check state/runner_workflow.js` passed; `node --test tests/Feature/runner_workflow.test.cjs` passed 3/3 tests; invalid `--scope bogus` was rejected with exit code 1; `git diff --check` passed.
 - `TASK-HR-001` moved to `NEEDS_REVIEW`; no SIMA application worktree files were changed.
+
+## [2026-11-05T11:51:42Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease for OMR task planning.
+- Preserved existing untracked `omr` symlink and backlog CSV; no reset or clean was run.
