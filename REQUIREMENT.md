@@ -158,3 +158,110 @@ start tasks doing and commit your changes at end
 
 ## User Directive [2026-11-05T12:10:23Z] (Captured by agent-noabatgircom-2254092)
 این تغییرات را حفظ و با OMR scope ادغام کن (پیشنهادی)
+
+## User Directive [2026-11-05T12:44:21Z] (Captured by agent-noabatgircom-2254092)
+Search for `task-omr-001|omr-001|TASK-OMR-001`
+
+Read , lines 330 to 390
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/state/tasks.json",
+  "view_range": [
+    330,
+    390
+  ]
+}
+
+Search for `OMR|task-omr-001|TASK-OMR-001`
+
+Read , lines 1 to 220
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/state/runner_workflow.js",
+  "view_range": [
+    1,
+    220
+  ]
+}
+
+Read , lines 1 to 240
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/tests/Feature/runner_workflow.test.cjs",
+  "view_range": [
+    1,
+    240
+  ]
+}
+
+Read , lines 220 to 520
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/state/runner_workflow.js",
+  "view_range": [
+    220,
+    520
+  ]
+}
+
+Read , lines 446 to 520
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/state/runner_workflow.js",
+  "view_range": [
+    446,
+    520
+  ]
+}
+
+Read , lines 1 to 180
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/AGENTS.md",
+  "view_range": [
+    1,
+    180
+  ]
+}
+
+Read , lines 1 to 120
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/docs/SPEC.md",
+  "view_range": [
+    1,
+    120
+  ]
+}
+
+Search for `stage_assigned_to`
+
+Ran terminal command: node --test tests/Feature/runner_workflow.test.cjs
+
+Read , lines 120 to 180
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/REQUIREMENT.md",
+  "view_range": [
+    120,
+    180
+  ]
+}
+
+Search for `OMR|TASK-OMR`
+
+Read , lines 754 to 772
+Completed with input: {
+  "path": "/home/hamid/Projects/multiagent/state/team_log.md",
+  "view_range": [
+    754,
+    772
+  ]
+}
+
+I found one medium-severity issue in the OMR scope work.
+
+| # | Severity | File | Finding | Confidence |
+|---|---|---|---|---|
+| 1 | 🟡 MEDIUM | `state/runner_workflow.js` | Namespace isolation is not enforced for dependencies. The dependency gate checks only whether a referenced task is DONE, regardless of whether it belongs to the active scope. For example, an OMR task can be unblocked by a Sima or HR task with a matching status, which violates the contract that explicit OMR work must only depend on `TASK-OMR-*` tasks and the same scope should be isolated. The offending logic is the `dependencies.filter(...status !== 'DONE')` check in `processTaskLifecycle()`. | 8/10 |
+
+Why this matters:
+- `--scope omr` currently filters the task list by pattern, but it does not filter the dependency graph by namespace.
+- That means a task such as `TASK-OMR-002` could incorrectly proceed when `TASK-001` or `TASK-HR-001` is marked DONE.
+- The repo’s own AGENTS/spec requires namespace isolation for HR and OMR work, so this is a real correctness bug, not just a cosmetic issue.
+
+Suggested fix:
+- When evaluating `depends_on`, verify each dependency matches the active scope pattern before considering it satisfied.
+- For example, in `omr` mode only accept dependencies matching `/^TASK-OMR-\d{3}$/`, and do the same for `hr` and default `sima` modes.
