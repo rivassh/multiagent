@@ -5,7 +5,7 @@
 - Distributed Concurrency: Two-Phase Locking (2PL) via TTL-backed leases in state/leases.json. No state mutation without holding an active lease.
 - Identity: Worker identity is read from YOUR_ID env. If unset, derive once and freeze: YOUR_ID="agent-" + hostname + "-" + pid.
 - Append-Only History: state/team_log.md is strictly append-only. Never rewrite or truncate past entries.
-- Task namespaces: Existing Sima tasks use `TASK-NNN`; HR subproject tasks use `TASK-HR-NNN` in the same `state/tasks.json` queue and under the same lease.
+- Task namespaces: Existing Sima tasks use `TASK-NNN`; HR subproject tasks use `TASK-HR-NNN`; OMR project tasks use `TASK-OMR-NNN`. All namespaces share `state/tasks.json` and the same lease, but each requires its matching runner scope.
 - Strict TDD: Red (failing test) -> Green (minimal implementation) -> Refactor/Verify.
 
 2. Shared File Contracts
@@ -25,7 +25,7 @@ When a human operator enters instructions, bug reports, feature requests, or que
 4. Run:
    git add REQUIREMENT.md
    git commit -m "docs(directive): capture user chat input via YOUR_ID"
-   git push origin main
+   git push origin <coordination-branch>
 5. Call SUBROUTINE: RELEASE_LEASE.
 6. Trigger Phase 1 (Planning / Task Breakdown) to parse the requirement delta into atomic tasks in state/tasks.json.
 
@@ -39,7 +39,7 @@ When a human operator enters instructions, bug reports, feature requests, or que
 
 SUBROUTINE: ACQUIRE_LEASE
 Repeat up to MAX_RETRIES with exponential backoff + jitter:
-1. Run: git fetch origin && git checkout main && git pull --rebase origin main
+1. Run: git fetch origin && git pull --rebase origin <coordination-branch>
 2. Ensure state/ directory exists. Read state/leases.json (initialize if missing: {"version": 1, "leases": []}).
 3. Check record where resource == "tasks.json":
    - Case A: No active lease exists -> Proceed to step 4.
@@ -63,7 +63,7 @@ Repeat up to MAX_RETRIES with exponential backoff + jitter:
 5. Run:
    git add state/leases.json state/team_log.md
    git commit -m "chore(lock): acquire tasks.json lease by YOUR_ID"
-   git push origin main
+   git push origin <coordination-branch>
 6. If push succeeds: RETURN SUCCESS.
    If push fails (conflict / rejected):
      git rebase --abort 2>/dev/null || true
@@ -78,23 +78,24 @@ Repeat up to 5 times:
 3. Run:
    git add state/leases.json
    git commit -m "chore(lock): release tasks.json lease by YOUR_ID"
-   git push origin main
+   git push origin <coordination-branch>
 4. If push fails: git reset --hard origin/main, retry.
 5. If success: RETURN SUCCESS. (If persistent failure occurs, lease expires naturally via TTL).
 
 6. Main Execution Lifecycle
 
 Phase 0: Preflight Cleanliness
-- Execute: git status --porcelain
-  If uncommitted artifacts exist: git reset --hard HEAD && git clean -fd
-- Execute: git checkout main && git pull origin main
+- Execute: git status --porcelain and inspect every changed/untracked path.
+- Never discard work with `git reset --hard` or `git clean`. Preserve unrelated changes; stop and ask before proceeding if task files overlap or their ownership is unclear.
+- Synchronize with the configured coordination branch without switching branches that contain user work.
 
 Phase 1: Planning, Review-Claim, or Task-Claim
 1. Call SUBROUTINE: ACQUIRE_LEASE.
 2. Inspect REQUIREMENT.md and state/tasks.json (initialize if missing: {"version": 1, "tasks": []}).
 3. Determine the requested task scope before selecting a task:
    - If the user explicitly requests HR tasks, consider only IDs matching `TASK-HR-NNN`; never fall back to a `TASK-NNN` item. If no HR task is actionable, release the lease and report that no HR task is ready.
-   - Otherwise, consider only IDs matching `TASK-NNN`; do not select HR tasks unless the user explicitly requests the HR scope or names an exact HR task ID.
+   - Otherwise, consider only IDs matching `TASK-NNN`; do not select HR or OMR tasks unless the user explicitly requests that scope or names an exact task ID.
+   - For an explicit OMR request, consider only IDs matching `TASK-OMR-NNN`.
    - If a task has `depends_on`, it is actionable only after every referenced task is `DONE`.
 4. Select route:
 
