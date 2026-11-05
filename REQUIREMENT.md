@@ -152,3 +152,9 @@ har رو یه بار بیشتر نمی دیم قضیه ش چیه انقدر گی
 
 ## User Directive [2026-11-05T11:53:58Z] (Captured by agent-noabatgircom-2254092)
 یک endpoint استیجینگ OMR دارم و بعداً آدرسش را می‌دهم
+
+## User Directive [2026-11-05T12:10:23Z] (Captured by agent-noabatgircom-2254092)
+start tasks doing and commit your changes at end
+
+## User Directive [2026-11-05T12:10:23Z] (Captured by agent-noabatgircom-2254092)
+این تغییرات را حفظ و با OMR scope ادغام کن (پیشنهادی)
