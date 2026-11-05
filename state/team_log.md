@@ -738,6 +738,8 @@ OK
 - OMR staging E2E URLs are not available yet; TASK-OMR-001 requires explicit OMR URLs and prohibits fallback to SIMA endpoints.
 - OMR project baseline observed: 23 tests collected; current repository has unrelated uncommitted changes which were left untouched.
 
+## [2026-11-05T11:58:29Z] RELEASE_LEASE: agent-noabatgircom-2254092 released the expired tasks.json lease after publishing OMR planning.
+
 ## [2026-11-05T15:24:33Z] TASK-095 implementation complete; handoff to review.
 - Completed the isolated LinkedIn profile preview adapter in the SIMA workspace: operator-provided JSON is mapped into the shared profile contract without persistent writes, browser/session replay, or HAR retention.
 - Added targeted synthetic regression coverage for nested LinkedIn objects and common alias keys; contact values remain redacted from preview output.
