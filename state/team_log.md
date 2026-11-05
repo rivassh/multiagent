@@ -777,3 +777,10 @@ OK
 ## [2026-11-05T12:48:36Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording TASK-OMR-001 review feedback.
 
 ## [2026-11-05T12:51:53Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to hand off the TASK-OMR-001 namespace dependency fix.
+
+## [2026-11-05T12:51:53Z] TASK-OMR-001 revision complete; handoff to review.
+- `processTaskLifecycle()` now treats dependency IDs outside the active runner's task pattern as unmet, even when the referenced task is `DONE`.
+- Added regression cases proving Sima, HR, and OMR tasks cannot be unblocked by completed dependencies from another namespace; valid same-scope dependency behavior remains covered.
+- Updated AGENTS.md and docs/SPEC.md to define same-namespace dependencies as required.
+- TDD evidence: before the fix, the focused suite failed for cross-namespace dependencies; after the fix, `node --check state/runner_workflow.js`, `node --test tests/Feature/*.test.cjs` (10/10), and `git diff --check` passed.
+- `TASK-OMR-001` remains assigned to this implementer and is set to `NEEDS_REVIEW`.

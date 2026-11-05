@@ -6,6 +6,7 @@
 - Identity: Worker identity is read from YOUR_ID env. If unset, derive once and freeze: YOUR_ID="agent-" + hostname + "-" + pid.
 - Append-Only History: state/team_log.md is strictly append-only. Never rewrite or truncate past entries.
 - Task namespaces: Existing Sima tasks use `TASK-NNN`; HR subproject tasks use `TASK-HR-NNN`; OMR project tasks use `TASK-OMR-NNN`. All namespaces share `state/tasks.json` and the same lease, but each requires its matching runner scope.
+- Dependency isolation: Every `depends_on` ID must match the task namespace of the active runner scope and refer to a task in `DONE`; cross-namespace dependencies are invalid and keep the task blocked.
 - Strict TDD: Red (failing test) -> Green (minimal implementation) -> Refactor/Verify.
 
 2. Shared File Contracts
@@ -96,7 +97,7 @@ Phase 1: Planning, Review-Claim, or Task-Claim
    - If the user explicitly requests HR tasks, consider only IDs matching `TASK-HR-NNN`; never fall back to a `TASK-NNN` item. If no HR task is actionable, release the lease and report that no HR task is ready.
    - Otherwise, consider only IDs matching `TASK-NNN`; do not select HR or OMR tasks unless the user explicitly requests that scope or names an exact task ID.
    - For an explicit OMR request, consider only IDs matching `TASK-OMR-NNN`.
-   - If a task has `depends_on`, it is actionable only after every referenced task is `DONE`.
+   - If a task has `depends_on`, every referenced ID must match the active scope's task pattern and refer to a `DONE` task; missing, malformed, or cross-namespace dependencies keep it blocked.
 4. Select route:
 
    - CASE A: New/Unprocessed Requirements Exist

@@ -358,11 +358,11 @@
     {
       "id": "TASK-OMR-001",
       "title": "Add isolated OMR namespace and scope to the GitOps runner",
-      "status": "REVISE",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
-      "last_error": "Review finding: processTaskLifecycle accepts dependencies from outside the active task namespace when they are DONE. Reject dependencies that do not match the current scope's task pattern, and add tests proving Sima, HR, and OMR scopes cannot be unblocked by cross-namespace dependencies.",
+      "last_error": null,
       "summary": "Extend state/runner_workflow.js and its tests to accept --scope omr and process only TASK-OMR-NNN tasks, preserving default Sima and explicit HR isolation. Configure OMR stage/E2E checks through explicit OMR-specific web/API URLs; never call SIMA URLs for OMR tasks. If OMR URLs are absent, return a clear blocked verification result without network access. Do not modify the OMR application worktree."
     },
     {
