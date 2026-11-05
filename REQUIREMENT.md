@@ -1,5 +1,14 @@
 # Requirements
 
+## User Directive [2026-11-05T15:08:00Z] (Captured by agent-noabatgircom-2254092)
+DIRECTIVE: Refactor Swarm Architecture into Role-Based, Isolated Multi-Project System
+1. OS Agnostic & Path Resolution: Eliminate all OS symlinks. Introduce .env.example defining project relative paths (PROJECT_ROOT, subproject paths). Ensure complete cross-platform execution (Linux / Windows WSL / Docker).
+2. Docker Orchestration & Minimal Web Dashboard: Provide a root docker-compose.yml that standardizes runtime dependencies. Include a lightweight dashboard service (Python http.server or a minimal static HTML/JS dashboard) reading state/**/tasks.json directly from files to display Kanban/task statuses.
+3. Multi-Project State Isolation: Migrate single state/tasks.json and state/leases.json into partitioned directories: state/sima/, state/candash/, state/shared/. Update lease management and task runner logic to respect these namespaces without cross-state collision.
+4. Lifecycle & Quality Gate Extension: Extend task statuses to: TODO -> IN_PROGRESS -> NEEDS_QA -> QA_PASSED (or QA_FAILED) -> NEEDS_REVIEW -> IN_REVIEW -> DONE. Strictly decouple the Reviewer and QA roles from the Task Implementer (Author cannot QA or Review their own task).
+5. Role-Based Contracts (.roles/): Create .roles/ directory with explicit Markdown playbooks: product-owner.md, scrum-master.md, architect-cto.md, frontend-dev.md & backend-dev.md, qa-engineer.md, code-reviewer.md. Create an entry script or runner contract (load_role.sh / docs) so any newcomer or stateless agent can pick a role and immediately know their scope without conversation history.
+6. Protocol Update (AGENTS.md): Update AGENTS.md and docs/SPEC.md to reflect these contracts, the new lifecycle, and the partitioned state schema.
+
 ## User Directive 2026-10-25T11:28:00Z (Captured by agent-noabatgircom-2769754)
 todo های sima  رو به ترتیب اولویت در سیستم gitops قرار بده تا با بقیه agent ها کارها رو شروع کنیم
 
