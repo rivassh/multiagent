@@ -743,6 +743,8 @@ OK
 ## [2026-11-05T12:09:19Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to start TASK-OMR-001.
 - Preserved in-progress STAGE lifecycle changes in AGENTS.md, state/runner_workflow.js, and tests/Feature/runner_workflow.test.cjs for integration.
 
+## [2026-11-05T12:11:13Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording the OMR task-start directive.
+
 ## [2026-11-05T15:24:33Z] TASK-095 implementation complete; handoff to review.
 - Completed the isolated LinkedIn profile preview adapter in the SIMA workspace: operator-provided JSON is mapped into the shared profile contract without persistent writes, browser/session replay, or HAR retention.
 - Added targeted synthetic regression coverage for nested LinkedIn objects and common alias keys; contact values remain redacted from preview output.
