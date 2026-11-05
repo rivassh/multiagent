@@ -775,3 +775,5 @@ OK
 - Set `TASK-OMR-001` to `REVISE`; require dependency IDs to match the active Sima, HR, or OMR scope and regression coverage for cross-namespace dependencies.
 
 ## [2026-11-05T12:48:36Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after recording TASK-OMR-001 review feedback.
+
+## [2026-11-05T12:51:53Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to hand off the TASK-OMR-001 namespace dependency fix.
