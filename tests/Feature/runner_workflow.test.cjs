@@ -41,6 +41,27 @@ test('default Sima scope processes only TASK-NNN tasks', async t => {
   ]);
 });
 
+test('runner resolves partitioned state paths for each scope', async t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'multiagent-partition-'));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(dir, 'shared'), { recursive: true });
+  for (const scope of ['sima', 'candash', 'omr']) {
+    const subdir = path.join(dir, scope);
+    fs.mkdirSync(subdir, { recursive: true });
+    fs.writeFileSync(path.join(subdir, 'tasks.json'), JSON.stringify({ version: 1, tasks: [] }));
+  }
+  fs.writeFileSync(path.join(dir, 'shared', 'leases.json'), JSON.stringify({ version: 1, leases: [] }));
+  const simaRunner = new TaskRunner({ scope: 'sima', tasksFile: path.join(dir, 'sima', 'tasks.json'), leasesFile: path.join(dir, 'shared', 'leases.json') });
+  assert.match(simaRunner.tasksFile, /sima/);
+  assert.match(simaRunner.leasesFile, /shared/);
+  const hrRunner = new TaskRunner({ scope: 'hr', tasksFile: path.join(dir, 'candash', 'tasks.json'), leasesFile: path.join(dir, 'shared', 'leases.json') });
+  assert.match(hrRunner.tasksFile, /candash/);
+  assert.match(hrRunner.leasesFile, /shared/);
+  const omrRunner = new TaskRunner({ scope: 'omr', tasksFile: path.join(dir, 'omr', 'tasks.json'), leasesFile: path.join(dir, 'shared', 'leases.json') });
+  assert.match(omrRunner.tasksFile, /omr/);
+  assert.match(omrRunner.leasesFile, /shared/);
+});
+
 test('HR scope isolates HR tasks and waits for every dependency to be DONE', async t => {
   const tasks = [
     { id: 'TASK-001', status: 'TODO' },

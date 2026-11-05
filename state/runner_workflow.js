@@ -1,8 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const STATE_DIR = path.join(__dirname, 'tasks.json');
-const LEASES_FILE = path.join(__dirname, 'leases.json');
+const STATE_ROOT = __dirname;
+const SHARED_DIR = path.join(STATE_ROOT, 'shared');
+const STATE_PATHS = {
+  sima: path.join(STATE_ROOT, 'sima', 'tasks.json'),
+  hr: path.join(STATE_ROOT, 'candash', 'tasks.json'),
+  omr: path.join(STATE_ROOT, 'omr', 'tasks.json'),
+};
+const LEASES_FILE = path.join(SHARED_DIR, 'leases.json');
 const COUNCIL_FILE = path.join(__dirname, 'council.md');
 const E2E_ENDPOINT = 'http://sima.adlr.ir';
 const E2E_CHAT_URL = 'http://sima.adlr.ir/api/v1/chat/completions';
@@ -11,13 +17,13 @@ const E2E_WEB_URL = 'http://sima.adlr.ir/chat';
 class TaskRunner {
   constructor({
     scope = 'sima',
-    tasksFile = STATE_DIR,
-    leasesFile = LEASES_FILE,
+    tasksFile = null,
+    leasesFile = null,
     env = process.env,
   } = {}) {
     this.scope = TaskRunner.validateScope(scope);
-    this.tasksFile = tasksFile;
-    this.leasesFile = leasesFile;
+    this.tasksFile = tasksFile || STATE_PATHS[this.scope];
+    this.leasesFile = leasesFile || LEASES_FILE;
     this.env = env;
     this.tasks = this.loadTasks();
     this.leases = this.loadLeases();
@@ -116,6 +122,10 @@ class TaskRunner {
 
   saveTasks() {
     fs.writeFileSync(this.tasksFile, JSON.stringify(this.tasks, null, 2));
+  }
+
+  get tasksFilePath() {
+    return this.tasksFile;
   }
 
   saveLeases() {

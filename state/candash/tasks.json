@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "namespace": "candash",
+  "statuses": [
+    "TODO",
+    "IN_PROGRESS",
+    "NEEDS_QA",
+    "QA_PASSED",
+    "QA_FAILED",
+    "NEEDS_REVIEW",
+    "IN_REVIEW",
+    "REVISE",
+    "STAGE",
+    "DONE"
+  ],
+  "tasks": [
+    {
+      "id": "TASK-HR-001",
+      "title": "Add HR task namespace isolation to the GitOps runner",
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-HR-002",
+      "title": "Define the HR dashboard and extensible filter contract",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-HR-001"]
+    },
+    {
+      "id": "TASK-HR-003",
+      "title": "Implement the HR dashboard with extensible filters",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-HR-002"]
+    }
+  ]
+}

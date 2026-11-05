@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "namespace": "omr",
+  "statuses": [
+    "TODO",
+    "IN_PROGRESS",
+    "NEEDS_QA",
+    "QA_PASSED",
+    "QA_FAILED",
+    "NEEDS_REVIEW",
+    "IN_REVIEW",
+    "REVISE",
+    "STAGE",
+    "DONE"
+  ],
+  "tasks": [
+    {
+      "id": "TASK-OMR-001",
+      "title": "Add isolated OMR namespace and scope to the GitOps runner",
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-OMR-002",
+      "title": "Document OMR architecture and service contracts",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-OMR-001"]
+    },
+    {
+      "id": "TASK-OMR-003",
+      "title": "Add regression tests for template-aware answer extraction",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-OMR-002"]
+    },
+    {
+      "id": "TASK-OMR-004",
+      "title": "Implement template-aware row and mark detection",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-OMR-003"]
+    },
+    {
+      "id": "TASK-OMR-005",
+      "title": "Add OCR service API lifecycle tests",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-OMR-002"]
+    },
+    {
+      "id": "TASK-OMR-006",
+      "title": "Make OCR service paths deployment-configurable",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-OMR-005"]
+    }
+  ]
+}

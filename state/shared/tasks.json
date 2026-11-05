@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "namespace": "shared",
+  "statuses": [
+    "TODO",
+    "IN_PROGRESS",
+    "NEEDS_QA",
+    "QA_PASSED",
+    "QA_FAILED",
+    "NEEDS_REVIEW",
+    "IN_REVIEW",
+    "REVISE",
+    "STAGE",
+    "DONE"
+  ],
+  "tasks": [
+    {
+      "id": "TASK-086",
+      "title": "Reconstructing missing historical work logs from Git evidence",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-087",
+      "title": "Define privacy-safe chat analytics event contract and capture tool traces",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-088",
+      "title": "Create isolated MongoDB analytics Compose stack and analyst access",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-089",
+      "title": "Implement privacy-safe, idempotent incremental SQL-to-MongoDB ETL",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-090",
+      "title": "Add analytics data checks, analyst guide, and sample MongoDB queries",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-OMR-002",
+      "title": "Document OMR architecture and service contracts",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-OMR-001"]
+    }
+  ]
+}

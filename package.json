@@ -1,0 +1,16 @@
+{
+  "name": "multiagent",
+  "version": "1.0.0",
+  "description": "Autonomous Git-Swarm Protocol with multi-project support",
+  "main": "state/runner_workflow.js",
+  "scripts": {
+    "test": "node --test",
+    "test:runner": "node --test state/runner_workflow.test.cjs 2>/dev/null || node state/runner_workflow.js"
+  },
+  "keywords": ["gitops", "swarm", "multi-agent", "task-runner"],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {},
+  "devDependencies": {}
+}

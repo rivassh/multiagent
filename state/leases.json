@@ -1,4 +1,6 @@
 {
-    "version": 1,
-    "leases": []
+  "version": 1,
+  "deprecated": true,
+  "migrated_to": "state/shared/leases.json",
+  "message": "This file has been migrated to partitioned state directories. See state/shared/leases.json for active lease management."
 }
