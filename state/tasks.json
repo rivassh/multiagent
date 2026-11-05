@@ -266,7 +266,7 @@
     {
       "id": "TASK-091",
       "title": "Trace and document JobVision-to-chat job-post data flow",
-      "status": "NEEDS_REVIEW",
+      "status": "REVISE",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
@@ -290,7 +290,7 @@
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
-      "last_error": null,
+      "last_error": "Review finding: processTaskLifecycle accepts dependencies from outside the active task namespace when they are DONE. Reject dependencies that do not match the current scope's task pattern, and add tests proving Sima, HR, and OMR scopes cannot be unblocked by cross-namespace dependencies.",
       "summary": "Trace the provided HAR without exposing credentials. Do not copy candidate-portal tokens into the employer crawler configuration: the HAR has no GetListOfJobPosts request or login/refresh exchange. Make token rotation safe and reliable: detect/evict expired cached JWTs, clear rejected cache tokens on HTTP 401/403, provide a hidden-input operator recovery path that does not put tokens in CLI arguments/logs, document that automatic refresh is unsupported unless JobVision provides a verified refresh endpoint/credential, and keep actual secrets only in ignored local runtime configuration or an approved secret manager. Test token expiry, cache invalidation/fallback, and credential redaction."
     },
     {
