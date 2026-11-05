@@ -135,7 +135,9 @@ class TaskRunner {
         console.error(`  ❌ Skipping ${task.id}; depends_on must be an array`);
         continue;
       }
-      const unmetDependencies = dependencies.filter(id => tasksById.get(id)?.status !== 'DONE');
+      const unmetDependencies = dependencies.filter(id => (
+        !taskPattern.test(id) || tasksById.get(id)?.status !== 'DONE'
+      ));
       if (unmetDependencies.length > 0) {
         console.log(`  ⏭️ Skipping ${task.id}; unmet dependencies: ${unmetDependencies.join(', ')}`);
         continue;
