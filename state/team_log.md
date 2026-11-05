@@ -765,3 +765,5 @@ OK
 - Preserved and integrated the in-progress `STAGE` lifecycle: review passes move to `STAGE`, then separate stage verification is required before `DONE`.
 - Validation: `cd /home/hamid/Projects/multiagent && node --check state/runner_workflow.js && node --test tests/Feature/*.test.cjs && git diff --check` passed (10/10 tests; no syntax or whitespace errors).
 - Task status set to `NEEDS_REVIEW`; OMR stage URLs were not available, so no live stage verification was attempted. Unrelated untracked `omr` symlink and backlog CSV were left untouched.
+
+## [2026-11-05T12:33:12Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after handing TASK-OMR-001 to review.
