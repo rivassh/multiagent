@@ -769,3 +769,7 @@ OK
 ## [2026-11-05T12:33:12Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after handing TASK-OMR-001 to review.
 
 ## [2026-11-05T12:44:21Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to address the reported TASK-OMR-001 dependency namespace isolation finding.
+
+## [2026-11-05T12:44:21Z] TASK-OMR-001 review feedback; returned for revision.
+- Recorded the reported namespace-isolation defect: `depends_on` entries are currently accepted based only on target status, allowing a completed task from another namespace to satisfy a scoped dependency.
+- Set `TASK-OMR-001` to `REVISE`; require dependency IDs to match the active Sima, HR, or OMR scope and regression coverage for cross-namespace dependencies.
