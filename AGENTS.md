@@ -11,7 +11,7 @@
 2. Shared File Contracts
 - REQUIREMENT.md: Top-level source requirements and direct user requests.
 - docs/SPEC.md: Technical architectural specifications, API contracts, interfaces.
-- state/tasks.json: Distributed task queue (Statuses: TODO, IN_PROGRESS, NEEDS_REVIEW, IN_REVIEW, REVISE, DONE).
+- state/tasks.json: Distributed task queue (Statuses: TODO, IN_PROGRESS, NEEDS_REVIEW, IN_REVIEW, REVISE, STAGE, DONE).
 - state/leases.json: Distributed locking manifest with UTC TTL timestamps.
 - state/team_log.md: Append-only ledger of actions, reviews, and test runs.
 
@@ -108,6 +108,7 @@ Phase 1: Planning, Review-Claim, or Task-Claim
          "status": "TODO",
          "assigned_to": null,
          "reviewer": null,
+         "stage_assigned_to": null,
          "attempts": 0,
          "last_error": null
        }
@@ -136,7 +137,15 @@ Phase 1: Planning, Review-Claim, or Task-Claim
        git push origin main
      - Call SUBROUTINE: RELEASE_LEASE. Proceed to Phase 2 (Dev Mode).
 
-   - CASE D: All Tasks Complete (status == "DONE")
+   - CASE D: Stage Verification Available (status == "STAGE" AND (stage_assigned_to == null OR stage_assigned_to == YOUR_ID))
+     - Select the first matching task. Set `stage_assigned_to = YOUR_ID` while keeping status `STAGE`.
+     - Run:
+       git add state/tasks.json
+       git commit -m "chore(stage): claim ${task.id} by YOUR_ID"
+       git push origin <coordination-branch>
+     - Call SUBROUTINE: RELEASE_LEASE. Proceed to Phase 4 (Stage Mode).
+
+   - CASE E: All Tasks Complete (status == "DONE")
      - Append to state/team_log.md: "[PROJECT_COMPLETE] All tasks marked DONE at <timestamp> by YOUR_ID."
      - Run:
        git add state/team_log.md
@@ -144,7 +153,7 @@ Phase 1: Planning, Review-Claim, or Task-Claim
        git push origin main
      - Call SUBROUTINE: RELEASE_LEASE. Print "PROJECT COMPLETE" and terminate.
 
-   - CASE E: Starvation / No Actionable Tasks
+   - CASE F: Starvation / No Actionable Tasks
      - Call SUBROUTINE: RELEASE_LEASE. Terminate cycle.
 
 Phase 2: Autonomous Execution (NO LEASE HELD)
@@ -178,11 +187,11 @@ Phase 3: Atomic State Handoff (TWO-PHASE LOCKING)
        git add src/ tests/ state/tasks.json state/team_log.md
        git commit -m "feat(${task.id}): complete implementation, await review"
    - If Review Mode PASSED:
-     Update task: status = "DONE".
-     Append approval confirmation to state/team_log.md.
+     Update task: status = "STAGE".
+     Append review approval and stage-verification handoff to state/team_log.md.
      Run:
        git add state/tasks.json state/team_log.md
-       git commit -m "review(${task.id}): APPROVED [status=DONE]"
+       git commit -m "review(${task.id}): APPROVED [status=STAGE]"
    - If Review Mode FAILED:
      Update task: status = "REVISE", last_error = "<clear, actionable error details>".
      Append rejection analysis to state/team_log.md.
@@ -190,7 +199,26 @@ Phase 3: Atomic State Handoff (TWO-PHASE LOCKING)
        git add state/tasks.json state/team_log.md
        git commit -m "review(${task.id}): REJECTED [status=REVISE]"
 4. Run:
-   git push origin main
+   git push origin <coordination-branch>
    If rejected, perform: git pull --rebase origin main and push again.
 5. Call SUBROUTINE: RELEASE_LEASE.
 6. Terminate iteration cleanly.
+
+Phase 4: Stage Verification (NO LEASE HELD)
+1. Verify the task is still assigned to YOUR_ID for stage verification and remains in status `STAGE`.
+2. Verify the reviewed revision in the configured stage environment using black-box checks for the task acceptance criteria, including relevant UI and API flows. Unit tests or mocked responses alone are not stage evidence.
+3. Capture the stage URL, exact commands, test output, and pass/fail result. Never substitute a production endpoint for a configured stage endpoint.
+4. Do not edit state/tasks.json directly. Proceed to Phase 5.
+
+Phase 5: Atomic Stage Handoff (TWO-PHASE LOCKING)
+1. Call SUBROUTINE: ACQUIRE_LEASE.
+2. Verify the task still has status `STAGE`, `stage_assigned_to == YOUR_ID`, and the evidence corresponds to the reviewed revision.
+3. If all required stage checks PASSED:
+   - Update task: status = "DONE", set `stage_verified_by = YOUR_ID`, attach the stage verification evidence, and clear `stage_assigned_to`.
+   - Append stage approval and verification metrics to state/team_log.md.
+   - Commit with `git add state/tasks.json state/team_log.md` and `git commit -m "stage(${task.id}): VERIFIED [status=DONE]"`.
+4. If any required stage check FAILED:
+   - Update task: status = "REVISE", set last_error to actionable failure details, and clear `stage_assigned_to`.
+   - Append rejection and diagnostic details to state/team_log.md.
+   - Commit with `git add state/tasks.json state/team_log.md` and `git commit -m "stage(${task.id}): FAILED [status=REVISE]"`.
+5. Push to the configured coordination branch, then call SUBROUTINE: RELEASE_LEASE.

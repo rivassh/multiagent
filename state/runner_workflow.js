@@ -9,20 +9,69 @@ const E2E_CHAT_URL = 'http://sima.adlr.ir/api/v1/chat/completions';
 const E2E_WEB_URL = 'http://sima.adlr.ir/chat';
 
 class TaskRunner {
-  constructor({ scope = 'sima', tasksFile = STATE_DIR, leasesFile = LEASES_FILE } = {}) {
+  constructor({
+    scope = 'sima',
+    tasksFile = STATE_DIR,
+    leasesFile = LEASES_FILE,
+    env = process.env,
+  } = {}) {
     this.scope = TaskRunner.validateScope(scope);
     this.tasksFile = tasksFile;
     this.leasesFile = leasesFile;
+    this.env = env;
     this.tasks = this.loadTasks();
     this.leases = this.loadLeases();
     this.e2eVerificationResults = new Map();
   }
 
   static validateScope(scope) {
-    if (scope !== 'sima' && scope !== 'hr') {
-      throw new Error(`Unsupported task scope "${scope}"; expected "sima" or "hr"`);
+    if (!['sima', 'hr', 'omr'].includes(scope)) {
+      throw new Error(`Unsupported task scope "${scope}"; expected "sima", "hr", or "omr"`);
     }
     return scope;
+  }
+
+  getTaskPattern() {
+    return {
+      sima: /^TASK-\d{3}$/,
+      hr: /^TASK-HR-\d{3}$/,
+      omr: /^TASK-OMR-\d{3}$/,
+    }[this.scope];
+  }
+
+  getStageConfig(task) {
+    if (/^TASK-OMR-\d{3}$/.test(task.id)) {
+      const webUrl = this.env.OMR_E2E_WEB_URL?.trim();
+      const apiUrl = this.env.OMR_E2E_API_URL?.trim();
+      if (!webUrl || !apiUrl) {
+        return {
+          blocked: 'OMR stage verification requires OMR_E2E_WEB_URL and OMR_E2E_API_URL',
+        };
+      }
+
+      try {
+        const parsedUrls = [new URL(webUrl), new URL(apiUrl)];
+        if (parsedUrls.some(url => !['http:', 'https:'].includes(url.protocol)
+            || url.username || url.password)) {
+          throw new Error('OMR stage URLs must use HTTP(S) and must not contain credentials');
+        }
+        return {
+          webUrl,
+          apiUrl,
+          endpoint: parsedUrls[0].origin,
+        };
+      } catch (error) {
+        return {
+          blocked: `Invalid OMR stage URL configuration: ${error.message}`,
+        };
+      }
+    }
+
+    return {
+      webUrl: E2E_WEB_URL,
+      apiUrl: E2E_CHAT_URL,
+      endpoint: E2E_ENDPOINT,
+    };
   }
 
   static parseScope(args = process.argv.slice(2)) {
@@ -77,11 +126,8 @@ class TaskRunner {
     console.log(`🔄 Starting ${this.scope} task lifecycle processing...`);
 
     const tasksById = new Map(this.tasks.tasks.map(task => [task.id, task]));
-    const scopedTasks = this.tasks.tasks.filter(task => (
-      this.scope === 'hr'
-        ? /^TASK-HR-\d{3}$/.test(task.id)
-        : /^TASK-\d{3}$/.test(task.id)
-    ));
+    const taskPattern = this.getTaskPattern();
+    const scopedTasks = this.tasks.tasks.filter(task => taskPattern.test(task.id));
 
     for (const task of scopedTasks) {
       const dependencies = task.depends_on ?? [];
@@ -109,12 +155,12 @@ class TaskRunner {
       } else if (task.status === 'IN_REVIEW') {
         console.log(`  Status: IN_REVIEW - review in progress`);
         await this.processReviewPhase(task);
+      } else if (task.status === 'STAGE' || task.status === 'APPROVED') {
+        console.log(`  Status: ${task.status} - stage verification`);
+        await this.processStagePhase(task);
       } else if (task.status === 'NEEDS_REVISE' || task.status === 'REVISE') {
         console.log(`  Status: ${task.status} - task needs revision`);
         await this.processRevisionPhase(task);
-      } else if (task.status === 'APPROVED') {
-        console.log(`  Status: APPROVED - verify stage (E2E verification on sima.adlr.ir)`);
-        await this.processVerifyPhase(task);
       } else if (task.status === 'DONE') {
         console.log(`  Status: DONE - E2E verification gate check required`);
         await this.validateDoneTransition(task);
@@ -152,43 +198,24 @@ class TaskRunner {
 
   async processReviewPhase(task) {
     console.log(`  📋 Final review: Validating ${task.id}`);
-
-    const stageE2eResult = await this.performStageE2EVerification(task);
-
-    if (!stageE2eResult.success) {
-      console.log(`  ❌ ${task.id} FAILED: Stage/E2E verification on ${E2E_ENDPOINT} failed: ${stageE2eResult.error}`);
-      task.status = 'REVISE';
-      task.last_error = `Stage/E2E verification failed on ${E2E_ENDPOINT}: ${stageE2eResult.error}`;
-      return;
-    }
-
-    task.status = 'APPROVED';
-    task.verification_results = task.verification_results || {};
-    task.verification_results.stage_e2e_verification = {
-      endpoint: E2E_ENDPOINT,
-      verified: true,
-      timestamp: new Date().toISOString(),
-      result: stageE2eResult
-    };
-    console.log(`  ✅ ${task.id} passed evidence-based review and stage/E2E verification on ${E2E_ENDPOINT}`);
+    task.status = 'STAGE';
+    console.log(`  ✅ ${task.id} passed review; queued for separate stage verification`);
   }
 
-  async processVerifyPhase(task) {
-    console.log(`  🔍 Verify phase: Final E2E verification on ${E2E_ENDPOINT} for ${task.id}`);
-
-    const e2eVerified = this.hasE2EVerification(task);
-    if (!e2eVerified) {
-      console.log(`  ❌ ${task.id} BLOCKED: E2E verification evidence not attached from ${E2E_ENDPOINT}`);
-      task.status = 'REVISE';
-      task.last_error = `E2E verification on ${E2E_ENDPOINT} required before DONE transition`;
+  async processStagePhase(task) {
+    const stageConfig = this.getStageConfig(task);
+    const endpoint = stageConfig.endpoint || 'configured OMR stage URLs';
+    console.log(`  🔍 Stage phase: Black-box E2E verification on ${endpoint} for ${task.id}`);
+    const fullVerification = await this.performStageE2EVerification(task);
+    if (fullVerification.blocked) {
+      task.last_error = fullVerification.error;
+      console.log(`  ⏸️ ${task.id} BLOCKED: ${fullVerification.error}`);
       return;
     }
-
-    const fullVerification = await this.performStageE2EVerification(task);
     if (!fullVerification.success) {
-      console.log(`  ❌ ${task.id} VERIFICATION FAILED: E2E test on ${E2E_ENDPOINT} failed`);
+      console.log(`  ❌ ${task.id} STAGE FAILED: E2E test on ${endpoint} failed`);
       task.status = 'REVISE';
-      task.last_error = `Full E2E verification failed on ${E2E_ENDPOINT}: ${fullVerification.error}`;
+      task.last_error = `Stage/E2E verification failed on ${endpoint}: ${fullVerification.error}`;
       this.e2eVerificationResults.set(task.id, fullVerification);
       return;
     }
@@ -196,16 +223,34 @@ class TaskRunner {
     this.e2eVerificationResults.set(task.id, fullVerification);
     task.e2e_verified = true;
     task.e2e_verification_timestamp = new Date().toISOString();
+    task.verification_results = task.verification_results || {};
+    task.verification_results.stage_e2e_verification = {
+      endpoint: fullVerification.endpoint,
+      verified: true,
+      timestamp: task.e2e_verification_timestamp,
+      result: fullVerification
+    };
     task.status = 'DONE';
-    console.log(`  ✅ ${task.id} verified on ${E2E_ENDPOINT}, transitioning to DONE`);
+    console.log(`  ✅ ${task.id} verified on ${fullVerification.endpoint}, transitioning to DONE`);
+  }
+
+  async processVerifyPhase(task) {
+    return this.processStagePhase(task);
   }
 
   async validateDoneTransition(task) {
-    console.log(`  🚧 Checking DONE transition requires E2E verification on ${E2E_ENDPOINT}`);
+    const stageConfig = this.getStageConfig(task);
+    const endpoint = stageConfig.endpoint || 'configured OMR stage URLs';
+    console.log(`  🚧 Checking DONE transition requires E2E verification on ${endpoint}`);
+
+    if (stageConfig.blocked) {
+      console.log(`  ❌ ${task.id} BLOCKED: ${stageConfig.blocked}`);
+      return;
+    }
 
     if (!this.hasE2EVerification(task)) {
-      console.log(`  ❌ ${task.id} BLOCKED: Raw E2E output from ${E2E_ENDPOINT} required for DONE`);
-      console.log(`  📌 Evidence needed: Execute E2E verification on ${E2E_ENDPOINT} and attach raw output`);
+      console.log(`  ❌ ${task.id} BLOCKED: Raw E2E output from ${endpoint} required for DONE`);
+      console.log(`  📌 Evidence needed: Execute E2E verification on ${endpoint} and attach raw output`);
       return;
     }
 
@@ -224,22 +269,42 @@ class TaskRunner {
   }
 
   hasE2EVerification(task) {
-    console.log(`  🔍 Checking E2E verification on ${E2E_ENDPOINT} for ${task.id}`);
+    const stageConfig = this.getStageConfig(task);
+    const endpoint = stageConfig.endpoint || 'configured OMR stage URLs';
+    console.log(`  🔍 Checking E2E verification on ${endpoint} for ${task.id}`);
+    if (stageConfig.blocked) {
+      console.log(`  ❌ E2E verification is blocked: ${stageConfig.blocked}`);
+      return false;
+    }
+
     const e2eEvidence = task.e2e_verification_results || 
                         task.e2e_results || 
                         task.stage_e2e_verification ||
                         task.verification_results?.stage_e2e_verification;
     if (!e2eEvidence) {
-      console.log(`  ❌ No E2E evidence found for ${task.id} on ${E2E_ENDPOINT}`);
+      console.log(`  ❌ No E2E evidence found for ${task.id} on ${endpoint}`);
       return false;
     }
-    console.log(`  ✅ E2E evidence found for ${task.id} on ${E2E_ENDPOINT}`);
+    console.log(`  ✅ E2E evidence found for ${task.id} on ${endpoint}`);
     return true;
   }
 
   async performStageE2EVerification(task, isRetry = false) {
-    console.log(`  🌐 E2E Testing ${E2E_ENDPOINT} against ${task.id}`);
-    console.log(`  🔍 Black-Box QA: Verifying endpoint ${E2E_WEB_URL}`);
+    const stageConfig = this.getStageConfig(task);
+    if (stageConfig.blocked) {
+      return {
+        success: false,
+        blocked: true,
+        error: stageConfig.blocked,
+        endpoint: undefined,
+        retry: isRetry,
+        checks: [],
+        timestamp: new Date().toISOString(),
+      };
+    }
+
+    console.log(`  🌐 E2E Testing ${stageConfig.endpoint} against ${task.id}`);
+    console.log(`  🔍 Black-Box QA: Verifying configured stage web endpoint`);
 
     const checks = [];
 
@@ -253,15 +318,15 @@ class TaskRunner {
     const errors = checks.filter(c => !c.passed).map(c => c.error);
 
     if (allPassed) {
-      console.log(`  ✅ ${task.id} E2E verification on ${E2E_ENDPOINT} PASSED`);
+      console.log(`  ✅ ${task.id} E2E verification on ${stageConfig.endpoint} PASSED`);
     } else {
-      console.log(`  ❌ ${task.id} E2E verification on ${E2E_ENDPOINT} FAILED: ${errors.join('; ')}`);
+      console.log(`  ❌ ${task.id} E2E verification on ${stageConfig.endpoint} FAILED: ${errors.join('; ')}`);
     }
 
     return {
       success: allPassed,
       error: errors.join('; ') || undefined,
-      endpoint: E2E_ENDPOINT,
+      endpoint: stageConfig.endpoint,
       retry: isRetry,
       checks: checks.map(c => ({ name: c.name, passed: c.passed })),
       timestamp: new Date().toISOString()
@@ -271,7 +336,12 @@ class TaskRunner {
   async checkWebEndpoint(task) {
     const name = 'web_endpoint_check';
     try {
-      const response = await fetch(E2E_WEB_URL, {
+      const stageConfig = this.getStageConfig(task);
+      if (stageConfig.blocked) {
+        return { name, passed: false, error: stageConfig.blocked };
+      }
+      const isOmrTask = /^TASK-OMR-\d{3}$/.test(task.id);
+      const response = await fetch(stageConfig.webUrl, {
         method: 'GET',
         headers: { 'Accept': 'text/html' },
         signal: AbortSignal.timeout(15000),
@@ -282,32 +352,57 @@ class TaskRunner {
       }
 
       const html = await response.text();
+      if (isOmrTask) {
+        const contentType = response.headers?.get('content-type') || '';
+        if (!contentType.includes('text/html') || !html.trim()) {
+          return { name, passed: false, error: 'OMR web endpoint did not return a non-empty HTML page' };
+        }
+        return { name, passed: true, status: response.status, url: stageConfig.endpoint };
+      }
       const hasChatUI = html.includes('composer') || html.includes('input') || html.includes('chat');
       if (!hasChatUI) {
         return { name, passed: false, error: 'Web page missing chat UI elements' };
       }
 
-      return { name, passed: true, status: response.status, url: E2E_WEB_URL };
+      return { name, passed: true, status: response.status, url: stageConfig.webUrl };
     } catch (err) {
       return { name, passed: false, error: `Fetch error: ${err.message}` };
     }
   }
 
   async checkChatApiEndpoint(task) {
-    const name = 'chat_api_check';
+    const isOmrTask = /^TASK-OMR-\d{3}$/.test(task.id);
+    const name = isOmrTask ? 'omr_api_check' : 'chat_api_check';
     try {
-      const response = await fetch(E2E_CHAT_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          model: 'youse',
-          messages: [{ role: 'user', content: 'Hello, respond with a short greeting' }],
+      const stageConfig = this.getStageConfig(task);
+      if (stageConfig.blocked) {
+        return { name, passed: false, error: stageConfig.blocked };
+      }
+      const response = await fetch(stageConfig.apiUrl, {
+        method: isOmrTask ? 'GET' : 'POST',
+        headers: isOmrTask
+          ? { 'Accept': 'application/json' }
+          : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        ...(isOmrTask ? {} : {
+          body: JSON.stringify({
+            model: 'youse',
+            messages: [{ role: 'user', content: 'Hello, respond with a short greeting' }],
+          }),
         }),
         signal: AbortSignal.timeout(30000),
       });
 
       if (response.status !== 200) {
-        return { name, passed: false, error: `Chat API returned HTTP ${response.status}` };
+        return { name, passed: false, error: `API endpoint returned HTTP ${response.status}` };
+      }
+
+      if (isOmrTask) {
+        const contentType = response.headers?.get('content-type') || '';
+        if (!contentType.includes('application/json')) {
+          return { name, passed: false, error: 'OMR API endpoint did not return JSON' };
+        }
+        await response.json();
+        return { name, passed: true, status: response.status, url: stageConfig.endpoint };
       }
 
       const body = await response.json();
@@ -323,7 +418,7 @@ class TaskRunner {
         passed: true,
         status: response.status,
         content: hasContent,
-        url: E2E_CHAT_URL,
+        url: stageConfig.apiUrl,
       };
     } catch (err) {
       return { name, passed: false, error: `Fetch error: ${err.message}` };
@@ -345,6 +440,12 @@ class TaskRunner {
 
       if (error.includes('E2E verification') || error.includes('Stage/E2E')) {
         const retryResult = await this.performStageE2EVerification(task, true);
+        if (retryResult.blocked) {
+          task.status = 'STAGE';
+          task.last_error = retryResult.error;
+          console.log(`  ⏸️ ${task.id} remains in STAGE: ${retryResult.error}`);
+          return;
+        }
         if (retryResult.success) {
           task.status = 'IN_REVIEW';
           task.e2e_verified = true;
@@ -362,8 +463,11 @@ class TaskRunner {
     try {
       console.log('🚀 Starting Multi-Agent Runner Workflow');
       console.log('📋 Evidence-Based Review Gate: ACTIVE');
-      console.log('🔍 Black-Box QA Stage/E2E Verification: ACTIVE on ' + E2E_ENDPOINT);
-      console.log('⚠️  CRITICAL: NO DONE transitions WITHOUT test evidence AND E2E verification on ' + E2E_ENDPOINT + '\n');
+      const stageTarget = this.scope === 'omr'
+        ? 'explicit OMR_E2E_WEB_URL / OMR_E2E_API_URL configuration'
+        : E2E_ENDPOINT;
+      console.log('🔍 Black-Box QA Stage/E2E Verification: ACTIVE on ' + stageTarget);
+      console.log('⚠️  CRITICAL: NO DONE transitions WITHOUT test evidence AND E2E verification on ' + stageTarget + '\n');
 
       await this.processTaskLifecycle();
 
@@ -371,7 +475,7 @@ class TaskRunner {
 
       console.log('\n✅ Runner workflow completed successfully!');
       console.log('📊 Updated task states saved to state/tasks.json');
-      console.log('🔒 E2E verification gate enforced on ' + E2E_ENDPOINT + ' for all DONE transitions');
+      console.log('🔒 E2E verification gate enforced on ' + stageTarget + ' for all DONE transitions');
 
     } catch (error) {
       console.error('❌ Runner workflow failed:', error);
