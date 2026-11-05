@@ -2,6 +2,141 @@
   "version": 1,
   "tasks": [
     {
+      "id": "TASK-REFACTOR-001",
+      "title": "Remove OS symlinks (sima, candash, omr) and restructure project layout",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-002",
+      "title": "Create .env.example with PROJECT_ROOT and subproject path definitions",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-003",
+      "title": "Create docker-compose.yml at project root standardizing runtime deps across projects",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-004",
+      "title": "Build minimal dashboard service reading state/*/tasks.json files for Kanban display",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-005",
+      "title": "Partition state directory into state/sima/state/candash/state/shared/ subdirectories",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-006",
+      "title": "Update lease management to support partitioned state namespaces without collision",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-007",
+      "title": "Update state/runner_workflow.js to resolve partitioned state paths",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-008",
+      "title": "Extend task lifecycle statuses: TODO -> IN_PROGRESS -> NEEDS_QA -> QA_PASSED|QA_FAILED -> NEEDS_REVIEW -> IN_REVIEW -> DONE",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-009",
+      "title": "Enforce independent Author != QA != Reviewer identity separation in task assignment logic",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-010",
+      "title": "Create .roles/ directory with product-owner.md, scrum-master.md, architect-cto.md playbooks",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-011",
+      "title": "Create frontend-dev.md and backend-dev.md role playbooks in .roles/",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-012",
+      "title": "Create qa-engineer.md and code-reviewer.md role playbooks in .roles/",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-013",
+      "title": "Create load_role.sh entry script so newcomers can pick a role and know scope immediately",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-014",
+      "title": "Update AGENTS.md with new contract, partitioned state schema, and extended lifecycle",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
+      "id": "TASK-REFACTOR-015",
+      "title": "Update docs/SPEC.md to reflect new roles, partitioned state, and extended lifecycle",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null
+    },
+    {
       "id": "TASK-024",
       "title": "Implement Generic Screening Engine (corpus-agnostic, shallow pipeline)",
       "status": "DONE",
