@@ -767,3 +767,5 @@ OK
 - Task status set to `NEEDS_REVIEW`; OMR stage URLs were not available, so no live stage verification was attempted. Unrelated untracked `omr` symlink and backlog CSV were left untouched.
 
 ## [2026-11-05T12:33:12Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after handing TASK-OMR-001 to review.
+
+## [2026-11-05T12:44:21Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to address the reported TASK-OMR-001 dependency namespace isolation finding.
