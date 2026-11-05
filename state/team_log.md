@@ -758,3 +758,10 @@ OK
 - Status updated to `NEEDS_REVIEW`; no JobVision adapter/configuration behavior was changed.
 
 ## [2026-11-05T12:30:22Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease for TASK-OMR-001 implementation handoff.
+
+## [2026-11-05T12:30:22Z] TASK-OMR-001 implementation complete; handoff to review.
+- Added `--scope omr` isolation for `TASK-OMR-NNN`, retaining the existing default Sima and explicit HR scopes and dependency gating.
+- OMR stage verification now requires explicit `OMR_E2E_WEB_URL` and `OMR_E2E_API_URL` HTTP(S) URLs without embedded credentials, performs GET-only HTML/JSON checks, and blocks without network access when configuration is absent or invalid; it never falls back to SIMA endpoints.
+- Preserved and integrated the in-progress `STAGE` lifecycle: review passes move to `STAGE`, then separate stage verification is required before `DONE`.
+- Validation: `cd /home/hamid/Projects/multiagent && node --check state/runner_workflow.js && node --test tests/Feature/*.test.cjs && git diff --check` passed (10/10 tests; no syntax or whitespace errors).
+- Task status set to `NEEDS_REVIEW`; OMR stage URLs were not available, so no live stage verification was attempted. Unrelated untracked `omr` symlink and backlog CSV were left untouched.

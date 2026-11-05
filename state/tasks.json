@@ -358,7 +358,7 @@
     {
       "id": "TASK-OMR-001",
       "title": "Add isolated OMR namespace and scope to the GitOps runner",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
