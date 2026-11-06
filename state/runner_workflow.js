@@ -7,6 +7,7 @@ const STATE_PATHS = {
   sima: path.join(STATE_ROOT, 'sima', 'tasks.json'),
   hr: path.join(STATE_ROOT, 'candash', 'tasks.json'),
   omr: path.join(STATE_ROOT, 'omr', 'tasks.json'),
+  answer: path.join(STATE_ROOT, 'answer', 'tasks.json'),
 };
 const LEASES_FILE = path.join(SHARED_DIR, 'leases.json');
 const COUNCIL_FILE = path.join(__dirname, 'council.md');
@@ -30,18 +31,21 @@ class TaskRunner {
     this.e2eVerificationResults = new Map();
   }
 
-  static validateScope(scope) {
-    if (!['sima', 'hr', 'omr'].includes(scope)) {
-      throw new Error(`Unsupported task scope "${scope}"; expected "sima", "hr", or "omr"`);
+static validateScope(scope) {
+    if (!['sima', 'hr', 'omr', 'answer'].includes(scope)) {
+      throw new Error(`Unsupported task scope "${scope}"; expected "sima", "hr", "omr", or "answer"`);
     }
     return scope;
   }
+    return scope;
+  }
 
-  getTaskPattern() {
+getTaskPattern() {
     return {
       sima: /^TASK-\d{3}$/,
       hr: /^TASK-HR-\d{3}$/,
       omr: /^TASK-OMR-\d{3}$/,
+      answer: /^TASK-ANSWER-\d{3}$/,
     }[this.scope];
   }
 

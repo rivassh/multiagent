@@ -17,14 +17,20 @@
     {
       "id": "TASK-OMR-001",
       "title": "Add isolated OMR namespace and scope to the GitOps runner",
-      "status": "NEEDS_REVIEW",
+      "status": "STAGE",
       "assigned_to": "agent-noabatgircom-2254092",
-      "reviewer": null,
-      "qa_assigned_to": null,
-      "stage_assigned_to": null,
+      "reviewer": "agent-reviewer-omr-001",
+      "qa_assigned_to": "agent-qa-omr-001",
+      "stage_assigned_to": "agent-stage-omr-001",
       "attempts": 1,
-      "last_error": null,
-      "acceptance_criteria": [],
+      "last_error": "Stage/E2E verification blocked: OMR_E2E_WEB_URL and OMR_E2E_API_URL not configured in .env / environment; awaiting operator to provide staging endpoint address.",
+      "acceptance_criteria": [
+        "OMR namespace directory state/omr/ exists with tasks.json",
+        "Runner validates scope=omr with TASK-OMR-NNN pattern",
+        "Dependencies are namespace-isolated (only TASK-OMR-* deps accepted)",
+        "Stage verification uses OMR_E2E_WEB_URL / OMR_E2E_API_URL only",
+        "Tests pass for scope isolation and dependency gating"
+      ],
       "depends_on": []
     },
     {
