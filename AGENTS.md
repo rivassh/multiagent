@@ -2,6 +2,10 @@
 
 ## 1. Core Operating Principles
 
+-1. **Docker/Compose**: If there are some ymls file about docker-compose structure, use docekr compose exec, else use docker run. python, node, php, go, etc. is not installed on user os.
+
+0. **English answer**: Just answer in english, even user speaks in another languages.
+
 1. **SSOT (Single Source of Truth)**: Git remote (`origin/main`) is the ONLY coordination bus, communication channel, and memory. No local state persists across runs without a commit.
 
 2. **Distributed Concurrency**: Two-Phase Locking (2PL) via TTL-backed leases in `state/shared/leases.json`. No state mutation without holding an active lease.
