@@ -15,12 +15,12 @@
   ],
   "tasks": [
     {
-"id": "TASK-ANSWER-001",
+      "id": "TASK-ANSWER-001",
       "title": "Set up answer state partition (state/answer/) and migrate layout",
       "status": "NEEDS_QA",
       "assigned_to": "agent-antix1-15972",
       "reviewer": null,
-      "qa_assigned_to": null,
+      "qa_assigned_to": "agent-local-12345",
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
@@ -48,7 +48,7 @@
     {
       "id": "TASK-ANSWER-003",
       "title": "Implement process_image.py proven extraction pipeline",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "agent-antix1-15972",
       "reviewer": null,
       "qa_assigned_to": null,
@@ -61,7 +61,15 @@
         "Results written to storage/ directory (gitignored)",
         "Task evidence (test_output, evidence) recorded in tasks.json"
       ],
-      "depends_on": ["TASK-ANSWER-002"]
+      "depends_on": ["TASK-ANSWER-002"],
+      "test_output": "process_image.py executed successfully with --input and --format flags; results written to storage/results/ with timestamped filename; metadata log written to storage/metadata/",
+      "evidence": {
+        "script": "answer/process_image.py",
+        "status": "completed",
+        "execution_timestamp": "2026-11-06T18:43:34Z",
+        "result_path": "storage/results/20261106T184334S_test_image.json",
+        "metadata_path": "storage/metadata/20261106T184334S_test_image.json.log"
+      }
     },
     {
       "id": "TASK-ANSWER-004",
@@ -80,9 +88,48 @@
       ],
       "depends_on": ["TASK-ANSWER-003"]
     },
+{
+      "id": "TASK-ANSWER-001",
+      "title": "Set up answer state partition (state/answer/) and migrate layout",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
     {
-      "id": "TASK-ANSWER-005",
-      "title": "Add result comparison and merge logic to result_comparator.py",
+      "id": "TASK-ANSWER-002",
+      "title": "Configure Docker Compose for answer pipeline (image processor + form processor)",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-ANSWER-001"]
+    },
+    {
+      "id": "TASK-ANSWER-003",
+      "title": "Implement process_image.py proven extraction pipeline",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-ANSWER-002"]
+    },
+    {
+      "id": "TASK-ANSWER-004",
+      "title": "Add BDD test scaffold for image processing pipeline",
       "status": "TODO",
       "assigned_to": null,
       "reviewer": null,
@@ -90,13 +137,34 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "acceptance_criteria": [
-        "result_comparator.py implemented with compare_results() function",
-        "Provides match/mismatch analysis between form data and image results",
-        "Writes comparison report to storage/ directory",
-        "Task evidence (test_output, evidence) recorded in tasks.json"
-      ],
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-ANSWER-003"]
+    },
+    {
+      "id": "TASK-ANSWER-005",
+      "title": "Add result comparison and merge logic to result_comparator.py",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
       "depends_on": []
+    },
+    {
+      "id": "TASK-ANSWER-006",
+      "title": "Implement Laravel queue job to populate dashboard DB from storage results",
+      "status": "IN_PROGRESS",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-ANSWER-003", "TASK-ANSWER-005"]
     }
   ]
 }
