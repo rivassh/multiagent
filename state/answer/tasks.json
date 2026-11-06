@@ -74,9 +74,9 @@
       "depends_on": ["TASK-ANSWER-001"]
     },
     {
-"id": "TASK-ANSWER-003",
+      "id": "TASK-ANSWER-003",
       "title": "Implement process_image.py proven extraction pipeline",
-      "status": "QA_PASSED",
+      "status": "DONE",
       "assigned_to": "agent-antix1-15972",
       "reviewer": null,
       "qa_assigned_to": null,
