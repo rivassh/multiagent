@@ -788,6 +788,11 @@ OK
 ## [2026-11-05T12:54:37Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json after handing TASK-OMR-001 back to review.
 
 ## [2026-11-06T17:21:00Z] TASK-OMR-001: QA + review + stage progression complete.
+
+## [2026-11-06T17:50:00Z] ACQUIRE_LEASE: agent-antix1-15972 acquired tasks.json lease for `answer` scope.
+- Lease duration: 120s (TTL), expires 2026-11-06T18:10:00Z.
+- Resource: tasks.json; scope: answer.
+- Previous active lease on `omr` scope expired and released earlier this session.
 - QA: passed TASK-OMR-001 against acceptance criteria (namespace isolation, scoped patterns, E2E gating).
 - Reviewer: approved implementation; moved task NEEDS_REVIEW → IN_REVIEW → STAGE.
 - Stage assigned to agent-stage-omr-001 for OMR black-box E2E verification.
