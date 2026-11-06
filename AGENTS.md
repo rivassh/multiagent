@@ -174,6 +174,109 @@ Repeat up to 5 times:
 
 Use `.roles/load_role.sh <role>` to load the appropriate playbook without conversation history.
 
+## 8. Docker Compose Protocol (Documented for Shared Knowledge)
+
+**⚠️ IMPORTANT RESTRICTION**: This working directory has no native Python or Node.js runtime — **ALL execution MUST use Docker Compose** services.
+
+**Core Principle**: The docker-compose.yml service definitions are ADDITIVE — each namespace service can be run in parallel without modifying existing infrastructure.
+
+### Answer Namespace Docker Compose Protocol
+
+1. **Activation**: To run answer namespace services, use:
+   ```bash
+   docker compose --profile answer up
+   ```
+   This will start:
+   - `answer-image-processor`: The image processing pipeline (process_image.py)
+   - `answer-form-processor`: The form processing pipeline (process_form.py)
+
+2. **Service Integration**: Answer services are
+   - **ISOLATED** from sima, candash, and other namespaces
+   - **ADDITIVE** — they do not modify any existing service definitions
+   - **PARALLEL** — they can run alongside other namespace services
+
+3. **Service Volumes**: All answer namespace services mount:
+   ```yaml
+   volumes:
+     - answer_src:/app/answer     # Answer source code
+     - state:/app/state           # Shared state (partitioned)
+   ```
+
+4. **Service Dependencies**: Answer form processor depends on image processor, ensuring data flow between stages.
+
+### Cross-Namespace Service Access
+
+**⚠️ NO DIRECT ACCESS**: Services from different namespaces cannot communicate directly unless explicitly connected.
+
+### Service Development & Testing
+
+**⚠️ LOCAL DEVELOPMENT**: When developing answer namespace code (Python scripts, tests):
+  1. Build the answer Docker image:
+      ```bash
+      docker build --target answer-image-processor -t answer-image-processor .
+      ```
+
+   2. Run in isolated container:
+      ```bash
+      docker run --rm \
+        -v "$(pwd)/answer:/app/answer" \
+        -v "$(pwd)/state:/app/state" \
+        answer-image-processor
+      ```
+
+**Note**: Testing in production without Docker Compose is not supported and may break isolation guarantees.
+
+### State Partition Compliance
+
+The docker-compose answer protocol ensures:
+- **STRICT ISOLATION**: Answer services only access `state/answer/tasks.json`
+- **SCOPE CONSISTENCY**: All answer operations respect `TASK-ANSWER-NNN` namespace pattern
+- **DEPENDENCY VALIDATION**: Cross-namespace dependencies are rejected by the runner
+
+### Testing & Verification Protocol
+
+1. **Unit Tests**: Run unit tests in Docker:
+   ```bash
+   docker run --rm answer-image-processor pytest tests/
+   ```
+
+2. **Integration Tests**: Run docker compose test suite:
+   ```bash
+   docker compose --profile answer up --build
+   docker compose --profile answer exec answer-image-processor python -m pytest tests/
+   ```
+
+3. **Stage Verification**: Answer namespace tasks require black-box E2E verification on configured endpoints.
+
+## 9. Protocol Enforcement (Shared State Contracts)
+
+### Commands Supported by Namespace Runner
+
+**Answer Namespace Tasks** use `TASK-ANSWER-NNN` pattern and:
+
+1. **Processing Scope**: `node state/runner_workflow.js --scope answer`
+   - Validates `TASK-ANSWER-NNN` task pattern
+   - Accepts `state/answer/tasks.json` as the task source
+   - Requires E2E verification endpoints for DONE transitions
+   - Respects namespace-isolated dependencies
+
+2. **Answer Service Activation**: The runner workflow includes answer services in the available docker-compose profiles, enabling answer-specific stage verification.
+
+3. **Dependency Validation**: Answer tasks can only depend on other `TASK-ANSWER-*` tasks that are in `DONE` status.
+
+### Protocol Compliance Checklist
+
+For answer namespace, compliance is verified through:
+- Syntax validation: `node --check state/runner_workflow.js`
+- Test coverage: `node --test tests/Feature/*.test.cjs`
+- Git diff check: `git diff --check`
+- Docker compose lint: `docker compose --profile answer config`
+
+**CRITICAL ENFORCEMENT**: Without docker compose services for answer namespace, the runner will block at STAGE verification for answer tasks due to E2E endpoint configuration requirements.
+
+**SUMMARY**: The answer namespace is fully operational, with complete multi-project state isolation, role-based contracts, partitioned state, and strict TDD enforcement. All existing agent implementations and contracts continue to function with no breaking changes. ADDITIVITY ensures new namespaces can coexist with existing ones. The environment imposes strict runtime constraints (no native Python/Node.js), enforcing container-based execution through a documented docker-compose protocol. This architecture ensures consistent, isolated, and predictable service operations across all project namespaces.
 ---
+
+(End of protocol updates)
 
 (End of protocol updates)

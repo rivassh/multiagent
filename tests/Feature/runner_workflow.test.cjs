@@ -229,7 +229,7 @@ test('a passed review moves a task to STAGE before E2E verification', async t =>
 
 test('a failed stage check moves a reviewed task to REVISE', async t => {
   const { runner } = createRunner(t, []);
-  const task = { id: 'TASK-049', status: 'STAGE' };
+  const task = { id: 'TASK-49', status: 'STAGE' };
   runner.performStageE2EVerification = async () => ({
     success: false,
     endpoint: 'http://stage.example.test',
@@ -240,4 +240,50 @@ test('a failed stage check moves a reviewed task to REVISE', async t => {
 
   assert.equal(task.status, 'REVISE');
   assert.match(task.last_error, /chat UI returned HTTP 500/);
+});
+
+// === Answer Namespace Tests ===
+
+test('answer scope parses correctly', async t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'multiagent-answer-parse-'));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(dir, 'shared'), { recursive: true });
+  fs.mkdirSync(path.join(dir, 'answer'), { recursive: true });
+  fs.writeFileSync(path.join(dir, 'shared', 'leases.json'), JSON.stringify({ version: 1, leases: [] }));
+  const answerRunner = new TaskRunner({ scope: 'answer', tasksFile: path.join(dir, 'answer', 'tasks.json'), leasesFile: path.join(dir, 'shared', 'leases.json') });
+  assert.match(answerRunner.tasksFile, /answer/);
+  assert.match(answerRunner.leasesFile, /shared/);
+  assert.equal(answerRunner.scope, 'answer');
+});
+
+test('answer scope processes only TASK-ANSWER-NNN tasks', async t => {
+  const tasks = [
+    { id: 'TASK-001', status: 'TODO' },
+    { id: 'TASK-HR-001', status: 'TODO' },
+    { id: 'TASK-OMR-001', status: 'TODO' },
+    { id: 'TASK-ANSWER-001', status: 'TODO' },
+    { id: 'TASK-ANSWER-002', status: 'TODO', depends_on: ['TASK-ANSWER-001'] },
+    { id: 'TASK-ANSWER-003', status: 'DONE' },
+    { id: 'TASK-ANSWER-004', status: 'TODO', depends_on: ['TASK-001'] },
+    { id: 'TASK-ANSWER-005', status: 'TODO', depends_on: ['TASK-OMR-001'] },
+  ];
+  const { runner, processed } = createRunner(t, tasks, { scope: 'answer' });
+
+  await runner.processTaskLifecycle();
+
+  // TASK-ANSWER-001 processed (TODO)
+  // TASK-ANSWER-002 skipped: depends_on TASK-ANSWER-001 which is TODO (not DONE)
+  // TASK-ANSWER-003 skipped: already DONE
+  // TASK-ANSWER-004/005 skipped: cross-scope deps don't match answer pattern
+  assert.deepEqual(processed, ['TASK-ANSWER-001']);
+  assert.deepEqual(runner.tasks.tasks.map(task => task.status), [
+    'TODO', 'TODO', 'TODO', 'TODO', 'TODO', 'DONE', 'TODO', 'TODO',
+  ]);
+});
+
+test('scope parser accepts answer scope', () => {
+  assert.equal(TaskRunner.parseScope([]), 'sima');
+  assert.equal(TaskRunner.parseScope(['--scope', 'answer']), 'answer');
+  assert.equal(TaskRunner.parseScope(['--scope=answer']), 'answer');
+  assert.throws(() => TaskRunner.parseScope(['--scope', 'invalid']), /Unsupported task scope/);
 });

@@ -17,14 +17,19 @@
     {
       "id": "TASK-ANSWER-001",
       "title": "Set up answer state partition (state/answer/) and migrate layout",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-antix1-15972",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "acceptance_criteria": [],
+      "acceptance_criteria": [
+        "state/answer/ directory exists with tasks.json",
+        "Runner validates scope=answer with TASK-ANSWER-NNN pattern",
+        "Dependencies are namespace-isolated (only TASK-ANSWER-* deps accepted)",
+        "Storage directory created and gitignored"
+      ],
       "depends_on": []
     },
     {
@@ -40,17 +45,22 @@
       "acceptance_criteria": [],
       "depends_on": ["TASK-ANSWER-001"]
     },
-    {
+{
       "id": "TASK-ANSWER-003",
       "title": "Implement process_image.py proven extraction pipeline",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-antix1-15972",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "acceptance_criteria": [],
+      "acceptance_criteria": [
+        "process_image.py script exists and can process images",
+        "Script accepts parameters via command-line arguments and env vars",
+        "Results written to storage/ directory (gitignored)",
+        "Task evidence (test_output, evidence) recorded in tasks.json"
+      ],
       "depends_on": ["TASK-ANSWER-002"]
     },
     {
@@ -63,8 +73,43 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "acceptance_criteria": [],
+      "acceptance_criteria": [
+        "BDD test scaffold exists in answer/tests/Feature/",
+        "Tests validate image processing pipeline structure and output",
+        "Tests can be executed via Docker Compose: docker compose --profile answer up --build"
+      ],
       "depends_on": ["TASK-ANSWER-003"]
+    },
+    {
+      "id": "TASK-ANSWER-005",
+      "title": "Add result comparison and merge logic to result_comparator.py",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "result_comparator.py implemented with compare_results() function",
+        "Provides match/mismatch analysis between form data and image results",
+        "Writes comparison report to storage/ directory",
+        "Task evidence (test_output, evidence) recorded in tasks.json"
+      ],
+      "depends_on": []
+    },
+{
+      "id": "TASK-ANSWER-001",
+      "title": "Set up answer state partition (state/answer/) and migrate layout",
+      "status": "IN_PROGRESS",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
     },
     {
       "id": "TASK-ANSWER-005",
@@ -79,5 +124,7 @@
       "acceptance_criteria": [],
       "depends_on": []
     }
+  ]
+}
   ]
 }

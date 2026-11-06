@@ -37,8 +37,6 @@ static validateScope(scope) {
     }
     return scope;
   }
-    return scope;
-  }
 
 getTaskPattern() {
     return {
