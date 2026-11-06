@@ -165,6 +165,24 @@
       "last_error": null,
       "acceptance_criteria": [],
       "depends_on": ["TASK-ANSWER-003", "TASK-ANSWER-005"]
+    },
+    {
+      "id": "TASK-ANSWER-007",
+      "title": "Group OCR output and image files by section/person before downstream analysis",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "After OCR, every generated file is assigned to a section/group or an explicit unassigned bucket.",
+        "Original file names, folders, and metadata remain traceable after regrouping.",
+        "Grouped outputs are ready for section-level review and dashboard queries.",
+        "No file is silently dropped when section detection is ambiguous."
+      ],
+      "depends_on": ["TASK-ANSWER-003"]
     }
   ]
 }
