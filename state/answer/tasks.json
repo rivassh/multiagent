@@ -17,7 +17,7 @@
     {
       "id": "TASK-ANSWER-001",
       "title": "Set up answer state partition (state/answer/) and migrate layout",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-antix1-15972",
       "reviewer": null,
       "qa_assigned_to": "agent-local-12345",
@@ -30,6 +30,34 @@
         "Dependencies are namespace-isolated (only TASK-ANSWER-* deps accepted)",
         "Storage directory created and gitignored"
       ],
+      "qa_evidence": {
+        "validated_by": "agent-local-12345",
+        "validated_at": "2026-11-06T18:35:00Z",
+        "result": "QA_PASSED",
+        "checks": [
+          {
+            "criterion": "state/answer/ directory exists with tasks.json",
+            "evidence": "state/answer/tasks.json exists with versioned task schema",
+            "status": "pass"
+          },
+          {
+            "criterion": "Runner validates scope=answer with TASK-ANSWER-NNN pattern",
+            "evidence": "STATE_PATHS includes answer path (line 10); validateScope accepts answer (line 35); getTaskPattern returns /^TASK-ANSWER-\\d{3}$/ (line 48); syntax error fixed (single return scope; at line 38)",
+            "status": "pass"
+          },
+          {
+            "criterion": "Dependencies are namespace-isolated (only TASK-ANSWER-* deps accepted)",
+            "evidence": "processTaskLifecycle filters deps via taskPattern.test(id) (line 153); cross-namespace deps fail pattern match",
+            "status": "pass"
+          },
+          {
+            "criterion": "Storage directory created and gitignored",
+            "evidence": "storage/{results,comparisons,metadata}/ created; .gitignore contains storage/; verified untracked via git status",
+            "status": "pass"
+          }
+        ],
+        "test_verification": "14/14 tests pass in tests/Feature/runner_workflow.test.cjs including new Answer scope tests (#12-14)"
+      },
       "depends_on": []
     },
     {
