@@ -76,7 +76,7 @@
     {
 "id": "TASK-ANSWER-003",
       "title": "Implement process_image.py proven extraction pipeline",
-      "status": "NEEDS_QA",
+      "status": "QA_PASSED",
       "assigned_to": "agent-antix1-15972",
       "reviewer": null,
       "qa_assigned_to": null,
