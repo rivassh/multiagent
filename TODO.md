@@ -7,5 +7,7 @@ every time take a todo task mve it to in_progress part after done move to done p
 
 # IN_PROGRESS
 
+- Configure PDF-to-image conversion to create per-form folders and expose a Swagger docs endpoint for prompt execution.
 
 # COMPLETED
+- Added grouped output folders for converted PDFs in `answers/pdf_to_image.py` and a local FastAPI docs runner at `answers/mimo_prompt_server.py` for `http://localhost:8002/docs`.

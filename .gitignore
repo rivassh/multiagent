@@ -11,3 +11,6 @@ secrets/
 .mim*
 node_modules/
 vendor/
+
+# Storage for processed results (partitioned by task type)
+storage/
