@@ -15,9 +15,9 @@
   ],
   "tasks": [
     {
-      "id": "TASK-ANSWER-001",
+"id": "TASK-ANSWER-001",
       "title": "Set up answer state partition (state/answer/) and migrate layout",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "agent-antix1-15972",
       "reviewer": null,
       "qa_assigned_to": null,
@@ -45,7 +45,7 @@
       "acceptance_criteria": [],
       "depends_on": ["TASK-ANSWER-001"]
     },
-{
+    {
       "id": "TASK-ANSWER-003",
       "title": "Implement process_image.py proven extraction pipeline",
       "status": "IN_PROGRESS",
@@ -97,34 +97,6 @@
         "Task evidence (test_output, evidence) recorded in tasks.json"
       ],
       "depends_on": []
-    },
-{
-      "id": "TASK-ANSWER-001",
-      "title": "Set up answer state partition (state/answer/) and migrate layout",
-      "status": "IN_PROGRESS",
-      "assigned_to": null,
-      "reviewer": null,
-      "qa_assigned_to": null,
-      "stage_assigned_to": null,
-      "attempts": 1,
-      "last_error": null,
-      "acceptance_criteria": [],
-      "depends_on": []
-    },
-    {
-      "id": "TASK-ANSWER-005",
-      "title": "Add result comparison and merge logic to result_comparator.py",
-      "status": "TODO",
-      "assigned_to": null,
-      "reviewer": null,
-      "qa_assigned_to": null,
-      "stage_assigned_to": null,
-      "attempts": 0,
-      "last_error": null,
-      "acceptance_criteria": [],
-      "depends_on": []
     }
-  ]
-}
   ]
 }
