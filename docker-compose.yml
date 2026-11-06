@@ -32,6 +32,46 @@ services:
       - candash_src:/app/src
     depends_on: [dashboard]
 
+  # === Answer Pipeline (TASK-ANSWER-NNN) ===
+  # Independent answer namespace: image processor + form processor.
+  # Runs via: docker compose --profile answer up
+  # Does not modify existing sima/candash services or lifecycle.
+  answer-image-processor:
+    profiles: ["answer", "analytics"]
+    build:
+      context: .
+      dockerfile: dashboard.Dockerfile
+    ports:
+      - "${ANSWER_IMAGE_PROCESSOR_PORT:-9090}:8080"
+    volumes:
+      - ./state/answer:/app/state/answer
+      - ./resources:/app/resources
+    environment:
+      STATE_ANSWER_PATH: ${STATE_ANSWER_PATH:-state/answer}
+      PROJECT_ROOT: ${PROJECT_ROOT:-/app}
+      ANSWER_OUTPUT_PATH: ${ANSWER_OUTPUT_PATH:-state/answer/output}
+    restart: unless-stopped
+    networks:
+      - hub-network
+
+  answer-form-processor:
+    profiles: ["answer", "analytics"]
+    build:
+      context: .
+      dockerfile: dashboard.Dockerfile
+    ports:
+      - "${ANSWER_FORM_PROCESSOR_PORT:-9091}:8080"
+    volumes:
+      - ./state/answer:/app/state/answer
+      - ./resources:/app/resources
+    environment:
+      STATE_ANSWER_PATH: ${STATE_ANSWER_PATH:-state/answer}
+      PROJECT_ROOT: ${PROJECT_ROOT:-/app}
+      ANSWER_OUTPUT_PATH: ${ANSWER_OUTPUT_PATH:-state/answer/output}
+    restart: unless-stopped
+    networks:
+      - hub-network
+
   dashboard-db:
     image: postgres:16-alpine
     profiles: ["db"]
@@ -45,6 +85,8 @@ volumes:
   sima_src:
   candash_src:
   db_data:
+  answer_images:
+  answer_forms:
 
 networks:
   hub-network:
