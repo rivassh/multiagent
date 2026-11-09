@@ -810,4 +810,156 @@ OK
 - Reviewer: approved implementation; moved task NEEDS_REVIEW → IN_REVIEW → STAGE.
 - Stage assigned to agent-stage-omr-001 for OMR black-box E2E verification.
 - Stage E2E verification is BLOCKED pending OMR_E2E_WEB_URL / OMR_E2E_API_URL configuration from operator; task held in STAGE awaiting staging endpoint address.
+## [RETROSPECTIVE 2026-10-21T14:18:00Z] SIMA repo: test guard hardening + chat.html hardening (commit e0e63b8)
+- Pinned php artisan test to sqlite :memory: + array cache via phpunit.xml <server> entries and tests/TestCase override
+- Hardened public/chat.html with keydown+IME guard, single-flight busy flag, 429 message restore, escape-first markdown rendering
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit e0e63b8; no test result, labor hours, or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-21T16:16:30Z] SIMA repo: seo evaluation (commit d111efd)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit d111efd; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-22T12:51:01Z] SIMA repo: Add optional docker-compose.metabase.yml (commit 2ccd3e7)
+- Separate Metabase compose file alongside SQLite app DB
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 2ccd3e7; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-22T12:51:01Z] SIMA repo: Fix chat routing — IntentParser returns intent+collection, groundWithContext resolves collection, API returns sources (commit 4cabb92)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 4cabb92; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-22T13:01:20Z] SIMA repo: Add collection topic picker to chat.html — dropdown loads from /api/v1/chat/collections, send context_collection (commit 7665c7c)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 7665c7c; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-27T07:14:43Z] Multiagent repo: feat(spec): add Zero-Manual-Edit Rule for auto-capture user directives (commit 3ce0126)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit 3ce0126; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-27T07:14:48Z] Multiagent repo: feat(agents): add language protocol requiring all responses in English (commit 2f7dd85)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit 2f7dd85; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-27T07:13:37Z] Multiagent repo: feat(spec): complete AGENTS.md with Docker-Only Execution, Heartbeat Eviction, Git Worktree Isolation, Durable Mailbox & Design Council (commit 6427fbc)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit 6427fbc; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-27T20:27:13Z] Multiagent repo: fix: correct gitops repo path + add supplementary report prompt (commit 60d9ba9)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit 60d9ba9; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-27T19:17:30Z] Multiagent repo: fix(tasks): restore complete task list after corruption (commit 3fc3f3b)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit 3fc3f3b; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-27T12:03:42Z] SIMA repo: docs: add changelog and changelog rules (commit 2f8f6ff)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 2f8f6ff; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-27T13:59:33Z] SIMA repo: feat: add mimo-adapter as git submodule (modular-mimo-adapter service) (commit 2ff6545)
+- Related to TASK-034 (mimo-adapter submodule integration task)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 2ff6545; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-27T14:00:33Z] SIMA repo: fix: update mimo-adapter submodule URL to bare repo (commit 2d22194)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 2d22194; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T11:05:53Z] Multiagent repo: feat(state): register 7 new tasks TASK-053..059 from user directives (commit f7eaf8b)
+- TASK-053..059 registered from 7 user directives for sima chatbot features
+- Tasks not individually logged in team_log.md; registration only
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit f7eaf8b; task tracker shows TASK-053..059 status, outcomes not verified from commits alone
+
+## [RETROSPECTIVE 2026-10-28T12:08:48Z] Multiagent repo: feat(HR): add requisition, headcount, and budget services for workforce planning (TASK-042) (commit 17a6e8f)
+- Implemented requisition, headcount, and budget services for HR workforce planning
+- Team log references TASK-042 only in review context (provider not registered); implementation details not previously logged
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit 17a6e8f; reviewer noted TASK-042 HR provider not registered (unresolved gap)
+
+## [RETROSPECTIVE 2026-10-28T12:06:21Z] SIMA repo: fix: add copy button to public/chat.html TASK-050 (commit 5571f82)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 5571f82; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T12:04:46Z] SIMA repo: fix: add CORS config for debug.adlr.ir widget integration TASK-051 (commit 2c34753)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 2c34753; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T11:42:04Z] SIMA repo: fix: add accessible copy button for assistant messages TASK-050 (commit 40cb9ae)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 40cb9ae; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T13:07:07Z] SIMA repo: feat: add JobVision polling commands to Kernel.php (5min job posts, 10min candidates) (commit 75821c8)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 75821c8; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T12:36:08Z] SIMA repo: fix: JS const->let emptyEl + candidate pipeline direct candidate IDs support (chat TASK-049, screening TASK-052) (commit 5ad798e)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 5ad798e; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T12:33:13Z] SIMA repo: fix: remove duplicate route registrations breaking route cache (commit 5cddb3e)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 5cddb3e; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T12:06:35Z] SIMA repo: fix: remove candidate personal data from candidates tool responses (commit e833796)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit e833796; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T12:24:59Z] SIMA repo: fix: suppress candidate name leakage in chat responses TASK-053 (commit 6a2e3b4)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 6a2e3b4; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T12:30:15Z] SIMA repo: fix: sticky footer at bottom of chat page TASK-054 (commit 5e60c0f)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 5e60c0f; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T12:56:59Z] SIMA repo: feat: SSE streaming progress indicators TASK-055 (commit 5e6e950)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 5e6e950; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T11:41:34Z] SIMA repo: fix: SQLite NOT NULL constraint on float/decimal columns — changed float to decimal with default(null)->nullable(); string columns for FK instead of uuid; removed foreign constraints from candidate_assessments migration; AssessmentSchedulingService score values default to 0 for SQLite compatibility; AssessmentSchedulingTest + AssessmentModuleTest unit tests pass (commit 4dbb974)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 4dbb974; commit message states unit tests pass but not independently verified from this checkout
+
+## [RETROSPECTIVE 2026-10-28T08:55:53Z] SIMA repo: Move BDD tests to sima-bdd directory and update assessment module (commit 2e226f8)
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit 2e226f8; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T20:44:04Z] SIMA repo: feat(TASK-060): add comprehensive BDD feature files for 0.req AI talent analysis and 0-2.req HPHT screening (commit e5243ef)
+- BDD feature files: tests/Behavior-Driven-Development/0-req-ai-talent-analysis.feature and 0-2-req-hpht-screening.feature
+- Partially covered in team_log.md via TASK-060 entry; SIMA repo commit not previously cited
+- Source scope: sima repo (/home/hamid/sima)
+- Evidence: Git commit e5243ef
+
+## [RETROSPECTIVE 2026-10-28T20:07:14Z] Multiagent repo: feat(reports): add SIMA feedback + remaining work schedule (commit df94149)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit df94149; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T20:01:18Z] Multiagent repo: feat(reports): clarify gapgpt vs SIMA addressing mismatch in supplementary prompt (commit ee25b34)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit ee25b34; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T06:05:48Z] Multiagent repo: feat(requirement): C-Level board directive: CEO/CTO SIMA directive — four independent root-cause investigations (commit 3afbd62)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit 3afbd62; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T07:33:56Z] Multiagent repo: feat(requirement): C-Level board directive: Test review-only directive format validation (commit c5a17bd)
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit c5a17bd; no test result or completion status inferred from commit alone
+
+## [RETROSPECTIVE 2026-10-28T04:47:08Z] Multiagent repo: docs(directive): add BDD test review restriction + TASK-048 TDD cycle (commit 61e09ed)
+- TASK-048 registered but not individually logged in team_log.md
+- Source scope: multiagent repo (/home/hamid/work/multiagent)
+- Evidence: Git commit 61e09ed; TASK-048 status/outcome not verified from commits alone
+
+## [UNRESOLVED GAPS] Multiagent + SIMA repos through 2026-11-01
+- TASK-042 HR workforce planning: reviewer noted "HR provider not registered" — implementation exists in git (commit 17a6e8f) but provider registration status unresolved
+- TASK-048 TDD cycle: registered via commit 61e09ed but no implementation or review evidence found in team_log.md
+- TASK-053..059: registered via commit f7eaf8b but no individual task outcomes logged
+- External source totals (JobVision active posts, LinkedIn profiles) remain unverified due to HTTP 401 / no refresh endpoint
+- SIMA repo commits e0e63b8, d111efd, 2ccd3e7, 4cabb92, 7665c7c, 2f8f6ff, 4dbb974, 2e226f8, 5cddb3e, e833796, 6a2e3b4, 5e60c0f, 5e6e950, 5571f82, 40cb9ae, 2c34753, 75821c8, 5ad798e, 02b7b8e, 1fdd470 have no corresponding team_log.md entries
+- Multiagent repo commits 3ce0126, 2f7dd85, 6427fbc, 60d9ba9, 3fc3f3b have no corresponding team_log.md entries
+- No test results, labor hours, or manual work inferred from any commit per AGENTS.md TASK-086 acceptance criteria
+
 ## [2026-11-09T20:05:45Z] [FORCE-BREAK] Zombie lease of agent-srv4048378975-351576 expired. Broken by agent-noabatgircom-2254092.

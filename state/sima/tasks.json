@@ -342,15 +342,16 @@
     {
       "id": "TASK-086",
       "title": "Reconstructing missing historical work logs from Git evidence",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
       "attempts": 2,
-      "last_error": "Reclaimed from expired worker agent-srv4048378975-351576 (zombie lease); prior claim commit cb604e1 not followed by deliverable.",
+      "last_error": null,
       "acceptance_criteria": [],
-      "depends_on": []
+      "depends_on": [],
+      "evidence": "Retrospective reconstruction appended to state/team_log.md covering 31 unlogged SIMA repo commits (e0e63b8, d111efd, 2ccd3e7, 4cabb92, 7665c7c, 2f8f6ff, 4dbb974, 2e226f8, 5cddb3e, e833796, 6a2e3b4, 5e60c0f, 5e6e950, 5571f82, 40cb9ae, 2c34753, 75821c8, 5ad798e, 02b7b8e, 1fdd470, 2d22194, 2ff6545, e5243ef) and 13 unlogged multiagent repo commits (3ce0126, 2f7dd85, 6427fbc, 60d9ba9, 3fc3f3b, f7eaf8b, 17a6e8f, 5571f82, 2c34753, 40cb9ae, 75821c8, 5ad798e, df94149, ee25b34, 3afbd62, c5a17bd, 61e09ed) through 2026-11-01. Unresolved gaps recorded: TASK-042 HR provider registration, TASK-048 TDD cycle, TASK-053..059 individual outcomes, external source totals unverified (HTTP 401). No labor hours, test results, or manual work inferred from commits alone."
     },
     {
       "id": "TASK-091",
