@@ -342,12 +342,12 @@
     {
       "id": "TASK-086",
       "title": "Reconstructing missing historical work logs from Git evidence",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-srv4048378975-351576",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "acceptance_criteria": [],
       "depends_on": []
