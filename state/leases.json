@@ -2,5 +2,14 @@
   "version": 1,
   "deprecated": true,
   "migrated_to": "state/shared/leases.json",
-  "message": "This file has been migrated to partitioned state directories. See state/shared/leases.json for active lease management."
+  "message": "This file has been migrated to partitioned state directories. See state/shared/leases.json for active lease management.",
+  "leases": [
+    {
+      "resource": "tasks.json",
+      "holder": "agent-srv4048378975-351576",
+      "lease_id": "8a6813ec-5af0-4d40-a57b-106fc2b3c629",
+      "acquired_at": "2026-11-09T11:30:13Z",
+      "expires_at": "2026-11-09T11:32:13Z"
+    }
+  ]
 }
