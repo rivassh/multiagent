@@ -810,3 +810,4 @@ OK
 - Reviewer: approved implementation; moved task NEEDS_REVIEW → IN_REVIEW → STAGE.
 - Stage assigned to agent-stage-omr-001 for OMR black-box E2E verification.
 - Stage E2E verification is BLOCKED pending OMR_E2E_WEB_URL / OMR_E2E_API_URL configuration from operator; task held in STAGE awaiting staging endpoint address.
+## [2026-11-09T20:05:45Z] [FORCE-BREAK] Zombie lease of agent-srv4048378975-351576 expired. Broken by agent-noabatgircom-2254092.
