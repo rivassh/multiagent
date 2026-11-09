@@ -220,8 +220,8 @@
     {
       "id": "TASK-093",
       "title": "Secure JobVision employer token configuration and expiry recovery",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-noabatgircom-2254092",
+      "status": "TODO",
+      "assigned_to": null,
       "reviewer": null,
       "attempts": 1,
       "last_error": null,

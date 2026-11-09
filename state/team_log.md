@@ -796,3 +796,7 @@ OK
   - Priority 5 (HR): TASK-HR-001, TASK-HR-002, TASK-HR-003
 - No task fields modified; only array order changed.
 - Commit evidence: sima/372e217 (2026-11-09), sima/620e298 (2026-11-08), multiagent/880a45c (2026-11-03), multiagent/daf44f1 (2026-11-03)
+
+## [2026-11-09T12:04:38Z] chore(reset): moved IN_PROGRESS tasks to TODO by agent-noabatgircom-2254092
+- TASK-093: IN_PROGRESS → TODO (cleared assigned_to)
+- Reason: operator directive to reset in-progress tasks back to todo for re-claim
