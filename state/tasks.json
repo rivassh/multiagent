@@ -8,7 +8,7 @@
       "assigned_to": null,
       "reviewer": null,
       "attempts": 3,
-      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first."
+      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red\u2192Green) incomplete \u2014 requires TDD Red phase first."
     },
     {
       "id": "TASK-001",
@@ -183,7 +183,7 @@
     },
     {
       "id": "TASK-029",
-      "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
+      "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
       "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
@@ -192,7 +192,7 @@
     },
     {
       "id": "TASK-030",
-      "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
+      "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
       "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
@@ -260,10 +260,10 @@
     {
       "id": "TASK-094",
       "title": "Fix chat NetworkError and job-description responses",
-      "status": "NEEDS_REVIEW",
+      "status": "IN_PROGRESS",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 1,
+      "attempts": 2,
       "last_error": "Production NetworkError was not reproduced in this environment, so the exact live-network root cause remains unconfirmed. Verify against the deployed browser-to-Laravel-to-OpenWebUI path during review.",
       "summary": "Trace the browser-to-Laravel-to-OpenWebUI request path and fix the root cause of chat NetworkError (including proxy/server timeouts and useful frontend error/retry behavior). Expand Persian/English deterministic intents and database-backed answers across job-description, title search, current count/filter, latest state, history, changes, and application-count questions where the stored schema supports them. Add targeted regression coverage and validate using sudo docker only; do not install/run dependencies on the host."
     },
