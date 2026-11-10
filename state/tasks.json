@@ -372,7 +372,7 @@
     {
       "id": "TASK-REFACTOR-001",
       "title": "Remove OS symlinks (sima, candash, omr) and restructure project layout",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
