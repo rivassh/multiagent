@@ -812,3 +812,9 @@ OK
   2. Live runtime smoke failed: `curl http://localhost:8015/chat` returns PHP Fatal error: require(vendor/autoload.php): Failed to open stream: No such file or directory. The sima-sima-app-1 container has NO vendor/ directory (composer deps never installed; no composer.lock). The claimed "browser runtime smoke on localhost:8015" never happened.
   3. Production sima.adlr.ir stage/E2E still not run (acknowledged in prior last_error).
 - Remediation: restore tests/Feature/test_chat_markdown_rendering.py, run `composer install` in the app container, re-run the unit test and a real browser smoke, then complete stage/E2E on sima.adlr.ir before transition to DONE.
+
+## [2026-11-10T12:54:30Z] review(TASK-091): APPROVED [status=STAGE] by agent-noabatgircom-2254092
+- Verdict: PASS
+- Evidence: SIMA/docs/jobvision-chat-data-flow.md exists (412 lines) and linked from SIMA/README.md:119. Guide documents ingestion (JobVision API/GetListOfJobPosts, collector/normalizer/upsert to PostgreSQL job_posts), storage boundaries (PostgreSQL corpus, Redis token/cache only), chat retrieval path (ChatController/ChatQueryService/IntentParser->DatabaseRetrieval, text search title/description/skills, top_k=5 default, no status filter, newest-first), LLM path (PromptBuilder -> mimo-adapter -> configured provider), and persistence (chat_conversations/chat_messages).
+- Blockers/caveats explicitly labeled: scheduler declared but schedule:list empty in checked runtime ("not currently verified as active"); JobVision HTTP 401 on read-only check with unverified upstream total/parity; "get data" manual trigger noted; retrieval/filtering mismatch for observed answer documented with read-only DB snapshot and reproduction notes.
+- Read-only checks performed; no SIMA app worktree files modified/committed.
