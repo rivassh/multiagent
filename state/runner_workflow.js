@@ -1,24 +1,50 @@
 const fs = require('fs');
 const path = require('path');
 
-const STATE_DIR = path.join(__dirname, 'tasks.json');
-const LEASES_FILE = path.join(__dirname, 'leases.json');
-const COUNCIL_FILE = path.join(__dirname, 'council.md');
+const STATE_ROOT = process.env.STATE_ROOT || path.join(__dirname);
 const E2E_ENDPOINT = 'http://sima.adlr.ir';
 const E2E_CHAT_URL = 'http://sima.adlr.ir/api/v1/chat/completions';
 const E2E_WEB_URL = 'http://sima.adlr.ir/chat';
 
+function getStatePaths(scope, stateRoot = STATE_ROOT) {
+  const scopeMap = {
+    sima: 'sima',
+    hr: 'candash',
+    omr: 'shared',
+  };
+  const stateDir = scopeMap[scope] || 'shared';
+  return {
+    tasksFile: path.join(stateRoot, stateDir, 'tasks.json'),
+    leasesFile: path.join(stateRoot, stateDir, 'leases.json'),
+    teamLogFile: path.join(stateRoot, stateDir, 'team_log.md'),
+  };
+}
+
 class TaskRunner {
   constructor({
     scope = 'sima',
-    tasksFile = STATE_DIR,
-    leasesFile = LEASES_FILE,
+    stateRoot = STATE_ROOT,
+    tasksFile,
+    leasesFile,
+    teamLogFile,
     env = process.env,
   } = {}) {
     this.scope = TaskRunner.validateScope(scope);
-    this.tasksFile = tasksFile;
-    this.leasesFile = leasesFile;
+    this.stateRoot = stateRoot;
     this.env = env;
+    
+    // Use explicit files if provided (for testing), otherwise use partitioned paths
+    if (tasksFile && leasesFile) {
+      this.tasksFile = tasksFile;
+      this.leasesFile = leasesFile;
+      this.teamLogFile = teamLogFile || path.join(path.dirname(tasksFile), 'team_log.md');
+    } else {
+      const paths = getStatePaths(this.scope, this.stateRoot);
+      this.tasksFile = paths.tasksFile;
+      this.leasesFile = paths.leasesFile;
+      this.teamLogFile = paths.teamLogFile;
+    }
+    
     this.tasks = this.loadTasks();
     this.leases = this.loadLeases();
     this.e2eVerificationResults = new Map();
@@ -135,6 +161,7 @@ class TaskRunner {
         console.error(`  ❌ Skipping ${task.id}; depends_on must be an array`);
         continue;
       }
+      // Enforce namespace isolation: dependencies must match the active scope pattern
       const unmetDependencies = dependencies.filter(id => (
         !taskPattern.test(id) || tasksById.get(id)?.status !== 'DONE'
       ));
