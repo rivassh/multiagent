@@ -8,7 +8,7 @@
       "assigned_to": null,
       "reviewer": null,
       "attempts": 3,
-      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red\u2192Green) incomplete \u2014 requires TDD Red phase first."
+      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first."
     },
     {
       "id": "TASK-001",
@@ -183,7 +183,7 @@
     },
     {
       "id": "TASK-029",
-      "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
+      "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
       "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
@@ -192,7 +192,7 @@
     },
     {
       "id": "TASK-030",
-      "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
+      "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
       "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
@@ -240,9 +240,9 @@
     {
       "id": "TASK-091",
       "title": "Trace and document JobVision-to-chat job-post data flow",
-      "status": "NEEDS_REVIEW",
+      "status": "IN_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
-      "reviewer": null,
+      "reviewer": "agent-noabatgircom-2254092",
       "attempts": 1,
       "last_error": "JobVision source parity remains unverified: the read-only JobVision list request returned HTTP 401 without pagination totals. The runtime schedule:list reports no registered schedule tasks. The guide documents these blockers and the observed chat retrieval mismatch; review the deliverable without treating the local 15-active count as source parity.",
       "summary": "Created SIMA/docs/jobvision-chat-data-flow.md and linked it from SIMA README. Read-only PostgreSQL checks found 137 job_posts (15 active, 105 closed, 17 draft). Replaying the exact question through the configured retriever returned five rows, all closed, representing the four distinct titles in the answer. The current Laravel runtime has no registered schedule tasks despite declarations in the legacy Console Kernel, and the configured JobVision endpoint returned 401. No data or credentials were changed. External source total is unresolved; see the guide for details and safe verification steps."
@@ -250,9 +250,9 @@
     {
       "id": "TASK-092",
       "title": "Add Mermaid sequence diagram for JobVision-to-chat data flow",
-      "status": "NEEDS_REVIEW",
+      "status": "IN_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
-      "reviewer": null,
+      "reviewer": "agent-noabatgircom-2254092",
       "attempts": 1,
       "last_error": "The SIMA guide is untracked on local develop in a pre-existing dirty worktree; it was not committed or pushed there to avoid bundling unrelated changes. Review/publish separately.",
       "summary": "Added a Mermaid sequence diagram to SIMA/docs/jobvision-chat-data-flow.md. It shows the scheduler caveat, paged JobVision collection and normalization/upserts, Redis token cache, PostgreSQL storage, chat intent/retrieval (top_k=5 with no status filter), LLM path, and conversation persistence; it also marks the observed HTTP 401 and unverified upstream total. Validation passed: 15 required flow/caveat terms, balanced Markdown fences, and no trailing whitespace. The SIMA checkout has extensive pre-existing changes on develop, so the guide remains untracked there rather than committing unrelated files."
