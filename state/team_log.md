@@ -846,3 +846,4 @@ OK
 [ACQUIRE_LEASE] Lease acquired for tasks.json by agent-noabatgircom-2254092 at 2026-11-10T13:58:20Z
 [RELEASE_LEASE] Lease released for tasks.json by agent-noabatgircom-2254092 at 2026-11-10T13:58:45Z
 [ACQUIRE_LEASE] Lease acquired for tasks.json by agent-noabatgircom-2254092 at 2026-11-10T13:59:30Z
+[FORCE-BREAK] Zombie lease of agent-noabatgircom-2254092 expired. Broken by agent-noabatgircom-2254092.
