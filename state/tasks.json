@@ -290,10 +290,10 @@
     {
       "id": "TASK-086",
       "title": "Reconstructing missing historical work logs from Git evidence",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Audit multiagent and SIMA Git histories through 2026-11-01 against state/team_log.md and related task records. Append date-stamped retrospective entries for evidenced implementation work whose outcome is not logged, citing commit hashes and source scope. Preserve all prior log text; do not infer labor hours, test results, manual work, or completion status from commits alone. Correct tracker discrepancies only where Git/file evidence is conclusive; record unresolved gaps explicitly."
     },
