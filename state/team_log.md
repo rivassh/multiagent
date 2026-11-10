@@ -802,3 +802,13 @@ OK
 - Reason: operator directive to reset in-progress tasks back to todo for re-claim
 
 [FORCE-BREAK] Zombie lease of agent-noabatgircom-2254092 expired. Broken by agent-noabatgircom-2254092.
+
+## [2026-11-10T12:35:00Z] review(TASK-049): REJECTED [status=REVISE] by agent-noabatgircom-2254092
+- Review Mode: static review of resources/views/chat.blade.php + claimed test file + live runtime evidence
+- Source code verdict: CORRECT. CDN versions pinned (marked@12.0.2, dompurify@3.1.7), renderMarkdown() uses marked.parse() + DOMPurify.sanitize() with plain-text fallback, no unpinned URLs present.
+- Static assertion replay (python3 re-assertions against working tree): ALL PASS.
+- FAILURES (evidence invalid):
+  1. Claimed test file tests/Feature/test_chat_markdown_rendering.py is git-tracked (commit 880a45c) but MISSING from the working tree. The asserted "2 tests passed" output cannot be reproduced.
+  2. Live runtime smoke failed: `curl http://localhost:8015/chat` returns PHP Fatal error: require(vendor/autoload.php): Failed to open stream: No such file or directory. The sima-sima-app-1 container has NO vendor/ directory (composer deps never installed; no composer.lock). The claimed "browser runtime smoke on localhost:8015" never happened.
+  3. Production sima.adlr.ir stage/E2E still not run (acknowledged in prior last_error).
+- Remediation: restore tests/Feature/test_chat_markdown_rendering.py, run `composer install` in the app container, re-run the unit test and a real browser smoke, then complete stage/E2E on sima.adlr.ir before transition to DONE.
