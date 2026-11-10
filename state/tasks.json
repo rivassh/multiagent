@@ -8,7 +8,7 @@
       "assigned_to": null,
       "reviewer": null,
       "attempts": 3,
-      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red\u2192Green) incomplete \u2014 requires TDD Red phase first."
+      "last_error": "Generic Screening Engine implementation not found. No GenericScreeningEngine class exists in app/Services/AI/Agents/. No tests exist under tests/. Dev Phase (Red→Green) incomplete — requires TDD Red phase first."
     },
     {
       "id": "TASK-001",
@@ -183,7 +183,7 @@
     },
     {
       "id": "TASK-029",
-      "title": "Create ATS (Applicant Tracking System) module structure \u2014 corpus-agnostic talent acquisition workflow (crawlers \u2192 screening \u2192 shortlist \u2192 assessments) to resolve TASK-027 FAIL",
+      "title": "Create ATS (Applicant Tracking System) module structure — corpus-agnostic talent acquisition workflow (crawlers → screening → shortlist → assessments) to resolve TASK-027 FAIL",
       "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
@@ -192,7 +192,7 @@
     },
     {
       "id": "TASK-030",
-      "title": "Create docs/SPEC.md per AGENTS.md contract \u2014 technical architectural specifications, API contracts, interfaces for SIMA",
+      "title": "Create docs/SPEC.md per AGENTS.md contract — technical architectural specifications, API contracts, interfaces for SIMA",
       "status": "DONE",
       "assigned_to": null,
       "reviewer": null,
@@ -270,9 +270,9 @@
     {
       "id": "TASK-049",
       "title": "Fix and verify chat Markdown rendering dependencies",
-      "status": "NEEDS_REVIEW",
+      "status": "IN_REVIEW",
       "assigned_to": "antix1",
-      "reviewer": null,
+      "reviewer": "agent-noabatgircom-2254092",
       "attempts": 2,
       "last_error": "Production sima.adlr.ir stage/E2E verification has not been run; required before transition to DONE.",
       "summary": "Pinned the tracked resources/views/chat.blade.php dependencies to marked@12.0.2 and DOMPurify@3.1.7, retained marked.parse + DOMPurify.sanitize before the assistant innerHTML sink, and added a safe escaped-text fallback if a CDN dependency is unavailable. Added tests/Feature/test_chat_markdown_rendering.py. Focused Docker test output: 2 tests passed. Browser runtime smoke on localhost:8015 confirmed heading/bold rendering and removal of javascript: href and onerror. public/chat.html is not tracked in this checkout and is out of scope. Production stage/E2E remains required before DONE."
