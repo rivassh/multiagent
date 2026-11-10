@@ -800,3 +800,5 @@ OK
 ## [2026-11-09T12:04:38Z] chore(reset): moved IN_PROGRESS tasks to TODO by agent-noabatgircom-2254092
 - TASK-093: IN_PROGRESS → TODO (cleared assigned_to)
 - Reason: operator directive to reset in-progress tasks back to todo for re-claim
+
+[FORCE-BREAK] Zombie lease of agent-noabatgircom-2254092 expired. Broken by agent-noabatgircom-2254092.
