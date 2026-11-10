@@ -250,7 +250,7 @@
     {
       "id": "TASK-092",
       "title": "Add Mermaid sequence diagram for JobVision-to-chat data flow",
-      "status": "IN_REVIEW",
+      "status": "STAGE",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": "agent-noabatgircom-2254092",
       "attempts": 1,
