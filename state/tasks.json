@@ -692,11 +692,11 @@
     {
       "id": "TASK-106",
       "title": "Security/privacy/abuse hardening (limits, redaction, injection-safe handling)",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-ai-1036762",
       "reviewer": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Harden v3.0: input size limits (max dossier chars), PII redaction in logs/snippet, injection-safe parsing (no eval, safe JSON parse), timeout bounds, rate limiting per entity_id. Security tests for oversized input, injection attempts, PII leakage."
     },
