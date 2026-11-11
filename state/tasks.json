@@ -381,8 +381,8 @@
     {
       "id": "TASK-REFACTOR-002",
       "title": "Create .env.example with PROJECT_ROOT and subproject path definitions",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
@@ -390,8 +390,8 @@
     {
       "id": "TASK-REFACTOR-003",
       "title": "Create docker-compose.yml at project root standardizing runtime deps across projects",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
@@ -399,8 +399,8 @@
     {
       "id": "TASK-REFACTOR-004",
       "title": "Build minimal dashboard service reading state/*/tasks.json files for Kanban display",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
@@ -408,8 +408,8 @@
     {
       "id": "TASK-REFACTOR-005",
       "title": "Partition state directory into state/sima/state/candash/state/shared/ subdirectories",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
