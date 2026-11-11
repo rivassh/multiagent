@@ -435,7 +435,7 @@
     {
       "id": "TASK-REFACTOR-008",
       "title": "Extend task lifecycle statuses: TODO -> IN_PROGRESS -> NEEDS_QA -> QA_PASSED|QA_FAILED -> NEEDS_REVIEW -> IN_REVIEW -> DONE",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
@@ -444,8 +444,8 @@
     {
       "id": "TASK-REFACTOR-009",
       "title": "Enforce independent Author != QA != Reviewer identity separation in task assignment logic",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
