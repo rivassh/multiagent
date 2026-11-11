@@ -453,10 +453,10 @@
     {
       "id": "TASK-REFACTOR-010",
       "title": "Create .roles/ directory with product-owner.md, scrum-master.md, architect-cto.md playbooks",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     },
     {
