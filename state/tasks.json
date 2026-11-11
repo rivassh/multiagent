@@ -435,10 +435,10 @@
     {
       "id": "TASK-REFACTOR-008",
       "title": "Extend task lifecycle statuses: TODO -> IN_PROGRESS -> NEEDS_QA -> QA_PASSED|QA_FAILED -> NEEDS_REVIEW -> IN_REVIEW -> DONE",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null
     },
     {
