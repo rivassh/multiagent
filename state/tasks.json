@@ -681,7 +681,7 @@
     {
       "id": "TASK-105",
       "title": "API/controller or tool exposure of strict JSON contract (optional by product scope)",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "assigned_to": "agent-ai-1036762",
       "reviewer": null,
       "stage_assigned_to": null,

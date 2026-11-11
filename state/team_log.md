@@ -862,3 +862,8 @@ OK
 Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation, schema invariance, null handling, pure JSON output enforced. Pushed to SIMA develop branch (7708cc0).
 
 [COMPLETE] 2026-11-11T10:30:15Z agent-ai-1036762: Completed TASK-104 - Integration adapter to existing SIMA screening/talent flow. Implemented SimaScreeningAdapterInterface and SimaScreeningAdapter wrapping VerificationEngine for backward-compatible SIMA screening. Converts SIMA candidate payload to v3.0 RAW_DOSSIER, runs deterministic verification, maps trust_score to technical_score, includes verification audit. 7 integration tests added. Total 83 tests (76 unit + 7 integration) passing. Pushed to SIMA develop (0a35f2f).
+
+[COMPLETE] 2026-11-11T10:55:30Z agent-ai-1036762: Completed TASK-104 (SIMA integration adapter) and TASK-105 (API/controller exposure).
+- TASK-104: SimaScreeningAdapterInterface + implementation, converts SIMA dossier <-> v3.0 RAW_DOSSIER, maps trust_score to technical_score, includes verification audit. 7 integration tests.
+- TASK-105: VerificationController with 3 endpoints: POST /verify (raw v3.0), POST /screen (SIMA-compatible), GET /schema. Pure JSON output, auth via sanctum, input validation. 7 integration tests.
+- All 90 tests (76 unit + 7 adapter + 7 API) passing. Pushed to SIMA develop (b4e3007).
