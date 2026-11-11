@@ -36,9 +36,37 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 - Existing Sima work remains under `TASK-NNN` IDs.
 - HR subproject work uses `TASK-HR-NNN` IDs in the shared queue; an explicit HR request may only claim/review HR-prefixed tasks and must never fall back to general Sima tasks.
 - OMR project work uses `TASK-OMR-NNN` IDs in the shared queue; an explicit OMR request may only claim/review OMR-prefixed tasks and must never fall back to Sima or HR tasks.
-- Optional `depends_on` task IDs gate selection until all prerequisites are `DONE` and each dependency ID matches the active runner scope's namespace (`TASK-NNN`, `TASK-HR-NNN`, or `TASK-OMR-NNN`). Missing, malformed, or cross-namespace dependencies are invalid and keep the task blocked. All namespaces use the same lease and lifecycle: implementation → review → `STAGE` → `DONE` (or `REVISE` if review or stage verification fails). A passing review does not itself complete a task; the assigned stage operator records black-box verification evidence before a task can become `DONE`.
+- Optional `depends_on` task IDs gate selection until all prerequisites are `DONE` and each dependency ID matches the active runner scope's namespace (`TASK-NNN`, `TASK-HR-NNN`, or `TASK-OMR-NNN`). Missing, malformed, or cross-namespace dependencies are invalid and keep the task blocked. All namespaces use the same lease and lifecycle: implementation → QA → review → `DONE` (or `REVISE` if review or QA fails). A passing review does not itself complete a task; the assigned stage operator records black-box verification evidence before a task can become `DONE`.
 - `node state/runner_workflow.js` runs the default Sima scope (`TASK-NNN` only); use `--scope hr` for `TASK-HR-NNN` and `--scope omr` for `TASK-OMR-NNN`. OMR stage checks require `OMR_E2E_WEB_URL` (a UI URL returning non-empty HTML) and `OMR_E2E_API_URL` (a read-only health/readiness URL returning JSON). Both must be explicit HTTP(S) URLs without embedded credentials; OMR checks use GET and never fall back to SIMA endpoints. Missing or invalid OMR URL configuration blocks stage verification without making a network request. Tasks with unmet or invalid `depends_on` values are skipped.
-- A passing review transitions a task to `STAGE`; a stage operator claims it with `stage_assigned_to`. Separate black-box stage/E2E verification must pass before it can become `DONE`. Stage failure returns the task to `REVISE`, with evidence recorded in `state/tasks.json` and `state/team_log.md`.
+- A passing review transitions a task to `DONE` (E2E verification is part of the DONE gate); a failed review or QA failure returns the task to `REVISE`, with evidence recorded in `state/tasks.json` and `state/team_log.md`.
+
+### Extended Task Lifecycle
+Statuses: TODO → IN_PROGRESS → NEEDS_QA → QA_PASSED | QA_FAILED → NEEDS_REVIEW → IN_REVIEW → DONE
+- TODO: Task created, ready for work
+- IN_PROGRESS: Author implementing
+- NEEDS_QA: Implementation complete, awaiting QA
+- QA_PASSED: QA approved, ready for review
+- QA_FAILED: QA rejected, needs revision
+- NEEDS_REVIEW: QA passed, awaiting code review
+- IN_REVIEW: Reviewer reviewing
+- DONE: Review approved, all gates passed
+- REVISE: Task needs revision (from QA_FAILED or review rejection)
+
+### Role Contracts
+- Product Owner: Defines requirements, prioritizes backlog, accepts work
+- Scrum Master: Facilitates GitOps workflow, manages leases, removes blockers
+- Architect/CTO: Defines architecture, approves technical designs, security oversight
+- Frontend Developer: Implements UI, writes frontend tests, ensures accessibility
+- Backend Developer: Implements APIs, writes backend tests, optimizes performance
+- QA Engineer: Validates implementations, checks test evidence, ensures quality
+- Code Reviewer: Reviews code for correctness, security, performance, standards
+
+### Partitioned State Schema
+- state/sima/: SIMA project state (tasks.json, leases.json, team_log.md)
+- state/candash/: Candash/HR project state
+- state/shared/: Shared/OMR project state
+- Each partition has independent lease management
+- Runner resolves paths via getStatePaths(scope) function
 
 ### HR dashboard and filters
 - The HR dashboard is a conventional, independently usable UI; chatbot interaction is not required.
@@ -91,3 +119,9 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 5. TASK-091: trace and document JobVision ingestion/synchronization, database reads and writes, chat retrieval, and the reported job-count discrepancy using read-only evidence.
 6. TASK-092: add a Mermaid sequence diagram for the JobVision-to-chat flow, including storage boundaries, retrieval limitations, and the observed sync caveats.
 7. TASK-093: secure JobVision employer-token configuration and expiry recovery; do not treat candidate-portal HAR credentials as employer credentials or implement refresh without a verified provider endpoint.
+
+## Dashboard Service
+- Lightweight Kanban viewer at http://localhost:8080
+- Reads state/*/tasks.json directly from files
+- Displays task statuses across all partitions (sima, candash, shared)
+- Auto-refreshes every 30 seconds
