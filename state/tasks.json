@@ -681,11 +681,11 @@
     {
       "id": "TASK-105",
       "title": "API/controller or tool exposure of strict JSON contract (optional by product scope)",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-ai-1036762",
       "reviewer": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Expose v3.0 as REST endpoint or CLI tool per product decision. Endpoint: POST /api/v3/screening/verify {raw_dossier, target_entity} -> strict JSON. Auth, rate limits, request validation. If not in scope, document as deferred. Integration test for full request/response cycle."
     },
