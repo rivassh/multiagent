@@ -1,0 +1,60 @@
+name: Git-Swarm Protocol Enforcement
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch: {}
+
+jobs:
+  validate-protocol:
+    name: Validate Protocol
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+      
+      - name: Run protocol validation
+        run: node scripts/validate_all.js
+      
+      - name: Upload validation log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: protocol-validation-log
+          path: /tmp/validation.log
+          retention-days: 7
+
+# Gitea Branch Protection (Repository → Settings → Branches):
+# Protected branches: main, develop
+# Enable: "Require status checks to pass before merging"
+# Required status checks: "validate-protocol"
+# Enable: "Require linear history"
+# Enable: "Require pull request reviews before merging"
+# Required approving reviews: 1
+
+# Gitea Environments (Repository → Settings → Environments):
+# staging:
+#   Protection rules:
+#     - Required reviewers: QA team
+#     - Wait timer: 5 minutes
+#
+# production:
+#   Protection rules:
+#     - Required reviewers: Release team
+#     - Wait timer: 10 minutes
+#     - Deployment branch policy: Protected branches only

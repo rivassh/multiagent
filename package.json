@@ -1,0 +1,27 @@
+{
+  "name": "git-swarm-protocol",
+  "version": "1.0.0",
+  "description": "Git-Swarm Protocol validation scripts for human workflow orchestration on Git",
+  "private": true,
+  "scripts": {
+    "validate": "node scripts/validate_all.js",
+    "validate:transitions": "node scripts/validate_transitions.js",
+    "validate:roles": "node scripts/verify_role_separation.js",
+    "validate:qa": "node scripts/verify_qa_evidence.js",
+    "validate:review": "node scripts/verify_review_evidence.js",
+    "validate:leases": "node scripts/verify_leases.js",
+    "install:hooks": "cp scripts/pre-push-hook.sh .git/hooks/pre-push && chmod +x .git/hooks/pre-push"
+  },
+  "keywords": [
+    "gitops",
+    "workflow",
+    "protocol",
+    "validation",
+    "task-orchestration"
+  ],
+  "author": "Git-Swarm Protocol",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
