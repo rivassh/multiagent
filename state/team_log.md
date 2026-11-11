@@ -860,3 +860,5 @@ OK
 - TASK-102: Curated knowledge snippet + hedging filter (5 tests)
 - TASK-103: End-to-end orchestrator + hard constraints (8 tests)
 Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation, schema invariance, null handling, pure JSON output enforced. Pushed to SIMA develop branch (7708cc0).
+
+[COMPLETE] 2026-11-11T10:30:15Z agent-ai-1036762: Completed TASK-104 - Integration adapter to existing SIMA screening/talent flow. Implemented SimaScreeningAdapterInterface and SimaScreeningAdapter wrapping VerificationEngine for backward-compatible SIMA screening. Converts SIMA candidate payload to v3.0 RAW_DOSSIER, runs deterministic verification, maps trust_score to technical_score, includes verification audit. 7 integration tests added. Total 83 tests (76 unit + 7 integration) passing. Pushed to SIMA develop (0a35f2f).
