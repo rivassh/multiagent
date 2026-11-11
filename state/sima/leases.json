@@ -1,4 +1,12 @@
 {
   "version": 1,
-  "leases": []
+  "leases": [
+    {
+      "resource": "sima/tasks.json",
+      "holder": "agent-noabatgircom-2254092",
+      "lease_id": "60f32b14-c8f2-4512-a06d-39316dcd69e2",
+      "acquired_at": "2026-11-11T08:59:57Z",
+      "expires_at": "2026-11-11T09:01:57Z"
+    }
+  ]
 }
