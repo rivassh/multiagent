@@ -426,7 +426,7 @@
     {
       "id": "TASK-REFACTOR-007",
       "title": "Update state/runner_workflow.js to resolve partitioned state paths",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 1,
