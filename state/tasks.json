@@ -462,8 +462,8 @@
     {
       "id": "TASK-REFACTOR-011",
       "title": "Create frontend-dev.md and backend-dev.md role playbooks in .roles/",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
@@ -471,8 +471,8 @@
     {
       "id": "TASK-REFACTOR-012",
       "title": "Create qa-engineer.md and code-reviewer.md role playbooks in .roles/",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
@@ -480,8 +480,8 @@
     {
       "id": "TASK-REFACTOR-013",
       "title": "Create load_role.sh entry script so newcomers can pick a role and know scope immediately",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "attempts": 0,
       "last_error": null
