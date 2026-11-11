@@ -703,11 +703,11 @@
     {
       "id": "TASK-107",
       "title": "SPEC/docs/runbook + rollout & STAGE evidence checklist",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-ai-1036762",
       "reviewer": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Update docs/SPEC.md with v3.0 architecture, contracts, data flows. Create runbook: deploy steps, config, monitoring, rollback. STAGE evidence checklist: contract test pass, golden fixture pass, integration test pass, schema validation pass, security scan pass, load test baseline. Document hedging-word ban list and trust_score formula."
     }
