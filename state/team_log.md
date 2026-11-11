@@ -867,3 +867,8 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 - TASK-104: SimaScreeningAdapterInterface + implementation, converts SIMA dossier <-> v3.0 RAW_DOSSIER, maps trust_score to technical_score, includes verification audit. 7 integration tests.
 - TASK-105: VerificationController with 3 endpoints: POST /verify (raw v3.0), POST /screen (SIMA-compatible), GET /schema. Pure JSON output, auth via sanctum, input validation. 7 integration tests.
 - All 90 tests (76 unit + 7 adapter + 7 API) passing. Pushed to SIMA develop (b4e3007).
+
+[COMPLETE] 2026-11-11T11:15:45Z agent-ai-1036762: Completed TASK-106 - Security/privacy/abuse hardening.
+- Added ScreeningSecurityService with input limits (1MB/500 claims/10K value/2K URL/255 entity), PII redaction (email/phone/national_id/credit_card/IP), injection-safe parsing, hedging detection, rate limiting keys, timeout bounds.
+- Integrated into VerificationController: rate limiting (60/min/entity), request sanitization, PII-safe logging, output hedging verification.
+- 14 security unit tests added. Total: 104 tests (76 core + 7 adapter + 7 API + 14 security), 340 assertions. Pushed to SIMA develop (c59a636).
