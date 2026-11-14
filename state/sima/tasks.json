@@ -417,6 +417,24 @@
       "last_error": null,
       "acceptance_criteria": [],
       "depends_on": []
+    },
+    {
+      "id": "TASK-096",
+      "title": "Execute AGENTS.md Section 3 protocol for SIMA repo git pull and merge origin/main into develop",
+      "status": "DONE",
+      "assigned_to": "agent-noabatgircom-2254092",
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Directive captured in REQUIREMENT.md",
+        "Lease acquired and released via state/shared/leases.json",
+        "Sima merge commit pushed to origin",
+        "Tasks registered in state/sima/tasks.json"
+      ],
+      "depends_on": []
     }
   ]
 }
