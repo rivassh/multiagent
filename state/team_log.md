@@ -966,3 +966,6 @@ OK
 
 ## [2026-11-14T20:05:46Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease (lease_id: lease-sima-20261114-001, scope: sima, expires_at: 2026-11-14T20:07:46Z).
 - Purpose: Execute AGENTS.md Section 3 protocol for prior SIMA repo actions (git pull origin develop + merge origin/main into develop on /opt/ymls/sima). Push merge commit to origin, release lease, register tasks in state/sima/tasks.json.
+
+## [2026-11-14T20:07:46Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json lease (lease_id: lease-sima-20261114-001, scope: sima).
+- Work completed: sima merge commit 58c21c1 pushed to origin/features/tools-beta; TASK-096 registered in state/sima/tasks.json as DONE; directive captured in REQUIREMENT.md.
