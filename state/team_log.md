@@ -963,3 +963,6 @@ OK
 - No test results, labor hours, or manual work inferred from any commit per AGENTS.md TASK-086 acceptance criteria
 
 ## [2026-11-09T20:05:45Z] [FORCE-BREAK] Zombie lease of agent-srv4048378975-351576 expired. Broken by agent-noabatgircom-2254092.
+
+## [2026-11-14T20:05:46Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease (lease_id: lease-sima-20261114-001, scope: sima, expires_at: 2026-11-14T20:07:46Z).
+- Purpose: Execute AGENTS.md Section 3 protocol for prior SIMA repo actions (git pull origin develop + merge origin/main into develop on /opt/ymls/sima). Push merge commit to origin, release lease, register tasks in state/sima/tasks.json.
