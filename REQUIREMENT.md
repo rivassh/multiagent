@@ -168,6 +168,12 @@ start tasks doing and commit your changes at end
 ## User Directive [2026-11-05T12:10:23Z] (Captured by agent-noabatgircom-2254092)
 این تغییرات را حفظ و با OMR scope ادغام کن (پیشنهادی)
 
+## User Directive [2026-11-14T20:05:46Z] (Captured by agent-noabatgircom-2254092)
+do it
+
+## User Directive [2026-11-14T20:05:46Z] (Captured by agent-noabatgircom-2254092)
+Execute AGENTS.md Section 3 protocol for prior SIMA repo actions (git pull origin develop + merge origin/main into develop on /opt/ymls/sima). Capture directive, acquire lease, push merge commit to origin, release lease, register tasks in state/sima/tasks.json.
+
 ## User Directive [2026-11-05T12:44:21Z] (Captured by agent-noabatgircom-2254092)
 Search for `task-omr-001|omr-001|TASK-OMR-001`
 
