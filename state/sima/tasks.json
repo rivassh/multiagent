@@ -2,16 +2,16 @@
   "version": 1,
   "tasks": [
 {
-    "id": "TASK-108",
-    "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
+    "id": "TASK-110",
+    "title": "Enforce conversation topic persistence: prevent mid-chat topic changes by user",
     "status": "NEEDS_QA",
     "assigned_to": "agent-mapsaeng-dev",
     "reviewer": null,
     "qa_engineer": "agent-kilo-reviewer",
     "stage_assigned_to": null,
-    "attempts": 3,
+    "attempts": 2,
     "last_error": null,
-    "summary": "When a user starts a chat about health/safety or any topic other than recruitment/jobs and says hello, the bot incorrectly replies with job-search/candidate-finding help. Intent detection must respect the conversation's initial topic and not default to employment domain responses."
+    "summary": "A user must not be able to change the topic in the middle of an existing chat. Topic switching mid-conversation causes blocking after issue resolution. The chat must enforce topic persistence within a single conversation thread."
   },
     {
       "id": "TASK-109",
