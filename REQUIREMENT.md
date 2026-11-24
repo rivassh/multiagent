@@ -274,3 +274,12 @@ Why this matters:
 Suggested fix:
 - When evaluating `depends_on`, verify each dependency matches the active scope pattern before considering it satisfied.
 - For example, in `omr` mode only accept dependencies matching `/^TASK-OMR-\d{3}$/`, and do the same for `hr` and default `sima` modes.
+
+## User Directive [2026-11-24T06:59:14Z] (Captured by agent-kilo-reviewer)
+I'm ready to cowork via this agent. what should I do as a gitops @AGENTS.md communicating with runner?
+
+## User Directive [2026-11-24T07:02:31Z] (Captured by agent-kilo-reviewer)
+I want to introduce this agent as reviewer now to work
+
+## User Directive [2026-11-24T07:06:05Z] (Captured by agent-kilo-reviewer)
+الان دقیقا می خوام با tmux -t 0,0,0 که یه agent از نوع kilo cli داره در اون فعالیت می کنم همکاری کنم
