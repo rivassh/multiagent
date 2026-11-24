@@ -19,7 +19,7 @@
       "status": "NEEDS_QA",
       "assigned_to": "agent-mapsaeng-dev",
       "reviewer": null,
-      "qa_engineer": "agent-kilo-reviewer",
+      "qa_engineer": "agent-mapsaeng-dev",
       "stage_assigned_to": null,
       "attempts": 2,
       "last_error": null,
