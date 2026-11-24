@@ -953,3 +953,6 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 ## [2026-11-24T13:37:00Z] ACQUIRE_LEASE: agent-mapsaeng-reviewr acquired lease on sima/tasks.json
 - Lease ID: cfacc402-e09f-49d3-82a7-82c466cbd3ae; expires at 2026-11-24T13:39:00Z; branch: origin/master.
 - Purpose: Phase 1 CASE C claim review for TASK-109 (Chinese language rendering/encoding fix) by agent-mapsaeng-reviewr.
+
+## [2026-11-24T13:39:00Z] chore(review): claim review for TASK-109 by agent-mapsaeng-reviewr
+- Task status: NEEDS_REVIEW -> IN_REVIEW, reviewer set to agent-mapsaeng-reviewr.
