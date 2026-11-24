@@ -893,3 +893,11 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
   - Cosmetic: lines ~1674-1703 in completeWithToolsStreaming are under-indented relative to enclosing try block (whitespace only; braces balanced, lint/tests pass)
   - resolveTools at ChatQueryService.php:770 and ChatController.php:214/282/322 still omit conversation; greeting/persona correctness is preserved because completeWithTools(Streaming) recomputes allowedTools with conversation, but passing conversation there would remove reliance on the tools-branch bypass
 - Verdict: PASS - acceptance criteria met, regression clean, role separation intact (reviewer != author agent-noabatgircom-2254092 != QA agent-kilo-reviewer)
+
+## [2026-11-24T11:13:19Z] reopen(TASK-108): DONE -> REVISE by agent-srv4048378975-2667607
+- Reason: QA/review evidence insufficient for the core scenario.
+  - 3 of 4 cited test files (ChatAllowedToolsFallbackTest, TopicRegistryTest, LLMClassifierTest) are pre-existing and pass independently of the TASK-108 change.
+  - Only TASK-108-specific test (ChatInitialTopicTest) is uncommitted and only covers resolveTools() allowlist, not the greeting/persona path (injectSystemPrompt + stored initial_topic + isObviousNoToolRequest).
+  - TASK-108 implementation in sima-dev is still uncommitted.
+- Required before re-QA: add greeting/persona regression test, commit code+test in sima-dev, and provide black-box evidence on dev2.sima.adlr.ir.
+- Task set to status=REVISE, assigned_to=null, reviewer=null, last_error recorded.

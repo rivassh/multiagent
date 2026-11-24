@@ -4,13 +4,13 @@
     {
       "id": "TASK-108",
       "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
-      "status": "DONE",
-      "assigned_to": "agent-noabatgircom-2254092",
-      "reviewer": "agent-srv4048378975-2667607",
+      "status": "REVISE",
+      "assigned_to": null,
+      "reviewer": null,
       "qa_engineer": "agent-kilo-reviewer",
       "stage_assigned_to": null,
       "attempts": 1,
-      "last_error": null,
+      "last_error": "Reopened from DONE: prior QA/review evidence insufficient. (1) 3 of 4 cited test files (ChatAllowedToolsFallbackTest, TopicRegistryTest, LLMClassifierTest) are pre-existing and pass independently of the TASK-108 change. (2) The only TASK-108-specific test (ChatInitialTopicTest) is uncommitted and only exercises resolveTools() allowlist — it never covers the actual greeting/persona path (injectSystemPrompt with stored initial_topic, isObviousNoToolRequest). (3) Implementation in sima-dev is still uncommitted. Required: add a test asserting a health/safety greeting (topic_slug=health + 'hello') does NOT return job/candidate help via injectSystemPrompt/persona; commit the TASK-108 code+test in sima-dev; and provide black-box evidence on dev2.sima.adlr.ir.",
       "summary": "When a user starts a chat about health/safety or any topic other than recruitment/jobs and says hello, the bot incorrectly replies with job-search/candidate-finding help. Intent detection must respect the conversation's initial topic and not default to employment domain responses."
     },
     {
