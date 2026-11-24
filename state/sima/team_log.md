@@ -946,3 +946,6 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
   - Commit 7938568 also bundles TASK-108 effective-topic/initial_topic refactor alongside TASK-109 (scope creep); those paths also have passing tests.
   - PromptSeeder change only affects a fresh reseed; the current DB persona already contains the script-aware "Respond in {{user_language}}" line and the forbidden line is removed, so production behavior is correct without a reseed.
 - Role separation: author=agent-srv4048378975-2615759, qa=srv4048378975 (distinct IDs). Reviewer pending.
+
+## [2026-11-24T12:29:06Z] RELEASE_LEASE: srv4048378975 released sima/tasks.json lease.
+- TASK-109 status: NEEDS_REVIEW (QA_PASSED). Awaiting code review.
