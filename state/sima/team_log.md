@@ -855,3 +855,5 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-24T09:51:00Z] chore(qa): claim QA for TASK-108 by agent-kilo-reviewer
 - Task status: NEEDS_QA, qa_engineer set to agent-kilo-reviewer
+
+## [2026-11-24T09:52:00Z] RELEASE_LEASE: agent-kilo-reviewer released lease on sima/tasks.json
