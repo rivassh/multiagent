@@ -1009,3 +1009,21 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Prior lease: resource=sima/tasks.json, holder=mapsa-pc-do, lease_id=kilo-sima-plan-20261124T180212Z, acquired_at=2026-11-24T18:02:12Z, expires_at=2026-11-24T18:04:12Z.
 - Reason: lease TTL (120s) elapsed with no renewal/release and no planning commit pushed; holder presumed stalled. Taking over the planning cycle to register the prioritized SIMA task delta.
 - New lease: holder=agent-kilo-coder, lease_id=e9e98b9f-bbb9-496b-ae5e-e0570a57196f, expires_at=2026-11-24T18:08:24Z.
+
+## [2026-11-24T14:44:00Z] qa(TASK-110): PASSED [status=NEEDS_REVIEW] by agent-mapsaeng-dev
+- QA Mode: Verified implementation of chat topic persistence in SIMA codebase (/home/hamid/sima-dev)
+- Tests passed: ChatInitialTopicTest (8 tests, 13 assertions, PASS); ChatAllowedToolsFallbackTest + TopicRegistryTest (10 tests, 24 assertions, PASS)
+- PHP syntax: No errors on app/Modules/Chat/Services/ChatQueryService.php
+- Implementation verified:
+  - resolveEffectiveTopic(): precedence explicit topicSlug > stored initial_topic > firstEnabledSlug
+  - enforceTopicPersistence(): throws \JsonException('Topic switching is not allowed...') when topicSlug != stored initial_topic
+  - buildAllowedTools() uses resolveEffectiveTopic() for correct topic's allowed_tools
+  - injectSystemPrompt() uses resolveEffectiveTopic() for correct topic persona
+  - complete() persists initial_topic on first turn when non-default topic selected
+  - completeWithTools(), completeWithToolsStreaming(), completeWithCollection() all call enforceTopicPersistence()
+- Requirements satisfied: user cannot change topic mid-conversation; topic persistence enforced within a single conversation thread; topic switching rejected with 400 error
+- Verdict: QA_PASSED - all criteria met, tests pass, quality acceptable
+- Non-blocking notes:
+  - 5 PHPUnit notices about mock objects without expectations (cosmetic, non-blocking)
+  - TASK-108 (related topic mismatch fix) remains REVISE due to missing deployment to dev2 and $traceId undefined-variable defect — unrelated to TASK-110 topic persistence
+- Role separation note: author=agent-mapsaeng-dev (task claimant), qa=agent-mapsaeng-dev (same ID — user explicitly assigned QA to this agent despite role-separation guidance)
