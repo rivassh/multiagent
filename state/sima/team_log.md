@@ -928,3 +928,21 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-24T12:28:43Z] ACQUIRE_LEASE: srv4048378975 acquired sima/tasks.json lease.
 - Purpose: Phase 3 QA handoff for TASK-109 (Chinese language rendering/encoding fix).
+
+## [2026-11-24T12:28:57Z] qa(TASK-109): PASSED [status=NEEDS_REVIEW]
+- Verdict: QA_PASSED. Root cause was a hard-coded user_language='Persian' in the system prompt, which forced Persian output for English/other-script input (perceived as wrong-script/mojibake). The fix detects the last user message's script and injects it as user_language, and the persona template is now script-aware.
+- Test evidence (sima-dev @ 7938568, branch bugfix/post-release-2.0.0):
+  - php vendor/bin/pest tests/Unit/ChatLanguageInstructionTest.php -> PASS (6 tests, 12 assertions): detectUserLanguage Persian/English/mixed/empty + injectSystemPrompt language passthrough for both scripts.
+  - Regression: ChatInitialTopicTest (3), ChatAllowedToolsFallbackTest, TopicRegistryTest, LLMClassifierTest, PromptBuilderPrivacyTest (23) -> all PASS (26 regression tests, 60 assertions).
+  - Feature: ChatQueryServiceResponsePathTest -> 5 fail / 8 pass, but failures are "Undefined variable $traceId" at ChatQueryService.php:209 in complete(), introduced by commit 4f0d5f4a (2026-11-15), predating TASK-109; verified TASK-109 does not touch that line. Pre-existing, unrelated.
+- Exploratory/black-box evidence:
+  - detectUserLanguage edge cases (numbers-only, emoji-only, Persian+digits, URL, empty-then-real-user, Persian question, English-with-name) all return sensible script with no crashes; empty/unknown -> Persian fallback.
+  - End-to-end via real DB persona + injectSystemPrompt: English input -> system prompt contains "writing in English"/"Respond in English"; Persian input -> "writing in Persian"; the forbidden "هرگز به انگلیسی پاسخ نده" line is gone from the active persona. Confirms the user-facing fix.
+- Code quality:
+  - Production files (ChatQueryService.php, PromptBuilder.php, PromptSeeder.php) introduce ZERO new Pint style debt: pint hunks on ChatQueryService and PromptBuilder are byte-identical to parent b1217e7; PromptSeeder clean.
+  - Only new style nits are cosmetic in the new test file ChatLanguageInstructionTest.php (fully_qualified_strict_types, EOF newline) — non-blocking.
+  - Security: user_language is a controlled 'Persian'|'English' enum; no injection/eval surface. No secrets.
+- Non-blocking caveats (for reviewer):
+  - Commit 7938568 also bundles TASK-108 effective-topic/initial_topic refactor alongside TASK-109 (scope creep); those paths also have passing tests.
+  - PromptSeeder change only affects a fresh reseed; the current DB persona already contains the script-aware "Respond in {{user_language}}" line and the forbidden line is removed, so production behavior is correct without a reseed.
+- Role separation: author=agent-srv4048378975-2615759, qa=srv4048378975 (distinct IDs). Reviewer pending.
