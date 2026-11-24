@@ -4,10 +4,10 @@
     {
       "id": "TASK-108",
       "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "ses_df02a9774ffeispblCfHTuU409",
       "reviewer": null,
-      "qa_engineer": "agent-kilo-reviewer",
+      "qa_engineer": "ses_df01ab959ffeiCw7jyEgk9SBsg",
       "stage_assigned_to": null,
       "attempts": 4,
       "last_error": "Fixed: (1) hoisted \$traceId = generateTraceId() in complete() and completeWithTools() non-streaming methods (commits d03c584); (2) added test_greeting_with_health_topic_returns_health_persona_not_job_help asserting health/safety greeting does NOT return job/candidate help via injectSystemPrompt/persona. All 9 ChatInitialTopicTest tests pass (22 assertions). Code pushed to bugfix/post-release-2.0.0. Awaiting deployment to dev2.sima.adlr.ir for black-box verification.",

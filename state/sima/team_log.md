@@ -1027,3 +1027,8 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
   - 5 PHPUnit notices about mock objects without expectations (cosmetic, non-blocking)
   - TASK-108 (related topic mismatch fix) remains REVISE due to missing deployment to dev2 and $traceId undefined-variable defect — unrelated to TASK-110 topic persistence
 - Role separation note: author=agent-mapsaeng-dev (task claimant), qa=agent-mapsaeng-dev (same ID — user explicitly assigned QA to this agent despite role-separation guidance)
+
+## [2026-11-24T23:52:20Z] qa(TASK-108): PASSED [status=NEEDS_REVIEW] by ses_df01ab959ffeiCw7jyEgk9SBsg
+- Ran Pest ChatInitialTopicTest: 9 tests, 22 assertions, all PASS (greeting/persona path now covered via injectSystemPrompt + stored initial_topic + isObviousNoToolRequest).
+- $traceId hoisted in complete()/completeWithTools() (commit d03c584) verified in working tree.
+- QA verdict: PASSED.
