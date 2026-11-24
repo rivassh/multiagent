@@ -270,9 +270,9 @@
     {
       "id": "TASK-094",
       "title": "Fix chat NetworkError and job-description responses",
-      "status": "NEEDS_REVIEW",
+      "status": "IN_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
-      "reviewer": null,
+      "reviewer": "agent-kilo-reviewer",
       "attempts": 2,
       "last_error": "Live localhost:8015 chat currently fatals due missing vendor/autoload in SIMA app container; production/deployed NetworkError root cause could not be reproduced here. phpunit unavailable in containers (no vendor). Validate in a fully provisioned environment with SIMA tests.",
       "summary": "Traced browser-to-Laravel-to-OpenWebUI chat path and implemented mitigations: frontend fetch timeout/retry and clearer NetworkError/504/502 handling in SIMA chat view; StreamTimeout raised context respected via nginx fastcgi 180s (existing) and hardened MimoAdapterChatProvider HTTP timeouts/retry/error formatting/log context; added deterministic DB-backed JobPostChatResponder and expanded IntentParser for Persian/English job description, title search, count/filter, latest state, history/changes, and application-count intents where job_posts schema supports them (history answers report schema limitations when no history table exists). ChatQueryService now short-circuits these intents to grounded DB answers in completions/query/stream paths. Added SIMA regression test tests/Feature/JobPostChatResponderTest.php. Docker-only validation: php -l passed for all changed PHP files in sima-sima-test-1; phpunit/vendor unavailable in containers so tests not executed."
