@@ -1,11 +1,34 @@
 # Multiagent GitOps - Simple Commands
 # Usage: make <command>
+# Reads configuration from .env (if present) and .env.qa
 
-REPO_ROOT := /home/hamid/multiagent
-WORKTREE := /tmp/kilo/work
-YOUR_ID ?= agent-$(USER)-$(shell hostname)-$$
+REPO_ROOT   := /home/hamid/multiagent4
+WORKTREE    := /tmp/kilo/work
+STATE_DIR   := $(WORKTREE)/state/sima
+BLACKBOX_DIR:= $(REPO_ROOT)/sima-blackbox-tests
+SCRIPTS_DIR := $(REPO_ROOT)/scripts
 
-.PHONY: help sync status tasks claim-097 release plan qa test-all origin
+# Load .env if it exists (variables become make variables + exported to shell)
+ifneq ($(wildcard .env),)
+  include .env
+  export $(shell sed 's/=.*//' .env)
+endif
+
+# Load QA env for BASE_URL etc. (does not fail if missing)
+ifneq ($(wildcard .env.qa),)
+  include .env.qa
+  export $(shell sed 's/=.*//' .env.qa)
+endif
+
+YOUR_ID     ?= agent-$(USER)-$(shell hostname)-$$$$
+
+# Export for helper scripts
+export STATE_DIR
+export YOUR_ID
+
+.DEFAULT_GOAL := help
+
+.PHONY: help sync status tasks claim release plan qa test-all origin
 
 help:
 	@echo "=== Multiagent GitOps Commands ==="
@@ -15,17 +38,18 @@ help:
 	@echo "  make status        - Show git status and current tasks"
 	@echo ""
 	@echo "Task Operations:"
-	@echo "  make tasks         - List actionable tasks (TODO/REVISE)"
-	@echo "  make claim-097     - Claim TASK-097 (trace_id migration)"
+	@echo "  make tasks         - List actionable tasks (TODO/REVISE/IN_PROGRESS/NEEDS_REVIEW)"
+	@echo "  make claim TASK_ID=TASK-097   - Claim a task (acquire lease + assign)"
 	@echo "  make release       - Release lease after claim/handoff"
 	@echo ""
 	@echo "Development:"
 	@echo "  make plan          - Run Phase 1 planning (register new tasks)"
-	@echo "  make qa            - Run blackbox QA against dev2.sima.adlr.ir"
+	@echo "  make qa            - Run blackbox QA (uses BASE_URL from .env.qa)"
 	@echo "  make test-all      - Run all tests (local + blackbox)"
 	@echo ""
 	@echo "Identity:"
 	@echo "  Current YOUR_ID: $(YOUR_ID)"
+	@echo "  BASE_URL: $(BASE_URL)"
 
 # Sync worktree with origin/main
 sync:
@@ -39,93 +63,48 @@ status:
 	cd $(WORKTREE) && git status --short
 	@echo ""
 	@echo "=== Current Lease ==="
-	@cat $(WORKTREE)/state/sima/leases.json 2>/dev/null | jq . || echo "No lease file"
+	@test -f $(STATE_DIR)/leases.json && cat $(STATE_DIR)/leases.json | jq . || echo "No lease file"
 	@echo ""
 	@echo "=== Actionable Tasks ==="
-	@cat $(WORKTREE)/state/sima/tasks.json | jq '.tasks[] | select(.status=="TODO" or .status=="REVISE") | {id, title, status, depends_on}' -c
+	@test -f $(STATE_DIR)/tasks.json && cat $(STATE_DIR)/tasks.json | jq '.tasks[] | select(.status=="TODO" or .status=="REVISE") | {id, title, status, depends_on}' -c || echo "No tasks file"
 
 # List tasks
 tasks:
-	@cat $(WORKTREE)/state/sima/tasks.json | jq '.tasks[] | select(.status=="TODO" or .status=="REVISE" or .status=="IN_PROGRESS" or .status=="NEEDS_REVIEW") | {id, title, status, assigned_to, depends_on}' -c
+	@test -f $(STATE_DIR)/tasks.json && cat $(STATE_DIR)/tasks.json | jq '.tasks[] | select(.status=="TODO" or .status=="REVISE" or .status=="IN_PROGRESS" or .status=="NEEDS_REVIEW") | {id, title, status, assigned_to, depends_on}' -c || echo "No tasks file"
 
-# Claim TASK-097
-claim-097:
+# Generic claim any task: make claim TASK_ID=TASK-097
+claim:
+	@if [ -z "$(TASK_ID)" ]; then echo "❌ Usage: make claim TASK_ID=TASK-097"; exit 1; fi
 	@echo "🔒 Acquiring lease for $(YOUR_ID)..."
 	cd $(WORKTREE) && git fetch origin && git checkout main && git pull --rebase origin main
-	@python3 -c "
-import json, time, uuid
-from datetime import datetime, timezone
-
-with open('$(WORKTREE)/state/sima/leases.json') as f:
-    data = json.load(f)
-
-now = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
-expires = (datetime.now(timezone.utc).timestamp() + 120)
-expires_iso = datetime.fromtimestamp(expires, timezone.utc).isoformat().replace('+00:00', 'Z')
-
-data['leases'] = [l for l in data['leases'] if l.get('resource') != 'tasks.json']
-
-data['leases'].append({
-    'resource': 'tasks.json',
-    'holder': '$(YOUR_ID)',
-    'lease_id': str(uuid.uuid4()),
-    'acquired_at': now,
-    'expires_at': expires_iso
-})
-
-with open('$(WORKTREE)/state/sima/leases.json', 'w') as f:
-    json.dump(data, f, indent=2)
-
-print('Lease acquired')
-"
+	python3 $(SCRIPTS_DIR)/acquire_lease.py
 	cd $(WORKTREE) && git add state/sima/leases.json && git commit -m "chore(lock): acquire tasks.json lease by $(YOUR_ID)" && git push origin main
-	@echo "📋 Claiming TASK-097..."
-	@python3 -c "
-import json
-with open('$(WORKTREE)/state/sima/tasks.json') as f:
-    data = json.load(f)
+	@echo "📋 Claiming $(TASK_ID)..."
+	cd $(WORKTREE) && TASK_ID=$(TASK_ID) python3 $(SCRIPTS_DIR)/claim_task.py
+	cd $(WORKTREE) && git add state/sima/tasks.json && git commit -m "chore(claim): claim $(TASK_ID) by $(YOUR_ID)" && git push origin main
+	@echo "✅ $(TASK_ID) claimed. Run 'make release' when done with Phase 2."
 
-for task in data['tasks']:
-    if task['id'] == 'TASK-097':
-        task['assigned_to'] = '$(YOUR_ID)'
-        task['status'] = 'IN_PROGRESS'
-        task['attempts'] = task.get('attempts', 0) + 1
-        print('Claimed TASK-097')
-        break
-
-with open('$(WORKTREE)/state/sima/tasks.json', 'w') as f:
-    json.dump(data, f, indent=2)
-"
-	cd $(WORKTREE) && git add state/sima/tasks.json && git commit -m "chore(claim): claim TASK-097 by $(YOUR_ID)" && git push origin main
-	@echo "✅ TASK-097 claimed. Run 'make release' when done with Phase 2."
-
-# Release lease
+# Release lease (generic)
 release:
 	@echo "🔓 Releasing lease for $(YOUR_ID)..."
 	cd $(WORKTREE) && git fetch origin && git checkout main && git pull --rebase origin main
-	@python3 -c "
-import json
-with open('$(WORKTREE)/state/sima/leases.json') as f:
-    data = json.load(f)
-
-data['leases'] = [l for l in data['leases'] if not (l.get('resource') == 'tasks.json' and l.get('holder') == '$(YOUR_ID)')]
-
-with open('$(WORKTREE)/state/sima/leases.json', 'w') as f:
-    json.dump(data, f, indent=2)
-print('Lease released')
-"
+	python3 $(SCRIPTS_DIR)/release_lease.py
 	cd $(WORKTREE) && git add state/sima/leases.json && git commit -m "chore(lock): release tasks.json lease by $(YOUR_ID)" && git push origin main
 	@echo "✅ Lease released"
 
 # Phase 1 Planning
 plan:
 	@echo "📋 Running Phase 1 Planning..."
-	cd $(WORKTREE) && node state/runner_workflow.js 2>&1 | head -50
+	@if command -v node >/dev/null 2>&1 && [ -f $(WORKTREE)/state/runner_workflow.js ]; then \
+		cd $(WORKTREE) && node state/runner_workflow.js; \
+	else \
+		echo "⚠ node or state/runner_workflow.js not available; skipping plan"; \
+	fi
 
-# Blackbox QA
+# Blackbox QA - runs sima-blackbox-tests/compose.yaml (tester service) with BASE_URL from .env.qa
 qa:
-	@echo "🧪 Running Blackbox QA against dev2.sima.adlr.ir..."
-	cd $(REPO_ROOT) && docker compose --profile qa up --build --abort-on-container-exit blackbox-qa
+	@echo "🧪 Running Blackbox QA against $(BASE_URL)..."
+	cd $(BLACKBOX_DIR) && docker compose up --build --abort-on-container-exit tester
 
 # All tests
 test-all:

@@ -3,7 +3,7 @@
 1. Core Operating Principles
 - SSOT (Single Source of Truth): Git remote (origin/main) is the ONLY coordination bus, communication channel, and memory. No local state persists across runs without a commit.
 - Distributed Concurrency: Two-Phase Locking (2PL) via TTL-backed leases in state/leases.json. No state mutation without holding an active lease.
-- Identity: Worker identity is read from YOUR_ID env. If unset, derive once and freeze: YOUR_ID="agent-" + hostname + "-" + pid.
+- Identity: Worker identity is read from YOUR_ID file. If unset, force user to set, else do nothing until set.
 - Append-Only History: state/team_log.md is strictly append-only. Never rewrite or truncate past entries.
 - Task namespaces: Existing Sima tasks use `TASK-NNN`; HR subproject tasks use `TASK-HR-NNN`; OMR project tasks use `TASK-OMR-NNN`. All namespaces share partitioned state directories but each requires its matching runner scope.
 - Dependency isolation: Every `depends_on` ID must match the task namespace of the active runner scope and refer to a task in `DONE`; cross-namespace dependencies are invalid and keep the task blocked.
