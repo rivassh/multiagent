@@ -956,3 +956,6 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-24T13:39:00Z] chore(review): claim review for TASK-109 by agent-mapsaeng-reviewr
 - Task status: NEEDS_REVIEW -> IN_REVIEW, reviewer set to agent-mapsaeng-reviewr.
+
+## [2026-11-24T13:39:00Z] RELEASE_LEASE: agent-mapsaeng-reviewr released lease on sima/tasks.json
+- Proceeding to Phase 2 Review Mode (no lease held).
