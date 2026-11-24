@@ -903,3 +903,22 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
   - TASK-108 implementation in sima-dev is still uncommitted.
 - Required before re-QA: add greeting/persona regression test, commit code+test in sima-dev, and provide black-box evidence on dev2.sima.adlr.ir.
 - Task set to status=REVISE, assigned_to=null, reviewer=null, last_error recorded.
+
+## [2026-11-24T12:16:49Z] ACQUIRE_LEASE: srv4048378975 acquired sima/tasks.json lease (lease_id: lease-sima-20261124-109, expires_at: 2026-11-24T12:18:49Z).
+- Purpose: Phase 3 handoff for TASK-109 (Chinese language rendering/encoding fix).
+
+## [2026-11-24T12:17:00Z] feat(TASK-109): complete implementation, await QA
+- Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0, commit 7938568 pushed to origin)
+- Problem: chat responses rendered in the wrong script (Chinese/garbled output) because the system prompt hard-coded user_language='Persian' regardless of the user's actual input script.
+- Fix:
+  - PromptBuilder::detectUserLanguage() scans the last user message for Persian (U+0600-U+FEFF) vs Latin script and returns 'Persian'|'English'.
+  - ChatQueryService::injectSystemPrompt() now passes detected language as user_language instead of the hard-coded 'Persian' default.
+  - Base persona template (database/seeders/PromptSeeder.php) updated to be script-aware: "If user_language is Persian, answer entirely in Persian. If user_language is English, answer in English." Removes the contradictory "Persian-first ... هرگز به انگلیسی پاسخ نده" that forced English input into Persian.
+  - All three complete/completeStream/completeWithToolsStreaming paths now resolve effective topic + language consistently.
+- Tests:
+  - tests/Unit/ChatLanguageInstructionTest.php (new, 6 tests): detectUserLanguage Persian/English/mixed/empty + injectSystemPrompt language passthrough for both scripts.
+  - Result: 6/6 pass, 12 assertions.
+  - Regression: ChatInitialTopicTest, ChatAllowedToolsFallbackTest, TopicRegistryTest, LLMClassifierTest, PromptBuilderPrivacyTest — 29/29 pass.
+  - Pre-existing failures in tests/Feature/ChatQueryServiceResponsePathTest (5, traceId undefined) confirmed unrelated: fail identically on clean tree (b1217e7).
+- Evidence: php vendor/bin/pest tests/Unit/ChatLanguageInstructionTest.php -> PASS (6 tests, 12 assertions)
+- Status: NEEDS_QA

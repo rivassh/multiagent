@@ -16,10 +16,10 @@
     {
       "id": "TASK-109",
       "title": "Fix Chinese language rendering/encoding issue in chat responses",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "agent-srv4048378975-2615759",
       "reviewer": null,
-      "qa_engineer": null,
+      "qa_engineer": "srv4048378975",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,
