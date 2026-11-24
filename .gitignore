@@ -1,1 +1,16 @@
+# Sensitive files and secrets - never commit
+.env
+.env.*
+*.har
+*.log
+secrets/
+*.pem
+*.key
+
+# Other local artifacts
 .mim*
+node_modules/
+vendor/
+
+# Storage for processed results (partitioned by task type)
+storage/

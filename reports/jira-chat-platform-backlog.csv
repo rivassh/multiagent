@@ -1,0 +1,181 @@
+Summary,Issue Type,Description,Priority,Labels,Original Estimate
+"[CHAT-01] مستندسازی مسیر فعلی درخواست تا پاسخ چت","Task","هدف: ثبت baseline قابل بازبینی از مسیر اجرای چت، بدون تغییر رفتار برنامه.
+
+دامنه: مسیر واقعی در کد از ورودی HTTP تا پاسخ؛ شامل routing، مدل/provider، retrieval، tool dispatch و persistence.
+
+معیارهای پذیرش:
+- سند مسیر واقعی را با نام فایل/کلاس‌های موجود و ترتیب فراخوانی ثبت می‌کند.
+- مرزهای RAG، اجرای tool و پاسخ متنی را از هم مشخص می‌کند.
+- حداقل یک دستور تست مرتبط و نتیجه اجرای آن ثبت می‌شود.
+- هیچ کد اجرایی یا رفتار runtime در این تسک تغییر نمی‌کند.",Medium,"chat-platform,architecture,documentation",1h 30m
+"[CHAT-02] ثبت مرزهای معماری Chat Platform","Task","هدف: مشخص‌کردن مسئولیت زیرساخت مشترک چت و بخش‌هایی که باید بیرون از آن بمانند.
+
+معیارهای پذیرش:
+- در docs/SPEC.md مرز Chat Platform، RAG/Knowledge، model providers، tools، guardrails و قابلیت‌های مصرف‌کننده ثبت می‌شود.
+- Generative UI به‌عنوان مصرف‌کننده آینده با قرارداد خروجی معتبر تعریف می‌شود، نه وابستگی در هسته چت.
+- ATS، HR و منطق workflow کسب‌وکار صریحاً خارج از دامنه هسته چت ذکر می‌شوند.
+- برای هر مرز حداقل یک مثال از مسئولیت مجاز ثبت می‌شود.",Medium,"chat-platform,architecture,documentation",1h 30m
+"[CHAT-03] حذف تعریف تکراری collectionهای RAG","Task","هدف: داشتن یک منبع پیکربندی برای collectionهای فعلی، بدون تغییر نتیجه جست‌وجوی موجود.
+
+دامنه: config/collections.php و fallbackهای DatabaseRetrieval.
+
+معیارهای پذیرش:
+- DatabaseRetrieval و retrieval برداری نام collection و تنظیمات آن را از registry واحد می‌خوانند.
+- fallbackهای تکراری برای jobvision-chat و candidates حذف یا به همان registry متصل شده‌اند.
+- تست، نام و نوع منبع تمام collectionهای فعلی را بررسی می‌کند.
+- تست‌های موجود RAG مرتبط موفق‌اند و خروجی collectionهای فعلی تغییر ناخواسته ندارد.",Medium,"chat-platform,rag,refactor",2h
+"[CHAT-04] تعریف رفتار collection ناشناخته و پیکربندی نامعتبر","Task","هدف: رفتار RAG برای collection ناشناخته یا پیکربندی ناقص صریح و قابل آزمون باشد.
+
+معیارهای پذیرش:
+- collection ناشناخته نتیجه موفق‌نما یا داده از collection دیگری برنمی‌گرداند.
+- پیکربندی source_type/table/files نامعتبر با خطای قابل تشخیص یا warning استاندارد گزارش می‌شود.
+- تست‌ها unknown collection، جدول ناموجود و پیکربندی ناقص را پوشش می‌دهند.
+- رفتار collectionهای معتبر بدون تغییر باقی می‌ماند.",Medium,"chat-platform,rag,tests",1h 30m
+"[CHAT-05] تعریف قرارداد نوع‌دار برای خروجی فهم درخواست","Task","هدف: خروجی فهم درخواست از متن خام جدا و قابل اعتبارسنجی باشد.
+
+معیارهای پذیرش:
+- DTO یا ساختار نوع‌دار شامل intent، entities، confidence و needs_clarification است.
+- مقادیر confidence محدود به بازه 0 تا 1 هستند و داده نامعتبر رد می‌شود.
+- تست‌ها خروجی معتبر، intent ناشناخته، confidence خارج از بازه و entities نامعتبر را پوشش می‌دهند.
+- قرارداد به controller یا مدل خاصی وابسته نیست.",Medium,"chat-platform,nlp,contracts",2h
+"[CHAT-06] افزودن تست‌های نرمال‌سازی متن فارسی برای intent","Task","هدف: رفتار نرمال‌سازی متن فارسی برای طبقه‌بندی قابل پیش‌بینی شود.
+
+معیارهای پذیرش:
+- تست‌ها تفاوت ی/ي، ک/ك، فاصله‌های تکراری و نیم‌فاصله را پوشش می‌دهند.
+- نرمال‌سازی روی نسخه ورودی ذخیره‌شده یا متن نمایشی اثر نمی‌گذارد.
+- نرمال‌سازی idempotent است: اجرای دوباره، خروجی را تغییر نمی‌دهد.
+- مجموعه تست بدون وابستگی شبکه یا API اجرا می‌شود.",Medium,"chat-platform,nlp,persian,tests",1h 30m
+"[CHAT-07] پاسخ روشن‌کننده برای درخواست مبهم یا کم‌اطمینان","Task","هدف: وقتی فهم درخواست اطمینان کافی ندارد، سیستم به‌جای انتخاب intent حدسی سؤال کند.
+
+معیارهای پذیرش:
+- آستانه confidence از config خوانده می‌شود و مقدار پیش‌فرض مستند دارد.
+- خروجی زیر آستانه به مسیر روشن‌سازی می‌رود و tool اجرا نمی‌شود.
+- خروجی بالای آستانه مسیر فعلی را ادامه می‌دهد.
+- تست مرز آستانه، مقدار کم‌اطمینان و مسیر عادی را پوشش می‌دهد.
+- پاسخ‌ها و routing فعلی برای درخواست‌های شناخته‌شده regression test دارند.",Medium,"chat-platform,nlp,clarification",2h
+"[CHAT-08] ساخت مجموعه آزمون مصنوعی intentهای فارسی","Task","هدف: تغییر prompt یا مدل فهم درخواست با نمونه ثابت و بدون داده واقعی کاربر ارزیابی شود.
+
+معیارهای پذیرش:
+- حداقل 20 نمونه مصنوعی فارسی با intent مورد انتظار وجود دارد.
+- نمونه‌ها شامل عبارت‌های محاوره‌ای، مترادف، غلط املایی رایج و درخواست مبهم هستند.
+- هیچ متن یا داده شخصی واقعی در fixtureها وجود ندارد.
+- هر نمونه خروجی مورد انتظار و دلیل کوتاه برای موارد مبهم دارد.",Medium,"chat-platform,nlp,evaluation",1h 30m
+"[CHAT-09] افزودن محاسبه‌گر معیارهای ارزیابی intent","Task","هدف: کیفیت طبقه‌بندی intent روی مجموعه آزمون ثابت به عدد قابل مقایسه تبدیل شود.
+
+معیارهای پذیرش:
+- فرمان تست یا اسکریپت موجود، accuracy کلی و تعداد خطاها را محاسبه می‌کند.
+- اجرای مجدد روی ورودی ثابت خروجی یکسان دارد.
+- خطای مدل یا provider به‌عنوان خطا گزارش می‌شود و به نتیجه موفق تبدیل نمی‌شود.
+- تست واحد برای شمارش درست و نادرست و dataset خالی وجود دارد.",Medium,"chat-platform,nlp,evaluation",2h
+"[CHAT-10] اعتبارسنجی schema ورودی پیش از اجرای tool","Task","هدف: tool فقط با آرگومان‌هایی اجرا شود که schema ثبت‌شده را می‌گذرانند.
+
+دامنه: یک مسیر dispatch فعلی چت و ابزارهای همان مسیر.
+
+معیارهای پذیرش:
+- آرگومان نامعتبر قبل از فراخوانی handler رد می‌شود.
+- خطای validation نام و فیلد نامعتبر را بدون افشای داده حساس گزارش می‌کند.
+- تست، آرگومان معتبر، فیلد الزامی غایب، نوع نادرست و فیلد ناشناخته را پوشش می‌دهد.
+- ابزار معتبر موجود پس از validation همچنان اجرا می‌شود.",Medium,"chat-platform,tools,validation",2h
+"[CHAT-11] آزمون اعمال RBAC پیش از دسترسی به corpus","Task","هدف: مجوز کاربر پیش از retrieval روی corpus محدودشده بررسی شود.
+
+دامنه: یک endpoint یا مسیر retrieval فعلی و یک collection محدودشده.
+
+معیارهای پذیرش:
+- کاربر مجاز می‌تواند retrieval را انجام دهد.
+- کاربر فاقد مجوز پاسخ 403 می‌گیرد و retriever فراخوانی نمی‌شود.
+- کاربر unauthenticated پاسخ 401 می‌گیرد.
+- تست‌ها با mock/spies ثابت می‌کنند داده قبل از کنترل مجوز خوانده نشده است.",High,"chat-platform,rbac,rag,security",2h
+"[CHAT-12] جلوگیری از اجرای tool پس از رد شدن guardrail","Task","هدف: اگر guardrail درخواست را مسدود کرد، هیچ tool یا retrieval اجرا نشود.
+
+معیارهای پذیرش:
+- تست درخواست مسدودشده، پاسخ رد استاندارد را بررسی می‌کند.
+- در تست، tool dispatcher و retriever هیچ فراخوانی ندارند.
+- تست درخواست مجاز، عبور از guardrail و رفتار عادی را تأیید می‌کند.
+- ترتیب guardrail، authorization و dispatch در کد یا تست به‌روشنی قابل مشاهده است.",High,"chat-platform,guardrails,tools,security",1h 30m
+"[CHAT-13] تست قرارداد برای providerهای چت موجود","Task","هدف: پیاده‌سازی‌های فعلی ChatProviderInterface رفتار یکسان و قابل پیش‌بینی داشته باشند.
+
+معیارهای پذیرش:
+- تست قرارداد برای هر provider فعلی، complete و completeWithTools را بررسی می‌کند.
+- پاسخ موفق مطابق ساختار توافق‌شده است.
+- خطای provider و timeout در تست به‌صورت خطا باقی می‌مانند و پاسخ موفق‌نما تولید نمی‌شود.
+- تست‌ها از endpoint واقعی یا API key استفاده نمی‌کنند.",Medium,"chat-platform,llm,contracts,tests",2h
+"[CHAT-14] بررسی امکان‌سنجی مدل محلی برای یک وظیفه NLP","Task","هدف: پیش از هر تصمیم درباره ساخت SLLM، یک وظیفه محدود و معیار ارزیابی آن انتخاب شود.
+
+معیارهای پذیرش:
+- intent classification به‌عنوان وظیفه نمونه بررسی می‌شود؛ دامنه آموزش مدل در این تسک وجود ندارد.
+- گزارش کوتاه، runtimeهای محلی موجود، منابع سخت‌افزاری قابل دسترس و محدودیت‌های استقرار را ثبت می‌کند.
+- گزارش، کیفیت، latency، مصرف RAM و نیاز شبکه را به‌عنوان معیار مقایسه مشخص می‌کند.
+- نتیجه یکی از go، no-go یا نیاز به آزمایش بعدی است و شواهد/فرض‌ها را ذکر می‌کند.",Medium,"chat-platform,nlp,local-model,spike",2h
+"[CHAT-15] آزمون مرز امن خروجی Generative UI","Task","هدف: خروجی ساخت‌یافته فعلی/آینده UI فقط از schema و componentهای مجاز پذیرفته شود.
+
+معیارهای پذیرش:
+- تست خروجی معتبر با component مجاز را می‌پذیرد.
+- component ناشناخته، فیلد ناسازگار و محتوای اجرایی/HTML خام رد یا بی‌اثر می‌شوند.
+- پاسخ متنی عادی فعلی با regression test بدون تغییر می‌ماند.
+- این تسک UI جدید یا قابلیت تولید آزاد HTML اضافه نمی‌کند.",Medium,"chat-platform,generative-ui,security,tests",2h
+"[CHAT-16] تعریف قرارداد مشترک connectorهای دانش","Task","هدف: منبع داده جدید به‌صورت افزایشی متصل شود، بدون تغییر retrieval core برای هر منبع.
+
+معیارهای پذیرش:
+- سند docs/SPEC.md ورودی/خروجی حداقلی connector را مشخص می‌کند: شناسه منبع، محتوا، metadata و provenance.
+- تفاوت مسئولیت connector منبع با pipeline مشترک ingest روشن است.
+- قرارداد شامل خطا، retry، deduplication و وضعیت حذف/به‌روزرسانی منبع است.
+- یک مثال منبع فایل و یک مثال منبع API در سند آمده؛ پیاده‌سازی crawler جدید خارج از دامنه است.",Medium,"chat-platform,knowledge,connectors,documentation",1h 30m
+"[CHAT-17] آزمون ثبت provenance در chunkهای بازیابی‌شده","Task","هدف: هر chunk بازیابی‌شده به منبع و سند اصلی قابل ردیابی باشد.
+
+معیارهای پذیرش:
+- تست یک سند synthetic را ingest و retrieval می‌کند.
+- metadata نتیجه شامل collection، source type و source identifier است.
+- نبود metadata الزامی به نتیجه موفق‌نما تبدیل نمی‌شود و خطا/هشدار قابل مشاهده است.
+- هیچ داده واقعی کاربر یا سند تولیدی در تست استفاده نمی‌شود.",Medium,"chat-platform,rag,provenance,tests",2h
+"[TASK-095.1] تعریف دامنه و قرارداد LinkedIn adapter","Task","زیرتسک TASK-095؛ تعیین قرارداد منبع LinkedIn و تطبیق آن با connector مشترک [CHAT-16].
+
+تصمیم دامنه: HAR فقط یک‌بار و به‌صورت موقت برای شناخت ساختار پاسخ‌ها استفاده می‌شود؛ HAR بخشی از محصول یا ورودی عملیاتی تکرارشونده نیست. parser پایدار، ورودی پروفایل LinkedIn به‌شکل JSON/داده‌ی exportشده را می‌گیرد.
+
+معیارهای پذیرش:
+- سند، فیلدهای مشترک موردنیاز (مانند عنوان، مهارت‌ها، سوابق و تحصیلات)، mapping از ورودی LinkedIn، provenance و رفتار فیلدهای غایب را تعریف می‌کند.
+- مرز adapter LinkedIn با قرارداد عمومی [CHAT-16] و مدل مشترک پروفایل روشن است؛ داده‌های LinkedIn از رکوردهای JobVision قابل تفکیک‌اند و آن‌ها را overwrite نمی‌کنند.
+- HAR نمونه فقط با مجوز، برای بررسی محلی/موقت است؛ هیچ request بازپخش نمی‌شود و فایل/محتوای آن وارد Git، تست، log یا ذخیره‌سازی محصول نمی‌شود.
+- تعهد عملیاتی به HAR، approval workflow برای HAR، batch، retry یا retention برای فایل HAR تعریف نمی‌شود.",Medium,"TASK-095,chat-platform,linkedin,adapter,contract",1h 30m
+"[TASK-095.2] استخراج یک‌باره‌ی schema از HAR موقت LinkedIn","Task","زیرتسک TASK-095؛ شناخت ساختار داده برای طراحی adapter؛ این کار parser محصول یا ingestion تکرارشونده نیست.
+
+معیارهای پذیرش:
+- اپراتور/توسعه‌دهنده یک HAR مجاز را فقط به‌صورت محلی و موقت برای شناسایی endpoint/ساختار پاسخ‌ها بررسی می‌کند؛ هیچ request replay نمی‌شود.
+- خروجی کار فقط mapping/schema و فهرست فیلدهای قابل‌استخراج است، نه فایل HAR یا داده‌ی شخصی افراد.
+- HAR خام، cookie، authorization، token و payload شخصی در repository، fixture، log، ticket یا گزارش ثبت نمی‌شوند.
+- پس از استخراج schema، فایل HAR از محل موقت حذف می‌شود؛ روش/محل نگهداری موقت خارج از مخزن و بدون ثبت محتوای آن است.
+- اگر ساختار یا مجوز کافی نیست، تسک با محدودیت/نیازمندی روشن متوقف می‌شود؛ از دورزدن دسترسی یا scrape گسترده استفاده نمی‌شود.",Medium,"TASK-095,chat-platform,linkedin,har,discovery,privacy",1h 30m
+"[TASK-095.3] پیاده‌سازی parser و preview برای ورودی LinkedIn JSON","Task","زیرتسک TASK-095؛ پیاده‌سازی parser پایدار برای ورودی JSON/داده‌ی exportشده با استفاده از mapping مصوب [TASK-095.1] و schema کشف‌شده در [TASK-095.2].
+
+معیارهای پذیرش:
+- adapter داده‌ی ورودی را به قرارداد پروفایل مشترک تبدیل می‌کند: عنوان، مهارت‌ها، سوابق، تحصیلات و provenance، فقط در صورت وجود در ورودی.
+- parser هیچ HAR نمی‌خواند، هیچ request شبکه‌ای اجرا نمی‌کند و هیچ authentication/session secret را مصرف نمی‌کند.
+- فیلدهای ناموجود به‌صورت نامعلوم/خالی باقی می‌مانند و داده‌ی ساخته‌شده یا استنباط‌شده تولید نمی‌شود.
+- preview فیلدهای نرمال‌شده و منبع هر فیلد را نشان می‌دهد؛ این مرحله به‌تنهایی چیزی را persist نمی‌کند.
+- ورودی نامعتبر خطای مشخص و قابل‌آزمون می‌دهد؛ خطا شامل payload یا داده‌ی شخصی خام نیست.
+- adapter به‌صورت مستقل اضافه می‌شود و برای افزودنش تغییر در مسیر JobVision لازم نیست.",High,"TASK-095,chat-platform,linkedin,parser,adapter",2h
+"[TASK-095.4] تأیید انسانی و ثبت امن پروفایل نرمال‌شده","Task","زیرتسک TASK-095؛ اتصال preview تأییدشده به مقصد داده‌ی مجاز با استفاده از قرارداد [CHAT-16].
+
+معیارهای پذیرش:
+- هیچ داده‌ای persist نمی‌شود مگر پس از تأیید صریح preview؛ تأییدکننده از هویت authenticated فعلی و مجوزهای RBAC موجود resolve می‌شود.
+- فقط فیلدهای مجاز و تأییدشده‌ی پروفایل نرمال‌شده ذخیره می‌شوند؛ فایل HAR و ورودی خام ذخیره یا log نمی‌شوند.
+- رکورد مقصد با شناسه و نوع منبع LinkedIn و provenance علامت‌گذاری می‌شود؛ LinkedIn و JobVision کلیدهای منبع جدا دارند و import LinkedIn نمی‌تواند رکورد JobVision را overwrite یا با آن deduplicate کند.
+- deduplication با کلید پایدار در namespace همان منبع انجام می‌شود؛ مقصد persistence از قرارداد [CHAT-16] پیروی می‌کند و schema/رفتار JobVision تغییر نمی‌کند.
+- تصمیم نگهداری و حذفِ داده‌ی تأییدشده مستند می‌شود و حذف به رکورد LinkedIn و مشتقات وابسته محدود می‌ماند؛ HAR موقت خارج از این سیاست عملیاتی است.
+- batch، retry و pipeline دائمی HAR در دامنه نیستند؛ اجرای JSON import مجدد باید صرفاً از طریق deduplication قرارداد‌شده بی‌تکرار بماند.",High,"TASK-095,chat-platform,linkedin,review,provenance,persistence",2h
+"[TASK-095.5] تست synthetic و regression مسیر JobVision","Task","زیرتسک TASK-095؛ آزمون parser، preview و import تأییدشده با fixtureهای synthetic و تأیید backward compatibility.
+
+معیارهای پذیرش:
+- fixtureهای ساختگی JSON، فیلدهای کامل/ناقص، نوع داده‌ی نامعتبر و metadata/provenance را پوشش می‌دهند؛ HAR واقعی و داده‌ی واقعی افراد در تست نیست.
+- تست mapping، preview بدون persistence، عدم ذخیره پیش از تأیید، ذخیره پس از تأیید، RBAC، source isolation و deduplication را پوشش می‌دهد.
+- خطاها و logها payload خام، secret یا محتوای شخصی غیرمجاز را افشا نمی‌کنند.
+- regression test مسیر، configuration، schema و scheduler فعلی JobVision را بدون تغییر رفتاری تأیید می‌کند.
+- تست‌ها بدون شبکه، credential واقعی، حساب LinkedIn یا تغییر Docker/شبکه‌ی مشترک اجرا می‌شوند.
+- وابستگی: تست‌ها به [CHAT-16] و mapping [TASK-095.1]/[TASK-095.2] وابسته‌اند؛ [CHAT-17] فقط در صورت استفاده‌ی مستقیم از provenance persistence پیش‌نیاز است.",High,"TASK-095,chat-platform,linkedin,tests,jobvision,regression",2h
+"[TASK-095.6] نوشتن راهنمای توسعه‌دهنده و اپراتور LinkedIn adapter","Task","زیرتسک TASK-095؛ مستندسازی discovery یک‌باره و استفاده‌ی بعدی از adapter پایدار.
+
+معیارهای پذیرش:
+- راهنما پیش‌نیاز مجوز و استفاده‌ی محدود از HAR موقت برای شناخت schema را توضیح می‌دهد.
+- مراحل حذف فایل موقت و منع ثبت HAR/secret/داده‌ی شخصی در Git، log، تست و ticket صریح است.
+- فرمت JSON/داده‌ی ورودی parser پایدار، فیلدهای پشتیبانی‌شده، mapping، provenance و نمونه‌ی synthetic مستند شده‌اند.
+- راهنما روشن می‌کند اجرای عادی adapter به HAR، مرورگر، session cookie یا API credential نیاز ندارد.
+- backward compatibility و روش اجرای تست‌های LinkedIn synthetic و regression JobVision مستند است.",Medium,"TASK-095,chat-platform,linkedin,documentation,operator",1h 30m
