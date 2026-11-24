@@ -922,3 +922,6 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
   - Pre-existing failures in tests/Feature/ChatQueryServiceResponsePathTest (5, traceId undefined) confirmed unrelated: fail identically on clean tree (b1217e7).
 - Evidence: php vendor/bin/pest tests/Unit/ChatLanguageInstructionTest.php -> PASS (6 tests, 12 assertions)
 - Status: NEEDS_QA
+
+## [2026-11-24T12:17:30Z] RELEASE_LEASE: srv4048378975 released sima/tasks.json lease (lease_id: lease-sima-20261124-109).
+- TASK-109 status: NEEDS_QA, qa_engineer=srv4048378975. Awaiting QA agent.
