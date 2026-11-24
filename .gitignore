@@ -8,9 +8,11 @@ secrets/
 *.key
 
 # Other local artifacts
-.mim*
+.mi*
+.ki*
 node_modules/
 vendor/
 
 # Storage for processed results (partitioned by task type)
 storage/
+YOUR_ID
