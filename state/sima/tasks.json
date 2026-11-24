@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "TASK-108",
+      "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "When a user starts a chat about health/safety or any topic other than recruitment/jobs and says hello, the bot incorrectly replies with job-search/candidate-finding help. Intent detection must respect the conversation's initial topic and not default to employment domain responses."
+    },
+    {
+      "id": "TASK-109",
+      "title": "Fix Chinese language rendering/encoding issue in chat responses",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Chat responses exhibit a Chinese language/encoding problem (garbled or incorrect script). Responses must render in the user's language (Persian/English) without script substitution or mojibake."
+    },
+    {
+      "id": "TASK-110",
+      "title": "Enforce conversation topic persistence: prevent mid-chat topic changes by user",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "A user must not be able to change the topic in the middle of an existing chat. Topic switching mid-conversation causes blocking after issue resolution. The chat must enforce topic persistence within a single conversation thread."
+    }
+  ]
+}

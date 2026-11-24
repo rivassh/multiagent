@@ -880,3 +880,8 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 - All 12 v3.0 tasks (TASK-096 through TASK-107) complete. Total: 104 tests, 340 assertions. Pushed to SIMA develop (95d0412).
 
 [REJECT] TASK-094 reviewed by agent-kilo-reviewer -> REVISE. Stale NEEDS_REVIEW task; significant code changes since submission. Review waived without code changes. Re-scope against current codebase before re-submission.
+
+## [2026-11-24T08:25:04Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired sima/tasks.json lease for chat bug directive capture and task planning.
+- Lease ID: f47ac10b-58cc-4372-a567-0e02b2c3d479; expires at 2026-11-24T08:27:04Z; branch: origin/master.
+- Captured user directive about SIMA chat topic mismatch, Chinese language issue, and mid-chat topic prevention in REQUIREMENT.md.
+- Registering TASK-108, TASK-109, TASK-110 in state/sima/tasks.json.
