@@ -1,4 +1,1 @@
-{
-  "version": 1,
-  "leases": []
-}
+{"version": 1, "leases": [{"resource": "tasks.json", "holder": "agent-kilo-reviewer", "lease_id": "2f4996f9-3617-41d3-b0de-8a9569cb3055", "acquired_at": "2026-11-24T07:14:45Z", "expires_at": "2026-11-24T07:16:45Z"}]}
