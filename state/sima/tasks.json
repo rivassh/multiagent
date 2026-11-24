@@ -4,12 +4,12 @@
     {
       "id": "TASK-108",
       "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "qa_engineer": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "When a user starts a chat about health/safety or any topic other than recruitment/jobs and says hello, the bot incorrectly replies with job-search/candidate-finding help. Intent detection must respect the conversation's initial topic and not default to employment domain responses."
     },
