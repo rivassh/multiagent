@@ -1,12 +1,4 @@
 {
   "version": 1,
-  "leases": [
-    {
-      "resource": "sima/tasks.json",
-      "holder": "agent-mapsaeng-dev",
-      "lease_id": "45dbfabf-baf5-4ce7-b819-d616c34bb37a",
-      "acquired_at": "2026-11-24T14:39:44Z",
-      "expires_at": "2026-11-24T14:41:44Z"
-    }
-  ]
+  "leases": []
 }
