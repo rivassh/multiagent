@@ -28,12 +28,12 @@
     {
       "id": "TASK-110",
       "title": "Enforce conversation topic persistence: prevent mid-chat topic changes by user",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-mapsaeng-dev",
       "reviewer": null,
       "qa_engineer": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "A user must not be able to change the topic in the middle of an existing chat. Topic switching mid-conversation causes blocking after issue resolution. The chat must enforce topic persistence within a single conversation thread."
     }
