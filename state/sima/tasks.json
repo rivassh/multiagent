@@ -1,18 +1,18 @@
 {
   "version": 1,
   "tasks": [
-    {
-      "id": "TASK-108",
-      "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
-      "status": "IN_PROGRESS",
-      "assigned_to": "agent-srv4048378975-2756210",
-      "reviewer": null,
-      "qa_engineer": "agent-kilo-reviewer",
-      "stage_assigned_to": null,
-      "attempts": 2,
-      "last_error": null,
-      "summary": "When a user starts a chat about health/safety or any topic other than recruitment/jobs and says hello, the bot incorrectly replies with job-search/candidate-finding help. Intent detection must respect the conversation's initial topic and not default to employment domain responses."
-    },
+{
+    "id": "TASK-108",
+    "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
+    "status": "NEEDS_QA",
+    "assigned_to": "agent-mapsaeng-dev",
+    "reviewer": null,
+    "qa_engineer": "agent-kilo-reviewer",
+    "stage_assigned_to": null,
+    "attempts": 3,
+    "last_error": null,
+    "summary": "When a user starts a chat about health/safety or any topic other than recruitment/jobs and says hello, the bot incorrectly replies with job-search/candidate-finding help. Intent detection must respect the conversation's initial topic and not default to employment domain responses."
+  },
     {
       "id": "TASK-109",
       "title": "Fix Chinese language rendering/encoding issue in chat responses",

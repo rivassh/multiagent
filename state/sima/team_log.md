@@ -959,3 +959,19 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-24T13:39:00Z] RELEASE_LEASE: agent-mapsaeng-reviewr released lease on sima/tasks.json
 - Proceeding to Phase 2 Review Mode (no lease held).
+
+## [2026-11-24T13:30:00Z] feat(TASK-108): complete implementation with greeting/persona regression test
+- Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0, commit 229cca5 pushed to origin)
+- Problem: When a user starts a chat about health/safety or any non-recruitment topic and says hello, the bot incorrectly replied with job-search/candidate-finding help.
+- Fix verified:
+  - resolveEffectiveTopic() correctly prioritizes: explicit topicSlug > stored initial_topic > firstEnabledSlug
+  - buildAllowedTools() uses resolveEffectiveTopic() to get correct topic's allowed_tools
+  - initial_topic persisted on first turn when explicit topicSlug provided
+  - System prompt injected with effective topic via injectSystemPrompt()
+  - Greeting/no-tool turns (isObviousNoToolRequest) use correct topic persona
+- Tests added:
+  - tests/Unit/ChatInitialTopicTest.php: 4 tests covering resolveTools allowlist, explicit topic override, and injectSystemPrompt greeting path with stored initial_topic
+  - All 4 tests pass (8 assertions)
+- Regression: ChatLanguageInstructionTest, ChatAllowedToolsFallbackTest, TopicRegistryTest, LLMClassifierTest — 25/25 pass.
+- Evidence: php vendor/bin/phpunit tests/Unit/ChatInitialTopicTest.php -> PASS (4 tests, 8 assertions)
+- Status: NEEDS_QA
