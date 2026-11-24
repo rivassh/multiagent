@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitOps Kanban Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <header class="bar">
+    <div class="brand">
+      <span class="brand-icon">&#x1F4CB;</span>
+      <div>
+        <div class="brand-name">GitOps Kanban Dashboard</div>
+        <div class="brand-sub">Real agent execution &bull; state/*/tasks.json</div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="filter">
+        <label>Scope</label>
+        <select id="filter-scope">
+          <option value="all">All</option>
+          <option value="sima">SIMA (TASK-NNN)</option>
+          <option value="candash">HR / Candash (TASK-HR-NNN)</option>
+          <option value="shared">Shared / OMR (TASK-OMR-NNN)</option>
+          <option value="root">Refactor / Root (TASK-REFACTOR-NNN)</option>
+        </select>
+      </div>
+      <div class="filter">
+        <label>Assignee / role ID</label>
+        <input id="filter-assignee" type="text" placeholder="filter by agent id">
+      </div>
+      <div class="filter">
+        <label>Search</label>
+        <input id="filter-search" type="text" placeholder="search title or ID">
+      </div>
+      <button id="btn-refresh" title="Refresh">&#x21BB;</button>
+      <span class="pill" id="health-pill">checking&#x2026;</span>
+    </div>
+    <div id="status" class="status" aria-live="polite"></div>
+  </header>
+
+  <div class="board-wrap">
+    <div class="board" id="board">
+      <!-- columns injected by JS -->
+    </div>
+  </div>
+
+  <template id="card-tpl">
+    <article class="card" draggable="true" role="button" aria-dropeffect="none">
+      <div class="card-head">
+        <span class="card-id" data-i></span>
+        <span class="card-runstate pill run-NONE"></span>
+      </div>
+      <div class="card-title"></div>
+      <div class="card-meta">
+        <span class="meta meta-assignee" title="Author/implementer"><span class="meta-k">A:</span><span class="meta-v"></span></span>
+        <span class="meta meta-qa" title="QA"><span class="meta-k">Q:</span><span class="meta-v"></span></span>
+        <span class="meta meta-reviewer" title="Reviewer"><span class="meta-k">R:</span><span class="meta-v"></span></span>
+        <span class="meta meta-attempts" title="Attempts"><span class="meta-k">#:</span><span class="meta-v">0</span></span>
+      </div>
+      <div class="card-footer">
+        <span class="card-branch" title="Branch"></span>
+        <span class="card-evidence" title="Evidence"></span>
+        <span class="card-error" title="Last error"></span>
+      </div>
+    </article>
+  </template>
+
+  <dialog id="modal" class="modal">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <h3 id="modal-title">Transition task</h3>
+        <button id="modal-close" class="close">&#215;</button>
+      </div>
+      <form id="modal-form">
+        <input id="modal-taskid" type="hidden">
+        <input id="modal-from" type="hidden">
+        <input id="modal-to" type="hidden">
+        <div class="field">
+          <label>Target status</label>
+          <input id="modal-to-status" type="text" readonly>
+        </div>
+        <div class="field">
+          <label>Role <span class="req">*</span></label>
+          <select id="modal-role">
+            <option value="implementer">Implementer</option>
+            <option value="qa">QA</option>
+            <option value="reviewer">Reviewer</option>
+            <option value="stage_verifier">Stage Verifier</option>
+          </select>
+          <p class="hint">Author &#8800; QA &#8800; Reviewer</p>
+        </div>
+        <div class="field">
+          <label>Agent / operator ID <span class="req">*</span></label>
+          <input id="modal-agent-id" type="text" placeholder="e.g. agent-abc123">
+        </div>
+        <div class="field evidence" id="modal-evidence">
+          <label>Evidence</label>
+          <textarea id="modal-evidence-text" rows="3" placeholder="test command, output, hash, or report&#x2026;"></textarea>
+          <p class="hint" id="modal-evidence-hint">Enter evidence as plain text (stored as evidence hash summary).</p>
+        </div>
+        <div class="field confirm">
+          <label><input type="checkbox" id="modal-confirm"> I confirm this transition</label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="modal-cancel">Cancel</button>
+          <button type="submit" id="modal-submit">Transition</button>
+        </div>
+      </form>
+      <div id="modal-err" class="err"></div>
+    </div>
+  </dialog>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
