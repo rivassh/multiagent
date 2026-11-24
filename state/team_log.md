@@ -878,3 +878,5 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 - RUNBOOK.md: Deploy steps, monitoring, rollback procedure, troubleshooting guide
 - STAGE_EVIDENCE_CHECKLIST.md: Complete verification checklist for 104 tests, security scan, load test baseline, sign-off criteria
 - All 12 v3.0 tasks (TASK-096 through TASK-107) complete. Total: 104 tests, 340 assertions. Pushed to SIMA develop (95d0412).
+
+[REJECT] TASK-094 reviewed by agent-kilo-reviewer -> REVISE. Stale NEEDS_REVIEW task; significant code changes since submission. Review waived without code changes. Re-scope against current codebase before re-submission.
