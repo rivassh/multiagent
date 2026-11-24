@@ -975,3 +975,18 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Regression: ChatLanguageInstructionTest, ChatAllowedToolsFallbackTest, TopicRegistryTest, LLMClassifierTest — 25/25 pass.
 - Evidence: php vendor/bin/phpunit tests/Unit/ChatInitialTopicTest.php -> PASS (4 tests, 8 assertions)
 - Status: NEEDS_QA
+
+## [2026-11-24T13:39:24Z] ACQUIRE_LEASE: agent-mapsaeng-reviewr acquired lease on sima/tasks.json
+- Lease ID: 36a6cb88-7340-42e3-b0ec-77b58afe1fe2; expires at 2026-11-24T13:41:24Z; branch: origin/master.
+- Purpose: Phase 3 atomic handoff for TASK-109 — review verdict PASS, transition IN_REVIEW -> DONE.
+
+## [2026-11-24T13:41:00Z] review(TASK-109): APPROVED [status=DONE] by agent-mapsaeng-reviewr
+- Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0, commit 7938568) "feat(chat): detect user language and inject into system prompt (TASK-109)".
+- Acceptance criteria (state/sima/tasks.json): chat responses must render in the user's language (Persian/English) without script substitution or mojibake — VERIFIED.
+- Root cause confirmed fixed: system prompt no longer hard-codes user_language='Persian'; PromptBuilder::detectUserLanguage() scans the last user message for Persian vs Latin script and injects the detected language into the assembled system prompt; base persona template is now script-aware (the contradictory "هرگز به انگلیسی پاسخ نده" line removed).
+- Implementation files reviewed: app/Modules/Chat/Services/ChatQueryService.php, app/Modules/Chat/Services/PromptBuilder.php, database/seeders/PromptSeeder.php.
+- New tests: tests/Unit/ChatLanguageInstructionTest.php (6 tests).
+- Test evidence (sima-dev @ 7938568): php vendor/bin/phpunit tests/Unit/ChatLanguageInstructionTest.php ChatInitialTopicTest.php ChatAllowedToolsFallbackTest.php TopicRegistryTest.php LLMClassifierTest.php PromptBuilderPrivacyTest.php -> OK (30 tests, 70 assertions, 0 failures/errors). 5 pre-existing ChatQueryServiceResponsePathTest traceId failures (commit 4f0d5f4a) confirmed unrelated — TASK-109 does not touch that line; fail identically on clean tree b1217e7.
+- Role separation verified: author=agent-srv4048378975-2615759, qa=srv4048378975, reviewer=agent-mapsaeng-reviewr (all distinct).
+- Non-blocking note: commit 7938568 bundles TASK-108 effective-topic/initial_topic refactor alongside TASK-109 (scope creep); those paths have passing tests and do not weaken the TASK-109 fix.
+- Verdict: PASS - acceptance criteria met, regression clean, role separation intact.
