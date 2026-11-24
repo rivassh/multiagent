@@ -1,19 +1,212 @@
 version: '3.8'
 
 services:
-  blackbox-qa:
-    image: mcr.microsoft.com/playwright:v1.65.1-noble
-    container_name: multiagent-blackbox-qa
-    working_dir: /workspace/sima-blackbox-tests
-    volumes:
-      - './sima-blackbox-tests:/workspace/sima-blackbox-tests:cached'
-      - './.env.qa:/workspace/sima-blackbox-tests/.env:ro'
+  # Shared infrastructure
+  postgres:
+    image: postgres:16-alpine
+    container_name: multiagent-postgres
     environment:
-      - BASE_URL=${BASE_URL:-http://host.docker.internal:8015}
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    command: ["sh", "-c", "npm install && npx playwright test"]
-    profiles: ["qa"]
+      POSTGRES_DB: multiagent
+      POSTGRES_USER: multiagent
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-multiagent}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./projects/sima/database:/docker-entrypoint-initdb.d/sima
+      - ./projects/candash/database:/docker-entrypoint-initdb.d/candash
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U multiagent -d multiagent"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - multiagent-network
 
-networks: {}
-volumes: {}
+  redis:
+    image: redis:7-alpine
+    container_name: multiagent-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - multiagent-network
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: multiagent-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - multiagent-network
+
+  # SIMA Application
+  sima-app:
+    build:
+      context: ./projects/sima
+      dockerfile: Dockerfile
+    container_name: multiagent-sima-app
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=multiagent
+      - DB_USERNAME=multiagent
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-multiagent}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ELASTICSEARCH_HOST=elasticsearch
+      - ELASTICSEARCH_PORT=9200
+    volumes:
+      - ./projects/sima:/var/www/html
+      - ./state/sima:/var/www/html/state
+    ports:
+      - "8015:80"
+      - "8089:8089"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - multiagent-network
+
+  # Candash Application
+  candash-app:
+    build:
+      context: ./projects/candash
+      dockerfile: Dockerfile
+    container_name: multiagent-candash-app
+    environment:
+      - APP_ENV=local
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=multiagent
+      - DB_USERNAME=multiagent
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-multiagent}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+      - ./projects/candash:/var/www/html
+      - ./state/candash:/var/www/html/state
+    ports:
+      - "8016:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - multiagent-network
+
+  # OMR Application (placeholder)
+  omr-app:
+    build:
+      context: ./projects/omr
+      dockerfile: Dockerfile
+    container_name: multiagent-omr-app
+    environment:
+      - APP_ENV=local
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=multiagent
+      - DB_USERNAME=multiagent
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-multiagent}
+    volumes:
+      - ./projects/omr:/var/www/html
+      - ./state/shared:/var/www/html/state
+    ports:
+      - "8017:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - multiagent-network
+
+  # Dashboard Service (Node.js Kanban dashboard + agent API)
+  dashboard:
+    image: node:20-alpine
+    container_name: multiagent-dashboard
+    command: sh -c "node /app/dashboard/server.js"
+    environment:
+      - STATE_ROOT=/app/state
+      - COORDINATION_BRANCH=${COORDINATION_BRANCH:-master}
+      - LEASE_TTL_SECONDS=120
+      - YOUR_ID=${YOUR_ID:-agent-dashboard}
+      - GIT_AUTHOR_NAME=${GIT_AUTHOR_NAME:-GitOps Dashboard}
+      - GIT_AUTHOR_EMAIL=${GIT_AUTHOR_EMAIL:-gitops@multiagent.local}
+      - DASHBOARD_PORT=8080
+    volumes:
+      - ./:/app:rw
+    ports:
+      - "127.0.0.1:8080:8080"
+    networks:
+      - multiagent-network
+
+  # Agent Worker (Node.js, polls QUEUED tasks, runs agents in isolated worktrees)
+  agent-worker:
+    image: node:20-alpine
+    container_name: multiagent-agent-worker
+    command: sh -c "node /app/state/agent_worker.js"
+    environment:
+      - STATE_ROOT=/app/state
+      - COORDINATION_BRANCH=${COORDINATION_BRANCH:-master}
+      - AGENT_LEASE_TTL_SECONDS=900
+      - AGENT_LEASE_HEARTBEAT_SECONDS=30
+      - AGENT_RUNNER_CMD=${AGENT_RUNNER_CMD:-/opt/multiagent/scripts/run_agent.sh}
+      - AGENT_TIMEOUT_SECONDS=1800
+      - TEST_TIMEOUT_SECONDS=900
+      - AGENT_MAX_CONCURRENT_RUNS=1
+      - WORKTREE_ROOT=/worktrees
+      - GITOPS_LOG_ROOT=/var/log/gitops
+      - SIMA_PROJECT_PATH=/app/projects/sima
+      - CANDASH_PROJECT_PATH=/app/projects/candash
+      - OMR_PROJECT_PATH=/app/projects/omr
+      - SIMA_BASE_BRANCH=develop
+      - CANDASH_BASE_BRANCH=main
+      - OMR_BASE_BRANCH=main
+      - YOUR_ID=${YOUR_ID:-agent-worker}
+      - GIT_AUTHOR_NAME=${GIT_AUTHOR_NAME:-GitOps Dashboard}
+      - GIT_AUTHOR_EMAIL=${GIT_AUTHOR_EMAIL:-gitops@multiagent.local}
+    volumes:
+      - ./:/app:rw
+      - worktrees_data:/worktrees
+      - agent_logs:/var/log/gitops
+    networks:
+      - multiagent-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  elasticsearch_data:
+  worktrees_data:
+  agent_logs:
+
+networks:
+  multiagent-network:
+    driver: bridge

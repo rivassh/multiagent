@@ -1,0 +1,153 @@
+/* GitOps Kanban Dashboard - self-contained styles, no CDN */
+:root {
+  --bg: #f3f4f6;
+  --panel: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --warn: #ca8a04;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; }
+body { overflow-x: hidden; }
+
+.shell { display: flex; flex-direction: column; height: 100vh; max-height: 100vh; }
+.bar {
+  display: flex; flex-direction: column;
+  background: var(--panel); border-bottom: 1px solid var(--border);
+  padding: 12px 16px; gap: 10px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-icon { font-size: 20px; }
+.brand-name { font-weight: 700; font-size: 16px; letter-spacing: 0.4px; }
+.brand-sub { font-size: 11px; color: var(--muted); }
+
+.toolbar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-left: auto;
+}
+.filter { display: flex; flex-direction: column; gap: 4px; font-size: 12px; }
+.filter label { color: var(--muted); }
+.filter select, .filter input {
+  width: 170px; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px;
+  background: #fff; font-size: 13px; color: var(--text);
+}
+button#btn-refresh {
+  padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--text);
+  cursor: pointer; font-size: 18px; line-height: 1;
+}
+button#btn-refresh:hover { background: #f9fafb; }
+.pill {
+  display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; border: 1px solid var(--border); color: var(--muted);
+}
+.pill.ok { color: var(--success); border-color: #bbf7d0; background: #ecfdf5; }
+.pill.bad { color: var(--danger); border-color: #fecaca; background: #fef2f2; }
+
+.status { margin: 0 8px 0 0; font-size: 12px; min-height: 16px; }
+.status.ok { color: var(--success); }
+.status.bad { color: var(--danger); }
+.status.warn { color: var(--warn); }
+
+.board-wrap { flex: 1; overflow: auto; padding: 16px; }
+.board {
+  display: flex; gap: 12px; align-items: flex-start;
+  min-width: max-content; padding-bottom: 24px;
+}
+
+.col {
+  display: flex; flex-direction: column; width: 260px; min-width: 240px;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--panel);
+}
+.col-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px; border-bottom: 1px solid var(--border);
+  border-radius: 9px 9px 0 0; background: #f9fafb;
+}
+.col-title { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.3px; color: var(--muted); }
+.col-count { font-size: 12px; color: var(--muted); background: #e5e7eb; padding: 1px 7px; border-radius: 10px; }
+
+.col-items { flex: 1; padding: 8px 6px; overflow-y: auto; min-height: 40px; }
+.col.empty .col-items { min-height: 200px; }
+.col.drag-over { background: #eff6ff; border-color: var(--accent); }
+
+.card {
+  background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+  margin-bottom: 8px; cursor: grab; font-size: 13px; position: relative; break-inside: avoid;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.card:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08); border-color: #cbd5e1; }
+.card.dragging { opacity: 0.35; border-color: var(--accent); cursor: grabbing; }
+.card.disabled { opacity: 0.55; pointer-events: none; background: #f3f4f6; }
+.card-header-row, .card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.card-id { font-weight: 800; font-size: 13px; color: var(--accent); letter-spacing: 0.2px; }
+.card-title { font-size: 14px; font-weight: 600; margin: 4px 0 6px 0; line-height: 1.35; overflow-wrap: break-word; }
+.card-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.meta { font-size: 11px; color: var(--muted); }
+.meta-k { font-weight: 700; color: var(--muted); margin-right: 3px; }
+.meta-v { color: var(--text); }
+
+.card-footer { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+.card-branch, .card-evidence, .card-error { overflow-wrap: break-word; }
+.card-error { color: var(--danger); }
+
+.pill.run-NONE { color: var(--muted); border-color: var(--border); background: #f1f5f9; }
+.pill.run-QUEUED { color: #856404; border-color: #f3e3b3; background: #fdf6e3; }
+.pill.run-RUNNING { color: #1d4ed8; border-color: #bfdbfe; background: #eff6ff; }
+.pill.run-SUCCEEDED { color: var(--success); border-color: #86efac; background: #ecfdf5; }
+.pill.run-FAILED { color: var(--danger); border-color: #fecaca; background: #fef2f2; }
+
+.status-TODO { background: #fef3c7; color: #92400e; }
+.status-IN_PROGRESS { background: #dbeafe; color: #1e40af; }
+.status-NEEDS_QA { background: #fce7f3; color: #9d174d; }
+.status-QA_PASSED { background: #dcfce7; color: #166534; }
+.status-QA_FAILED { background: #fee2e2; color: #991b1b; }
+.status-NEEDS_REVIEW { background: #e0e7ff; color: #3730a3; }
+.status-IN_REVIEW { background: #e0e7ff; color: #3730a3; }
+.status-DONE { background: #dcfce7; color: #166534; }
+.status-REVISE { background: #fee2e2; color: #991b1b; }
+.status-STAGE_VERIFIED { background: #f3f4f6; color: var(--muted); }
+
+.badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; }
+
+/* Modal */
+dialog#modal { border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15), 0 8px 10px -6px rgba(0,0,0,0.1); padding: 0; width: min(520px, 92vw); max-height: 85vh; overflow: auto; background: var(--panel); }
+dialog::backdrop { background: rgba(0,0,0,0.45); }
+.modal-inner { padding: 18px 20px; }
+.modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.modal-head h3 { margin: 0; font-size: 16px; font-weight: 700; }
+button.close { background: transparent; border: none; font-size: 24px; line-height: 1; cursor: pointer; color: var(--muted); padding: 0 4px; }
+button.close:hover { color: var(--text); }
+.field { margin-bottom: 12px; font-size: 13px; }
+.field label { display: block; margin-bottom: 5px; font-weight: 600; }
+.field label .req { color: var(--danger); }
+.field input[type="text"], field select, field textarea {
+  width: 100%; padding: 7px 9px; border: 1px solid var(--border); border-radius: 6px; background: #fff; font: inherit;
+}
+.field input[type="text"]:focus, field select:focus, field textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.evidence textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.confirm label { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
+.modal-actions button { padding: 7px 16px; border: 1px solid var(--border); border-radius: 6px; background: #fff; cursor: pointer; font: inherit; font-size: 13px; }
+.modal-actions button:hover { background: #f3f4f6; }
+#modal-submit { background: var(--accent); color: #fff; border-color: var(--accent); }
+#modal-submit:hover { background: var(--accent-hover); }
+#modal-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.err { margin-top: 10px; padding: 8px 10px; border-radius: 6px; background: #fef2f2; color: var(--danger); font-size: 12px; display: none; }
+
+/* Overlay during mutation */
+#busy-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.55); display: none; align-items: center; justify-content: center; z-index: 50; font-weight: 700; color: var(--accent); }
+
+@media (max-width: 700px) {
+  .board-wrap { padding: 10px; }
+  .col { width: 210px; min-width: 190px; }
+  .toolbar { gap: 8px; }
+  .filter select, .filter input { width: 140px; }
+  .bar { flex-direction: column; align-items: stretch; }
+  .toolbar { margin-left: 0; width: 100%; justify-content: space-between; }
+}

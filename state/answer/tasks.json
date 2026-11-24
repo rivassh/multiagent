@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "namespace": "answer",
+  "statuses": [
+    "TODO",
+    "IN_PROGRESS",
+    "NEEDS_QA",
+    "QA_PASSED",
+    "QA_FAILED",
+    "NEEDS_REVIEW",
+    "IN_REVIEW",
+    "REVISE",
+    "STAGE",
+    "DONE"
+  ],
+  "tasks": [
+    {
+      "id": "TASK-ANSWER-001",
+      "title": "Set up answer state partition (state/answer/) and migrate layout",
+      "status": "NEEDS_REVIEW",
+      "assigned_to": "agent-antix1-15972",
+      "reviewer": null,
+      "qa_assigned_to": "agent-local-12345",
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "state/answer/ directory exists with tasks.json",
+        "Runner validates scope=answer with TASK-ANSWER-NNN pattern",
+        "Dependencies are namespace-isolated (only TASK-ANSWER-* deps accepted)",
+        "Storage directory created and gitignored"
+      ],
+      "qa_evidence": {
+        "validated_by": "agent-local-12345",
+        "validated_at": "2026-11-06T18:35:00Z",
+        "result": "QA_PASSED",
+        "checks": [
+          {
+            "criterion": "state/answer/ directory exists with tasks.json",
+            "evidence": "state/answer/tasks.json exists with versioned task schema",
+            "status": "pass"
+          },
+          {
+            "criterion": "Runner validates scope=answer with TASK-ANSWER-NNN pattern",
+            "evidence": "STATE_PATHS includes answer path (line 10); validateScope accepts answer (line 35); getTaskPattern returns /^TASK-ANSWER-\\d{3}$/ (line 48); syntax error fixed (single return scope; at line 38)",
+            "status": "pass"
+          },
+          {
+            "criterion": "Dependencies are namespace-isolated (only TASK-ANSWER-* deps accepted)",
+            "evidence": "processTaskLifecycle filters deps via taskPattern.test(id) (line 153); cross-namespace deps fail pattern match",
+            "status": "pass"
+          },
+          {
+            "criterion": "Storage directory created and gitignored",
+            "evidence": "storage/{results,comparisons,metadata}/ created; .gitignore contains storage/; verified untracked via git status",
+            "status": "pass"
+          }
+        ],
+        "test_verification": "14/14 tests pass in tests/Feature/runner_workflow.test.cjs including new Answer scope tests (#12-14)"
+      },
+      "depends_on": []
+    },
+    {
+      "id": "TASK-ANSWER-002",
+      "title": "Configure Docker Compose for answer pipeline (image processor + form processor)",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-ANSWER-001"]
+    },
+    {
+      "id": "TASK-ANSWER-003",
+      "title": "Implement process_image.py proven extraction pipeline",
+      "status": "DONE",
+      "assigned_to": "agent-antix1-15972",
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [
+        "process_image.py script exists and can process images",
+        "Script accepts parameters via command-line arguments and env vars",
+        "Results written to storage/ directory (gitignored)",
+        "Task evidence (test_output, evidence) recorded in tasks.json"
+      ],
+      "qa_evidence": {
+        "validated_by": "agent-antix1-15972",
+        "validated_at": "2026-11-06T19:14:00Z",
+        "result": "PASSED",
+        "checks": [
+          {
+            "criterion": "process_image.py script exists and can process images",
+            "evidence": "Docker run of process_image pipeline completed with status: success",
+            "status": "pass"
+          },
+          {
+            "criterion": "Script accepts parameters via command-line arguments and env vars",
+            "evidence": "process_image_proven_pipeline accepts (image_path, config) and CLI args via argparse (--input, --output, --format, --config)",
+            "status": "pass"
+          },
+          {
+            "criterion": "Results written to storage/ directory (gitignored)",
+            "evidence": "write_result wrote output to storage/results/20261106_191332_tmpw4ufseu1.json with verified valid JSON status: success",
+            "status": "pass"
+          },
+          {
+            "criterion": "Task evidence (test_output, evidence) recorded in tasks.json",
+            "evidence": "This evidence recorded at 2026-11-06T19:14:00Z",
+            "status": "pass"
+          }
+        ],
+        "test_verification": "pipeline executed via Docker: python3 -c process_image_proven_pipeline + write_result; output verified valid JSON; status success"
+      },
+      "depends_on": ["TASK-ANSWER-002"]
+    },
+    {
+      "id": "TASK-ANSWER-004",
+      "title": "Add BDD test scaffold for image processing pipeline",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-ANSWER-003"]
+    },
+    {
+      "id": "TASK-ANSWER-005",
+      "title": "Add result comparison and merge logic to result_comparator.py",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-ANSWER-006",
+      "title": "Implement Laravel queue job to populate dashboard DB from storage results",
+      "status": "DONE",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 1,
+      "last_error": null,
+      "acceptance_criteria": [],
+      "depends_on": ["TASK-ANSWER-003", "TASK-ANSWER-005"]
+    },
+    {
+      "id": "TASK-ANSWER-997",
+      "title": "Dashboard ingestion pipeline migration from TASK-ANSWER-006 / TASK-DASHBOARD-NNN",
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-noabatgircom-2254092",
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Map the former TASK-ANSWER-006 dashboard work to the correct TASK-DASHBOARD-NNN namespace and task contract",
+        "Persist dashboard data ingestion from storage results into the dashboard database without losing traceability",
+        "Document the queue, schema mapping, and execution evidence so downstream review can validate the pipeline"
+      ],
+      "depends_on": ["TASK-ANSWER-003", "TASK-ANSWER-005"]
+    },
+    {
+      "id": "TASK-ANSWER-007",
+      "title": "Group OCR output and image files by section/person before downstream analysis",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "After OCR, every generated file is assigned to a section/group or an explicit unassigned bucket.",
+        "Original file names, folders, and metadata remain traceable after regrouping.",
+        "Grouped outputs are ready for section-level review and dashboard queries.",
+        "No file is silently dropped when section detection is ambiguous."
+      ],
+      "depends_on": ["TASK-ANSWER-003"]
+    }
+  ]
+}
