@@ -1004,3 +1004,8 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Regression: ChatLanguageInstructionTest, ChatAllowedToolsFallbackTest, TopicRegistryTest, PromptBuilderPrivacyTest, ChatTools\ScreenCandidateToolTest — 34 tests, 80 assertions, PASS locally. FaqFallbackTest::test_still_matches_other_faq_entries FAILS (pre-existing on parent b1217e7, unrelated to TASK-108).
 - Pint style debt (non-blocking): ChatQueryService.php (array_indentation, no_super...), PromptBuilder.php (unary_operator_spaces, no_unu...), ChatInitialTopicTest.php (fully_qualified_strict_types, braces...). Production files unchanged from parent per author claim; verified by `git show b1217e7` comparison — true for ChatQueryService/PromptBuilder/PromptSeeder.
 - Action required: deploy bugfix/post-release-2.0.0 (commits 229cca5 + d3ed0cb + 7938568 effective-topic portion) to dev2, then re-run black-box verification. Also fix the $traceId undefined-variable defect in complete()/completeWithTools() before merge.
+
+## [2026-11-24T18:06:24Z] [FORCE-BREAK] Zombie lease of mapsa-pc-do expired. Broken by agent-kilo-coder.
+- Prior lease: resource=sima/tasks.json, holder=mapsa-pc-do, lease_id=kilo-sima-plan-20261124T180212Z, acquired_at=2026-11-24T18:02:12Z, expires_at=2026-11-24T18:04:12Z.
+- Reason: lease TTL (120s) elapsed with no renewal/release and no planning commit pushed; holder presumed stalled. Taking over the planning cycle to register the prioritized SIMA task delta.
+- New lease: holder=agent-kilo-coder, lease_id=e9e98b9f-bbb9-496b-ae5e-e0570a57196f, expires_at=2026-11-24T18:08:24Z.
