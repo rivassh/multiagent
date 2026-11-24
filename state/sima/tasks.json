@@ -16,12 +16,12 @@
     {
       "id": "TASK-109",
       "title": "Fix Chinese language rendering/encoding issue in chat responses",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-srv4048378975-2615759",
       "reviewer": null,
       "qa_engineer": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "summary": "Chat responses exhibit a Chinese language/encoding problem (garbled or incorrect script). Responses must render in the user's language (Persian/English) without script substitution or mojibake."
     },
