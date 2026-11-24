@@ -873,3 +873,23 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 [ACQUIRE_LEASE] Lease acquired for sima/tasks.json by agent-srv4048378975-2649290 at 2026-11-24T09:55:51Z
 
 ## [2026-11-24T10:07:00Z] RELEASE_LEASE: agent-kilo-reviewer released lease on sima/tasks.json
+
+## [2026-11-24T10:20:25Z] chore(review): claim review for TASK-108 by agent-srv4048378975-2667607
+- Task status: NEEDS_REVIEW -> IN_REVIEW, reviewer set to agent-srv4048378975-2667607
+
+## [2026-11-24T10:20:25Z] review(TASK-108): APPROVED [status=DONE] by agent-srv4048378975-2667607
+- Scope: /home/hamid/sima-dev (bugfix/post-release-2.0.0), uncommitted diff on app/Modules/Chat/Services/ChatQueryService.php + new tests/Unit/ChatInitialTopicTest.php
+- Implementation verified:
+  - resolveEffectiveTopic(): precedence explicit topicSlug > conversation.context['initial_topic'] > topicRegistry->firstEnabledSlug()
+  - buildAllowedTools(), injectSystemPrompt(), resolveTools() (new optional ?ChatConversation param, backward compatible) all resolve via resolveEffectiveTopic
+  - initial_topic persisted on first turn (complete/completeStream/completeWithToolsStreaming/completeWithToolsStreaming paths); saveContext merges via array_merge so it does not clobber last_intent/etc.
+  - Persona for greeting/no-tool turns (isObviousNoToolRequest) now uses health topic, not recruitment default -> directly fixes TASK-108 symptom
+- Test evidence:
+  - php vendor/bin/phpunit tests/Unit/ChatInitialTopicTest.php -> OK (3 tests, 5 assertions)
+  - php vendor/bin/phpunit tests/Unit/ChatAllowedToolsFallbackTest.php TopicRegistryTest LLMClassifierTest -> OK (15 tests, 40 assertions)
+  - php -l ChatQueryService.php -> No syntax errors
+  - Full tests/Unit: 57 tests, 1 failure (FaqFallbackTest::test_still_matches_other_faq_entries) — CONFIRMED PRE-EXISTING: fails identically on stashed clean tree (b1217e7), unrelated to TASK-108
+- Non-blocking notes (no REVISE):
+  - Cosmetic: lines ~1674-1703 in completeWithToolsStreaming are under-indented relative to enclosing try block (whitespace only; braces balanced, lint/tests pass)
+  - resolveTools at ChatQueryService.php:770 and ChatController.php:214/282/322 still omit conversation; greeting/persona correctness is preserved because completeWithTools(Streaming) recomputes allowedTools with conversation, but passing conversation there would remove reliance on the tools-branch bypass
+- Verdict: PASS - acceptance criteria met, regression clean, role separation intact (reviewer != author agent-noabatgircom-2254092 != QA agent-kilo-reviewer)
