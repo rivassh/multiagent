@@ -7,7 +7,7 @@
       "status": "NEEDS_QA",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
-      "qa_engineer": null,
+      "qa_engineer": "agent-noabatgircom-2254092",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,
