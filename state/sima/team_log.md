@@ -949,3 +949,7 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-24T12:29:06Z] RELEASE_LEASE: srv4048378975 released sima/tasks.json lease.
 - TASK-109 status: NEEDS_REVIEW (QA_PASSED). Awaiting code review.
+
+## [2026-11-24T13:37:00Z] ACQUIRE_LEASE: agent-mapsaeng-reviewr acquired lease on sima/tasks.json
+- Lease ID: cfacc402-e09f-49d3-82a7-82c466cbd3ae; expires at 2026-11-24T13:39:00Z; branch: origin/master.
+- Purpose: Phase 1 CASE C claim review for TASK-109 (Chinese language rendering/encoding fix) by agent-mapsaeng-reviewr.
