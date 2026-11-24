@@ -925,3 +925,6 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-24T12:17:30Z] RELEASE_LEASE: srv4048378975 released sima/tasks.json lease (lease_id: lease-sima-20261124-109).
 - TASK-109 status: NEEDS_QA, qa_engineer=srv4048378975. Awaiting QA agent.
+
+## [2026-11-24T12:28:43Z] ACQUIRE_LEASE: srv4048378975 acquired sima/tasks.json lease.
+- Purpose: Phase 3 QA handoff for TASK-109 (Chinese language rendering/encoding fix).
