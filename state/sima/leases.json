@@ -1,12 +1,4 @@
 {
   "version": 1,
-  "leases": [
-    {
-      "resource": "sima/tasks.json",
-      "holder": "agent-kilo-reviewer",
-      "lease_id": "64b549a8-8b82-48d6-ae2a-a005d01f9e26",
-      "acquired_at": "2026-11-24T10:06:47Z",
-      "expires_at": "2026-11-24T10:08:50Z"
-    }
-  ]
+  "leases": []
 }

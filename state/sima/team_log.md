@@ -871,3 +871,5 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Verdict: QA_PASSED - all criteria met, tests pass, quality acceptable
 
 [ACQUIRE_LEASE] Lease acquired for sima/tasks.json by agent-srv4048378975-2649290 at 2026-11-24T09:55:51Z
+
+## [2026-11-24T10:07:00Z] RELEASE_LEASE: agent-kilo-reviewer released lease on sima/tasks.json
