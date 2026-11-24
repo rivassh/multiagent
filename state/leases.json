@@ -1,15 +1,12 @@
 {
-  "version": 1,
-  "deprecated": true,
-  "migrated_to": "state/shared/leases.json",
-  "message": "This file has been migrated to partitioned state directories. See state/shared/leases.json for active lease management.",
-  "leases": [
-    {
-      "resource": "tasks.json",
-      "holder": "agent-srv4048378975-351576",
-      "lease_id": "5e3510ee-d13f-43d4-9d50-999d95a1a596",
-      "acquired_at": "2026-11-09T11:49:52Z",
-      "expires_at": "2026-11-09T11:51:52Z"
-    }
-  ]
+    "version": 1,
+    "leases": [
+        {
+            "resource": "tasks.json",
+            "holder": "agent-srv4048378975-2463602",
+            "lease_id": "774e1300-4a1e-4ade-9d1c-728aab4d10e4",
+            "acquired_at": "2026-11-24T05:57:17Z",
+            "expires_at": "2026-11-24T05:59:17Z"
+        }
+    ]
 }
