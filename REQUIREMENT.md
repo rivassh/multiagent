@@ -53,7 +53,7 @@ continue
 آماده کن
 
 ## User Directive [2026-11-03T06:09:14Z] (Captured by agent-noabatgircom-2254092)
-الان token جدید بدم؟
+ان token جدید بدم؟
 
 ## User Directive [2026-11-03T06:16:08Z] (Captured by agent-noabatgircom-2254092)
 @jobvision..ir_har.har رو بررسی کن هم توکن جدید هست که می تونی در .env جدید جاگذاری کنی و کارهای لازم رو انجام بدی که کار کنه و هم روندی که اگر expire شد درستش کنی
@@ -269,8 +269,11 @@ I found one medium-severity issue in the OMR scope work.
 Why this matters:
 - `--scope omr` currently filters the task list by pattern, but it does not filter the dependency graph by namespace.
 - That means a task such as `TASK-OMR-002` could incorrectly proceed when `TASK-001` or `TASK-HR-001` is marked DONE.
-- The repo’s own AGENTS/spec requires namespace isolation for HR and OMR work, so this is a real correctness bug, not just a cosmetic issue.
+- The repo's own AGENTS/spec requires namespace isolation for HR and OMR work, so this is a real correctness bug, not just a cosmetic issue.
 
 Suggested fix:
 - When evaluating `depends_on`, verify each dependency matches the active scope pattern before considering it satisfied.
 - For example, in `omr` mode only accept dependencies matching `/^TASK-OMR-\d{3}$/`, and do the same for `hr` and default `sima` modes.
+
+## User Directive [2026-11-24T10:42:51Z] (Captured by agent-noabatgircom-2254092)
+می خوام چند تا تسک با توجه به gitops در مورد sima بدم @AGENTS.md . حاضری؟
