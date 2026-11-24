@@ -37,7 +37,12 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "acceptance_criteria": [],
+      "acceptance_criteria": [
+        "Define event/privacy contract for chat analytics messages",
+        "Persist trace metadata for intent, retrieval, model/prompt version, and tool executions in SIMA's existing SQL store",
+        "Implement trace_id for every chat message (user/system/assistant/error) with unique trace_id for end-to-end traceability",
+        "Capture tool traces with trace_id correlation"
+      ],
       "depends_on": []
     },
     {
@@ -78,6 +83,78 @@
       "last_error": null,
       "acceptance_criteria": [],
       "depends_on": []
+    },
+    {
+      "id": "TASK-091",
+      "title": "Add trace_id column to chat_messages database table with unique index",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Migration adds trace_id column (UUID type) to chat_messages table",
+        "trace_id column has unique constraint and database index",
+        "Existing messages can be backfilled with generated trace_ids",
+        "Migration is reversible and idempotent"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-092",
+      "title": "Generate trace_id in chat message creation for all message roles",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "trace_id is auto-generated (UUID v4) when creating any chat message",
+        "All message roles supported: user, system, assistant, error",
+        "trace_id is unique per message/event",
+        "trace_id is set before message persistence to database"
+      ],
+      "depends_on": ["TASK-091"]
+    },
+    {
+      "id": "TASK-093",
+      "title": "Include trace_id in chat API responses and SSE stream events",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "trace_id is included in chat message API response payload",
+        "trace_id is included in SSE stream events (status, assistant_message, done, error)",
+        "Client can use trace_id for end-to-end message correlation",
+        "trace_id format is consistent across REST and SSE endpoints"
+      ],
+      "depends_on": ["TASK-092"]
+    },
+    {
+      "id": "TASK-094",
+      "title": "BDD tests for trace_id presence, uniqueness, and correctness across all message types",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "BDD feature file defines trace_id scenarios for user/system/assistant/error messages",
+        "Step definitions verify trace_id is present and unique per message",
+        "Tests verify trace_id correlation across API and SSE layers",
+        "All BDD tests pass for trace_id requirement"
+      ],
+      "depends_on": ["TASK-093"]
     },
     {
       "id": "TASK-OMR-002",

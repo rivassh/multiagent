@@ -97,6 +97,7 @@ The `node state/runner_workflow.js` command accepts `--scope sima`, `--scope hr`
 
 - Store one analytics record per conversation message, keyed by source conversation/message identifiers and source update time so backfills and retries are idempotent.
 - Preserve message role, content after privacy sanitization, timestamps, conversation ordering, model/provider where available, detected intent, prompt-template version/hash, retrieval collection and counts, and tool call name/arguments/result summaries when available.
+- **trace_id**: Every chat message (user/system/assistant/error) must carry a unique trace_id for end-to-end traceability. The trace_id is a UUID v4 generated at message creation time, stored in the chat_messages table, and propagated through API responses and SSE stream events. The trace_id enables correlation of a single message/event across the database, application layer, API, and client.
 - Do not copy direct identifiers (phone numbers, emails, access tokens, API keys, or source account identifiers). Use a keyed pseudonymous actor key only when needed to join a user's records; keep its secret outside the repository and analytics database dumps.
 - Minimize candidate or third-party personal data in tool arguments/results. Store only fields required for the analytical purpose; no candidate contact details. If content cannot be safely sanitized, omit it and record a non-sensitive omission reason.
 - Keep operational errors visible in ETL logs without logging unsanitized message content or credentials.
@@ -110,7 +111,11 @@ The `node state/runner_workflow.js` command accepts `--scope sima`, `--scope hr`
 ### Planned implementation tasks
 
 1. TASK-087: specify the event/privacy contract and persist trace metadata for intent, retrieval, model/prompt version, and tool executions in SIMA's existing SQL store.
-2. TASK-088: create the separate MongoDB/ETL Compose environment and safe analyst read-only access.
+2. TASK-091: Add trace_id column to chat_messages database table with unique index.
+3. TASK-092: Generate trace_id in chat message creation for all message roles (user/system/assistant/error).
+4. TASK-093: Include trace_id in chat API responses and SSE stream events.
+5. TASK-094: BDD tests for trace_id presence, uniqueness, and correctness across all message types.
+6. TASK-088: create the separate MongoDB/ETL Compose environment and safe analyst read-only access.
 3. TASK-089: implement and test the privacy-sanitizing, idempotent backfill/incremental ETL.
 4. TASK-090: add verification/quality checks and analyst operating documentation and queries.
 5. TASK-091: trace and document JobVision ingestion/synchronization, database reads and writes, chat retrieval, and the reported job-count discrepancy using read-only evidence.
