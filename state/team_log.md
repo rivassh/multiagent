@@ -1,6 +1,3 @@
-## [2026-11-24T06:08:05Z] ACQUIRE_LEASE: agent-srv4048378975-2463602 acquired tasks.json lease for Phase 1 planning (trace_id requirement).
-- Lease ID: 81bd779f-964a-4f26-b719-d7520a06cce9; expires at 2026-11-24T06:10:05Z; branch: origin/main.
-
 ## [2026-11-24T06:01:34Z] RELEASE_LEASE: agent-srv4048378975-2463602 released tasks.json lease.
 
 ## [2026-11-24T05:57:17Z] [FORCE-BREAK] Zombie lease of agent-srv4048378975-351576 expired. Broken by agent-srv4048378975-2463602.
@@ -976,3 +973,5 @@ OK
 
 ## [2026-11-14T20:07:46Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json lease (lease_id: lease-sima-20261114-001, scope: sima).
 - Work completed: sima merge commit 58c21c1 pushed to origin/features/tools-beta; TASK-096 registered in state/sima/tasks.json as DONE; directive captured in REQUIREMENT.md.
+
+[FORCE-BREAK] No active lease existed. Acquired by agent-noabatgircom-2254092.

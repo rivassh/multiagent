@@ -283,3 +283,6 @@ Suggested fix:
 
 ## User Directive [2026-11-24T05:57:17Z] (Captured by agent-srv4048378975-2463602)
 Implement trace_id for every chat message (user/system/assistant/error) in the database schema and application layer. Each message/event should have a unique trace_id for end-to-end traceability. This relates to TASK-087 (Define privacy-safe chat analytics event contract and capture tool traces) which is currently TODO.
+
+## User Directive [2026-11-24T06:15:00Z] (Captured by agent-noabatgircom-2254092)
+Implement trace_id for every chat message (user/system/assistant/error) in the database schema and application layer. Each message/event should have a unique trace_id for end-to-end traceability. This relates to TASK-087 (Define privacy-safe chat analytics event contract and capture tool traces) which is currently TODO.
