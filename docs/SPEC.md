@@ -111,10 +111,10 @@ The `node state/runner_workflow.js` command accepts `--scope sima`, `--scope hr`
 ### Planned implementation tasks
 
 1. TASK-087: specify the event/privacy contract and persist trace metadata for intent, retrieval, model/prompt version, and tool executions in SIMA's existing SQL store.
-2. TASK-091: Add trace_id column to chat_messages database table with unique index.
-3. TASK-092: Generate trace_id in chat message creation for all message roles (user/system/assistant/error).
-4. TASK-093: Include trace_id in chat API responses and SSE stream events.
-5. TASK-094: BDD tests for trace_id presence, uniqueness, and correctness across all message types.
+2. TASK-097: Add trace_id column to chat_messages database table with unique index.
+3. TASK-098: Generate trace_id in chat message creation for all message roles (user/system/assistant/error).
+4. TASK-099: Include trace_id in chat API responses and SSE stream events.
+5. TASK-100: BDD tests for trace_id presence, uniqueness, and correctness across all message types.
 6. TASK-088: create the separate MongoDB/ETL Compose environment and safe analyst read-only access.
 3. TASK-089: implement and test the privacy-sanitizing, idempotent backfill/incremental ETL.
 4. TASK-090: add verification/quality checks and analyst operating documentation and queries.

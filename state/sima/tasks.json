@@ -435,6 +435,82 @@
         "Tasks registered in state/sima/tasks.json"
       ],
       "depends_on": []
+    },
+    {
+      "id": "TASK-097",
+      "title": "Add trace_id column to chat_messages and chat_conversations database tables with unique index",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Migration adds trace_id UUID column to chat_messages table",
+        "Migration adds trace_id UUID column to chat_conversations table",
+        "Unique index on trace_id for both tables",
+        "Migration is reversible (down drops column and index)",
+        "Existing data backfilled with generated trace_id where applicable"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-098",
+      "title": "Include trace_id in ChatMessage and ChatConversation Eloquent models (fillable, casts)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "ChatMessage $fillable includes trace_id",
+        "ChatConversation $fillable includes trace_id",
+        "trace_id cast as string on both models",
+        "Model validation ensures trace_id is a valid UUID v4"
+      ],
+      "depends_on": ["TASK-097"]
+    },
+    {
+      "id": "TASK-099",
+      "title": "Generate trace_id on chat message creation and return it in API responses and SSE events",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "trace_id (UUID v4) generated when persisting user/system/assistant/error messages",
+        "trace_id included in conversation messages API response (conversationMessages)",
+        "trace_id included in completions/query API response data",
+        "trace_id propagated in SSE stream assistant_message events",
+        "Backward compatible: responses remain valid when trace_id absent"
+      ],
+      "depends_on": ["TASK-098"]
+    },
+    {
+      "id": "TASK-100",
+      "title": "Tests for trace_id presence, uniqueness, and correctness across all message roles (Red phase first)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Failing tests exist before implementation (TDD Red phase)",
+        "Tests verify trace_id is present on all message roles (user/system/assistant/error)",
+        "Tests verify trace_id uniqueness across messages in a conversation",
+        "Tests verify trace_id is returned in chat API responses",
+        "Tests verify trace_id is propagated in SSE stream events",
+        "All tests pass after implementation (TDD Green phase)"
+      ],
+      "depends_on": ["TASK-099"]
     }
   ]
 }
