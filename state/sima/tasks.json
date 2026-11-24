@@ -4,7 +4,7 @@
     {
       "id": "TASK-108",
       "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-noabatgircom-2254092",
       "reviewer": null,
       "qa_engineer": "agent-kilo-reviewer",

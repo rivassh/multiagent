@@ -3,10 +3,10 @@
   "leases": [
     {
       "resource": "sima/tasks.json",
-      "holder": "agent-srv4048378975-2649290",
-      "lease_id": "9bedbcd7-209f-4453-978a-76d075f6707c",
-      "acquired_at": "2026-11-24T09:55:51Z",
-      "expires_at": "2026-11-24T09:55:51Z"
+      "holder": "agent-kilo-reviewer",
+      "lease_id": "64b549a8-8b82-48d6-ae2a-a005d01f9e26",
+      "acquired_at": "2026-11-24T10:06:47Z",
+      "expires_at": "2026-11-24T10:08:50Z"
     }
   ]
 }

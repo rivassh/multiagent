@@ -858,4 +858,16 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-24T09:52:00Z] RELEASE_LEASE: agent-kilo-reviewer released lease on sima/tasks.json
 
+## [2026-11-24T10:05:00Z] qa(TASK-108): PASSED [status=NEEDS_REVIEW] by agent-kilo-reviewer
+- QA Mode: Verified implementation of chat topic persistence in SIMA codebase (/home/hamid/sima-dev)
+- Tests passed: ChatInitialTopicTest (3 tests), ChatAllowedToolsFallbackTest (4 tests), TopicRegistryTest (6 tests), LLMClassifierTest (5 tests)
+- Implementation verified:
+  - resolveEffectiveTopic() correctly prioritizes: explicit topicSlug > stored initial_topic > firstEnabledSlug
+  - buildAllowedTools() uses resolveEffectiveTopic() to get correct topic's allowed_tools
+  - initial_topic persisted on first turn when explicit topicSlug provided
+  - System prompt injected with effective topic via injectSystemPrompt()
+  - Greeting/no-tool turns (isObviousNoToolRequest) use correct topic persona
+- Requirements satisfied: Intent detection respects conversation's initial topic, does not default to employment domain responses
+- Verdict: QA_PASSED - all criteria met, tests pass, quality acceptable
+
 [ACQUIRE_LEASE] Lease acquired for sima/tasks.json by agent-srv4048378975-2649290 at 2026-11-24T09:55:51Z
