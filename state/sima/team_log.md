@@ -592,6 +592,8 @@ Stage advanced to VERIFY.
 - Lease ID: c70b18ec-cd7c-43a5-874b-d6f26102766b; expires at 2026-11-03T12:43:38Z; branch: origin/master.
 
 ## [2026-11-03T12:44:07Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to align TASK-095 with one-time HAR reconnaissance and JSON adapter scope.
+
+## [2026-11-24T11:13:20Z] [FORCE-BREAK] Zombie lease of agent-srv4048378975-2649290 expired. Broken by agent-mapsaeng-dev.
 - Lease ID: 116d045f-bd81-4468-8853-c00bd2b91cc7; expires at 2026-11-03T12:46:07Z; branch: origin/master.
 
 ## [2026-11-03T13:07:44Z] ACQUIRE_LEASE: agent-noabatgircom-2254092 acquired tasks.json lease to capture LinkedIn HAR input question.
