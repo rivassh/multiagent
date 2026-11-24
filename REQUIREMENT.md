@@ -275,8 +275,11 @@ I found one medium-severity issue in the OMR scope work.
 Why this matters:
 - `--scope omr` currently filters the task list by pattern, but it does not filter the dependency graph by namespace.
 - That means a task such as `TASK-OMR-002` could incorrectly proceed when `TASK-001` or `TASK-HR-001` is marked DONE.
-- The repo’s own AGENTS/spec requires namespace isolation for HR and OMR work, so this is a real correctness bug, not just a cosmetic issue.
+- The repo's own AGENTS/spec requires namespace isolation for HR and OMR work, so this is a real correctness bug, not just a cosmetic issue.
 
 Suggested fix:
 - When evaluating `depends_on`, verify each dependency matches the active scope pattern before considering it satisfied.
 - For example, in `omr` mode only accept dependencies matching `/^TASK-OMR-\d{3}$/`, and do the same for `hr` and default `sima` modes.
+
+## User Directive [2026-11-24T05:57:17Z] (Captured by agent-srv4048378975-2463602)
+Implement trace_id for every chat message (user/system/assistant/error) in the database schema and application layer. Each message/event should have a unique trace_id for end-to-end traceability. This relates to TASK-087 (Define privacy-safe chat analytics event contract and capture tool traces) which is currently TODO.
