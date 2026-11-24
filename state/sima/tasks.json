@@ -4,12 +4,12 @@
     {
       "id": "TASK-108",
       "title": "Fix chat topic mismatch: prevent job/candidate help responses for non-job conversation starts",
-      "status": "REVISE",
-      "assigned_to": "agent-mapsaeng-dev",
+      "status": "IN_PROGRESS",
+      "assigned_to": "ses_df02a9774ffeispblCfHTuU409",
       "reviewer": null,
       "qa_engineer": "agent-kilo-reviewer",
       "stage_assigned_to": null,
-      "attempts": 3,
+      "attempts": 4,
       "last_error": "QA_FAILED: deployed https://dev2.sima.adlr.ir/api/v2/chat/completions still returns job/candidate help for greetings. No topic_slug → 'سلام! چه کمکی از شما می‌خواهید؟ ... تا ابزار مناسب را انتخاب کنم.'; topic_slug=health → '...جستجوی یک شغل خاص، پیدا کردن یک نامزد مناسب...'; topic_slug=recruitment → '...دنبال یک شغل یا موقعیت کاری هستید؟ یا دنبال یک نامزد (کاندید)...'. Root cause: (1) TASK-108 code (resolveEffectiveTopic/enforceTopicPersistence/initial_topic intentBelongsToTopic, commits 229cca5+d3ed0cb) is present locally in /home/hamid/sima-dev but NOT deployed to dev2; (2) complete()/completeWithTools() reference $traceId before assignment (Undefined variable $traceId) — unauthenticated non-streaming path broken. Local unit tests pass (8/13 assertions) but cannot detect missing deployment. Fix: deploy bugfix/post-release-2.0.0 and hoist $traceId = generateTraceId() in complete() and completeWithTools().",
       "summary": "When a user starts a chat about health/safety or any topic other than recruitment/jobs and says hello, the bot incorrectly replies with job-search/candidate-finding help. Intent detection must respect the conversation's initial topic and not default to employment domain responses."
     },
