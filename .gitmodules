@@ -1,0 +1,3 @@
+[submodule "sima-blackbox-tests"]
+	path = sima-blackbox-tests
+	url = https://github.com/rivassh/sima-blackbox-tests.git

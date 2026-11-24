@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  blackbox-qa:
+    image: mcr.microsoft.com/playwright:v1.65.1-noble
+    container_name: multiagent-blackbox-qa
+    working_dir: /workspace/sima-blackbox-tests
+    volumes:
+      - './sima-blackbox-tests:/workspace/sima-blackbox-tests:cached'
+      - './.env.qa:/workspace/sima-blackbox-tests/.env:ro'
+    environment:
+      - BASE_URL=${BASE_URL:-http://host.docker.internal:8015}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: ["sh", "-c", "npm install && npx playwright test"]
+    profiles: ["qa"]
+
+networks: {}
+volumes: {}

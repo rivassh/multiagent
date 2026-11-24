@@ -1,1 +1,4 @@
-.mim*
+.mi*
+.ki*
+.env
+.env.qa
