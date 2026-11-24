@@ -1,4 +1,12 @@
 {
   "version": 1,
-  "leases": []
+  "leases": [
+    {
+      "resource": "sima/tasks.json",
+      "holder": "mapsa-pc-do",
+      "lease_id": "kilo-sima-plan-20261124T180212Z",
+      "acquired_at": "2026-11-24T18:02:12Z",
+      "expires_at": "2026-11-24T18:04:12Z"
+    }
+  ]
 }
