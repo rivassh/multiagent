@@ -1,4 +1,12 @@
 {
   "version": 1,
-  "leases": []
+  "leases": [
+    {
+      "resource": "processmaker/tasks.json",
+      "holder": "ses_decb6af32ffeL6Ik6wrm7X8KwM",
+      "lease_id": "eebe0379-0a75-44bc-93af-bb30dba2a1ed",
+      "acquired_at": "2026-11-25T15:34:04Z",
+      "expires_at": "2026-11-25T15:36:04Z"
+    }
+  ]
 }
