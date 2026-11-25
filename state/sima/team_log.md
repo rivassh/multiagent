@@ -1067,3 +1067,4 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
   - Unit tests: 72 tests, 161 assertions, 1 pre-existing failure (FaqFallbackTest)
 - Evidence: php vendor/bin/phpunit tests/Unit/ChatInitialTopicTest.php -> PASS (12 tests, 29 assertions)
 - Status: NEEDS_QA
+[QA_PASSED] TASK-110 by ses_defc496d5ffeOSg3UUWS1NISfn at 2026-11-25T01:06:32Z. Smoke tests: dev2.sima.adlr.ir reachable (302), /api/v1/chat/completions returns 401 (expected unauth). Playwright full suite not runnable (no node/npm in environment).
