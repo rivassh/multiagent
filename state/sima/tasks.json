@@ -292,13 +292,13 @@
     {
       "id": "TASK-131",
       "title": "Implement generative UI frontend renderer in chat.blade.php (render_dynamic_ui + internal links)",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "ses_dedea3623ffe2yp7k7GM2gwWNO",
       "reviewer": null,
       "qa_engineer": "qa-agent-ses_1234567890abcdef1234567890abcdef",
       "stage_assigned_to": null,
       "attempts": 1,
-      "last_error": null,
+      "last_error": "QA PASSED: All generative UI frontend rendering implemented in chat.blade.php. Verified: (1) renderDynamicUiWidget() handles table/card/form/chart components from render_dynamic_ui tool payload (lines 2181-2247); (2) renderLinksBlock() renders internal links from final_answer.links as pushState navigation (lines 2256-2270); (3) processLinks() handles internal links in markdown content (lines 1794-1831); (4) tool_execution_end for render_dynamic_ui properly handled (lines 2358-2364); (5) assistant_message links processed (lines 2377-2379). All gated behind CHAT_GENERATIVE_UI_ENABLED flag. Unit tests pass: GenerativeUiFlagTest (5 tests), ChatInitialTopicTest (12 tests), ToolCallingBddTest (4 tests). Lint clean on chat.blade.php.",
       "depends_on": [
         "TASK-130"
       ],
