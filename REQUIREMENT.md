@@ -291,3 +291,6 @@ I want to introduce this agent as reviewer now to work
 
 ## User Directive [2026-11-24T10:42:51Z] (Captured by agent-noabatgircom-2254092)
 می خوام چند تا تسک با توجه به gitops در مورد sima بدم @AGENTS.md . حاضری؟
+
+## User Directive [2026-11-25T10:48:14Z] (Captured by agent-kilo-coder)
+می خوام یه تسک درست کنی که با @sima-blackbox-test مطمئن بهم تایید بده. اگر مشکلی بود  تسک جدید بسازه برای اصلاح

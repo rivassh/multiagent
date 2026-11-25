@@ -746,6 +746,16 @@
       "qa_engineer": null,
       "qa_evidence": null,
       "review_evidence": null
+    },
+    {
+      "id": "TASK-108",
+      "title": "Verify chatbot works for crawled JobVision jobs via BDD/blackbox tests",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Run existing BDD tests (ChatRagContextBddTest, ChatJobVisionBddTest, ChatE2eJourneys) and blackbox tests to verify chatbot correctly answers queries about crawled JobVision job posts. Test scenarios: job description lookup, active job listing, job title search, job count, job history/changes. If tests fail due to missing JobPostChatResponder, VectorRAG issues, or NetworkError, create follow-up tasks for each fix. Do not modify SIMA application code in this verification task."
     }
   ]
 }
