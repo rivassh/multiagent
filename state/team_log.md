@@ -910,3 +910,6 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 
 ## [2026-11-25T15:08:25Z] Lease acquired for sima/tasks.json by ses_decc54cc0ffeJs5dNey2i5QPa8
 - QA claim for TASK-135; proceeding to QA mode (lease held).
+
+## [2026-11-25T15:09:15Z] Lease released for sima/tasks.json by ses_decc54cc0ffeJs5dNey2i5QPa8
+- QA claimed for TASK-135; proceeding to QA mode (no lease held).
