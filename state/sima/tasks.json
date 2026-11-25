@@ -295,7 +295,7 @@
       "status": "NEEDS_QA",
       "assigned_to": "ses_dedea3623ffe2yp7k7GM2gwWNO",
       "reviewer": null,
-      "qa_engineer": null,
+      "qa_engineer": "qa-agent-ses_1234567890abcdef1234567890abcdef",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,

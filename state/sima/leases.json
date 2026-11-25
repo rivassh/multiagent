@@ -1,4 +1,12 @@
 {
   "version": 1,
-  "leases": []
+  "leases": [
+    {
+      "resource": "sima/tasks.json",
+      "holder": "qa-agent-ses_1234567890abcdef1234567890abcdef",
+      "lease_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "acquired_at": "2026-11-25T09:55:00+00:00",
+      "expires_at": "2026-11-25T09:57:00+00:00"
+    }
+  ]
 }
