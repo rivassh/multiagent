@@ -15,6 +15,7 @@ case "$SCOPE" in
   sima) PARTITION="sima" ;;
   hr) PARTITION="candash" ;;
   omr) PARTITION="shared" ;;
+  pm) PARTITION="processmaker" ;;
   *) PARTITION="global" ;;
 esac
 

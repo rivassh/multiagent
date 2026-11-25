@@ -24,7 +24,10 @@ const PARTITIONS = {
   sima: { dir: 'sima', leasesFile: 'leases.json', resource: 'sima/tasks.json' },
   candash: { dir: 'candash', leasesFile: 'leases.json', resource: 'candash/tasks.json' },
   shared: { dir: 'shared', leasesFile: 'leases.json', resource: 'shared/tasks.json' },
+  processmaker: { dir: 'processmaker', leasesFile: 'leases.json', resource: 'processmaker/tasks.json' },
 };
+
+const PARTITION_NAMES = Object.keys(PARTITIONS);
 
 function nowIso() {
   return new Date().toISOString();
@@ -252,4 +255,4 @@ function leasesPath(partition, stateRoot) {
   return path.join(stateRoot, cfg.dir, cfg.leasesFile);
 }
 
-module.exports = { KanbanLeases, PARTITIONS, DEFAULT_TTL_SECONDS, nowIso, expiresIn, uuid };
+module.exports = { KanbanLeases, PARTITIONS, PARTITION_NAMES, DEFAULT_TTL_SECONDS, nowIso, expiresIn, uuid };

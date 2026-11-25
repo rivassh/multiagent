@@ -33,6 +33,7 @@ const PARTITIONS = [
   { name: 'sima', dir: 'sima', tasksFile: 'tasks.json', leasesFile: 'leases.json', leaseResource: 'sima/tasks.json' },
   { name: 'candash', dir: 'candash', tasksFile: 'tasks.json', leasesFile: 'leases.json', leaseResource: 'candash/tasks.json' },
   { name: 'shared', dir: 'shared', tasksFile: 'tasks.json', leasesFile: 'leases.json', leaseResource: 'shared/tasks.json' },
+  { name: 'processmaker', dir: 'processmaker', tasksFile: 'tasks.json', leasesFile: 'leases.json', leaseResource: 'processmaker/tasks.json' },
 ];
 
 // Partition dir for each task namespace prefix
@@ -40,6 +41,7 @@ const NAMESPACE_PARTITION = {
   sima: /^TASK-\d{3}$/,
   candash: /^TASK-HR-\d{3}$/,
   shared: /^TASK-OMR-\d{3}$/,
+  processmaker: /^TASK-PM-\d{3}$/,
 };
 
 // Reversed lookup: namespace key -> partition name
@@ -47,6 +49,7 @@ const NAMESPACE_TO_PARTITION = {
   sima: 'sima',
   candash: 'candash',
   shared: 'shared',
+  processmaker: 'processmaker',
   refactor: 'root',
 };
 
@@ -54,6 +57,7 @@ function partitionForId(taskId) {
   if (/^TASK-\d{3}$/.test(taskId)) return 'sima';
   if (/^TASK-HR-\d{3}$/.test(taskId)) return 'candash';
   if (/^TASK-OMR-\d{3}$/.test(taskId)) return 'shared';
+  if (/^TASK-PM-\d{3}$/.test(taskId)) return 'processmaker';
   if (/^TASK-REFACTOR-\d{3}$/.test(taskId)) return 'root';
   return 'root';
 }

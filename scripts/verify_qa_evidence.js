@@ -18,7 +18,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { execSync } = require('child_process');
 
-const PARTITIONS = ['sima', 'candash', 'shared'];
+const { PARTITION_NAMES } = require('../state/kanban_leases');
 const REQUIRES_QA_EVIDENCE = ['QA_PASSED', 'QA_FAILED', 'NEEDS_REVIEW', 'IN_REVIEW', 'DONE', 'STAGE_VERIFIED'];
 
 function computeHash(stdout, stderr) {
@@ -40,7 +40,7 @@ function main() {
   let checked = 0;
   const violations = [];
   
-  for (const partition of PARTITIONS) {
+  for (const partition of PARTITION_NAMES) {
     const tasksFile = path.join(__dirname, `../state/${partition}/tasks.json`);
     if (!fs.existsSync(tasksFile)) continue;
     

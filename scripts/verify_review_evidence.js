@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const PARTITIONS = ['sima', 'candash', 'shared'];
+const { PARTITION_NAMES } = require('../state/kanban_leases');
 const REQUIRES_REVIEW_EVIDENCE = ['IN_REVIEW', 'DONE', 'STAGE_VERIFIED'];
 
 function commitExists(commitHash) {
@@ -56,7 +56,7 @@ function main() {
   let checked = 0;
   const violations = [];
   
-  for (const partition of PARTITIONS) {
+  for (const partition of PARTITION_NAMES) {
     const tasksFile = path.join(__dirname, `../state/${partition}/tasks.json`);
     if (!fs.existsSync(tasksFile)) continue;
     

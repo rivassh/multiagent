@@ -148,6 +148,35 @@ services:
     networks:
       - multiagent-network
 
+  # ProcessMaker Application
+  processmaker-app:
+    build:
+      context: ./projects/processmaker
+      dockerfile: Dockerfile
+    container_name: multiagent-processmaker-app
+    environment:
+      - APP_ENV=local
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=multiagent
+      - DB_USERNAME=multiagent
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-multiagent}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+      - ./projects/processmaker:/var/www/html
+      - ./state/processmaker:/var/www/html/state
+    ports:
+      - "8018:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - multiagent-network
+
   # Dashboard Service (Node.js Kanban dashboard + agent API)
   dashboard:
     image: node:20-alpine

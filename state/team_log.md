@@ -890,3 +890,10 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 - Lease ID: f47ac10b-58cc-4372-a567-0e02b2c3d479.
 - Directive captured in REQUIREMENT.md; TASK-108, TASK-109, TASK-110 registered in state/sima/tasks.json.
 - Lease released; cycle complete.
+
+## [2026-11-25T14:30:00Z] STATE_LAYER_CONSOLIDATION by agent-kilo-coder
+- Created state/STATE_LAYER.md enumerating the exact boundary of the removable Git-Swarm state/task/orchestration layer.
+- Deduplicated PARTITIONS: state/kanban_leases.js now exports PARTITION_NAMES (string array) alongside PARTITIONS (object map).
+- Removed inline PARTITIONS array redefinitions from scripts/verify_role_separation.js, scripts/verify_qa_evidence.js, scripts/verify_review_evidence.js, scripts/verify_leases.js; all now import PARTITION_NAMES from state/kanban_leases.js.
+- Removed dead partitionNameForTask() from dashboard/server.js; dashboard now imports partitionForId from state/kanban_store.js.
+- Removed unused PARTITIONS import from dashboard/server.js (KanbanLeases retained).
