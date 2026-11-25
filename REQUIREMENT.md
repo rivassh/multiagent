@@ -299,3 +299,15 @@ I want to introduce this agent as reviewer now to work
 باید backward compability رعایت می‌شد. ببین در کدوم تسک حالت بدون generative ui حذف شده، تسک‌های اصلاحی براش درست کن. hotfix
 
 Investigation finding: Commit 71c421e ("fix: stop candidates tool validation failures on malformed LLM arguments") added the "Internal links are rendered by the generative UI" instruction to ChatQueryService.php:1127 (response_structure) and FinalAnswerTool.php:69 (links description) without implementing any frontend renderer in chat.blade.php. The tool_execution_end handler in chat.blade.php only handles `candidates` and `screen_candidate` tools — there is no branch for `render_dynamic_ui`, and internal links from final_answer are silently dropped. This broke backward compatibility: the LLM promises an interactive generative UI the frontend cannot render, degrading to text-only and forcing the user to do manual work. The non-generative-UI (text-only) mode must be restored as the default via a feature flag.
+
+## User Directive [2026-11-25T10:57:02Z] (Captured by agent-mapsaeng-dev)
+چرا جواب انگلیسی داده؟ اسم‌ها رو چرا نزده؟ لینک چرا در ساختار خروجی ساخته نشده؟ پرامپت‌ها در admin/chat/topics UI داره؟ بررسی کن.
+User follow-up: سوال کاربر فارسی بود («چند تا مهندس نفت خوب معرفی کن») پس چرا انگلیسی تشخیص داده شده؟ و اظهار نظر: بهتر نیست زبان پاسخ در قالب تنظیمات/گاردریل (language_enabled) باشد نه hardcode در پرامپت؟
+
+Investigation finding (agent-mapsaeng-dev, read-only on dev2 DB + code):
+- detectUserLanguage() correctly returns Persian for the Persian question; the English answer is NOT a detection bug.
+- Live DB row `base.persona` (is_active=true, updated 2026-11-21) is a weaker variant that lacks the "Never switch to English" enforcement present in PromptSeeder.
+- `language_enabled` guardrail already exists in /admin/guardrails and config/chat.php (default true) but was a DEAD toggle (never referenced in the chat pipeline).
+- Candidate names are hidden by design: `candidate_names_enabled` / `candidate_name_sendable_to_llm` / `candidate_name_displayable` all default false (privacy). Note: ToolSanitizer always redacts keys containing "name" before the sendable check (bug for structured name fields).
+- Generative UI is off by default (CHAT_GENERATIVE_UI_ENABLED=false), so final_answer.links are not rendered as UI.
+- Proposed change (to be implemented via this task, NOT directly): wire a language directive fragment into PromptBuilder::buildSystemPrompt() gated by the `language_enabled` guardrail, generated from the detected user_language. No DB edit, no structural change.
