@@ -338,9 +338,9 @@
       "status": "NEEDS_QA",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
-      "qa_engineer": "ses_ded2432c2ffeGSgRDMDVXie5Q1",
+      "qa_engineer": null,
       "stage_assigned_to": null,
-      "attempts": 1,
+      "attempts": 2,
       "last_error": null,
       "depends_on": [],
       "summary": "From plan 1795607244992-cot-leak-reasoning-guard-plan.md task 1. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
@@ -348,12 +348,12 @@
     {
       "id": "TASK-135",
       "title": "Refactor sanitizeAssistantContent() to delegate to ReasoningGuard",
-      "status": "NEEDS_REVIEW",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
-      "qa_engineer": "ses_ded1a4c35ffehdYXvglBv7AQJL",
+      "qa_engineer": null,
       "stage_assigned_to": null,
-      "attempts": 1,
+      "attempts": 2,
       "last_error": null,
       "depends_on": [
         "TASK-134"
