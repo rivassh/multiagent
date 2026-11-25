@@ -1107,3 +1107,5 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Tests: python3 -m unittest tests/Feature/test_chat_generative_ui_renderer.py -> OK (7 tests)
   - tests/Feature/test_chat_markdown_rendering.py -> OK (2 tests, no regression)
 - Status: NEEDS_QA
+
+- [review] TASK-131 APPROVED by reviewer-kilo-131 at 2026-11-25T10:04:53Z; tests pass (GenerativeUiFlagTest 5, ToolCallingBddTest 4, ChatInitialTopicTest 12).
