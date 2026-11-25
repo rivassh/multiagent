@@ -1082,3 +1082,12 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Regressions: ChatQueryServiceResponsePathTest (13 tests) and PromptBuilderPrivacyTest (5 tests) all pass; FaqFallbackTest pre-existing failure unrelated
 - Evidence: php vendor/bin/phpunit tests/Unit/GenerativeUiFlagTest.php -> OK (5 tests, 7 assertions)
 - Status: NEEDS_QA
+
+## [2026-11-25T09:24:22Z] [QA_PASSED] TASK-130 by ses_dedfddb38ffeJkj6egDrWIO59V
+- Verdict: QA_PASSED -> status NEEDS_REVIEW
+- Acceptance: config flag chat.generative_ui.enabled (default false, env CHAT_GENERATIVE_UI_ENABLED) verified; ChatQueryService::injectSystemPrompt() response_structure.instruction and FinalAnswerTool::definition() links description both branch on flag; legacy text-only instruction (no "generative UI" promise) when disabled, generative-UI instruction when enabled.
+- Evidence (sima-dev @ 6e5eed9, branch bugfix/post-release-2.0.0):
+  - php vendor/bin/phpunit tests/Unit/GenerativeUiFlagTest.php -> OK (5 tests, 7 assertions)
+  - php vendor/bin/phpunit tests/Feature/ChatQueryServiceResponsePathTest.php tests/Unit/PromptBuilderPrivacyTest.php tests/Unit/ChatInitialTopicTest.php -> OK (30 tests, 226 assertions, non-fatal notices only)
+  - php -l on all 4 changed files -> No syntax errors
+- Notes (non-blocking): CHAT_GENERATIVE_UI_ENABLED not documented in .env.example (optional); test_inject_system_prompt_omits_generative_ui_when_disabled line 68 uses a convoluted but valid ternary assertion.
