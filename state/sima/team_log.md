@@ -1109,3 +1109,5 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Status: NEEDS_QA
 
 - [review] TASK-131 APPROVED by reviewer-kilo-131 at 2026-11-25T10:04:53Z; tests pass (GenerativeUiFlagTest 5, ToolCallingBddTest 4, ChatInitialTopicTest 12).
+
+- [dev] TASK-132 implementation complete: chat:navigate handler added; duplicate listener guard. Awaiting QA.
