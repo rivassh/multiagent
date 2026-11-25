@@ -307,13 +307,13 @@
     {
       "id": "TASK-132",
       "title": "Fix internal-link navigation in chat.blade.php (chat:navigate handler + blackbox coverage)",
-      "status": "NEEDS_REVIEW",
+      "status": "REVISE",
       "assigned_to": "debug-agent-132",
       "reviewer": null,
       "qa_engineer": "ses_dedc61a21ffe7yTbPGNyIm16R0",
       "stage_assigned_to": null,
       "attempts": 1,
-      "last_error": null,
+      "last_error": "QA_FAILED: Previous QA_PASSED was incorrect. No blackbox evidence exists for the interaction flow (internal-link navigation via chat:navigate). sima-blackbox-tests/tests/chat.spec.ts has no internal-link navigation scenario. test-results/.last-run.json contains only {\"status\":\"passed\",\"failedTests\":[]} with no scenario names, no BASE_URL, and no feature coverage. Local Python unit test (test_chat_generative_ui_renderer.py) runs statically against chat.blade.php on disk, not against a live SIMA instance. Per AGENTS.md QA contract, any task touching UI/navigation requires a matching blackbox scenario in sima-blackbox-tests/ run against a live SIMA instance (BASE_URL=dev2.sima.adlr.ir). Required fix: add Playwright scenario for internal-link navigation in sima-blackbox-tests/tests/, run against BASE_URL=dev2.sima.adlr.ir/chat, attach pass/fail evidence to state/sima/team_log.md.",
       "depends_on": [
         "TASK-131"
       ],
