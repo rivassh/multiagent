@@ -1091,3 +1091,4 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
   - php vendor/bin/phpunit tests/Feature/ChatQueryServiceResponsePathTest.php tests/Unit/PromptBuilderPrivacyTest.php tests/Unit/ChatInitialTopicTest.php -> OK (30 tests, 226 assertions, non-fatal notices only)
   - php -l on all 4 changed files -> No syntax errors
 - Notes (non-blocking): CHAT_GENERATIVE_UI_ENABLED not documented in .env.example (optional); test_inject_system_prompt_omits_generative_ui_when_disabled line 68 uses a convoluted but valid ternary assertion.
+[REVIEW_APPROVED] TASK-130 approved by reviewer-kilo-130 at 2026-11-25T09:29:13Z. Implementation correctly restores backward-compatible non-generative-UI mode via feature flag chat.generative_ui.enabled (default false). Both ChatQueryService::injectSystemPrompt() and FinalAnswerTool properly condition behavior on flag. Tests cover both enabled/disabled states. Lint clean.

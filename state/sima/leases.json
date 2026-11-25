@@ -4,9 +4,9 @@
     {
       "resource": "sima/tasks.json",
       "holder": "reviewer-kilo-130",
-      "lease_id": "lease-130-review-1795598844",
-      "acquired_at": "2026-11-25T09:27:24Z",
-      "expires_at": "2026-11-25T09:29:24Z"
+      "lease_id": "lease-130-review-1795598943",
+      "acquired_at": "2026-11-25T09:29:03Z",
+      "expires_at": "2026-11-25T09:31:03Z"
     }
   ]
 }
