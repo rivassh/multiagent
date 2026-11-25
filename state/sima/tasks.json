@@ -408,13 +408,13 @@
     {
       "id": "TASK-139",
       "title": "Tests: ReasoningGuard unit + feature CoT fallback + max_tokens",
-      "status": "NEEDS_QA",
+      "status": "REVISE",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
-      "qa_engineer": null,
+      "qa_engineer": "ses_local_qa_139",
       "stage_assigned_to": null,
       "attempts": 1,
-      "last_error": null,
+      "last_error": "QA_FAILED: TASK-139 requires feature tests per plan (\u00a76). (1) Unit tests for ReasoningGuard: PASS (16/16). (2) Feature test: faked provider returning English CoT yields Persian tool-summary fallback via /api/v1/chat/completions - existing test test_complete_with_tools_recovers_to_tool_summary_when_model_returns_cot_only FAILS due to PHPUnit/Mockery mock conflict (classifier complete() mock interferes with forced synthesis complete() call), not implementation bug. (3) Feature test: verify max_tokens sent to provider when request omits it - NO TEST EXISTS. Must add feature test for max_tokens wiring and fix CoT fallback test mocking before QA_PASS.",
       "depends_on": [
         "TASK-138"
       ],
