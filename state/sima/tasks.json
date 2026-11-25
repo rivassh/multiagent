@@ -393,7 +393,7 @@
     {
       "id": "TASK-138",
       "title": "Turn off CHAT_DEBUG_VERBOSE (and trace) in .env",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
       "qa_engineer": "ses_ded1a4c35ffehdYXvglBv7AQJL",
