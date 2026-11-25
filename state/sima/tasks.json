@@ -335,7 +335,7 @@
     {
       "id": "TASK-134",
       "title": "Add ReasoningGuard service (app/Modules/Chat/Services/ReasoningGuard.php)",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
       "qa_engineer": null,
