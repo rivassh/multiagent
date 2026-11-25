@@ -331,6 +331,94 @@
       "last_error": null,
       "depends_on": [],
       "summary": "Problem: a Persian question ('چند تا مهندس نفت خوب معرفی کن') was answered in English. Root cause (verified on dev2): detectUserLanguage() works (returns Persian), but the live DB `base.persona` row is a weaker variant lacking the 'Never switch to English' rule, and the `language_enabled` guardrail (already in /admin/guardrails + config/chat.php default true) was a DEAD toggle never referenced in the chat pipeline. Requested direction: make response language a setting/guardrail, not hardcoded in the prompt. Implementation (TDD): in app/Modules/Chat/Services/PromptBuilder.php buildSystemPrompt(), append a language-directive fragment gated by GuardrailSettingsManager->isEnabled('language_enabled'), generated from the already-detected user_language (Persian -> 'Respond ENTIRELY in Persian (فارسی). Never switch to English and do not mix scripts.'; English -> English-only). Must also guarantee a system prompt exists even when no base template is active. Add unit test (PromptBuilder) asserting the directive is present when language_enabled=true and absent when false, for both languages. Acceptance: Persian question yields a system prompt containing the Persian directive by default; toggling language_enabled off at /admin/guardrails removes it; no DB/structural change. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0). Note: separate out-of-band edit to PromptBuilder.php was reverted to keep changes within GitOps."
+    },
+    {
+      "id": "TASK-134",
+      "title": "Add ReasoningGuard service (app/Modules/Chat/Services/ReasoningGuard.php)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": [],
+      "summary": "From plan 1795607244992-cot-leak-reasoning-guard-plan.md task 1. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
+    },
+    {
+      "id": "TASK-135",
+      "title": "Refactor sanitizeAssistantContent() to delegate to ReasoningGuard",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": [
+        "TASK-134"
+      ],
+      "summary": "From plan 1795607244992-cot-leak-reasoning-guard-plan.md task 2. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
+    },
+    {
+      "id": "TASK-136",
+      "title": "Wire recovery path in tool loop (forceFinalAnswer + buildForcedToolSummary)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": [
+        "TASK-135"
+      ],
+      "summary": "From plan 1795607244992-cot-leak-reasoning-guard-plan.md task 3. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
+    },
+    {
+      "id": "TASK-137",
+      "title": "Wire max_tokens properly in ChatController + config/llm.php + .env",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": [
+        "TASK-136"
+      ],
+      "summary": "From plan 1795607244992-cot-leak-reasoning-guard-plan.md task 4. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
+    },
+    {
+      "id": "TASK-138",
+      "title": "Turn off CHAT_DEBUG_VERBOSE (and trace) in .env",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": [
+        "TASK-137"
+      ],
+      "summary": "From plan 1795607244992-cot-leak-reasoning-guard-plan.md task 5. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
+    },
+    {
+      "id": "TASK-139",
+      "title": "Tests: ReasoningGuard unit + feature CoT fallback + max_tokens",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": [
+        "TASK-138"
+      ],
+      "summary": "From plan 1795607244992-cot-leak-reasoning-guard-plan.md task 6. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
     }
   ]
 }
