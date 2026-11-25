@@ -901,3 +901,6 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 ## [2026-11-25T11:38:19Z] Lease acquired for sima/tasks.json by kilo-agent-133
 - Lease ID: lease-kilo-133-qa-001, expires at 2026-11-25T11:40:19Z.
 - Purpose: QA claim for TASK-133 (language_enabled guardrail).
+
+## [2026-11-25T11:38:19Z] Lease released for sima/tasks.json by kilo-agent-133
+- QA claimed for TASK-133; proceeding to QA mode (no lease held).
