@@ -335,12 +335,12 @@
     {
       "id": "TASK-134",
       "title": "Add ReasoningGuard service (app/Modules/Chat/Services/ReasoningGuard.php)",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
       "qa_engineer": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "depends_on": [],
       "summary": "From plan 1795607244992-cot-leak-reasoning-guard-plan.md task 1. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
