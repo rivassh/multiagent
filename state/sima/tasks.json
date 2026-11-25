@@ -408,7 +408,7 @@
     {
       "id": "TASK-139",
       "title": "Tests: ReasoningGuard unit + feature CoT fallback + max_tokens",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
       "qa_engineer": null,
