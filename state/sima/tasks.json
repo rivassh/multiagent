@@ -378,7 +378,7 @@
     {
       "id": "TASK-137",
       "title": "Wire max_tokens properly in ChatController + config/llm.php + .env",
-      "status": "TODO",
+      "status": "NEEDS_QA",
       "assigned_to": null,
       "reviewer": null,
       "qa_engineer": null,
