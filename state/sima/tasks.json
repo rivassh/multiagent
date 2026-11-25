@@ -264,6 +264,18 @@
       "attempts": 0,
       "last_error": null,
       "summary": "Globally registered security-headers middleware with CSP config; test headers present on all responses. Source: TODO.md:123, PERFORMANCE_AND_ROADMAP.md §4 P4 pending (0%)."
+    },
+    {
+      "id": "TASK-129",
+      "title": "Verify chatbot works for crawled JobVision jobs via BDD/blackbox tests",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Run existing BDD tests (ChatRagContextBddTest, ChatJobVisionBddTest, ChatE2eJourneys) and blackbox tests to verify chatbot correctly answers queries about crawled JobVision job posts. Test scenarios: job description lookup, active job listing, job title search, job count, job history/changes. If tests fail due to missing JobPostChatResponder, VectorRAG issues, or NetworkError, create follow-up tasks for each fix. Do not modify SIMA application code in this verification task."
     }
   ]
 }
