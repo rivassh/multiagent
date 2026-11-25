@@ -307,7 +307,7 @@
     {
       "id": "TASK-132",
       "title": "Fix internal-link navigation in chat.blade.php (chat:navigate handler + blackbox coverage)",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "debug-agent-132",
       "reviewer": null,
       "qa_engineer": "ses_dedc61a21ffe7yTbPGNyIm16R0",

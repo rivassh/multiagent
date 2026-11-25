@@ -1111,3 +1111,5 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - [review] TASK-131 APPROVED by reviewer-kilo-131 at 2026-11-25T10:04:53Z; tests pass (GenerativeUiFlagTest 5, ToolCallingBddTest 4, ChatInitialTopicTest 12).
 
 - [dev] TASK-132 implementation complete: chat:navigate handler added; duplicate listener guard. Awaiting QA.
+
+- [qa] TASK-132 QA_PASSED by ses_dedc61a21ffe7yTbPGNyIm16R0 at 2026-11-25T10:27:02Z; tests pass (ChatGenerativeUiRendererTest 7 tests incl. test_internal_links_use_pushstate_navigation). Verified chat:navigate listener -> restoreChat(chatIdFromPath(pathname)) + data-internal-link duplicate guard in resources/views/chat.blade.php (sima-dev @ dbadfbc, branch bugfix/post-release-2.0.0). Depends_on TASK-131 (DONE) satisfied. Status: NEEDS_REVIEW.
