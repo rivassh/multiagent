@@ -897,3 +897,7 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 - Removed inline PARTITIONS array redefinitions from scripts/verify_role_separation.js, scripts/verify_qa_evidence.js, scripts/verify_review_evidence.js, scripts/verify_leases.js; all now import PARTITION_NAMES from state/kanban_leases.js.
 - Removed dead partitionNameForTask() from dashboard/server.js; dashboard now imports partitionForId from state/kanban_store.js.
 - Removed unused PARTITIONS import from dashboard/server.js (KanbanLeases retained).
+
+## [2026-11-25T11:38:19Z] Lease acquired for sima/tasks.json by kilo-agent-133
+- Lease ID: lease-kilo-133-qa-001, expires at 2026-11-25T11:40:19Z.
+- Purpose: QA claim for TASK-133 (language_enabled guardrail).
