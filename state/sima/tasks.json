@@ -363,7 +363,7 @@
     {
       "id": "TASK-136",
       "title": "Wire recovery path in tool loop (forceFinalAnswer + buildForcedToolSummary)",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
       "qa_engineer": null,
