@@ -322,12 +322,12 @@
     {
       "id": "TASK-133",
       "title": "Make chat response language configurable via language_enabled guardrail (fix English answer to Persian question)",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-mapsaeng-dev",
       "reviewer": null,
       "qa_engineer": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "depends_on": [],
       "summary": "Problem: a Persian question ('چند تا مهندس نفت خوب معرفی کن') was answered in English. Root cause (verified on dev2): detectUserLanguage() works (returns Persian), but the live DB `base.persona` row is a weaker variant lacking the 'Never switch to English' rule, and the `language_enabled` guardrail (already in /admin/guardrails + config/chat.php default true) was a DEAD toggle never referenced in the chat pipeline. Requested direction: make response language a setting/guardrail, not hardcoded in the prompt. Implementation (TDD): in app/Modules/Chat/Services/PromptBuilder.php buildSystemPrompt(), append a language-directive fragment gated by GuardrailSettingsManager->isEnabled('language_enabled'), generated from the already-detected user_language (Persian -> 'Respond ENTIRELY in Persian (فارسی). Never switch to English and do not mix scripts.'; English -> English-only). Must also guarantee a system prompt exists even when no base template is active. Add unit test (PromptBuilder) asserting the directive is present when language_enabled=true and absent when false, for both languages. Acceptance: Persian question yields a system prompt containing the Persian directive by default; toggling language_enabled off at /admin/guardrails removes it; no DB/structural change. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0). Note: separate out-of-band edit to PromptBuilder.php was reverted to keep changes within GitOps."
