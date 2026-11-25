@@ -1096,3 +1096,14 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 [REVIEW_APPROVED] TASK-130 approved by reviewer-kilo-130 at 2026-11-25T09:29:13Z. Implementation correctly restores backward-compatible non-generative-UI mode via feature flag chat.generative_ui.enabled (default false). Both ChatQueryService::injectSystemPrompt() and FinalAnswerTool properly condition behavior on flag. Tests cover both enabled/disabled states. Lint clean.
 
 ## [2026-11-25T09:48:28Z] Lease acquired for sima/tasks.json by ses_dedea3623ffe2yp7k7GM2gwWNO (TASK-131 dev handoff) expires 2026-11-25T09:50:28Z
+
+## [2026-11-25T09:51:00Z] dev(TASK-131): complete implementation, await QA by ses_dedea3623ffe2yp7k7GM2gwWNO
+- Implementation: resources/views/chat.blade.php (sima-dev @ 7e0c902, branch bugfix/post-release-2.0.0)
+  - Added CHAT_GENERATIVE_UI_ENABLED const gated on config('chat.generative_ui.enabled', false).
+  - Added renderDynamicUiWidget() rendering table/card/form/chart from render_dynamic_ui payload {component,title,fields,data,action}.
+  - Added renderLinksBlock() rendering final_answer.links as <a> anchors (internal links -> pushState navigation via existing processLinks; external -> target=_blank). Plain-text fallback when flag disabled.
+  - tool_execution_end: new render_dynamic_ui branch (gated on CHAT_GENERATIVE_UI_ENABLED).
+  - assistant_message: appends rendered links block (gated on flag).
+- Tests: python3 -m unittest tests/Feature/test_chat_generative_ui_renderer.py -> OK (7 tests)
+  - tests/Feature/test_chat_markdown_rendering.py -> OK (2 tests, no regression)
+- Status: NEEDS_QA

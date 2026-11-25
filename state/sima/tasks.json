@@ -292,7 +292,7 @@
     {
       "id": "TASK-131",
       "title": "Implement generative UI frontend renderer in chat.blade.php (render_dynamic_ui + internal links)",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_dedea3623ffe2yp7k7GM2gwWNO",
       "reviewer": null,
       "qa_engineer": null,
