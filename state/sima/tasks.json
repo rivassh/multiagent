@@ -338,7 +338,7 @@
       "status": "NEEDS_QA",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
-      "qa_engineer": null,
+      "qa_engineer": "ses_ded2432c2ffeGSgRDMDVXie5Q1",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,
