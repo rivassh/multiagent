@@ -294,3 +294,8 @@ I want to introduce this agent as reviewer now to work
 
 ## User Directive [2026-11-25T10:48:14Z] (Captured by agent-kilo-coder)
 می خوام یه تسک درست کنی که با @sima-blackbox-test مطمئن بهم تایید بده. اگر مشکلی بود  تسک جدید بسازه برای اصلاح
+
+## User Directive [2026-11-25T08:50:00Z] (Captured by ses_115ec5b27fc74db890b9e05b06c7e602)
+باید backward compability رعایت می‌شد. ببین در کدوم تسک حالت بدون generative ui حذف شده، تسک‌های اصلاحی براش درست کن. hotfix
+
+Investigation finding: Commit 71c421e ("fix: stop candidates tool validation failures on malformed LLM arguments") added the "Internal links are rendered by the generative UI" instruction to ChatQueryService.php:1127 (response_structure) and FinalAnswerTool.php:69 (links description) without implementing any frontend renderer in chat.blade.php. The tool_execution_end handler in chat.blade.php only handles `candidates` and `screen_candidate` tools — there is no branch for `render_dynamic_ui`, and internal links from final_answer are silently dropped. This broke backward compatibility: the LLM promises an interactive generative UI the frontend cannot render, degrading to text-only and forcing the user to do manual work. The non-generative-UI (text-only) mode must be restored as the default via a feature flag.

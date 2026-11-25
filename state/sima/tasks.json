@@ -276,6 +276,33 @@
       "attempts": 0,
       "last_error": null,
       "summary": "Run existing BDD tests (ChatRagContextBddTest, ChatJobVisionBddTest, ChatE2eJourneys) and blackbox tests to verify chatbot correctly answers queries about crawled JobVision job posts. Test scenarios: job description lookup, active job listing, job title search, job count, job history/changes. If tests fail due to missing JobPostChatResponder, VectorRAG issues, or NetworkError, create follow-up tasks for each fix. Do not modify SIMA application code in this verification task."
+    },
+    {
+      "id": "TASK-130",
+      "title": "HOTFIX: Restore backward-compatible non-generative-UI mode via feature flag",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "summary": "Commit 71c421e added 'Internal links are rendered by the generative UI' to ChatQueryService.php:1127 (response_structure instruction) and FinalAnswerTool.php:69 (links description) without implementing a frontend renderer in chat.blade.php. This broke backward compatibility: the LLM promises an interactive UI the client cannot render, degrading to text-only. Fix: introduce config flag chat.generative_ui.enabled (default false). When false, injectSystemPrompt() and FinalAnswerTool use the legacy text-only instruction (no generative-UI promise). When true, use the current generative-UI instruction. Add PromptBuilder/FinalAnswerTool tests covering both flag states. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
+    },
+    {
+      "id": "TASK-131",
+      "title": "Implement generative UI frontend renderer in chat.blade.php (render_dynamic_ui + internal links)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": [
+        "TASK-130"
+      ],
+      "summary": "The backend RenderDynamicUiTool returns {component,title,fields,data,action} via tool_execution_end, and FinalAnswerTool returns links with internal:true, but chat.blade.php readChatStream only handles `candidates` and `screen_candidate` tools — render_dynamic_ui and internal links are silently dropped. Implement a client-side renderer: (1) handle tool_execution_end for render_dynamic_ui by rendering the widget (table/card/form/chart) from the payload; (2) render internal links from final_answer.links as in-app navigation (pushState) instead of dropping them. Gate behind the same chat.generative_ui.enabled flag so the text-only fallback remains default. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
     }
   ]
 }

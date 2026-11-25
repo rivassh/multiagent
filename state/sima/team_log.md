@@ -1068,3 +1068,8 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Evidence: php vendor/bin/phpunit tests/Unit/ChatInitialTopicTest.php -> PASS (12 tests, 29 assertions)
 - Status: NEEDS_QA
 [QA_PASSED] TASK-110 by ses_defc496d5ffeOSg3UUWS1NISfn at 2026-11-25T01:06:32Z. Smoke tests: dev2.sima.adlr.ir reachable (302), /api/v1/chat/completions returns 401 (expected unauth). Playwright full suite not runnable (no node/npm in environment).
+
+## [2026-11-25T08:50:00Z] chore(plan): register hotfix tasks TASK-129, TASK-130 by ses_115ec5b27fc74db890b9e05b06c7e602
+- Root cause: commit 71c421e (sima-dev) added "Internal links are rendered by the generative UI" to ChatQueryService.php:1127 and FinalAnswerTool.php:69 without a frontend renderer in chat.blade.php. tool_execution_end handler only covers `candidates` and `screen_candidate`; render_dynamic_ui and internal links are silently dropped -> backward compatibility broken.
+- TASK-129 (hotfix): feature-flag chat.generative_ui.enabled (default false) to restore text-only legacy instruction.
+- TASK-130: implement generative UI frontend renderer (render_dynamic_ui + internal links), depends_on TASK-129.
