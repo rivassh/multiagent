@@ -27,11 +27,13 @@
 1. Task enters NEEDS_QA status
 2. QA engineer claims task (sets qa_engineer field)
 3. Verify test evidence: unit tests, integration tests, E2E tests
-4. Execute exploratory testing against acceptance criteria
+4. Perform exploratory testing against acceptance criteria
 5. Check code quality: linting, formatting, patterns
 6. Validate security: no secrets, proper auth, input validation
-7. Set status: QA_PASSED or QA_FAILED with evidence
-8. If QA_FAILED: task goes to REVISE with actionable feedback
+7. **Mandatory blackbox gate**: For any task touching UI, navigation, or user interaction, QA MUST run a matching blackbox end-to-end scenario in `sima-blackbox-tests/tests/` against a live SIMA instance (`BASE_URL`, default `https://dev2.sima.adlr.ir` per `.env`). Local static unit tests alone are insufficient evidence.
+8. Attach evidence to `state/sima/team_log.md`: test file, scenario names, exact `BASE_URL` used, pass/fail result, timestamp, and retained artifacts (trace/screenshot/video on failure). `test-results/.last-run.json` containing only `{"status":"passed","failedTests":[]}` with no scenario names or URL is NOT sufficient evidence.
+9. Set status: QA_PASSED or QA_FAILED with evidence
+10. If QA_FAILED: task goes to REVISE with actionable feedback
 
 ## Tools
 - Test runners: project-specific (PHPUnit, Jest, pytest, etc.)

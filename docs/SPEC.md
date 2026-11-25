@@ -128,3 +128,9 @@ Statuses: TODO → IN_PROGRESS → NEEDS_QA → QA_PASSED | QA_FAILED → NEEDS_
 - Auto-refreshes every 30 seconds
 ## Task Acceptance Criteria Requirement
 Every task spec must include an "Interaction flows" subsection listing all user-facing state/navigation changes, with a matching blackbox scenario in sima-blackbox-tests/.
+
+### Blackbox gate (mandatory for QA_PASSED)
+- Any task touching UI, navigation, or user interaction MUST have a matching blackbox end-to-end scenario in `sima-blackbox-tests/tests/` (Playwright) run against a live SIMA instance.
+- QA must use the configured `BASE_URL` (`.env`, default `https://dev2.sima.adlr.ir`), not localhost fallbacks (`host.docker.internal:3000`, `:8015`).
+- QA evidence recorded in `state/sima/team_log.md`: test file, scenario names, exact `BASE_URL`, pass/fail result, timestamp.
+- Local static unit tests alone do not satisfy QA_PASSED for interaction tasks.
