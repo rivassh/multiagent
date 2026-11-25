@@ -1044,3 +1044,26 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Assigned to: ses_defe617e2ffeNsD82VUkHeqMYm
 - Attempts: 3
 - Reviewer cleared, QA engineer cleared
+
+## [2026-11-25T00:42:00Z] feat(TASK-110): complete implementation, await QA
+- Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0, commit b5feecd)
+- Problem: Review FAILED for two reasons:
+  1. Role separation violation: author (agent-mapsaeng-dev) == QA (agent-mapsaeng-dev)
+  2. enforceTopicPersistence() throws JsonException but not wrapped in try/catch in completeWithTools() and completeWithToolsStreaming() paths
+- Fix:
+  - Role separation resolved: qa_engineer and reviewer cleared from task (Author != QA != Reviewer)
+  - Wrapped enforceTopicPersistence() in try/catch in three non-streaming methods:
+    - complete() (line ~800): returns 400 JSON error on topic switch
+    - completeWithTools() (line ~204): returns 400 JSON error on topic switch
+    - completeWithCollection() (line ~930): returns 400 JSON error on topic switch; also fixed missing \$traceId variable
+  - completeWithToolsStreaming() and completeStream() already had proper try/catch handling
+- Tests:
+  - Added 3 regression tests to ChatInitialTopicTest.php:
+    - test_completeWithTools_returns_400_on_topic_switch
+    - test_complete_returns_400_on_topic_switch
+    - test_completeWithCollection_allows_null_topic_slug
+  - All 12 ChatInitialTopicTest tests pass (29 assertions)
+  - All 13 ChatQueryServiceResponsePathTest tests pass (187 assertions)
+  - Unit tests: 72 tests, 161 assertions, 1 pre-existing failure (FaqFallbackTest)
+- Evidence: php vendor/bin/phpunit tests/Unit/ChatInitialTopicTest.php -> PASS (12 tests, 29 assertions)
+- Status: NEEDS_QA
