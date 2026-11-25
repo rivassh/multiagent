@@ -1073,3 +1073,12 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Root cause: commit 71c421e (sima-dev) added "Internal links are rendered by the generative UI" to ChatQueryService.php:1127 and FinalAnswerTool.php:69 without a frontend renderer in chat.blade.php. tool_execution_end handler only covers `candidates` and `screen_candidate`; render_dynamic_ui and internal links are silently dropped -> backward compatibility broken.
 - TASK-129 (hotfix): feature-flag chat.generative_ui.enabled (default false) to restore text-only legacy instruction.
 - TASK-130: implement generative UI frontend renderer (render_dynamic_ui + internal links), depends_on TASK-129.
+
+## [2026-11-25T09:19:00Z] dev(TASK-130): implement generative_ui feature flag hotfix by ses_dee136bc7ffe0ViWjwkP0Fuw3p
+- Added config flag chat.generative_ui.enabled (default false) in config/chat.php
+- ChatQueryService::injectSystemPrompt(): response_structure.instruction uses legacy text-only instruction (no generative-UI promise) when flag disabled; current generative-UI instruction when enabled
+- FinalAnswerTool::definition(): links description omits generative-UI promise when flag disabled
+- Added tests/Unit/GenerativeUiFlagTest.php (5 tests, 7 assertions): verifies flag default, FinalAnswerTool links description both states, injectSystemPrompt instruction both states
+- Regressions: ChatQueryServiceResponsePathTest (13 tests) and PromptBuilderPrivacyTest (5 tests) all pass; FaqFallbackTest pre-existing failure unrelated
+- Evidence: php vendor/bin/phpunit tests/Unit/GenerativeUiFlagTest.php -> OK (5 tests, 7 assertions)
+- Status: NEEDS_QA

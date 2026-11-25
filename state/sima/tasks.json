@@ -280,7 +280,7 @@
     {
       "id": "TASK-130",
       "title": "HOTFIX: Restore backward-compatible non-generative-UI mode via feature flag",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_dee136bc7ffe0ViWjwkP0Fuw3p",
       "reviewer": null,
       "qa_engineer": null,
