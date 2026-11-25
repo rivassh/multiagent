@@ -348,7 +348,7 @@
     {
       "id": "TASK-135",
       "title": "Refactor sanitizeAssistantContent() to delegate to ReasoningGuard",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "reviewer": null,
       "qa_engineer": null,
