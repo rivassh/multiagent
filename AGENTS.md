@@ -8,7 +8,7 @@
   - **Mimo**: `mimo session list --json | jq -r '.[0].id'` (current session)
   - **Any agent**: Session ID is the unique `ses_<32-hex>` identifier assigned at launch; do NOT reuse IDs across sessions.
 - Append-Only History: state/team_log.md is strictly append-only. Never rewrite or truncate past entries.
-- Task namespaces: Existing Sima tasks use `TASK-NNN`; HR subproject tasks use `TASK-HR-NNN`; OMR project tasks use `TASK-OMR-NNN`. All namespaces share partitioned state directories but each requires its matching runner scope.
+- Task namespaces: Existing Sima tasks use `TASK-NNN`; HR subproject tasks use `TASK-HR-NNN`; OMR project tasks use `TASK-OMR-NNN`; ProcessMaker subproject tasks use `TASK-PM-NNN`. All namespaces share partitioned state directories but each requires its matching runner scope.
 - Dependency isolation: Every `depends_on` ID must match the task namespace of the active runner scope and refer to a task in `DONE`; cross-namespace dependencies are invalid and keep the task blocked.
 - Strict TDD: Red (failing test) -> Green (minimal implementation) -> Refactor/Verify.
 - Role Separation: Author != QA != Reviewer. No agent may act in more than one role for the same task.
@@ -21,12 +21,15 @@
 - state/sima/tasks.json: SIMA task queue
 - state/candash/tasks.json: Candash/HR task queue
 - state/shared/tasks.json: Shared/OMR task queue
+- state/processmaker/tasks.json: ProcessMaker task queue
 - state/sima/leases.json: SIMA lease manifest
 - state/candash/leases.json: Candash/HR lease manifest
 - state/shared/leases.json: Shared/OMR lease manifest
+- state/processmaker/leases.json: ProcessMaker lease manifest
 - state/sima/team_log.md: SIMA append-only ledger
 - state/candash/team_log.md: Candash/HR append-only ledger
 - state/shared/team_log.md: Shared/OMR append-only ledger
+- state/processmaker/team_log.md: ProcessMaker append-only ledger
 - .env.example: Project root and subproject path definitions
 - docker-compose.yml: Root orchestration for all projects
 
@@ -290,11 +293,12 @@ Statuses: TODO -> IN_PROGRESS -> NEEDS_QA -> QA_PASSED | QA_FAILED -> NEEDS_REVI
 - state/sima/: SIMA project state (tasks.json, leases.json, team_log.md)
 - state/candash/: Candash/HR project state
 - state/shared/: Shared/OMR project state
+- state/processmaker/: ProcessMaker project state (tasks.json, leases.json, team_log.md)
 - Each partition has independent lease management
 - Runner resolves paths via getStatePaths(scope) function
 
 10. Dashboard Service
 - Lightweight Kanban viewer at http://localhost:8080
 - Reads state/*/tasks.json directly from files
-- Displays task statuses across all partitions
+- Displays task statuses across all partitions (sima, candash, shared, processmaker)
 - Auto-refreshes every 30 seconds

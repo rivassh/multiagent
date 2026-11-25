@@ -47,6 +47,7 @@ const REPO_MAP = {
   sima: { repo: process.env.SIMA_PROJECT_PATH || 'projects/sima', baseBranch: process.env.SIMA_BASE_BRANCH || 'develop' },
   candash: { repo: process.env.CANDASH_PROJECT_PATH || 'projects/candash', baseBranch: process.env.CANDASH_BASE_BRANCH || 'main' },
   shared: { repo: process.env.OMR_PROJECT_PATH || 'projects/omr', baseBranch: process.env.OMR_BASE_BRANCH || 'main' },
+  processmaker: { repo: process.env.PROCESSMAKER_PROJECT_PATH || 'projects/processmaker', baseBranch: process.env.PROCESSMAKER_BASE_BRANCH || 'main' },
   root: { repo: '.', baseBranch: process.env.REFACTOR_BASE_BRANCH || 'master' },
 };
 

@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const PARTITIONS = ['sima', 'candash', 'shared'];
+const { PARTITION_NAMES } = require('../state/kanban_leases');
 const NOW = new Date();
 
 function parseISO(dateStr) {
@@ -39,7 +39,7 @@ function main() {
   let totalLeases = 0;
   let totalTasks = 0;
   
-  for (const partition of PARTITIONS) {
+  for (const partition of PARTITION_NAMES) {
     const leasesFile = path.join(__dirname, `../state/${partition}/leases.json`);
     const tasksFile = path.join(__dirname, `../state/${partition}/tasks.json`);
     
@@ -192,7 +192,7 @@ function main() {
     }
   }
   
-  console.log(`📋 Checked ${totalLeases} leases across ${totalTasks} tasks in ${PARTITIONS.length} partitions`);
+  console.log(`📋 Checked ${totalLeases} leases across ${totalTasks} tasks in ${PARTITION_NAMES.length} partitions`);
   
   if (allViolations.length > 0) {
     console.error('\n❌ LEASE VIOLATIONS:');

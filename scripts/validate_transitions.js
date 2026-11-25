@@ -31,6 +31,7 @@ const TASK_PATTERNS = {
   sima: /^TASK-\d{3}$/,
   hr: /^TASK-HR-\d{3}$/,
   omr: /^TASK-OMR-\d{3}$/,
+  pm: /^TASK-PM-\d{3}$/,
 };
 
 function parseArgs() {
@@ -60,7 +61,7 @@ function getGitLog(since) {
 
 function getTaskStateAtCommit(commitHash, taskId) {
   try {
-    const content = execSync(`git show ${commitHash}:state/sima/tasks.json 2>/dev/null || git show ${commitHash}:state/candash/tasks.json 2>/dev/null || git show ${commitHash}:state/shared/tasks.json 2>/dev/null`, { encoding: 'utf8' });
+    const content = execSync(`git show ${commitHash}:state/sima/tasks.json 2>/dev/null || git show ${commitHash}:state/candash/tasks.json 2>/dev/null || git show ${commitHash}:state/shared/tasks.json 2>/dev/null || git show ${commitHash}:state/processmaker/tasks.json 2>/dev/null`, { encoding: 'utf8' });
     const data = JSON.parse(content);
     const task = data.tasks?.find(t => t.id === taskId);
     return task?.status || null;
@@ -70,7 +71,7 @@ function getTaskStateAtCommit(commitHash, taskId) {
 }
 
 function getAllTaskIds() {
-  const partitions = ['sima', 'candash', 'shared'];
+  const partitions = ['sima', 'candash', 'shared', 'processmaker'];
   const ids = new Set();
   for (const p of partitions) {
     try {

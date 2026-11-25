@@ -10,7 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const PARTITIONS = ['sima', 'candash', 'shared'];
+const { PARTITION_NAMES } = require('../state/kanban_leases');
 
 function main() {
   console.log('🔍 Verifying role separation (Author ≠ QA ≠ Reviewer)...');
@@ -18,7 +18,7 @@ function main() {
   let totalTasks = 0;
   const violations = [];
   
-  for (const partition of PARTITIONS) {
+  for (const partition of PARTITION_NAMES) {
     const tasksFile = path.join(__dirname, `../state/${partition}/tasks.json`);
     if (!fs.existsSync(tasksFile)) continue;
     
@@ -76,7 +76,7 @@ function main() {
     }
   }
   
-  console.log(`📋 Checked ${totalTasks} tasks across ${PARTITIONS.length} partitions`);
+  console.log(`📋 Checked ${totalTasks} tasks across ${PARTITION_NAMES.length} partitions`);
   
   if (violations.length > 0) {
     console.error('\n❌ ROLE SEPARATION VIOLATIONS:');

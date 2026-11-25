@@ -24,6 +24,7 @@ function getStatePaths(scope, stateRoot = STATE_ROOT) {
     sima: 'sima',
     hr: 'candash',
     omr: 'shared',
+    pm: 'processmaker',
   };
   const stateDir = scopeMap[scope] || 'shared';
   return {
@@ -90,8 +91,8 @@ class TaskRunner {
   }
 
   static validateScope(scope) {
-    if (!['sima', 'hr', 'omr'].includes(scope)) {
-      throw new Error(`Unsupported task scope "${scope}"; expected "sima", "hr", or "omr"`);
+    if (!['sima', 'hr', 'omr', 'pm'].includes(scope)) {
+      throw new Error(`Unsupported task scope "${scope}"; expected "sima", "hr", "omr", or "pm"`);
     }
     return scope;
   }
@@ -101,6 +102,7 @@ class TaskRunner {
       sima: /^TASK-\d{3}$/,
       hr: /^TASK-HR-\d{3}$/,
       omr: /^TASK-OMR-\d{3}$/,
+      pm: /^TASK-PM-\d{3}$/,
     }[this.scope];
   }
 

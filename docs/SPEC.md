@@ -18,6 +18,7 @@ Single Source of Truth (SSOT) for the SIMA project technical architecture, API c
 | HR | Departments, org chart, leave/attendance, documents | Complete (Phase 8) |
 | RBAC | 4 roles (admin, recruiter, hiring_manager, auditor); 25+ permissions | Complete |
 | Assessment | Candidate assessments, screening results, shortlist | Partial |
+| ProcessMaker | BPMN workflow engine, process designer, case management, API connectors | Planned (TASK-PM-001..007) |
 
 ## API Contracts
 - Talent: `/api/v1/talent/screen`, `/api/v1/talent/shortlist-top`, `/api/v1/talent/screening/{jobId}`
@@ -36,8 +37,9 @@ See AGENTS.md in this repo. Shared contracts: REQUIREMENT.md, docs/SPEC.md, stat
 - Existing Sima work remains under `TASK-NNN` IDs.
 - HR subproject work uses `TASK-HR-NNN` IDs in the shared queue; an explicit HR request may only claim/review HR-prefixed tasks and must never fall back to general Sima tasks.
 - OMR project work uses `TASK-OMR-NNN` IDs in the shared queue; an explicit OMR request may only claim/review OMR-prefixed tasks and must never fall back to Sima or HR tasks.
-- Optional `depends_on` task IDs gate selection until all prerequisites are `DONE` and each dependency ID matches the active runner scope's namespace (`TASK-NNN`, `TASK-HR-NNN`, or `TASK-OMR-NNN`). Missing, malformed, or cross-namespace dependencies are invalid and keep the task blocked. All namespaces use the same lease and lifecycle: implementation → QA → review → `DONE` (or `REVISE` if review or QA fails). A passing review does not itself complete a task; the assigned stage operator records black-box verification evidence before a task can become `DONE`.
-- `node state/runner_workflow.js` runs the default Sima scope (`TASK-NNN` only); use `--scope hr` for `TASK-HR-NNN` and `--scope omr` for `TASK-OMR-NNN`. OMR stage checks require `OMR_E2E_WEB_URL` (a UI URL returning non-empty HTML) and `OMR_E2E_API_URL` (a read-only health/readiness URL returning JSON). Both must be explicit HTTP(S) URLs without embedded credentials; OMR checks use GET and never fall back to SIMA endpoints. Missing or invalid OMR URL configuration blocks stage verification without making a network request. Tasks with unmet or invalid `depends_on` values are skipped.
+- ProcessMaker subproject work uses `TASK-PM-NNN` IDs in the processmaker queue; an explicit PM request may only claim/review PM-prefixed tasks and must never fall back to Sima, HR, or OMR tasks.
+- Optional `depends_on` task IDs gate selection until all prerequisites are `DONE` and each dependency ID matches the active runner scope's namespace (`TASK-NNN`, `TASK-HR-NNN`, `TASK-OMR-NNN`, or `TASK-PM-NNN`). Missing, malformed, or cross-namespace dependencies are invalid and keep the task blocked. All namespaces use the same lease and lifecycle: implementation → QA → review → `DONE` (or `REVISE` if review or QA fails). A passing review does not itself complete a task; the assigned stage operator records black-box verification evidence before a task can become `DONE`.
+- `node state/runner_workflow.js` runs the default Sima scope (`TASK-NNN` only); use `--scope hr` for `TASK-HR-NNN`, `--scope omr` for `TASK-OMR-NNN`, and `--scope pm` for `TASK-PM-NNN`. OMR stage checks require `OMR_E2E_WEB_URL` (a UI URL returning non-empty HTML) and `OMR_E2E_API_URL` (a read-only health/readiness URL returning JSON). Both must be explicit HTTP(S) URLs without embedded credentials; OMR checks use GET and never fall back to SIMA endpoints. Missing or invalid OMR URL configuration blocks stage verification without making a network request. Tasks with unmet or invalid `depends_on` values are skipped.
 - A passing review transitions a task to `DONE` (E2E verification is part of the DONE gate); a failed review or QA failure returns the task to `REVISE`, with evidence recorded in `state/tasks.json` and `state/team_log.md`.
 - Roadmap-derived SIMA tasks registered in `state/sima/tasks.json`: `TASK-111` (cost/budget guard), `TASK-112` (structured output validation), `TASK-113` (health check), `TASK-114` (CrawlerController base + JobVision crawler), `TASK-115` (Jobinja crawler, depends TASK-114), `TASK-116` (LinkedIn crawler, depends TASK-114), `TASK-117` (ApiResponse standardization), `TASK-118` (API versioning `/api/v1/`, depends TASK-117), `TASK-119` (chat history persistence), `TASK-120` (mobile OTP auth), `TASK-121` (HPHT candidate seeding), `TASK-122` (background token refresh), `TASK-123` (Redis caching), `TASK-124` (DB query optimization), `TASK-125` (Laravel events), `TASK-126` (queue/Horizon), `TASK-127` (OpenAPI/Swagger docs, depends TASK-118), `TASK-128` (security headers). Source: `sima/PERFORMANCE_AND_ROADMAP.md` §4 (P2/P3/P4 pending) and `sima/TODO.md`. All new tasks are `TODO` with no assignee; none may be started until explicitly claimed.
 
@@ -66,6 +68,7 @@ Statuses: TODO → IN_PROGRESS → NEEDS_QA → QA_PASSED | QA_FAILED → NEEDS_
 - state/sima/: SIMA project state (tasks.json, leases.json, team_log.md)
 - state/candash/: Candash/HR project state
 - state/shared/: Shared/OMR project state
+- state/processmaker/: ProcessMaker project state (tasks.json, leases.json, team_log.md)
 - Each partition has independent lease management
 - Runner resolves paths via getStatePaths(scope) function
 

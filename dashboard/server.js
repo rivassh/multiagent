@@ -29,9 +29,9 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const { KanbanStore } = require('../state/kanban_store');
+const { KanbanStore, partitionForId } = require('../state/kanban_store');
 const { KanbanTransitions } = require('../state/kanban_transitions');
-const { KanbanLeases, PARTITIONS } = require('../state/kanban_leases');
+const { KanbanLeases } = require('../state/kanban_leases');
 
 const DEFAULT_STATE_ROOT = path.join(__dirname, '..', 'state');
 const DEFAULT_PORT = 8080;
@@ -41,13 +41,6 @@ const TEAM_LOG = path.join(DEFAULT_STATE_ROOT, 'team_log.md');
 const DASHBOARD_DIR = path.join(__dirname);
 
 const AGENT_ROLES = new Set(['implementer', 'qa', 'reviewer', 'stage_verifier']);
-
-function partitionNameForTask(taskId) {
-  if (/^TASK-\d{3}$/.test(taskId)) return 'sima';
-  if (/^TASK-HR-\d{3}$/.test(taskId)) return 'candash';
-  if (/^TASK-OMR-\d{3}$/.test(taskId)) return 'shared';
-  return 'root';
-}
 
 function serveFile(res, filePath, contentType) {
   try {
