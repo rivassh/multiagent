@@ -1032,3 +1032,9 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Ran Pest ChatInitialTopicTest: 9 tests, 22 assertions, all PASS (greeting/persona path now covered via injectSystemPrompt + stored initial_topic + isObviousNoToolRequest).
 - $traceId hoisted in complete()/completeWithTools() (commit d03c584) verified in working tree.
 - QA verdict: PASSED.
+
+## [2026-11-25T00:25:00Z] review(TASK-110): REJECTED [status=REVISE] by ses_defeb0615ffeM2QQPDqTTWBetz
+- Tests: Pest ChatInitialTopicTest 9 passed (22 assertions) on commit dcf16d0.
+- Review verdict: FAIL.
+- Reason 1: Role separation violation - author (agent-mapsaeng-dev) == QA (agent-mapsaeng-dev). Protocol requires Author != QA != Reviewer.
+- Reason 2: enforceTopicPersistence() throws \JsonException but is not wrapped in try/catch in completeWithTools() and completeWithToolsStreaming() paths (lines ~200, ~787), risking unhandled exception instead of controlled error response. Streaming path (line ~2392) handles it.

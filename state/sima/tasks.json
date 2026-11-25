@@ -16,13 +16,13 @@
     {
       "id": "TASK-110",
       "title": "Enforce conversation topic persistence: prevent mid-chat topic changes by user",
-      "status": "IN_REVIEW",
+      "status": "REVISE",
       "assigned_to": "agent-mapsaeng-dev",
       "reviewer": "ses_defeb0615ffeM2QQPDqTTWBetz",
       "qa_engineer": "agent-mapsaeng-dev",
       "stage_assigned_to": null,
       "attempts": 2,
-      "last_error": null,
+      "last_error": "Review FAILED: (1) Role separation violation: assigned_to and qa_engineer are both agent-mapsaeng-dev (author==QA). Protocol requires Author != QA != Reviewer. (2) enforceTopicPersistence() throws JsonException but is not wrapped in try/catch in completeWithTools() and completeWithToolsStreaming() paths, so a topic switch may surface as an unhandled exception rather than a controlled error response. Tests pass (9/9 ChatInitialTopicTest).",
       "summary": "A user must not be able to change the topic in the middle of an existing chat. Topic switching mid-conversation causes blocking after issue resolution. The chat must enforce topic persistence within a single conversation thread."
     },
     {
