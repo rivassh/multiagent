@@ -4,12 +4,12 @@
     {
       "id": "TASK-PM-001",
       "title": "BPMN workflow engine integration",
-      "status": "TODO",
+      "status": "NEEDS_QA",
       "assigned_to": null,
       "reviewer": null,
-      "qa_engineer": null,
+      "qa_engineer": "ses_decb6af32ffeL6Ik6wrm7X8KwM",
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "depends_on": [],
       "summary": "Integrate ProcessMaker BPMN engine with SIMA's Laravel stack; minimal core changes; use existing packages"
