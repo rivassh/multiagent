@@ -16,9 +16,9 @@
     {
       "id": "TASK-110",
       "title": "Enforce conversation topic persistence: prevent mid-chat topic changes by user",
-      "status": "NEEDS_REVIEW",
+      "status": "IN_REVIEW",
       "assigned_to": "agent-mapsaeng-dev",
-      "reviewer": null,
+      "reviewer": "ses_defeb0615ffeM2QQPDqTTWBetz",
       "qa_engineer": "agent-mapsaeng-dev",
       "stage_assigned_to": null,
       "attempts": 2,
