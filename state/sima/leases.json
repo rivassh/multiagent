@@ -1,4 +1,12 @@
 {
   "version": 1,
-  "leases": []
+  "leases": [
+    {
+      "resource": "sima/tasks.json",
+      "holder": "ses_ded1a4c35ffehdYXvglBv7AQJL",
+      "lease_id": "c9ec5866-4af6-4b9e-b05b-9b0019369841",
+      "acquired_at": "2026-11-25T13:30:08.310485+00:00",
+      "expires_at": "2026-11-25T13:32:08.310485+00:00"
+    }
+  ]
 }
