@@ -1124,3 +1124,14 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-25T11:38:28Z] review(TASK-132): APPROVED [status=DONE] by ses_dedb12976ffejTl5PXQ5qo2Vim
 - Verdict: PASS. chat:navigate listener (chat.blade.php:2930) calls restoreChat(chatIdFromPath(pathname)); duplicate-listener guard at :1818; blackbox scenario at sima-blackbox-tests/tests/chat.spec.ts:22. Role separation OK (author=debug-agent-132, qa=ses_dedc61a21ffe7yTbPGNyIm16R0).
+
+- [qa] TASK-133 QA_PASSED by kilo-agent-133 at 2026-11-25T11:38:19Z. All acceptance criteria verified:
+  - PromptBuilder::buildSystemPrompt() appends language directive gated by GuardrailSettingsManager->isEnabled('language_enabled') (PromptBuilder.php:246-248).
+  - buildLanguageDirective() returns Persian directive ("Respond ENTIRELY in Persian (فارسی). Never switch to English...") or English directive ("Respond in English only...") (PromptBuilder.php:265-272).
+  - language_enabled default true in config/chat.php:262; exposed in ADMIN_KEYS at /admin/guardrails.
+  - TDD: tests/Unit/PromptBuilderLanguageDirectiveTest.php (4 tests) + regression PromptBuilderPrivacyTest (5 tests).
+  - Verified: 9/9 PromptBuilder tests pass (19 assertions) via `vendor/bin/pest --filter PromptBuilder`.
+  - Verified: Pint clean on PromptBuilder.php + both test files.
+  - No DB/structural change; no migrations.
+  - Role separation: author=agent-mapsaeng-dev, QA=kilo-agent-133 (distinct).
+  - Status: NEEDS_REVIEW. A reviewer different from author and QA is required to complete the task.

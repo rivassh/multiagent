@@ -322,7 +322,7 @@
     {
       "id": "TASK-133",
       "title": "Make chat response language configurable via language_enabled guardrail (fix English answer to Persian question)",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-mapsaeng-dev",
       "reviewer": null,
       "qa_engineer": "kilo-agent-133",
