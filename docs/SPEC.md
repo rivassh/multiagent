@@ -126,3 +126,5 @@ Statuses: TODO → IN_PROGRESS → NEEDS_QA → QA_PASSED | QA_FAILED → NEEDS_
 - Reads state/*/tasks.json directly from files
 - Displays task statuses across all partitions (sima, candash, shared)
 - Auto-refreshes every 30 seconds
+## Task Acceptance Criteria Requirement
+Every task spec must include an "Interaction flows" subsection listing all user-facing state/navigation changes, with a matching blackbox scenario in sima-blackbox-tests/.

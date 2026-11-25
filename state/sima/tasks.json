@@ -303,6 +303,21 @@
         "TASK-130"
       ],
       "summary": "The backend RenderDynamicUiTool returns {component,title,fields,data,action} via tool_execution_end, and FinalAnswerTool returns links with internal:true, but chat.blade.php readChatStream only handles `candidates` and `screen_candidate` tools \u2014 render_dynamic_ui and internal links are silently dropped. Implement a client-side renderer: (1) handle tool_execution_end for render_dynamic_ui by rendering the widget (table/card/form/chart) from the payload; (2) render internal links from final_answer.links as in-app navigation (pushState) instead of dropping them. Gate behind the same chat.generative_ui.enabled flag so the text-only fallback remains default. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
+    },
+    {
+      "id": "TASK-132",
+      "title": "Fix internal-link navigation in chat.blade.php (chat:navigate handler + blackbox coverage)",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_engineer": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "depends_on": [
+        "TASK-131"
+      ],
+      "summary": "Internal links pushed via pushState dispatch chat:navigate but no listener exists, so URL changes without swapping conversation (stuck page). Add chat:navigate listener calling restoreChat(chatIdFromPath(...)); guard duplicate processLinks listeners. Add blackbox scenario for internal-link navigation. Scope: /home/hamid/sima-dev branch bugfix/post-release-2.0.0."
     }
   ]
 }

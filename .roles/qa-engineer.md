@@ -45,3 +45,7 @@
 - Thorough: check all acceptance criteria
 - Actionable feedback: specific, reproducible issues
 - No implementation: validate, don't fix
+## Mandatory Interaction-Flow Coverage (added)
+- For any task touching UI, navigation, or user interaction, acceptance criteria MUST include an "Interaction flows" subsection.
+- QA MUST add/run a blackbox end-to-end scenario in sima-blackbox-tests/ for each interaction flow and attach evidence.
+- QA MUST reject (QA_FAILED) if interaction flows are missing from criteria or untested.
