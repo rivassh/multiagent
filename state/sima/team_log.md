@@ -1139,3 +1139,4 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 [QA PASSED] TASK-138 approved. CHAT_DEBUG_VERBOSE=false.
 [ACQUIRE_LEASE] Lease acquired for sima/tasks.json by ses_ded284e5fffeb6Luoou6c4EogZ at 2026-11-26T20:10:58Z
 [CLAIM_REVIEW] Review claimed for TASK-137 by ses_ded284e5fffeb6Luoou6c4EogZ at 2026-11-26T20:11:54Z
+[RELEASE_LEASE] Lease released for sima/tasks.json by ses_ded284e5fffeb6Luoou6c4EogZ at 2026-11-26T20:12:02Z
