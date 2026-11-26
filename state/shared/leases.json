@@ -1,4 +1,13 @@
 {
   "version": 1,
-  "leases": []
+  "leases": [
+    {
+      "resource": "tasks.json",
+      "scope": "sima",
+      "holder": "agent-srv4048378975-1428020",
+      "lease_id": "lease-sima-20261126-002",
+      "acquired_at": "2026-11-26T23:17:07Z",
+      "expires_at": "2026-11-26T23:19:07Z"
+    }
+  ]
 }
