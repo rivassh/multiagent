@@ -1,3 +1,8 @@
+## [2026-11-26T23:18:00Z] RELEASE_LEASE: agent-srv4048378975-1428020 released tasks.json lease for `sima` scope.
+- Lease ID: lease-sima-20261126-002 released.
+- Resource: tasks.json; scope: sima.
+- Tasks TASK-200..TASK-213 registered in state/sima/tasks.json.
+
 ## [2026-11-26T23:17:07Z] ACQUIRE_LEASE: agent-srv4048378975-1428020 acquired tasks.json lease for `sima` scope.
 - Lease ID: lease-sima-20261126-002; expires 2026-11-26T23:19:07Z; branch: origin/main.
 - Resource: tasks.json; scope: sima.
