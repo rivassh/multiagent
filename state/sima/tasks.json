@@ -511,6 +511,250 @@
         "All tests pass after implementation (TDD Green phase)"
       ],
       "depends_on": ["TASK-099"]
+    },
+    {
+      "id": "TASK-200",
+      "title": "Migration: add city column (string, nullable, indexed) to candidates table",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Migration adds string nullable indexed city column to candidates table",
+        "Migration is reversible (down drops column and index)",
+        "Existing data untouched"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-201",
+      "title": "Migration: create tool_suggestions table + ToolSuggestion model",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "tool_suggestions table with uuid PK (string, non-incrementing)",
+        "Columns: conversation_id (string, nullable), user_query (text), suggested_tool (string), reason (text), status (enum: pending/approved/rejected, default pending), created_at, updated_at",
+        "ToolSuggestion model with string PK, non-incrementing",
+        "Migration is reversible"
+      ],
+      "depends_on": ["TASK-200"]
+    },
+    {
+      "id": "TASK-202",
+      "title": "Tool: SearchNetTool — LLM fallback via ChatProviderInterface, single-shot",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "SearchNetTool registered with name() = search_net",
+        "Single-shot LLM call via ChatProviderInterface, no tools passed (no recursion)",
+        "Results labeled external/unverified",
+        "Tool is general domain, read-only"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-203",
+      "title": "Tool: CityLookupTool — city from candidates, fallback to location parse",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "CityLookupTool registered with name() = city_lookup",
+        "Reads city column from candidates table",
+        "Falls back to parsing location string when city is null",
+        "Tool is general domain, read-only"
+      ],
+      "depends_on": ["TASK-200"]
+    },
+    {
+      "id": "TASK-204",
+      "title": "Tool: SortByTool — rank/filter by criterion",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "SortByTool registered with name() = sort_by",
+        "Ranks/filters a list of items by criterion (proximity, relevance_score, etc.)",
+        "Reports location data not available when no data exists",
+        "Tool is general domain, read-only"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-205",
+      "title": "Tool: MissingTool — signal missing capability",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "MissingTool registered with name() = missing_tool",
+        "Registered as general domain, read-only",
+        "Logs suggestion to tool_suggestions table",
+        "Breaks the tool loop and returns user-facing message"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-206",
+      "title": "Registry: register 4 tools in ChatServiceProvider + config/chat.php",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "search_net, city_lookup, sort_by, missing_tool registered in ChatServiceProvider::register()",
+        "Added to config/chat.php tools.defaults and tools.public"
+      ],
+      "depends_on": ["TASK-202", "TASK-203", "TASK-204", "TASK-205"]
+    },
+    {
+      "id": "TASK-207",
+      "title": "Config: add tool_chain to config/topics.php per topic + allowed_tools",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "tool_chain array added to config/topics.php per topic (default: search_net, city_lookup, sort_by, final_answer)",
+        "New tools added to each topic's allowed_tools"
+      ],
+      "depends_on": ["TASK-206"]
+    },
+    {
+      "id": "TASK-208",
+      "title": "Service: ToolChainService — CoR pipeline, configurable stages",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "ToolChainService at app/Modules/Chat/Services/ToolChainService.php",
+        "Stages configured per topic via config/topics.php tool_chain array",
+        "Each stage calls ChatProviderInterface::completeWithTools directly with tool_choice constrained to stage tool",
+        "Pipeline terminates early when a stage returns final_answer",
+        "Each stage is a single LLM call (no inner round loop)"
+      ],
+      "depends_on": ["TASK-207"]
+    },
+    {
+      "id": "TASK-209",
+      "title": "Service: ToolSuggestionAnalyzer — aggregate/analyze suggestions",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "ToolSuggestionAnalyzer at app/Modules/Chat/Services/ToolSuggestionAnalyzer.php",
+        "analyze() aggregates suggestions by suggested_tool with frequency counts",
+        "Includes sample queries per suggested_tool"
+      ],
+      "depends_on": ["TASK-201"]
+    },
+    {
+      "id": "TASK-210",
+      "title": "Integration: intercept missing_tool in ChatQueryService tool loop",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Before toolRegistry->call(), if name === missing_tool: do NOT execute via registry",
+        "Logs to tool_suggestions table, breaks loop, returns user-facing message",
+        "Pipeline invoked when tool rounds exhausted without final_answer (fallback)"
+      ],
+      "depends_on": ["TASK-208", "TASK-209"]
+    },
+    {
+      "id": "TASK-211",
+      "title": "System Prompt: update DB base prompt base.persona",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Adds missing_tool instruction with tool_name and reason",
+        "Adds no-hallucination rule for unavailable data",
+        "Adds chaining preference: search_net → city_lookup → sort_by → final_answer"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "TASK-212",
+      "title": "Admin endpoint: controller + route for tool suggestions",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "Controller for list/approve/reject tool suggestions",
+        "Route registered for admin access",
+        "Status enum transitions: pending → approved/rejected"
+      ],
+      "depends_on": ["TASK-201"]
+    },
+    {
+      "id": "TASK-213",
+      "title": "Tests: unit tests per tool; feature tests for pipeline, missing_tool, sort_by",
+      "status": "TODO",
+      "assigned_to": null,
+      "reviewer": null,
+      "qa_assigned_to": null,
+      "stage_assigned_to": null,
+      "attempts": 0,
+      "last_error": null,
+      "acceptance_criteria": [
+        "TDD Red phase: failing tests exist before implementation",
+        "Unit tests per tool (SearchNetTool, CityLookupTool, SortByTool, MissingTool)",
+        "Feature tests for pipeline chaining, missing_tool logging, sort_by city ranking",
+        "All tests pass after implementation (TDD Green phase)"
+      ],
+      "depends_on": ["TASK-210"]
     }
   ]
 }
