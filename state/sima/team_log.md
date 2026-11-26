@@ -1140,3 +1140,8 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 [ACQUIRE_LEASE] Lease acquired for sima/tasks.json by ses_ded284e5fffeb6Luoou6c4EogZ at 2026-11-26T20:10:58Z
 [CLAIM_REVIEW] Review claimed for TASK-137 by ses_ded284e5fffeb6Luoou6c4EogZ at 2026-11-26T20:11:54Z
 [RELEASE_LEASE] Lease released for sima/tasks.json by ses_ded284e5fffeb6Luoou6c4EogZ at 2026-11-26T20:12:02Z
+## [2026-11-26T23:11:11Z] review(TASK-137): APPROVED [status=DONE] by ses_ded284e5fffeb6Luoou6c4EogZ
+- Verdict: PASS
+- Evidence: max_tokens wiring correctly implemented. config/llm.php default set to 2048. ChatController uses config('llm.max_tokens') fallback in 6 locations (complete, completeWithTools, completeWithCollection, completeStream, completeWithToolsStreaming, query). Test test_max_tokens_default_sent_to_provider_when_omitted passes. Lint clean (pint fixed 2 style issues).
+- Note: Dependent TASK-139 CoT fallback test (test_complete_with_tools_recovers_to_tool_summary_when_model_returns_cot_only) fails due to implementation gap in completeWithTools() recovery path - this is a separate task (TASK-139) with known issue documented in its last_error.
+[RELEASE_LEASE] Lease released for sima/tasks.json by ses_ded284e5fffeb6Luoou6c4EogZ at 2026-11-26T23:11:19Z

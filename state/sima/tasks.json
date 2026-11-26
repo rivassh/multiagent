@@ -380,13 +380,13 @@
     {
       "id": "TASK-137",
       "title": "Wire max_tokens properly in ChatController + config/llm.php + .env",
-      "status": "IN_REVIEW",
+      "status": "DONE",
       "assigned_to": null,
       "reviewer": "ses_ded284e5fffeb6Luoou6c4EogZ",
       "qa_engineer": "ses_ded2ed29fffe3o6Gy40JwmxMb6",
       "stage_assigned_to": null,
       "attempts": 0,
-      "last_error": null,
+      "last_error": "Review approved: max_tokens wiring correctly implemented. Config default set to 2048 in config/llm.php. ChatController uses config fallback in 6 locations. max_tokens test passes. Lint clean. Dependent TASK-139 CoT fallback test failure is a separate known gap.",
       "depends_on": [
         "TASK-136"
       ],
