@@ -1,3 +1,7 @@
+## [2026-11-26T23:15:41Z] ACQUIRE_LEASE: agent-srv4048378975-1428020 acquired tasks.json lease for `sima` scope.
+- Lease ID: lease-sima-20261126-001; expires 2026-11-26T23:17:41Z; branch: origin/main.
+- Resource: tasks.json; scope: sima.
+
 ## [2026-11-24T06:01:34Z] RELEASE_LEASE: agent-srv4048378975-2463602 released tasks.json lease.
 
 ## [2026-11-24T05:57:17Z] [FORCE-BREAK] Zombie lease of agent-srv4048378975-351576 expired. Broken by agent-srv4048378975-2463602.

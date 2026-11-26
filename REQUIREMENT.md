@@ -286,3 +286,6 @@ Implement trace_id for every chat message (user/system/assistant/error) in the d
 
 ## User Directive [2026-11-24T06:15:00Z] (Captured by agent-noabatgircom-2254092)
 Implement trace_id for every chat message (user/system/assistant/error) in the database schema and application layer. Each message/event should have a unique trace_id for end-to-end traceability. This relates to TASK-087 (Define privacy-safe chat analytics event contract and capture tool traces) which is currently TODO.
+
+## User Directive [2026-11-26T23:16:00Z] (Captured by agent-srv4048378975-1428020)
+این پلن : /home/hamid/sima-dev/.kilo/plans/1795626604866-extensible-tool-pipeline.md رو بر اساس ساختار این ریپو انجام بدم. چی کار کنم؟ چی باید بگم؟
