@@ -615,7 +615,7 @@
     {
       "id": "TASK-210",
       "title": "Integration: intercept missing_tool in ChatQueryService tool loop",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
