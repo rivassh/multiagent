@@ -3,6 +3,16 @@
 - Resource: tasks.json; scope: sima.
 - Moving TASK-211 from TODO to NEEDS_QA — base.persona system prompt updated in sima-dev.
 
+## [2026-11-27T00:52:38Z] ACQUIRE_LEASE: agent-srv4048378975-1428020 acquired tasks.json lease for `sima` scope.
+- Lease ID: lease-sima-20261127-009; expires 2026-11-27T00:54:38Z; branch: origin/main.
+- Resource: tasks.json; scope: sima.
+- Moving TASK-211 from TODO to NEEDS_QA — base.persona system prompt updated in sima-dev.
+
+## [2026-11-27T00:52:45Z] RELEASE_LEASE: agent-srv4048378975-1428020 released tasks.json lease for `sima` scope.
+- Lease ID: lease-sima-20261127-009 released.
+- Resource: tasks.json; scope: sima.
+- TASK-211 status: NEEDS_QA, awaiting independent QA review.
+
 ## [2026-11-27T00:50:10Z] ACQUIRE_LEASE: agent-srv4048378975-1428020 acquired tasks.json lease for `sima` scope.
 - Lease ID: lease-sima-20261127-008; expires 2026-11-27T00:52:10Z; branch: origin/main.
 - Resource: tasks.json; scope: sima.
