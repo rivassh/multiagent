@@ -575,13 +575,13 @@
     {
       "id": "TASK-208",
       "title": "Service: ToolChainService — CoR pipeline, configurable stages",
-      "status": "NEEDS_QA",
+      "status": "REVISE",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": "ses_de2014850ffeF2OK7qu1p0oCLS",
       "stage_assigned_to": null,
       "attempts": 1,
-      "last_error": null,
+      "last_error": "QA_FAILED: All 5 functional acceptance criteria pass (ToolChainService single-call-per-stage with tool_choice constrained to stage tool, early termination on final_answer, per-topic tool_chain config; verified via fake-provider harness + 27-test regression suite green). BLOCKER: code-quality gate fails — `./vendor/bin/pint --test app/Modules/Chat/Services/ToolChainService.php` reports no_superfluous_phpdoc_tags (the @param/@return tags in run() duplicate the typed signature). Action: run `./vendor/bin/pint app/Modules/Chat/Services/ToolChainService.php` (or remove the redundant @param/@return lines) and re-run pint --test to confirm PASS.",
       "acceptance_criteria": [
         "ToolChainService at app/Modules/Chat/Services/ToolChainService.php",
         "Stages configured per topic via config/topics.php tool_chain array",
