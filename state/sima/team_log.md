@@ -1293,3 +1293,5 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - qa_assigned_to: ses_de1efd1baffeYLwuEOYUYbHypO
 - depends_on: TASK-201 (DONE)
 
+## [2026-11-27T17:35:10Z] RELEASE_LEASE: sima/tasks.json lease released by ses_de1efd1baffeYLwuEOYUYbHypO
+
