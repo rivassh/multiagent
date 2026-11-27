@@ -1254,3 +1254,10 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-27T17:13:56Z] feat(TASK-209): complete implementation, await QA by ses_de2906e18ffeVsqMzdstvooein
 - Created ToolSuggestionAnalyzer at app/Modules/Chat/Services/ToolSuggestionAnalyzer.php
+
+## [2026-11-27T17:18:19Z] TASK-203 Dev handoff by ses_de2014850ffeF2OK7qu1p0oCLS
+- Replaced two markTestIncomplete tests in tests/Feature/CityLookupToolTest.php with DB-backed tests (RefreshDatabase, Candidate::create).
+- test_execute_returns_city_from_candidates_table: city=Shiraz -> source=database.
+- test_execute_falls_back_to_parsing_location_when_city_null: city=null, location="Tehran, Iran" -> city=Tehran, source=parsed_from_location.
+- sima-dev commit 8579b66 pushed to bugfix/post-release-2.0.0.
+- Verification: `php artisan test --filter=CityLookupToolTest` => 7 passed (12 assertions). Pint clean.
