@@ -1,59 +1,52 @@
 <?php
-require_once '/home/hamid/multiagent/vendor/autoload.php';
+require_once '/home/hamid/multiagent2/state/kanban_leases.php';
 
-use Carbon\Carbon;
-use Illuminate\Support\Str;
+$partition = 'sima';
+$resource = "$partition/tasks.json";
+$holder = 'ses_ded284e5fffeb6Luoou6c4EogZ';
+$leaseId = 'lease-' . bin2hex(random_bytes(16));
+$acquiredAt = (new DateTime('now', new DateTimeZone('UTC')))->format(DateTime::ATOM);
+$expiresAt = (new DateTime('now + 120 seconds', new DateTimeZone('UTC')))->format(DateTime::ATOM);
 
-$YOUR_ID = 'qa-agent-' . uniqid();
-$PARTITION = 'sima';
-$LEASE_TTL = 120;
+$leasesFile = "/home/hamid/multiagent2/state/$partition/leases.json";
+$leases = json_decode(file_get_contents($leasesFile), true);
 
-$leasesFile = "/home/hamid/multiagent/state/sima/leases.json";
-$teamLogFile = "/home/hamid/multiagent/state/sima/team_log.md";
-
-if (!file_exists($leasesFile)) {
-    $leases = ["version" => 1, "leases" => []];
-} else {
-    $leases = json_decode(file_get_contents($leasesFile), true);
-}
-
-$resource = "$PARTITION/tasks.json";
-$now = Carbon::now()->toIso8601String();
-$expiresAt = Carbon::now()->addSeconds($LEASE_TTL)->toIso8601String();
-
+// Check for existing lease
 $existingLease = null;
 foreach ($leases['leases'] as $i => $lease) {
     if ($lease['resource'] === $resource) {
-        $existingLease = $i;
+        $existingLease = &$leases['leases'][$i];
         break;
     }
 }
 
-if ($existingLease !== null) {
-    $lease = $leases['leases'][$existingLease];
-    $expiresAtLease = Carbon::parse($lease['expires_at']);
-    
-    if ($expiresAtLease->isPast()) {
+$now = new DateTime('now', new DateTimeZone('UTC'));
+
+if ($existingLease) {
+    $expires = new DateTime($existingLease['expires_at'], new DateTimeZone('UTC'));
+    if ($now > $expires) {
         // Zombie lease - force break
-        file_put_contents($teamLogFile, "[FORCE-BREAK] Zombie lease of {$lease['holder']} expired. Broken by $YOUR_ID.\n", FILE_APPEND);
-    } elseif ($lease['holder'] === $YOUR_ID) {
+        file_put_contents("/home/hamid/multiagent2/state/$partition/team_log.md", "[FORCE-BREAK] Zombie lease of {$existingLease['holder']} expired. Broken by $holder.\n", FILE_APPEND);
+    } elseif ($existingLease['holder'] === $holder) {
         // Our lease - extend
-        $leases['leases'][$existingLease]['expires_at'] = $expiresAt;
+        $existingLease['expires_at'] = $expiresAt;
+        $existingLease['lease_id'] = $leaseId;
+        $existingLease['acquired_at'] = $acquiredAt;
     } else {
-        echo "Lease held by another worker: {$lease['holder']}\n";
+        // Held by another worker
+        echo "Lease held by another worker: {$existingLease['holder']}\n";
         exit(1);
     }
 } else {
-    // No lease - create new
+    // No existing lease - create new
     $leases['leases'][] = [
-        "resource" => $resource,
-        "holder" => $YOUR_ID,
-        "lease_id" => (string) Str::uuid(),
-        "acquired_at" => $now,
-        "expires_at" => $expiresAt
+        'resource' => $resource,
+        'holder' => $holder,
+        'lease_id' => $leaseId,
+        'acquired_at' => $acquiredAt,
+        'expires_at' => $expiresAt
     ];
 }
 
 file_put_contents($leasesFile, json_encode($leases, JSON_PRETTY_PRINT));
-
-echo "Lease acquired successfully by $YOUR_ID\n";
+echo "Lease acquired successfully\n";
