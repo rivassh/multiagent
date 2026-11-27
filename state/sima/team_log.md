@@ -1295,3 +1295,5 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-27T17:35:10Z] RELEASE_LEASE: sima/tasks.json lease released by ses_de1efd1baffeYLwuEOYUYbHypO
 
+## [2026-11-27T17:41:11Z] Lease renewed (zombie break, holder == self) for sima/tasks.json by ses_de1efd1baffeYLwuEOYUYbHypO (TASK-212 QA handoff) expires 2026-11-27T17:43:11Z
+
