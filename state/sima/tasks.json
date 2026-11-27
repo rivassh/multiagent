@@ -635,7 +635,7 @@
     {
       "id": "TASK-211",
       "title": "System Prompt: update DB base prompt base.persona",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": null,
       "qa_assigned_to": "agent-srv4048378975-1428020",
