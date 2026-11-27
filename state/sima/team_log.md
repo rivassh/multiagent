@@ -1264,3 +1264,8 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-27T17:25:03Z] feat(TASK-210): complete implementation, await QA by ses_de2906e18ffeVsqMzdstvooein
 - Intercepted missing_tool in ChatQueryService tool loop; logs to tool_suggestions, breaks loop with user-facing message
+
+## [2026-11-27T17:25:31Z] TASK-207 QA PASSED by ses_de2014850ffeF2OK7qu1p0oCLS
+- Acceptance 1: tool_chain present per topic = [search_net, city_lookup, sort_by, final_answer] for recruitment, test, health, company-profile.
+- Acceptance 2: new tools present in each topic allowed_tools (no missing).
+- Evidence: php artisan test (TopicRegistryTest, ChatAllowedToolsFallbackTest, ToolCallingSpecTest, SystemPromptTest) => 30 passed (81 assertions). Pint PASS, php -l clean.
