@@ -425,7 +425,7 @@
     {
       "id": "TASK-200",
       "title": "Migration: add city column (string, nullable, indexed) to candidates table",
-      "status": "NEEDS_REVIEW",
+      "status": "IN_REVIEW",
       "assigned_to": "agent-srv4048378975-1428020",
       "qa_assigned_to": "ses_de2dc8f17ffeX1uINpRXXsWza4",
       "stage_assigned_to": null,
@@ -436,7 +436,8 @@
         "Migration is reversible (down drops column and index)",
         "Existing data untouched"
       ],
-      "depends_on": []
+      "depends_on": [],
+      "reviewer": "ses_de2906e18ffeVsqMzdstvooein"
     },
     {
       "id": "TASK-201",
