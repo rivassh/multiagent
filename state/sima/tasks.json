@@ -536,7 +536,7 @@
     {
       "id": "TASK-206",
       "title": "Registry: register 4 tools in ChatServiceProvider + config/chat.php",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
