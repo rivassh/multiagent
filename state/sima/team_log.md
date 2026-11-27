@@ -1273,3 +1273,6 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 ## [2026-11-27T17:27:20Z] qa(TASK-203): PASSED [status=NEEDS_REVIEW] by ses_de2906e18ffeVsqMzdstvooein
 - QA Mode: CityLookupTool tests 7/7 pass (12 assertions). Lint clean.
 - Verdict: QA_PASSED
+
+## [2026-11-27T17:29:48Z] feat(TASK-212): complete implementation, await QA by ses_de2906e18ffeVsqMzdstvooein
+- Created ToolSuggestionController (index/approve/reject) + routes
