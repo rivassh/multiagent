@@ -47,7 +47,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Track LLM tokens per user per day; enforce a hard daily limit and reject the stream when budget is exceeded. Source: TODO.md:64, PERFORMANCE_AND_ROADMAP.md \u00a74 P2 pending (0%)."
+      "summary": "Track LLM tokens per user per day; enforce a hard daily limit and reject the stream when budget is exceeded. Source: TODO.md:64, PERFORMANCE_AND_ROADMAP.md §4 P2 pending (0%)."
     },
     {
       "id": "TASK-112",
@@ -59,7 +59,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Validate LLM/tool output against a JSON schema before yielding to the client; emit an `error` event on schema mismatch. Source: TODO.md:68, PERFORMANCE_AND_ROADMAP.md \u00a74 P2 pending (0%)."
+      "summary": "Validate LLM/tool output against a JSON schema before yielding to the client; emit an `error` event on schema mismatch. Source: TODO.md:68, PERFORMANCE_AND_ROADMAP.md §4 P2 pending (0%)."
     },
     {
       "id": "TASK-113",
@@ -71,7 +71,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Public GET /api/v1/health returning 200 when all healthy, 503 when degraded. Source: TODO.md:90, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (20%)."
+      "summary": "Public GET /api/v1/health returning 200 when all healthy, 503 when degraded. Source: TODO.md:90, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (20%)."
     },
     {
       "id": "TASK-114",
@@ -83,7 +83,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Base crawler controller plus JobVision collect endpoint with error handling and retry logic. Source: TODO.md:76, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (20%)."
+      "summary": "Base crawler controller plus JobVision collect endpoint with error handling and retry logic. Source: TODO.md:76, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (20%)."
     },
     {
       "id": "TASK-115",
@@ -98,7 +98,7 @@
       "depends_on": [
         "TASK-114"
       ],
-      "summary": "Jobinja crawler controller and endpoint built on the CrawlerController base. Source: TODO.md:76, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (20%)."
+      "summary": "Jobinja crawler controller and endpoint built on the CrawlerController base. Source: TODO.md:76, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (20%)."
     },
     {
       "id": "TASK-116",
@@ -113,7 +113,7 @@
       "depends_on": [
         "TASK-114"
       ],
-      "summary": "LinkedIn crawler controller and endpoint built on the CrawlerController base. Source: TODO.md:76, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (20%)."
+      "summary": "LinkedIn crawler controller and endpoint built on the CrawlerController base. Source: TODO.md:76, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (20%)."
     },
     {
       "id": "TASK-117",
@@ -125,7 +125,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "ApiResponse class with success()/error()/paginate() helpers, applied to controllers for consistent response format. Source: TODO.md:81, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (10%)."
+      "summary": "ApiResponse class with success()/error()/paginate() helpers, applied to controllers for consistent response format. Source: TODO.md:81, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (10%)."
     },
     {
       "id": "TASK-118",
@@ -140,7 +140,7 @@
       "depends_on": [
         "TASK-117"
       ],
-      "summary": "Migrate routes to versioned /api/v1/* groups with backward-compatible handling for old prefixes. Source: TODO.md:86, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (10%)."
+      "summary": "Migrate routes to versioned /api/v1/* groups with backward-compatible handling for old prefixes. Source: TODO.md:86, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (10%)."
     },
     {
       "id": "TASK-119",
@@ -152,7 +152,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "User-keyed chat_conversations, /chat/history list/pagination/show/delete, server-side sync with localStorage fallback. Source: TODO.md:140, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (30%)."
+      "summary": "User-keyed chat_conversations, /chat/history list/pagination/show/delete, server-side sync with localStorage fallback. Source: TODO.md:140, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (30%)."
     },
     {
       "id": "TASK-120",
@@ -164,7 +164,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Phone login (/auth/phone) without OTP initially, OTP verification (/auth/verify-otp), associate chat history with user identity. Source: TODO.md:151, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (10%)."
+      "summary": "Phone login (/auth/phone) without OTP initially, OTP verification (/auth/verify-otp), associate chat history with user identity. Source: TODO.md:151, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (10%)."
     },
     {
       "id": "TASK-121",
@@ -176,7 +176,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Seed 100+ HPHT/high-pressure candidates with SolidWorks/CATIA, FEA, metallurgy, CNC skills; verify search on seeded data. Source: TODO.md:134, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (0%)."
+      "summary": "Seed 100+ HPHT/high-pressure candidates with SolidWorks/CATIA, FEA, metallurgy, CNC skills; verify search on seeded data. Source: TODO.md:134, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (0%)."
     },
     {
       "id": "TASK-122",
@@ -188,7 +188,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Scheduled jobvision:refresh-token command renewing when remaining lifetime < threshold (5 min), no live call during silent tick, config-source fallback. Source: TODO.md:168, PERFORMANCE_AND_ROADMAP.md \u00a74 P3 pending (0%)."
+      "summary": "Scheduled jobvision:refresh-token command renewing when remaining lifetime < threshold (5 min), no live call during silent tick, config-source fallback. Source: TODO.md:168, PERFORMANCE_AND_ROADMAP.md §4 P3 pending (0%)."
     },
     {
       "id": "TASK-123",
@@ -200,7 +200,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Redis cache for frequent data (search TTL 5-15 min, RBAC permissions TTL 1h, HR org structure) with invalidation on data change. Source: TODO.md:97/100/101, PERFORMANCE_AND_ROADMAP.md \u00a74 P4 pending (10-20%)."
+      "summary": "Redis cache for frequent data (search TTL 5-15 min, RBAC permissions TTL 1h, HR org structure) with invalidation on data change. Source: TODO.md:97/100/101, PERFORMANCE_AND_ROADMAP.md §4 P4 pending (10-20%)."
     },
     {
       "id": "TASK-124",
@@ -212,7 +212,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Eager loading with('notes') in repositories, query-level pagination, DB indexes on frequent filters (status, job_post_id, board_status). Source: TODO.md:103-106, PERFORMANCE_AND_ROADMAP.md \u00a74 P4 pending (20%)."
+      "summary": "Eager loading with('notes') in repositories, query-level pagination, DB indexes on frequent filters (status, job_post_id, board_status). Source: TODO.md:103-106, PERFORMANCE_AND_ROADMAP.md §4 P4 pending (20%)."
     },
     {
       "id": "TASK-125",
@@ -224,7 +224,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Create domain events and register in EventServiceProvider; test events fire on state change. Source: TODO.md:108, PERFORMANCE_AND_ROADMAP.md \u00a74 P4 pending (0%)."
+      "summary": "Create domain events and register in EventServiceProvider; test events fire on state change. Source: TODO.md:108, PERFORMANCE_AND_ROADMAP.md §4 P4 pending (0%)."
     },
     {
       "id": "TASK-126",
@@ -236,7 +236,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Horizon queue monitoring config, queued email notifications, queued crawler tasks, queued search index updates, failed-job table with retry logic. Source: TODO.md:113, PERFORMANCE_AND_ROADMAP.md \u00a74 P4 pending (20%)."
+      "summary": "Horizon queue monitoring config, queued email notifications, queued crawler tasks, queued search index updates, failed-job table with retry logic. Source: TODO.md:113, PERFORMANCE_AND_ROADMAP.md §4 P4 pending (20%)."
     },
     {
       "id": "TASK-127",
@@ -251,7 +251,7 @@
       "depends_on": [
         "TASK-118"
       ],
-      "summary": "Install OpenAPI/Swagger package and document HR, chat, search, and auth endpoints with examples. Source: TODO.md:118, PERFORMANCE_AND_ROADMAP.md \u00a74 P4 pending (0%)."
+      "summary": "Install OpenAPI/Swagger package and document HR, chat, search, and auth endpoints with examples. Source: TODO.md:118, PERFORMANCE_AND_ROADMAP.md §4 P4 pending (0%)."
     },
     {
       "id": "TASK-128",
@@ -263,7 +263,7 @@
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
-      "summary": "Globally registered security-headers middleware with CSP config; test headers present on all responses. Source: TODO.md:123, PERFORMANCE_AND_ROADMAP.md \u00a74 P4 pending (0%)."
+      "summary": "Globally registered security-headers middleware with CSP config; test headers present on all responses. Source: TODO.md:123, PERFORMANCE_AND_ROADMAP.md §4 P4 pending (0%)."
     },
     {
       "id": "TASK-129",
@@ -302,7 +302,7 @@
       "depends_on": [
         "TASK-130"
       ],
-      "summary": "The backend RenderDynamicUiTool returns {component,title,fields,data,action} via tool_execution_end, and FinalAnswerTool returns links with internal:true, but chat.blade.php readChatStream only handles `candidates` and `screen_candidate` tools \u2014 render_dynamic_ui and internal links are silently dropped. Implement a client-side renderer: (1) handle tool_execution_end for render_dynamic_ui by rendering the widget (table/card/form/chart) from the payload; (2) render internal links from final_answer.links as in-app navigation (pushState) instead of dropping them. Gate behind the same chat.generative_ui.enabled flag so the text-only fallback remains default. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
+      "summary": "The backend RenderDynamicUiTool returns {component,title,fields,data,action} via tool_execution_end, and FinalAnswerTool returns links with internal:true, but chat.blade.php readChatStream only handles `candidates` and `screen_candidate` tools — render_dynamic_ui and internal links are silently dropped. Implement a client-side renderer: (1) handle tool_execution_end for render_dynamic_ui by rendering the widget (table/card/form/chart) from the payload; (2) render internal links from final_answer.links as in-app navigation (pushState) instead of dropping them. Gate behind the same chat.generative_ui.enabled flag so the text-only fallback remains default. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)."
     },
     {
       "id": "TASK-132",
@@ -330,7 +330,7 @@
       "attempts": 1,
       "last_error": null,
       "depends_on": [],
-      "summary": "Problem: a Persian question ('\u0686\u0646\u062f \u062a\u0627 \u0645\u0647\u0646\u062f\u0633 \u0646\u0641\u062a \u062e\u0648\u0628 \u0645\u0639\u0631\u0641\u06cc \u06a9\u0646') was answered in English. Root cause (verified on dev2): detectUserLanguage() works (returns Persian), but the live DB `base.persona` row is a weaker variant lacking the 'Never switch to English' rule, and the `language_enabled` guardrail (already in /admin/guardrails + config/chat.php default true) was a DEAD toggle never referenced in the chat pipeline. Requested direction: make response language a setting/guardrail, not hardcoded in the prompt. Implementation (TDD): in app/Modules/Chat/Services/PromptBuilder.php buildSystemPrompt(), append a language-directive fragment gated by GuardrailSettingsManager->isEnabled('language_enabled'), generated from the already-detected user_language (Persian -> 'Respond ENTIRELY in Persian (\u0641\u0627\u0631\u0633\u06cc). Never switch to English and do not mix scripts.'; English -> English-only). Must also guarantee a system prompt exists even when no base template is active. Add unit test (PromptBuilder) asserting the directive is present when language_enabled=true and absent when false, for both languages. Acceptance: Persian question yields a system prompt containing the Persian directive by default; toggling language_enabled off at /admin/guardrails removes it; no DB/structural change. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0). Note: separate out-of-band edit to PromptBuilder.php was reverted to keep changes within GitOps."
+      "summary": "Problem: a Persian question ('چند تا مهندس نفت خوب معرفی کن') was answered in English. Root cause (verified on dev2): detectUserLanguage() works (returns Persian), but the live DB `base.persona` row is a weaker variant lacking the 'Never switch to English' rule, and the `language_enabled` guardrail (already in /admin/guardrails + config/chat.php default true) was a DEAD toggle never referenced in the chat pipeline. Requested direction: make response language a setting/guardrail, not hardcoded in the prompt. Implementation (TDD): in app/Modules/Chat/Services/PromptBuilder.php buildSystemPrompt(), append a language-directive fragment gated by GuardrailSettingsManager->isEnabled('language_enabled'), generated from the already-detected user_language (Persian -> 'Respond ENTIRELY in Persian (فارسی). Never switch to English and do not mix scripts.'; English -> English-only). Must also guarantee a system prompt exists even when no base template is active. Add unit test (PromptBuilder) asserting the directive is present when language_enabled=true and absent when false, for both languages. Acceptance: Persian question yields a system prompt containing the Persian directive by default; toggling language_enabled off at /admin/guardrails removes it; no DB/structural change. Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0). Note: separate out-of-band edit to PromptBuilder.php was reverted to keep changes within GitOps."
     },
     {
       "id": "TASK-134",
@@ -461,7 +461,7 @@
     },
     {
       "id": "TASK-202",
-      "title": "Tool: SearchNetTool \u2014 LLM fallback via ChatProviderInterface, single-shot",
+      "title": "Tool: SearchNetTool — LLM fallback via ChatProviderInterface, single-shot",
       "status": "DONE",
       "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": "ses_de2906e18ffeVsqMzdstvooein",
@@ -479,14 +479,14 @@
     },
     {
       "id": "TASK-203",
-      "title": "Tool: CityLookupTool \u2014 city from candidates, fallback to location parse",
-      "status": "REVISE",
-      "assigned_to": "ses_de27eb6caffe5yeVBw3GhePf7d",
+      "title": "Tool: CityLookupTool — city from candidates, fallback to location parse",
+      "status": "IN_PROGRESS",
+      "assigned_to": "ses_de2014850ffeF2OK7qu1p0oCLS",
       "reviewer": "ses_de260ec5bffefibLaXT1TpeSMD",
       "qa_assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "stage_assigned_to": null,
-      "attempts": 1,
-      "last_error": "Review REJECTED: implementation correct and registered, but core behavior tests are markTestIncomplete (tests/Feature/CityLookupToolTest.php:54-64) so acceptance criteria 2 (reads city column) and 3 (fallback parse location) have no passing coverage. Action: replace the two incomplete tests with DB-backed tests using RefreshDatabase (TestCase already uses it) \u2014 create a Candidate with city set and assert execute() returns source=database; create a Candidate with city=null and location=\"Tehran, Iran\" and assert city=Tehran, source=parsed_from_location. No Candidate factory exists; use Candidate::create([...]) directly. Keep all 5 structural tests passing.",
+      "attempts": 2,
+      "last_error": "Review REJECTED: implementation correct and registered, but core behavior tests are markTestIncomplete (tests/Feature/CityLookupToolTest.php:54-64) so acceptance criteria 2 (reads city column) and 3 (fallback parse location) have no passing coverage. Action: replace the two incomplete tests with DB-backed tests using RefreshDatabase (TestCase already uses it) — create a Candidate with city set and assert execute() returns source=database; create a Candidate with city=null and location=\"Tehran, Iran\" and assert city=Tehran, source=parsed_from_location. No Candidate factory exists; use Candidate::create([...]) directly. Keep all 5 structural tests passing.",
       "acceptance_criteria": [
         "CityLookupTool registered with name() = city_lookup",
         "Reads city column from candidates table",
@@ -499,7 +499,7 @@
     },
     {
       "id": "TASK-204",
-      "title": "Tool: SortByTool \u2014 rank/filter by criterion",
+      "title": "Tool: SortByTool — rank/filter by criterion",
       "status": "DONE",
       "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": "ses_de2906e18ffeVsqMzdstvooein",
@@ -517,7 +517,7 @@
     },
     {
       "id": "TASK-205",
-      "title": "Tool: MissingTool \u2014 signal missing capability",
+      "title": "Tool: MissingTool — signal missing capability",
       "status": "DONE",
       "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": "ses_de2906e18ffeVsqMzdstvooein",
@@ -574,7 +574,7 @@
     },
     {
       "id": "TASK-208",
-      "title": "Service: ToolChainService \u2014 CoR pipeline, configurable stages",
+      "title": "Service: ToolChainService — CoR pipeline, configurable stages",
       "status": "NEEDS_QA",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
@@ -595,7 +595,7 @@
     },
     {
       "id": "TASK-209",
-      "title": "Service: ToolSuggestionAnalyzer \u2014 aggregate/analyze suggestions",
+      "title": "Service: ToolSuggestionAnalyzer — aggregate/analyze suggestions",
       "status": "NEEDS_QA",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
@@ -645,7 +645,7 @@
       "acceptance_criteria": [
         "Adds missing_tool instruction with tool_name and reason",
         "Adds no-hallucination rule for unavailable data",
-        "Adds chaining preference: search_net \u2192 city_lookup \u2192 sort_by \u2192 final_answer"
+        "Adds chaining preference: search_net → city_lookup → sort_by → final_answer"
       ],
       "depends_on": []
     },
@@ -662,7 +662,7 @@
       "acceptance_criteria": [
         "Controller for list/approve/reject tool suggestions",
         "Route registered for admin access",
-        "Status enum transitions: pending \u2192 approved/rejected"
+        "Status enum transitions: pending → approved/rejected"
       ],
       "depends_on": [
         "TASK-201"
