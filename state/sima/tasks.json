@@ -652,13 +652,13 @@
     {
       "id": "TASK-212",
       "title": "Admin endpoint: controller + route for tool suggestions",
-      "status": "NEEDS_QA",
+      "status": "REVISE",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": "ses_de1efd1baffeYLwuEOYUYbHypO",
       "stage_assigned_to": null,
-      "attempts": 1,
-      "last_error": null,
+      "attempts": 2,
+      "last_error": "QA_FAILED: Functional acceptance criteria PASS — ToolSuggestionController (index/approve/reject) registered at app/Http/Controllers/Admin/ToolSuggestionController.php; admin routes registered under Route::prefix('admin')->middleware('role:admin') in routes/web.php:86-88; tool_suggestions table uses DB-level enum('status',['pending','approved','rejected'])->default('pending') enabling pending→approved/rejected transitions. BLOCKER (code-quality gate): `./vendor/bin/pint --test app/Http/Controllers/Admin/ToolSuggestionController.php` FAILS `no_unused_imports` — unused `Illuminate\\Http\\Request` import at line 8. Action: remove the unused Request import, re-run `./vendor/bin/pint --test` to confirm PASS, then re-submit for QA.",
       "acceptance_criteria": [
         "Controller for list/approve/reject tool suggestions",
         "Route registered for admin access",

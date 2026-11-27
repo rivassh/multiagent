@@ -1297,3 +1297,10 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 
 ## [2026-11-27T17:41:11Z] Lease renewed (zombie break, holder == self) for sima/tasks.json by ses_de1efd1baffeYLwuEOYUYbHypO (TASK-212 QA handoff) expires 2026-11-27T17:43:11Z
 
+## [2026-11-27T17:42:00Z] qa(TASK-212): FAILED [status=REVISE] by ses_de1efd1baffeYLwuEOYUYbHypO
+- Functional AC PASS: ToolSuggestionController index/approve/reject exists; admin routes registered under role:admin middleware (routes/web.php:86-88); tool_suggestions enum status pending→approved/rejected at DB level (migration 2026_11_27_010000).
+- Tests: pest tests/Feature/ToolSuggestionTest.php + ToolSuggestionAnalyzerTest.php => 7 passed, 19 assertions.
+- BLOCKER (quality gate): `pint --test app/Http/Controllers/Admin/ToolSuggestionController.php` FAILS no_unused_imports (unused `Illuminate\Http\Request` import, line 8).
+- Action: remove unused Request import, re-run pint --test to confirm PASS, then re-submit.
+- Task status: NEEDS_QA → REVISE; attempts: 1 → 2; last_error set.
+
