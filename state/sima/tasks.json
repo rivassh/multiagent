@@ -671,12 +671,12 @@
     {
       "id": "TASK-213",
       "title": "Tests: unit tests per tool; feature tests for pipeline, missing_tool, sort_by",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "acceptance_criteria": [
         "TDD Red phase: failing tests exist before implementation",
