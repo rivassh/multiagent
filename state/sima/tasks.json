@@ -499,7 +499,7 @@
     {
       "id": "TASK-204",
       "title": "Tool: SortByTool \u2014 rank/filter by criterion",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": null,
       "qa_assigned_to": "agent-srv4048378975-1428020",
