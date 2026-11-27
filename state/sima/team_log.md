@@ -1158,3 +1158,7 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Code quality: php -l no syntax errors on migration or test file; Pint reports 1 style issue (fully_qualified_strict_types) consistent with project-wide pattern across Feature tests — non-blocking
 - Verdict: QA_PASSED - all criteria met, tests pass, quality acceptable
 - Role separation: author=agent-srv4048378975-1428020, qa=ses_de2dc8f17ffeX1uINpRXXsWza4 (distinct)
+
+## [2026-11-27T14:39:19Z] review(TASK-200): APPROVED [status=DONE] by ses_de2906e18ffeVsqMzdstvooein
+- Verdict: PASS
+- Evidence: Migration adds string nullable indexed city column; down drops index and column; existing data untouched. Tests 3/3 pass.
