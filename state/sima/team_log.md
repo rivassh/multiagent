@@ -1145,3 +1145,16 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Evidence: max_tokens wiring correctly implemented. config/llm.php default set to 2048. ChatController uses config('llm.max_tokens') fallback in 6 locations (complete, completeWithTools, completeWithCollection, completeStream, completeWithToolsStreaming, query). Test test_max_tokens_default_sent_to_provider_when_omitted passes. Lint clean (pint fixed 2 style issues).
 - Note: Dependent TASK-139 CoT fallback test (test_complete_with_tools_recovers_to_tool_summary_when_model_returns_cot_only) fails due to implementation gap in completeWithTools() recovery path - this is a separate task (TASK-139) with known issue documented in its last_error.
 [RELEASE_LEASE] Lease released for sima/tasks.json by ses_ded284e5fffeb6Luoou6c4EogZ at 2026-11-26T23:11:19Z
+
+## [2026-11-27T13:29:58Z] qa(TASK-200): PASSED [status=NEEDS_REVIEW] by ses_de2dc8f17ffeX1uINpRXXsWza4
+- QA Mode: Verified migration acceptance criteria for TASK-200 (Migration: add city column (string, nullable, indexed) to candidates table)
+- Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)
+- Tests: tests/Feature/AddCityColumnToCandidatesTest.php — 3 tests, 4 assertions, PASS (via php vendor/bin/phpunit and php vendor/bin/pest)
+- Migration: database/migrations/2026_11_27_000000_add_city_column_to_candidates_table.php
+- Acceptance criteria verified:
+  1. Migration adds string nullable indexed city column to candidates table — PASS ($table->string('city')->nullable()->index()->after('location'))
+  2. Migration is reversible (down drops column and index) — PASS (down() drops index ['city'] then dropColumn('city'))
+  3. Existing data untouched — PASS (adding nullable column with no default does not modify existing rows)
+- Code quality: php -l no syntax errors on migration or test file; Pint reports 1 style issue (fully_qualified_strict_types) consistent with project-wide pattern across Feature tests — non-blocking
+- Verdict: QA_PASSED - all criteria met, tests pass, quality acceptable
+- Role separation: author=agent-srv4048378975-1428020, qa=ses_de2dc8f17ffeX1uINpRXXsWza4 (distinct)
