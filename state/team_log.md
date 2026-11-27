@@ -3,6 +3,11 @@
 - Resource: tasks.json; scope: sima.
 - Claiming TASK-202: SearchNetTool — LLM fallback via ChatProviderInterface, single-shot.
 
+## [2026-11-27T00:06:00Z] RELEASE_LEASE: agent-srv4048378975-1428020 released tasks.json lease for `sima` scope.
+- Lease ID: lease-sima-20261127-002 released.
+- Resource: tasks.json; scope: sima.
+- TASK-202 status set to IN_PROGRESS; executing without lease held.
+
 ## [2026-11-27T00:04:52Z] ACQUIRE_LEASE: agent-srv4048378975-1428020 acquired tasks.json lease for `sima` scope.
 - Lease ID: lease-sima-20261127-001; expires 2026-11-27T00:06:52Z; branch: origin/main.
 - Resource: tasks.json; scope: sima.
