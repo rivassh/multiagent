@@ -3,6 +3,11 @@
 - Resource: tasks.json; scope: sima.
 - Moving TASK-200 from IN_PROGRESS to NEEDS_QA (implementation complete, tests pass).
 
+## [2026-11-27T00:05:30Z] RELEASE_LEASE: agent-srv4048378975-1428020 released tasks.json lease for `sima` scope.
+- Lease ID: lease-sima-20261127-001 released.
+- Resource: tasks.json; scope: sima.
+- TASK-200 status: NEEDS_QA, awaiting QA review (author cannot self-QA per AGENTS.md).
+
 ## [2026-11-26T23:59:42Z] ACQUIRE_LEASE: agent-srv4048378975-1428020 acquired tasks.json lease for `sima` scope.
 - Lease ID: lease-sima-20261126-003; expires 2026-11-27T00:01:42Z; branch: origin/main.
 - Resource: tasks.json; scope: sima.
