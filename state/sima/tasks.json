@@ -480,13 +480,13 @@
     {
       "id": "TASK-203",
       "title": "Tool: CityLookupTool \u2014 city from candidates, fallback to location parse",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_de27eb6caffe5yeVBw3GhePf7d",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
       "attempts": 1,
-      "last_error": null,
+      "last_error": "Implementation complete: CityLookupTool created at app/Modules/Chat/Tools/CityLookupTool.php, registered in ChatServiceProvider, added to config/chat.php and config/topics.php. All acceptance criteria met: (1) name() = city_lookup ✓, (2) reads city column from candidates table ✓, (3) falls back to parsing location string when city is null ✓, (4) general domain, read-only ✓. Unit tests created at tests/Feature/CityLookupToolTest.php (5 passing, 2 incomplete awaiting DB integration). Added 'city' to Candidate model fillable. Lint clean. Pushed to bugfix/post-release-2.0.0.",
       "acceptance_criteria": [
         "CityLookupTool registered with name() = city_lookup",
         "Reads city column from candidates table",

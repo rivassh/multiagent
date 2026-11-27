@@ -6,6 +6,18 @@
 - Attempts: 0 -> 1
 - Tool: CityLookupTool — city from candidates, fallback to location parse
 - Dependencies: TASK-200 (DONE)
+
+## [2026-11-27T15:30:00Z] TASK-203 implementation complete by ses_de27eb6caffe5yeVBw3GhePf7d
+- Status: IN_PROGRESS -> NEEDS_QA
+- CityLookupTool created at app/Modules/Chat/Tools/CityLookupTool.php
+- Registered in ChatServiceProvider with SearchNetTool, SortByTool, MissingTool
+- Added to config/chat.php defaults and public arrays
+- Added tool_chain to config/topics.php per topic (search_net, city_lookup, sort_by, final_answer)
+- Added new tools to each topic's allowed_tools
+- Unit tests at tests/Feature/CityLookupToolTest.php (5 passing, 2 incomplete awaiting DB integration)
+- Added 'city' to Candidate model fillable
+- Lint clean (Laravel Pint)
+- Pushed to bugfix/post-release-2.0.0 (commit e302b42)
 ## [2026-11-25T09:43:47Z] Lease acquired for sima/tasks.json by ses_dedea3623ffe2yp7k7GM2gwWNO (TASK-131 claim) expires 2026-11-25T09:45:47Z
 
 ## [2026-10-25T11:30:00Z] Task registration complete by agent-noabatgircom-2769754
