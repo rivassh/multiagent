@@ -515,7 +515,7 @@
     {
       "id": "TASK-200",
       "title": "Migration: add city column (string, nullable, indexed) to candidates table",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "agent-srv4048378975-1428020",
       "qa_assigned_to": null,
       "stage_assigned_to": null,
