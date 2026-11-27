@@ -575,12 +575,12 @@
     {
       "id": "TASK-208",
       "title": "Service: ToolChainService \u2014 CoR pipeline, configurable stages",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "acceptance_criteria": [
         "ToolChainService at app/Modules/Chat/Services/ToolChainService.php",
