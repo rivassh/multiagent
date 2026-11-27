@@ -1241,3 +1241,7 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 - Registration verified: ChatServiceProvider:186, config/chat.php:126/142, config/topics.php (allowed_tools + tool_chain)
 - Reason for rejection: core behavior criteria 2 & 3 lack automated coverage; strict TDD requires DB-backed tests (RefreshDatabase available in TestCase).
 - Role separation: author=ses_de27eb6caffe5yeVBw3GhePf7d, qa=ses_de2906e18ffeVsqMzdstvooein, reviewer=ses_de260ec5bffefibLaXT1TpeSMD (distinct)
+
+## [2026-11-27T17:09:27Z] feat(TASK-206): complete implementation, await QA by ses_de2906e18ffeVsqMzdstvooein
+- Registry: 4 tools registered in ChatServiceProvider + config/chat.php (public list + defaults)
+- Lint clean (Pint)
