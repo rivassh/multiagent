@@ -978,3 +978,6 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 ## [2026-11-27T15:25:38Z] Lease acquired for sima/tasks.json by agent-srv4048378975-1428020
 - QA PASSED for TASK-211 (System Prompt base.persona). 3 tests, 11 assertions, all passing via Docker Compose.
 - Moving status from NEEDS_QA to NEEDS_REVIEW.
+
+## [2026-11-27T15:26:00Z] Lease released for sima/tasks.json by agent-srv4048378975-1428020
+- QA handoff complete for TASK-211; status set to NEEDS_REVIEW.
