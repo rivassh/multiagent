@@ -521,7 +521,7 @@
       "status": "NEEDS_QA",
       "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": null,
-      "qa_assigned_to": null,
+      "qa_assigned_to": "agent-srv4048378975-1428020",
       "stage_assigned_to": null,
       "attempts": 0,
       "last_error": null,
