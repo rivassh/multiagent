@@ -1211,3 +1211,15 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
   4. Migration reversible — PASS (down() drops table)
 - Quality: php -l clean; Pint 1 non-blocking style flag on test file (project-wide Feature-test pattern)
 - Role separation: author=ses_de2906e18ffeVsqMzdstvooein, qa=agent-srv4048378975-1428020, reviewer=ses_de260ec5bffefibLaXT1TpeSMD (distinct)
+
+## [2026-11-27T15:44:00Z] review(TASK-211): APPROVED [status=DONE] by ses_de260ec5bffefibLaXT1TpeSMD
+- Verdict: PASS
+- Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0), commit f77bfaa
+- Files: database/seeders/PromptSeeder.php (base.persona content), tests/Feature/SystemPromptTest.php
+- Tests: 3 tests, 11 assertions, PASS (php vendor/bin/phpunit); php -l clean; Pint PASS
+- Acceptance criteria verified:
+  1. missing_tool instruction with {tool_name, reason} — PASS (PromptSeeder line 45)
+  2. no-hallucination rule for unavailable data — PASS (line 41)
+  3. chaining preference search_net → city_lookup → sort_by → final_answer — PASS (line 46)
+- Role separation: author=agent-srv4048378975-1428020, qa=agent-srv4048378975-1428020, reviewer=ses_de260ec5bffefibLaXT1TpeSMD (reviewer distinct)
+- Note: original claim commit a5ccb91 was lost to a remote force-push (01383bf); re-established claim and completed review in single lease session.

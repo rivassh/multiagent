@@ -479,7 +479,7 @@
     },
     {
       "id": "TASK-203",
-      "title": "Tool: CityLookupTool \u2014 city from candidates, fallback to location parse",
+      "title": "Tool: CityLookupTool — city from candidates, fallback to location parse",
       "status": "NEEDS_QA",
       "assigned_to": "ses_de27eb6caffe5yeVBw3GhePf7d",
       "reviewer": null,
@@ -635,9 +635,9 @@
     {
       "id": "TASK-211",
       "title": "System Prompt: update DB base prompt base.persona",
-      "status": "NEEDS_REVIEW",
+      "status": "DONE",
       "assigned_to": "agent-srv4048378975-1428020",
-      "reviewer": null,
+      "reviewer": "ses_de260ec5bffefibLaXT1TpeSMD",
       "qa_assigned_to": "agent-srv4048378975-1428020",
       "stage_assigned_to": null,
       "attempts": 0,
