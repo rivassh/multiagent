@@ -652,9 +652,9 @@
     {
       "id": "TASK-212",
       "title": "Admin endpoint: controller + route for tool suggestions",
-      "status": "NEEDS_REVIEW",
+      "status": "DONE",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
-      "reviewer": null,
+      "reviewer": "ses_reviewer_task212",
       "qa_assigned_to": "ses_de1efd1baffeYLwuEOYUYbHypO",
       "stage_assigned_to": null,
       "attempts": 2,
