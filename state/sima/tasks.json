@@ -445,7 +445,7 @@
       "status": "NEEDS_QA",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
-      "qa_assigned_to": null,
+      "qa_assigned_to": "agent-srv4048378975-1428020",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,
