@@ -442,7 +442,7 @@
     {
       "id": "TASK-201",
       "title": "Migration: create tool_suggestions table + ToolSuggestion model",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": "agent-srv4048378975-1428020",
