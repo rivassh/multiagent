@@ -575,7 +575,7 @@
     {
       "id": "TASK-208",
       "title": "Service: ToolChainService \u2014 CoR pipeline, configurable stages",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": null,
