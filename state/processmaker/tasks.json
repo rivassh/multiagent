@@ -11,7 +11,6 @@
       "stage_assigned_to": null,
       "attempts": 2,
       "last_error": null,
-      "last_error": "QA_FAILED: No implementation present. projects/processmaker contains only composer.json, Dockerfile, .gitignore. Missing: app/ (BPMN engine integration with SIMA Laravel stack), tests/, phpunit.xml. 'composer test' fails: phpunit not found. Acceptance criteria unmet. Dev must implement the BPMN engine under projects/processmaker/app, add PHPUnit tests (Red->Green), and log completion in state/processmaker/team_log.md before NEEDS_QA handoff.",
       "depends_on": [],
       "summary": "Integrate ProcessMaker BPMN engine with SIMA's Laravel stack; minimal core changes; use existing packages"
     },
