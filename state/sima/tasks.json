@@ -596,7 +596,7 @@
     {
       "id": "TASK-209",
       "title": "Service: ToolSuggestionAnalyzer \u2014 aggregate/analyze suggestions",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": null,
