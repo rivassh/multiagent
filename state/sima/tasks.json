@@ -480,12 +480,12 @@
     {
       "id": "TASK-203",
       "title": "Tool: CityLookupTool \u2014 city from candidates, fallback to location parse",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "ses_de27eb6caffe5yeVBw3GhePf7d",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
-      "attempts": 0,
+      "attempts": 1,
       "last_error": null,
       "acceptance_criteria": [
         "CityLookupTool registered with name() = city_lookup",
