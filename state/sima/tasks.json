@@ -427,7 +427,7 @@
       "title": "Migration: add city column (string, nullable, indexed) to candidates table",
       "status": "NEEDS_QA",
       "assigned_to": "agent-srv4048378975-1428020",
-      "qa_assigned_to": null,
+      "qa_assigned_to": "ses_de2dc8f17ffeX1uINpRXXsWza4",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,
