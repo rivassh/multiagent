@@ -652,7 +652,7 @@
     {
       "id": "TASK-212",
       "title": "Admin endpoint: controller + route for tool suggestions",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": "ses_de1efd1baffeYLwuEOYUYbHypO",
