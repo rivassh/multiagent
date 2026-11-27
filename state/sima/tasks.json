@@ -518,7 +518,7 @@
     {
       "id": "TASK-205",
       "title": "Tool: MissingTool \u2014 signal missing capability",
-      "status": "IN_REVIEW",
+      "status": "DONE",
       "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": "ses_de2906e18ffeVsqMzdstvooein",
       "qa_assigned_to": "agent-srv4048378975-1428020",
