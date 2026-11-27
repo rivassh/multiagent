@@ -585,8 +585,8 @@
     {
       "id": "TASK-204",
       "title": "Tool: SortByTool — rank/filter by criterion",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "NEEDS_QA",
+      "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
