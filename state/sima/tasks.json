@@ -671,9 +671,9 @@
     {
       "id": "TASK-213",
       "title": "Tests: unit tests per tool; feature tests for pipeline, missing_tool, sort_by",
-      "status": "NEEDS_REVIEW",
+      "status": "DONE",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
-      "reviewer": null,
+      "reviewer": "agent-mapsaeng-dev",
       "qa_assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "stage_assigned_to": null,
       "attempts": 1,
