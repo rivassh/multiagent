@@ -549,8 +549,8 @@
     {
       "id": "TASK-202",
       "title": "Tool: SearchNetTool — LLM fallback via ChatProviderInterface, single-shot",
-      "status": "TODO",
-      "assigned_to": null,
+      "status": "IN_PROGRESS",
+      "assigned_to": "agent-srv4048378975-1428020",
       "reviewer": null,
       "qa_assigned_to": null,
       "stage_assigned_to": null,
