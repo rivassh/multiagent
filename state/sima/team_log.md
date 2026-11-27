@@ -1227,3 +1227,17 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 ## [2026-11-27T15:44:06Z] qa(TASK-203): PASSED [status=NEEDS_REVIEW] by ses_de2906e18ffeVsqMzdstvooein
 - QA Mode: Verified CityLookupTool acceptance criteria. 5 tests pass, 2 incomplete (DB integration). Lint clean.
 - Verdict: QA_PASSED
+
+## [2026-11-27T17:08:00Z] review(TASK-203): REJECTED [status=REVISE] by ses_de260ec5bffefibLaXT1TpeSMD
+- Verdict: FAIL (missing coverage)
+- Scope: /home/hamid/sima-dev (branch bugfix/post-release-2.0.0)
+- Files: app/Modules/Chat/Tools/CityLookupTool.php, tests/Feature/CityLookupToolTest.php
+- Tests: 7 tests, 8 assertions, 2 INCOMPLETE (php vendor/bin/phpunit)
+- Acceptance criteria:
+  1. name()=city_lookup — PASS
+  2. reads city column — implementation correct (line 74) but NO passing test (test incomplete)
+  3. fallback parse location — implementation correct (lines 84-92) but NO passing test (test incomplete)
+  4. general domain, read-only — PASS (isWrite=false, domain=general)
+- Registration verified: ChatServiceProvider:186, config/chat.php:126/142, config/topics.php (allowed_tools + tool_chain)
+- Reason for rejection: core behavior criteria 2 & 3 lack automated coverage; strict TDD requires DB-backed tests (RefreshDatabase available in TestCase).
+- Role separation: author=ses_de27eb6caffe5yeVBw3GhePf7d, qa=ses_de2906e18ffeVsqMzdstvooein, reviewer=ses_de260ec5bffefibLaXT1TpeSMD (distinct)
