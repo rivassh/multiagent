@@ -945,3 +945,6 @@ Total: 76 tests, 214 assertions passing. Strict JSON schema, zero extrapolation,
 
 ## [2026-11-27T14:43:07Z] Lease acquired for sima/tasks.json by agent-srv4048378975-1428020
 - QA claim for TASK-205; setting qa_assigned_to = agent-srv4048378975-1428020.
+
+## [2026-11-27T14:43:20Z] Lease released for sima/tasks.json by agent-srv4048378975-1428020
+- QA claimed for TASK-205; proceeding to QA mode (no lease held).
