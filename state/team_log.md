@@ -3,6 +3,11 @@
 - Resource: tasks.json; scope: sima.
 - Resetting TASK-200 from NEEDS_QA to IN_PROGRESS — implementation was in wrong repo (/home/hamid/sima), redoing in /home/hamid/sima-dev.
 
+## [2026-11-27T00:12:30Z] RELEASE_LEASE: agent-srv4048378975-1428020 released tasks.json lease for `sima` scope.
+- Lease ID: lease-sima-20261127-003 released.
+- Resource: tasks.json; scope: sima.
+- TASK-200 status: IN_PROGRESS, executing in /home/hamid/sima-dev.
+
 ## [2026-11-27T00:05:53Z] ACQUIRE_LEASE: agent-srv4048378975-1428020 acquired tasks.json lease for `sima` scope.
 - Lease ID: lease-sima-20261127-002; expires 2026-11-27T00:07:53Z; branch: origin/main.
 - Resource: tasks.json; scope: sima.
