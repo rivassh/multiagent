@@ -560,7 +560,7 @@
       "status": "NEEDS_QA",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
-      "qa_assigned_to": null,
+      "qa_assigned_to": "ses_de2014850ffeF2OK7qu1p0oCLS",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,
