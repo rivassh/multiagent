@@ -674,7 +674,7 @@
       "status": "NEEDS_QA",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
-      "qa_assigned_to": null,
+      "qa_assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,
