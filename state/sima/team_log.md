@@ -1350,3 +1350,6 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 ## chore(review): claim review for TASK-210 by ses_de1b90c69ffeU4r7CFZFTApOAp at 2026-11-27T18:44:19Z
 ## [2026-11-27T18:45:00Z] review(TASK-206): APPROVED [status=DONE] by agent-mapsaeng-dev
 ## [2026-11-27T18:45:04Z] review(TASK-213): APPROVED [status=DONE] by agent-mapsaeng-dev
+
+## review(TASK-210): REJECTED [status=REVISE] by ses_de1b90c69ffeU4r7CFZFTApOAp at 2026-11-27T18:45:37Z
+- REVIEW_FAILED: Criteria 1&2 only met in non-streaming completeWithTools() (ChatQueryService.php:475). LIVE streaming path completeWithToolsStreaming() (ChatController.php:223 -> ChatQueryService.php:2162) calls toolRegistry->call() WITHOUT missing_tool interception and ignores break_loop, so missing_tool executes via registry. Criterion 3 NOT met: ToolChainService has zero callers (grep excl vendor); rounds-exhausted fallback uses forceFinalAnswer(), not the tool_chain pipeline. Tests 29-passed cover MissingTool/ToolSuggestion in isolation only. Action: (a) add missing_tool intercept (log tool_suggestions, break, user message) before registry->call in completeWithToolsStreaming ~2162; (b) wire ToolChainService->run() as rounds-exhausted fallback in both loops; (c) add feature tests for streaming interception + pipeline-on-exhaustion.
