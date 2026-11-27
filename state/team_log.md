@@ -1,3 +1,8 @@
+## [2026-11-26T23:59:42Z] ACQUIRE_LEASE: agent-srv4048378975-1428020 acquired tasks.json lease for `sima` scope.
+- Lease ID: lease-sima-20261126-003; expires 2026-11-27T00:01:42Z; branch: origin/main.
+- Resource: tasks.json; scope: sima.
+- Claiming TASK-200: Migration add city column to candidates table.
+
 ## [2026-11-26T23:18:00Z] RELEASE_LEASE: agent-srv4048378975-1428020 released tasks.json lease for `sima` scope.
 - Lease ID: lease-sima-20261126-002 released.
 - Resource: tasks.json; scope: sima.
