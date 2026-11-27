@@ -557,9 +557,9 @@
     {
       "id": "TASK-207",
       "title": "Config: add tool_chain to config/topics.php per topic + allowed_tools",
-      "status": "NEEDS_REVIEW",
+      "status": "IN_REVIEW",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
-      "reviewer": null,
+      "reviewer": "ses_de1b90c69ffeU4r7CFZFTApOAp",
       "qa_assigned_to": "ses_de2014850ffeF2OK7qu1p0oCLS",
       "stage_assigned_to": null,
       "attempts": 1,
