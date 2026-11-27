@@ -671,7 +671,7 @@
     {
       "id": "TASK-213",
       "title": "Tests: unit tests per tool; feature tests for pipeline, missing_tool, sort_by",
-      "status": "IN_PROGRESS",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
       "qa_assigned_to": null,
