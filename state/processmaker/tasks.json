@@ -4,15 +4,15 @@
     {
       "id": "TASK-PM-001",
       "title": "BPMN workflow engine integration",
-      "status": "REVISE",
+      "status": "NEEDS_QA",
       "assigned_to": "ses_de1481c43ffe688XwaLAwH9QC0",
       "reviewer": null,
       "qa_engineer": "ses_decb6af32ffeL6Ik6wrm7X8KwM",
       "stage_assigned_to": null,
-      "attempts": 3,
-      "last_error": "QA_FAILED: Implementation exists (Engine, ProcessDefinition, ProcessInstance) and 6 unit tests pass (19 assertions). However: (1) No Laravel integration — missing ServiceProvider, Facade, config publishing, DI bindings; (2) Lint fails: pint --test reports 4 files with style violations (class_attributes_separation, concat_space, not_operator_with_successor_space, blank_line_before_statement, new_with_parentheses, fully_qualified_strict_types, php_unit_method_casing, no_extra_blank_lines, ordered_imports); (3) No gateway/timer support — only linear sequence flows handled; (4) Multi-process definition loading limited to first <process> element. Required for QA_PASS: add ProcessMakerServiceProvider, fix lint (run pint), extend tests for gateways/timers/error boundaries, document SIMA Laravel usage.",
+      "attempts": 4,
+      "last_error": null,
       "depends_on": [],
-      "summary": "Integrate ProcessMaker BPMN engine with SIMA's Laravel stack; minimal core changes; use existing packages"
+      "summary": "BPMN engine integrated with SIMA's Laravel stack: ProcessMakerServiceProvider, Facade, config publishing and DI bindings added; pint-clean; exclusive/parallel gateway, timer and error-boundary support; multi-process (<process>) definition loading. 12 unit tests pass (43 assertions). Ready for QA validation."
     },
     {
       "id": "TASK-PM-002",
