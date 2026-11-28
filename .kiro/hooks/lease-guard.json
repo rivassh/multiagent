@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Lease Guard Hook",
+      "trigger": "PostFileSave",
+      "description": "Checks lease violations when files are saved",
+      "matcher": ".*",
+      "action": {
+        "type": "command",
+        "command": "bash scripts/lease.sh verify \"$KIRO_FILE_PATH\""
+      }
+    }
+  ]
+}

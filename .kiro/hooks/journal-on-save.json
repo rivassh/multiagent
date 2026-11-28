@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Journal on Save Hook",
+      "trigger": "PostFileSave",
+      "description": "Logs file edits to journal",
+      "matcher": ".*",
+      "action": {
+        "type": "command",
+        "command": "AGENT_ID=$(grep \"AGENT_ID: \" \".kiro/steering/00-identity.md\" 2>/dev/null | cut -d' ' -f2 || echo \"unknown\")\nif [ \"$AGENT_ID\" != \"<REPLACE_ME>\" ] && [ -n \"$AGENT_ID\" ]; then\n    bash scripts/journal.sh append \"$AGENT_ID\" \"-\" \"EDIT\" \"$KIRO_FILE_PATH\"\nfi"
+      }
+    }
+  ]
+}

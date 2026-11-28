@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Identity Verification Hook",
+      "trigger": "SessionStart",
+      "description": "Verifies agent identity on session start",
+      "action": {
+        "type": "agent",
+        "prompt": "Read .kiro/steering/00-identity.md. Check the AGENT_ID value.\n\nIf AGENT_ID is \"<REPLACE_ME>\" or empty:\n- STOP immediately\n- Tell the human: \"AGENT_ID not set. Run scripts/set-identity.sh first.\"\n- Do not proceed with any work\n\nIf AGENT_ID is set:\n- State your AGENT_ID and current machine\n- Check if there are any active tasks assigned to you\n- If yes, mention them\n- Proceed with work\n\nAlways verify identity before starting any task."
+      }
+    }
+  ]
+}
