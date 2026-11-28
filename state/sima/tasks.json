@@ -40,8 +40,8 @@
     {
       "id": "TASK-111",
       "title": "Implement cost/budget guard layer: per-user per-day token tracking with hard daily limit",
-      "status": "NEEDS_QA",
-      "assigned_to": "dispatch-handoff-test-2584470",
+      "status": "TODO",
+      "assigned_to": null,
       "reviewer": null,
       "qa_engineer": null,
       "stage_assigned_to": null,
