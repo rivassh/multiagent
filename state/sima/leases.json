@@ -1,4 +1,12 @@
 {
   "version": 1,
-  "leases": []
+  "leases": [
+    {
+      "resource": "sima/tasks.json",
+      "holder": "dispatch-test-clean-2584235",
+      "lease_id": "57b3d842-75da-45f6-9d0c-fe3cb1157b60",
+      "acquired_at": "2026-11-28T07:00:57Z",
+      "expires_at": "2026-11-28T07:02:57Z"
+    }
+  ]
 }
