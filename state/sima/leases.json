@@ -4,9 +4,9 @@
     {
       "resource": "sima/tasks.json",
       "holder": "dispatch-test-2582594",
-      "lease_id": "11a5f769-d835-4d70-a7a9-4d215517cbe3",
-      "acquired_at": "2026-11-28T06:59:47Z",
-      "expires_at": "2026-11-28T07:01:47Z"
+      "lease_id": "e9e99110-ad10-430d-bfd7-a062dca7e379",
+      "acquired_at": "2026-11-28T06:59:49Z",
+      "expires_at": "2026-11-28T07:01:49Z"
     }
   ]
 }
