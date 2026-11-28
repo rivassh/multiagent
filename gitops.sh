@@ -3,14 +3,18 @@
 # Usage: ./gitops.sh <command>
 
 REPO_ROOT="/home/hamid/multiagent"
-WORKTREE="/tmp/kilo/work"
+# The repo root IS the working tree (no separate worktree is provisioned).
+# Override WORKTREE to use a dedicated checkout if one exists.
+WORKTREE="${WORKTREE:-$REPO_ROOT}"
+# Coordination branch (matches .env COORDINATION_BRANCH).
+COORDINATION_BRANCH="${COORDINATION_BRANCH:-master}"
 YOUR_ID="${YOUR_ID:-agent-$(whoami)-$(hostname)-$$}"
 
 cmd_help() {
     echo "=== Multiagent GitOps Commands ==="
     echo ""
     echo "Setup:"
-    echo "  ./gitops.sh sync          - Sync worktree with origin/main"
+    echo "  ./gitops.sh sync          - Sync worktree with origin/$COORDINATION_BRANCH"
     echo "  ./gitops.sh status        - Show git status and current tasks"
     echo ""
     echo "Task Operations:"
@@ -22,15 +26,15 @@ cmd_help() {
     echo "  ./gitops.sh plan          - Run Phase 1 planning (register new tasks)"
     echo "  ./gitops.sh dispatch      - Interactive task dispatcher (pick task+role, run mimo-safe agent)"
     echo "  ./gitops.sh qa            - Run blackbox QA against dev2.sima.adlr.ir"
-    echo "  ./gitops.sh origin        - Show origin/main recent commits"
+    echo "  ./gitops.sh origin        - Show origin/$COORDINATION_BRANCH recent commits"
     echo ""
     echo "Identity:"
     echo "  Current YOUR_ID: $YOUR_ID"
 }
 
 cmd_sync() {
-    echo "🔄 Syncing $WORKTREE with origin/main..."
-    cd "$WORKTREE" && git fetch origin && git checkout main && git pull --rebase origin main
+    echo "🔄 Syncing $WORKTREE with origin/$COORDINATION_BRANCH..."
+    cd "$WORKTREE" && git fetch origin && git checkout "$COORDINATION_BRANCH" && git pull --rebase origin "$COORDINATION_BRANCH"
     echo "✅ Synced"
 }
 
@@ -51,7 +55,7 @@ cmd_tasks() {
 
 cmd_claim_097() {
     echo "🔒 Acquiring lease for $YOUR_ID..."
-    cd "$WORKTREE" && git fetch origin && git checkout main && git pull --rebase origin main
+    cd "$WORKTREE" && git fetch origin && git checkout "$COORDINATION_BRANCH" && git pull --rebase origin "$COORDINATION_BRANCH"
 
     python3 << 'EOF'
 import json, uuid
@@ -80,7 +84,7 @@ with open('$WORKTREE/state/sima/leases.json', 'w') as f:
 print('Lease acquired')
 EOF
 
-    cd "$WORKTREE" && git add state/sima/leases.json && git commit -m "chore(lock): acquire tasks.json lease by $YOUR_ID" && git push origin main
+    cd "$WORKTREE" && git add state/sima/leases.json && git commit -m "chore(lock): acquire tasks.json lease by $YOUR_ID" && git push origin "$COORDINATION_BRANCH"
 
     echo "📋 Claiming TASK-097..."
     python3 << 'EOF'
@@ -101,13 +105,13 @@ with open('$WORKTREE/state/sima/tasks.json', 'w') as f:
     json.dump(data, f, indent=2)
 EOF
 
-    cd "$WORKTREE" && git add state/sima/tasks.json && git commit -m "chore(claim): claim TASK-097 by $YOUR_ID" && git push origin main
+    cd "$WORKTREE" && git add state/sima/tasks.json && git commit -m "chore(claim): claim TASK-097 by $YOUR_ID" && git push origin "$COORDINATION_BRANCH"
     echo "✅ TASK-097 claimed. Run './gitops.sh release' when done with Phase 2."
 }
 
 cmd_release() {
     echo "🔓 Releasing lease for $YOUR_ID..."
-    cd "$WORKTREE" && git fetch origin && git checkout main && git pull --rebase origin main
+    cd "$WORKTREE" && git fetch origin && git checkout "$COORDINATION_BRANCH" && git pull --rebase origin "$COORDINATION_BRANCH"
 
     python3 << 'EOF'
 import json
@@ -122,7 +126,7 @@ with open('$WORKTREE/state/sima/leases.json', 'w') as f:
 print('Lease released')
 EOF
 
-    cd "$WORKTREE" && git add state/sima/leases.json && git commit -m "chore(lock): release tasks.json lease by $YOUR_ID" && git push origin main
+    cd "$WORKTREE" && git add state/sima/leases.json && git commit -m "chore(lock): release tasks.json lease by $YOUR_ID" && git push origin "$COORDINATION_BRANCH"
     echo "✅ Lease released"
 }
 
@@ -133,7 +137,14 @@ cmd_dispatch() {
 
 cmd_plan() {
     echo "📋 Running Phase 1 Planning..."
-    cd "$WORKTREE" && node state/runner_workflow.js 2>&1 | head -50
+    # Node.js is not installed on the host; run it via the node:20-alpine image.
+    # STATE_ROOT must point at the mounted state dir (runner_workflow.js defaults
+    # STATE_ROOT to its own __dirname, which is <repo>/state when mounted at /app).
+    cd "$REPO_ROOT" && docker run --rm \
+        -v "$REPO_ROOT:/app" -w /app \
+        -e STATE_ROOT=/app/state \
+        -e COORDINATION_BRANCH="$COORDINATION_BRANCH" \
+        node:20-alpine node state/runner_workflow.js 2>&1 | head -50
 }
 
 cmd_qa() {
@@ -142,8 +153,8 @@ cmd_qa() {
 }
 
 cmd_origin() {
-    echo "=== origin/main recent commits ==="
-    cd "$WORKTREE" && git log --oneline origin/main -15
+    echo "=== origin/$COORDINATION_BRANCH recent commits ==="
+    cd "$WORKTREE" && git log --oneline "origin/$COORDINATION_BRANCH" -15
 }
 
 case "${1:-help}" in
