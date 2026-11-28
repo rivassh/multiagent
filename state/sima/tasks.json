@@ -631,13 +631,13 @@
     {
       "id": "TASK-210",
       "title": "Integration: intercept missing_tool in ChatQueryService tool loop",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "agent-mapsaeng-dev",
-      "reviewer": "agent-mapsaeng-dev",
+      "reviewer": null,
       "qa_assigned_to": "agent-mapsaeng-dev",
       "stage_assigned_to": null,
       "attempts": 2,
-      "last_error": "IMPLEMENTED: (a) missing_tool intercept added in completeWithToolsStreaming (logs tool_suggestions, breaks loop, returns user message); (b) ToolChainService->run() wired as rounds-exhausted fallback in both completeWithTools() and completeWithToolsStreaming(); (c) ToolChainService injected into ChatQueryService constructor. Ready for QA/review.",
+      "last_error": null,
       "acceptance_criteria": [
         "Before toolRegistry->call(), if name === missing_tool: do NOT execute via registry",
         "Logs to tool_suggestions table, breaks loop, returns user-facing message",

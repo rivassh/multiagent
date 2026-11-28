@@ -1376,3 +1376,12 @@ Task status updated: TODO -> IN_PROGRESS, assigned_to=agent-srv4048378975-261575
 ## review(TASK-208,TASK-209): RE-APPROVED [status=DONE] by ses_ddef3fdb4ffeTPTKO9eivdJGWB at 2026-11-28T08:43:24Z
 - Re-review after coordinator commit 14a6a85 reopened both. Code unchanged (untracked, pint --test PASS each). Tests: ToolSuggestionAnalyzerTest+ToolSuggestionTest+ChatInitialTopicTest+ChatAllowedToolsFallbackTest = 23 passed/55 assertions.
 - TASK-208: 5/5 criteria PASS. TASK-209: 3/3 criteria PASS. No regressions.
+
+## [2026-11-28T09:22:42Z] qa(TASK-210): PASSED [status=NEEDS_REVIEW] by ses_ddec0fa8fffesqCfsvD7XPrWaJ
+- QA_PASSED: All 3 acceptance criteria verified in sima-dev app/Modules/Chat/Services/ChatQueryService.php:
+  1) missing_tool intercepted BEFORE toolRegistry->call() in completeWithTools() (:480) and completeWithToolsStreaming() (:2198), breaks loop, returns user-facing message.
+  2) Logs to tool_suggestions table (\App\Models\ToolSuggestion::create, :485/:2200), breaks loop, returns user-facing message.
+  3) ToolChainService->run() wired as rounds-exhausted fallback in both loops (:654-677, :2389-2412); ToolChainService injected into constructor (:60/:111).
+- Tests pass: MissingToolTest+ToolSuggestionTest+ToolCallingSpecTest (phpunit, 29 tests/79 assertions) + ToolSuggestionAnalyzerTest (pest, 1 test) = 30 passed.
+- Code-quality note (pre-DONE fix): pint fully_qualified_strict_types FAIL on ChatQueryService.php due to inline \App\Models\ToolSuggestion refs (added by TASK-210 commit 28e8e8a); add `use App\Models\ToolSuggestion;` import.
+- Role separation: author=agent-mapsaeng-dev, QA=ses_ddec0fa8fffesqCfsvD7XPrWaJ; reviewer cleared for proper claim.
