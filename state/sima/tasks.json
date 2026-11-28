@@ -596,10 +596,10 @@
     {
       "id": "TASK-209",
       "title": "Service: ToolSuggestionAnalyzer \u2014 aggregate/analyze suggestions",
-      "status": "NEEDS_QA",
+      "status": "NEEDS_REVIEW",
       "assigned_to": "ses_de2906e18ffeVsqMzdstvooein",
       "reviewer": null,
-      "qa_assigned_to": null,
+      "qa_assigned_to": "agent-mapsaeng-dev",
       "stage_assigned_to": null,
       "attempts": 1,
       "last_error": null,
