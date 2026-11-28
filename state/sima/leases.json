@@ -1,4 +1,12 @@
 {
   "version": 1,
-  "leases": []
+  "leases": [
+    {
+      "resource": "sima/tasks.json",
+      "holder": "dispatch-handoff-test-2584470",
+      "lease_id": "5fa2ed1b-17f2-4c44-9ac6-dbd323716f95",
+      "acquired_at": "2026-11-28T07:01:07Z",
+      "expires_at": "2026-11-28T07:03:07Z"
+    }
+  ]
 }
