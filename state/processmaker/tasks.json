@@ -4,7 +4,7 @@
     {
       "id": "TASK-PM-001",
       "title": "BPMN workflow engine integration",
-      "status": "NEEDS_QA",
+      "status": "QA_PASSED",
       "assigned_to": "ses_de1481c43ffe688XwaLAwH9QC0",
       "reviewer": null,
       "qa_engineer": "ses_decb6af32ffeL6Ik6wrm7X8KwM",
@@ -12,7 +12,7 @@
       "attempts": 4,
       "last_error": null,
       "depends_on": [],
-      "summary": "BPMN engine integrated with SIMA's Laravel stack: ProcessMakerServiceProvider, Facade, config publishing and DI bindings added; pint-clean; exclusive/parallel gateway, timer and error-boundary support; multi-process (<process>) definition loading. 12 unit tests pass (43 assertions). Ready for QA validation."
+      "summary": "QA_PASSED: BPMN engine integrated with SIMA's Laravel stack. Laravel integration (ProcessMakerServiceProvider, ProcessMaker Facade, config/processmaker.php, DI bindings) present; pint lint clean; exclusive/parallel gateway, timer and error-boundary support added; multi-process <process> definition loading via loadDefinitions(). 12 unit tests pass (43 assertions). Ready for independent code review → NEEDS_REVIEW."
     },
     {
       "id": "TASK-PM-002",
