@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "Running multi-agent coordination pre-commit checks..."
+
+# Load agent identity if available
+AGENT_ID=""
+if [ -f ".kiro/steering/00-identity.md" ]; then
+    AGENT_ID=$(grep "AGENT_ID: " ".kiro/steering/00-identity.md" | cut -d' ' -f2)
+elif [ -f ".env" ]; then
+    source .env 2>/dev/null || true
+fi
+
+# Get commit message from .git/COMMIT_EDITMSG
+COMMIT_MSG_FILE=".git/COMMIT_EDITMSG"
+if [ ! -f "$COMMIT_MSG_FILE" ]; then
+    echo "Error: Cannot find commit message file."
+    exit 1
+fi
+
+COMMIT_MSG=$(head -n1 "$COMMIT_MSG_FILE")
+
+# Rule 1: Validate commit message format
+# Format: ^\[[A-Z0-9-]+\]\[[a-z0-9._-]+\] .+
+if [[ ! "$COMMIT_MSG" =~ ^\[[A-Z0-9-]+\]\[[a-z0-9._-]+\].+ ]]; then
+    echo "ERROR: Invalid commit message format."
+    echo ""
+    echo "Commit message must match: ^\[[A-Z0-9-]+\]\[[a-z0-9._-]+\] .+"
+    echo ""
+    echo "Where:"
+    echo "  [TASK-ID]    - Task identifier (uppercase letters, numbers, hyphens)"
+    echo "  [agent-id]   - Agent identifier (lowercase letters, numbers, dots, underscores, hyphens)"
+    echo "  Description  - Meaningful description of changes"
+    echo ""
+    echo "Examples:"
+    echo "  [TASK-101][agent-hostname-123] Implement feature X"
+    echo "  [TASK-PM-001][agent-srv4048378975] Fix BPMN engine bug"
+    echo "  [TASK-202][agent.kiro.1] Update documentation"
+    echo ""
+    echo "Your message: $COMMIT_MSG"
+    exit 1
+fi
+
+# Extract task ID from commit message
+TASK_ID=$(echo "$COMMIT_MSG" | sed -n 's/^\[\([A-Z0-9-]*\)\].*/\1/p')
+
+# Rule 2: Validate agent ID in commit message matches current agent
+if [ -n "$AGENT_ID" ] && [ "$AGENT_ID" != "<REPLACE_ME>" ]; then
+    COMMIT_AGENT_ID=$(echo "$COMMIT_MSG" | sed -n 's/^\[[A-Z0-9-]*\]\[\([a-z0-9._-]*\)\].*/\1/p')
+    
+    if [ "$COMMIT_AGENT_ID" != "$AGENT_ID" ]; then
+        echo "ERROR: Agent ID mismatch."
+        echo "  Commit agent ID: $COMMIT_AGENT_ID"
+        echo "  Current agent ID: $AGENT_ID"
+        echo ""
+        echo "You must commit using your own agent ID."
+        exit 1
+    fi
+fi
+
+# Rule 3: Check if task exists and is owned by this agent
+TASKS_DIR="state/tasks"
+TASK_FILE="$TASKS_DIR/$TASK_ID.json"
+
+if [ -f "$TASK_FILE" ]; then
+    TASK_OWNER=$(jq -r '.owner' "$TASK_FILE")
+    TASK_STATUS=$(jq -r '.status' "$TASK_FILE")
+    
+    if [ "$TASK_OWNER" != "$AGENT_ID" ] && [ "$TASK_OWNER" != "null" ]; then
+        echo "ERROR: Task $TASK_ID is owned by $TASK_OWNER, not $AGENT_ID."
+        echo "You can only commit to tasks you own."
+        exit 1
+    fi
+    
+    # Warn if task is not in IN_PROGRESS status
+    if [ "$TASK_STATUS" != "IN_PROGRESS" ] && [ "$TASK_STATUS" != "TODO" ]; then
+        echo "WARNING: Task $TASK_ID status is $TASK_STATUS (expected IN_PROGRESS or TODO)."
+        echo "Consider updating task status with: bash scripts/task.sh status $TASK_ID IN_PROGRESS"
+        # This is a warning, not an error
+    fi
+else
+    echo "WARNING: Task $TASK_ID not found in $TASKS_DIR."
+    echo "Consider creating it with: bash scripts/task.sh new $TASK_ID \"Task description\""
+    # This is a warning, not an error
+fi
+
+# Rule 4: Check lease violations for staged paths
+if [ -f "scripts/lease.sh" ] && [ -n "$TASK_ID" ]; then
+    echo "Checking lease violations for staged files..."
+    
+    # Get list of staged files
+    STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+    
+    VIOLATIONS=0
+    for FILE in $STAGED_FILES; do
+        if [ -f "$FILE" ]; then
+            if ! bash scripts/lease.sh verify "$FILE" > /dev/null 2>&1; then
+                echo "  ERROR: $FILE violates active lease"
+                VIOLATIONS=$((VIOLATIONS + 1))
+            fi
+        fi
+    done
+    
+    if [ "$VIOLATIONS" -gt 0 ]; then
+        echo ""
+        echo "ERROR: $VIOLATIONS file(s) violate active leases."
+        echo "Run 'bash scripts/lease.sh list' to see active leases."
+        echo "Acquire necessary leases with 'bash scripts/lease.sh acquire <PATH_GLOB> $TASK_ID'"
+        exit 1
+    fi
+fi
+
+# Rule 5: Ensure staged paths are within allowed scope
+# (This would be expanded based on task-specific scope rules)
+echo "Commit message validation passed: $COMMIT_MSG"
+echo "Task ID: $TASK_ID"
+echo "Agent ID: ${AGENT_ID:-not set}"
+echo ""
+echo "Pre-commit checks passed successfully."
