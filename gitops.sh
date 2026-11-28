@@ -20,6 +20,7 @@ cmd_help() {
     echo ""
     echo "Development:"
     echo "  ./gitops.sh plan          - Run Phase 1 planning (register new tasks)"
+    echo "  ./gitops.sh dispatch      - Interactive task dispatcher (pick task+role, run mimo-safe agent)"
     echo "  ./gitops.sh qa            - Run blackbox QA against dev2.sima.adlr.ir"
     echo "  ./gitops.sh origin        - Show origin/main recent commits"
     echo ""
@@ -125,6 +126,11 @@ EOF
     echo "✅ Lease released"
 }
 
+cmd_dispatch() {
+    shift || true
+    exec "$REPO_ROOT/scripts/dispatch-task.sh" "$@"
+}
+
 cmd_plan() {
     echo "📋 Running Phase 1 Planning..."
     cd "$WORKTREE" && node state/runner_workflow.js 2>&1 | head -50
@@ -147,6 +153,7 @@ case "${1:-help}" in
     claim-097) cmd_claim_097 ;;
     release) cmd_release ;;
     plan) cmd_plan ;;
+    dispatch) cmd_dispatch "$@" ;;
     qa) cmd_qa ;;
     origin) cmd_origin ;;
     help|*) cmd_help ;;
