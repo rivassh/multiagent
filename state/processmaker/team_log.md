@@ -7,3 +7,8 @@
 - Fixes applied: added ProcessMakerServiceProvider, ProcessMaker Facade, config/processmaker.php and DI bindings; ran pint (lint clean); added exclusive/parallel gateway, timer and error-boundary handling; multi-process `<process>` definition loading; 12 unit tests pass (43 assertions).
 - Source: projects/processmaker/app/BPMN/{Engine,ProcessDefinition,ProcessInstance}.php, app/Providers/ProcessMakerServiceProvider.php, app/Facades/ProcessMaker.php, config/processmaker.php, tests/BPMNEngineTest.php, composer.json, phpunit.xml.
 - QA engineer: ses_decb6af32ffeL6Ik6wrm7X8KwM (differs from implementer ses_de1481c43ffe688XwaLAwH9QC0).
+
+## [2026-11-28T09:05:00Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json lease for `processmaker` scope.
+- Lease ID: lease-processmaker-2254092-1 released.
+- Resource: tasks.json; scope: processmaker.
+- TASK-PM-001 status: NEEDS_QA, attempts=4, awaiting QA validation by ses_decb6af32ffeL6Ik6wrm7X8KwM.
