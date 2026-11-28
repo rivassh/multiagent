@@ -26,3 +26,8 @@
 - Multi-process: loadDefinitions() loads all <process> elements — verified.
 - QA engineer: agent-noabatgircom-2254092 (differs from implementer ses_de1481c43ffe688XwaLAwH9QC0).
 - Status: QA_PASSED → awaiting independent code review (NEEDS_REVIEW).
+
+## [2026-11-28T09:24:00Z] RELEASE_LEASE: agent-noabatgircom-2254092 released tasks.json lease for `processmaker` scope.
+- Lease ID: lease-processmaker-2254092-2 released.
+- Resource: tasks.json; scope: processmaker.
+- TASK-PM-001 status: QA_PASSED, attempts=4, awaiting independent code review → NEEDS_REVIEW.
